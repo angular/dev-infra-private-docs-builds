@@ -1,5 +1,5 @@
 import { Highlightable } from '@angular/cdk/a11y';
-import { SearchResult } from '../../interfaces/search-results';
+import { SearchResult } from '../../interfaces/search-results.js';
 import * as i0 from "@angular/core";
 export declare class SearchItem implements Highlightable {
     item?: SearchResult;

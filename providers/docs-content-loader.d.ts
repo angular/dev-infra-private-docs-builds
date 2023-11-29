@@ -7,6 +7,6 @@
  */
 import { InjectionToken } from '@angular/core';
 import { ResolveFn } from '@angular/router';
-import { DocContent, DocsContentLoader } from '../interfaces';
+import { DocContent, DocsContentLoader } from '../interfaces/index.js';
 export declare const DOCS_CONTENT_LOADER: InjectionToken<DocsContentLoader>;
 export declare function contentResolver(contentPath: string): ResolveFn<DocContent | undefined>;

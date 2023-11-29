@@ -6,5 +6,5 @@
  * found in the LICENSE file at https://angular.dev/license
  */
 import { InjectionToken } from '@angular/core';
-import { Environment } from '../interfaces';
+import { Environment } from '../interfaces/index.js';
 export declare const ENVIRONMENT: InjectionToken<Environment>;

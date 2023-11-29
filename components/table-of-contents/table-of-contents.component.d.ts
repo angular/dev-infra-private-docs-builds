@@ -1,4 +1,4 @@
-import { TableOfContentsLevel } from '../../interfaces';
+import { TableOfContentsLevel } from '../../interfaces/index.js';
 import * as i0 from "@angular/core";
 export declare class TableOfContents {
     contentSourceElement: HTMLElement;
@@ -7,7 +7,7 @@ export declare class TableOfContents {
     activeItemId: import("@angular/core").WritableSignal<string | null>;
     shouldDisplayScrollToTop: import("@angular/core").Signal<boolean>;
     TableOfContentsLevel: typeof TableOfContentsLevel;
-    tableOfContentItems(): import("../../interfaces").TableOfContentsItem[];
+    tableOfContentItems(): import("../../interfaces/table-of-contents-item.js").TableOfContentsItem[];
     ngAfterViewInit(): void;
     scrollToTop(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<TableOfContents, never>;

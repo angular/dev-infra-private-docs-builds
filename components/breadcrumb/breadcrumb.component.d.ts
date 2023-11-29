@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.dev/license
  */
 import { OnInit } from '@angular/core';
-import { NavigationItem } from '../../interfaces';
+import { NavigationItem } from '../../interfaces/index.js';
 import * as i0 from "@angular/core";
 export declare class Breadcrumb implements OnInit {
     private readonly navigationState;

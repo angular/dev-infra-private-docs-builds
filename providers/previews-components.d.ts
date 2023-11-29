@@ -6,5 +6,5 @@
  * found in the LICENSE file at https://angular.dev/license
  */
 import { InjectionToken } from '@angular/core';
-import { CodeExamplesMap } from '../interfaces';
+import { CodeExamplesMap } from '../interfaces/index.js';
 export declare const PREVIEWS_COMPONENTS: InjectionToken<CodeExamplesMap>;

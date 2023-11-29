@@ -5,7 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.dev/license
  */
-import { NavigationItem } from '../interfaces';
+import { NavigationItem } from '../interfaces/index.js';
 export declare class NavigationState {
     private readonly router;
     private readonly _activeNavigationItem;

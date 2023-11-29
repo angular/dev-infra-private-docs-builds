@@ -1,8 +1,9 @@
 {
   "name": "@angular/docs",
-  "version": "0.0.0-60024afe22bd467fd022322eae09ba933786547d",
+  "version": "0.0.0-b09daf3df3011515795db63d7c8206b7ce9ee3b6",
   "main": "./public-api.mjs",
   "typings": "./public-api.d.ts",
+  "type": "module",
   "dependencies": {
     "@angular/core": "17.0.0-rc.3",
     "@angular/common": "17.0.0-rc.3",

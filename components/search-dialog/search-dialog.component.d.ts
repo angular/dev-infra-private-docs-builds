@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.dev/license
  */
 import { AfterViewInit, ElementRef, EventEmitter, OnDestroy, OnInit, QueryList } from '@angular/core';
-import { SearchItem } from '../../directives/search-item/search-item.directive';
+import { SearchItem } from '../../directives/search-item/search-item.directive.js';
 import * as i0 from "@angular/core";
 export declare class SearchDialog implements OnInit, AfterViewInit, OnDestroy {
     onClose: EventEmitter<void>;
@@ -20,7 +20,7 @@ export declare class SearchDialog implements OnInit, AfterViewInit, OnDestroy {
     private readonly window;
     private keyManager?;
     searchQuery: import("@angular/core").Signal<string>;
-    searchResults: import("@angular/core").Signal<import("../../interfaces").SearchResult[] | undefined>;
+    searchResults: import("@angular/core").Signal<import("../../interfaces/search-results.js").SearchResult[] | undefined>;
     ngOnInit(): void;
     ngAfterViewInit(): void;
     ngOnDestroy(): void;

@@ -5,10 +5,9 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.dev/license
  */
-export * from './animations.utils';
-export * from './device.utils';
-export * from './filesystem.utils';
-export * from './navigation.utils';
-export * from './test.utils';
-export * from './url.utils';
-export * from './zip.utils';
+export * from './animations.utils.js';
+export * from './device.utils.js';
+export * from './filesystem.utils.js';
+export * from './navigation.utils.js';
+export * from './url.utils.js';
+export * from './zip.utils.js';

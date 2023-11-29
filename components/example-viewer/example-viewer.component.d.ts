@@ -7,7 +7,7 @@
  */
 import { Type } from '@angular/core';
 import { MatTabGroup } from '@angular/material/tabs';
-import { ExampleMetadata, Snippet } from '../../interfaces';
+import { ExampleMetadata, Snippet } from '../../interfaces/index.js';
 import * as i0 from "@angular/core";
 export declare enum CodeExampleViewMode {
     SNIPPET = "snippet",

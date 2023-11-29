@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.dev/license
  */
 import { ActivatedRouteSnapshot, Route, Router } from '@angular/router';
-import { NavigationItem } from '../interfaces';
+import { NavigationItem } from '../interfaces/index.js';
 export declare const flatNavigationData: (tree: NavigationItem[]) => NavigationItem[];
 export declare const getNavigationItemsTree: (tree: NavigationItem[], mapFn: (item: NavigationItem) => void) => NavigationItem[];
 export declare const findNavigationItem: (items: NavigationItem[], predicate: (item: NavigationItem) => boolean) => NavigationItem | null;

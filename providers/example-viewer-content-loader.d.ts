@@ -6,5 +6,5 @@
  * found in the LICENSE file at https://angular.dev/license
  */
 import { InjectionToken } from '@angular/core';
-import { ExampleViewerContentLoader } from '../interfaces';
+import { ExampleViewerContentLoader } from '../interfaces/index.js';
 export declare const EXAMPLE_VIEWER_CONTENT_LOADER: InjectionToken<ExampleViewerContentLoader>;
