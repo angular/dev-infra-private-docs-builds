@@ -1,3 +1,21 @@
 load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
 
 
+
+nodejs_binary(
+    name = "stackblitz",
+    data = [
+        "@npm//jsdom",
+    ],
+    entry_point = "@npm//@angular/docs/markdown:stackblitz.mjs",
+    visibility = ["//visibility:public"],
+)
+
+nodejs_binary(
+    name = "markdown",
+    data = [
+        "@npm//jsdom",
+    ],
+    entry_point = "@npm//@angular/docs/markdown:guides.mjs",
+    visibility = ["//visibility:public"],
+)
