@@ -12,3 +12,4 @@ export * from './interfaces/index.js';
 export * from './providers/index.js';
 export * from './services/index.js';
 export * from './utils/index.js';
+export * from './editor/embedded-editor.component.js';
