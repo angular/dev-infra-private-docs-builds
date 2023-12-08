@@ -1,18 +1,41 @@
 {
   "name": "@angular/docs",
-  "version": "0.0.0-3bdb358b99b17910167b2d663088b4f1d5d0ca09",
-  "main": "./public-api.mjs",
-  "typings": "./public-api.d.ts",
-  "type": "module",
+  "version": "0.0.0-edcf0a3ad1c242f1ba1eabcda95afcffe7d9965c",
   "dependencies": {
-    "@angular/core": "17.0.0-rc.3",
-    "@angular/common": "17.0.0-rc.3",
-    "@angular/cdk": "17.0.0-rc.3",
-    "@angular/router": "17.0.0-rc.3",
-    "@angular/material": "17.0.0-rc.3",
+    "@angular/core": "^17.0.6",
+    "@angular/common": "^17.0.6",
+    "@angular/cdk": "^17.0.2",
+    "@angular/router": "^17.0.6",
+    "@angular/material": "^17.0.2",
     "zone.js": "^0.14.2",
     "jszip": "^3.10.1",
     "algoliasearch": "^4.20.0",
-    "rxjs": "^7.8.1"
-  }
+    "rxjs": "^7.8.1",
+    "xterm": "^5.3.0",
+    "xterm-addon-fit": "^0.8.0",
+    "@webcontainer/api": "^1.1.8"
+  },
+  "exports": {
+    "./styles/*": {
+      "sass": "./styles/*"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2020": "./esm2020/docs_public_index.mjs",
+      "es2020": "./fesm2020/docs.mjs",
+      "es2015": "./fesm2015/docs.mjs",
+      "node": "./fesm2015/docs.mjs",
+      "default": "./fesm2020/docs.mjs"
+    }
+  },
+  "fesm2020": "./fesm2020/docs.mjs",
+  "fesm2015": "./fesm2015/docs.mjs",
+  "esm2020": "./esm2020/docs_public_index.mjs",
+  "typings": "./index.d.ts",
+  "module": "./fesm2015/docs.mjs",
+  "es2020": "./fesm2020/docs.mjs",
+  "type": "module"
 }

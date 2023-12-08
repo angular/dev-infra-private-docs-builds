@@ -266,17 +266,20 @@ var require_brace_expansion = __commonJS({
   }
 });
 
-// bazel-out/k8-fastbuild/bin/docs/markdown/examples/stackblitz/index.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/examples/stackblitz/index.js
 import { writeFileSync } from "fs";
 
-// bazel-out/k8-fastbuild/bin/docs/markdown/examples/stackblitz/builder.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/examples/stackblitz/builder.js
 import { join as join2 } from "path";
 import { readFile } from "fs/promises";
 
-// bazel-out/k8-fastbuild/bin/docs/markdown/examples/stackblitz/file-system.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/examples/stackblitz/file-system.js
 import { existsSync } from "fs";
 import { copyFile, mkdir, readdir, rm, stat } from "fs/promises";
 import { join } from "path";
+var knownTemplateFilesForRename = [
+  "package.json.template"
+];
 async function copyFolder(source, destination) {
   if (!existsSync(destination)) {
     await mkdir(destination, { recursive: true });
@@ -287,7 +290,10 @@ async function copyFolder(source, destination) {
       continue;
     }
     const sourcePath = join(source, file);
-    const destPath = join(destination, file);
+    let destPath = join(destination, file);
+    if (knownTemplateFilesForRename.includes(file)) {
+      destPath = join(destination, file.replace(/.template$/, ""));
+    }
     const stats = await stat(sourcePath);
     const isDirectory = await stats.isDirectory();
     if (isDirectory) {
@@ -308,7 +314,7 @@ async function removeFolder(path2) {
   }
 }
 
-// bazel-out/k8-fastbuild/bin/docs/markdown/examples/stackblitz/builder.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/examples/stackblitz/builder.js
 import jsdom from "jsdom";
 
 // node_modules/minimatch/dist/mjs/index.js
@@ -5464,7 +5470,7 @@ var glob = Object.assign(glob_, {
 });
 glob.glob = glob;
 
-// bazel-out/k8-fastbuild/bin/docs/markdown/guides/extensions/docs-code/regions/region-matchers/block-c.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/guides/extensions/docs-code/regions/region-matchers/block-c.js
 var block_c_exports = {};
 __export(block_c_exports, {
   createPlasterComment: () => createPlasterComment,
@@ -5477,7 +5483,7 @@ var regionEndMatcher = /^\s*\/\*\s*#enddocregion\s*(.*)\s*\*\/\s*$/;
 var plasterMatcher = /^\s*\/\*\s*#docplaster\s*(.*)\s*\*\/\s*$/;
 var createPlasterComment = (plaster) => `/* ${plaster} */`;
 
-// bazel-out/k8-fastbuild/bin/docs/markdown/guides/extensions/docs-code/regions/region-matchers/html.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/guides/extensions/docs-code/regions/region-matchers/html.js
 var html_exports = {};
 __export(html_exports, {
   createPlasterComment: () => createPlasterComment2,
@@ -5490,7 +5496,7 @@ var regionEndMatcher2 = /^\s*<!--\s*#enddocregion\s*(.*?)\s*-->\s*$/;
 var plasterMatcher2 = /^\s*<!--\s*#docplaster\s*(.*?)\s*-->\s*$/;
 var createPlasterComment2 = (plaster) => `<!-- ${plaster} -->`;
 
-// bazel-out/k8-fastbuild/bin/docs/markdown/guides/extensions/docs-code/regions/region-matchers/inline-c.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/guides/extensions/docs-code/regions/region-matchers/inline-c.js
 var inline_c_exports = {};
 __export(inline_c_exports, {
   createPlasterComment: () => createPlasterComment3,
@@ -5503,7 +5509,7 @@ var regionEndMatcher3 = /^\s*\/\/\s*#enddocregion\s*(.*)\s*$/;
 var plasterMatcher3 = /^\s*\/\/\s*#docplaster\s*(.*)\s*$/;
 var createPlasterComment3 = (plaster) => `/* ${plaster} */`;
 
-// bazel-out/k8-fastbuild/bin/docs/markdown/guides/extensions/docs-code/regions/region-matchers/inline-c-only.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/guides/extensions/docs-code/regions/region-matchers/inline-c-only.js
 var inline_c_only_exports = {};
 __export(inline_c_only_exports, {
   createPlasterComment: () => createPlasterComment4,
@@ -5516,7 +5522,7 @@ var regionEndMatcher4 = /^\s*\/\/\s*#enddocregion\s*(.*)\s*$/;
 var plasterMatcher4 = /^\s*\/\/\s*#docplaster\s*(.*)\s*$/;
 var createPlasterComment4 = (plaster) => `// ${plaster}`;
 
-// bazel-out/k8-fastbuild/bin/docs/markdown/guides/extensions/docs-code/regions/region-matchers/inline-hash.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/guides/extensions/docs-code/regions/region-matchers/inline-hash.js
 var inline_hash_exports = {};
 __export(inline_hash_exports, {
   createPlasterComment: () => createPlasterComment5,
@@ -5529,7 +5535,7 @@ var regionEndMatcher5 = /^\s*#\s*#enddocregion\s*(.*)\s*$/;
 var plasterMatcher5 = /^\s*#\s*#docplaster\s*(.*)\s*$/;
 var createPlasterComment5 = (plaster) => `# ${plaster}`;
 
-// bazel-out/k8-fastbuild/bin/docs/markdown/guides/extensions/docs-code/regions/region-parser.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/guides/extensions/docs-code/regions/region-parser.js
 var WHOLE_FILE_REGION_NAME = "";
 var DEFAULT_PLASTER = ". . .";
 var REGION_MATCHERS = {
@@ -5646,7 +5652,7 @@ function removeLast(array, item) {
   array.splice(index, 1);
 }
 
-// bazel-out/k8-fastbuild/bin/docs/markdown/examples/stackblitz/copyright.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/examples/stackblitz/copyright.js
 var PAD = "\n\n";
 var COPYRIGHT = `
 @license
@@ -5673,7 +5679,7 @@ function appendCopyrightToFile(filename, content) {
   }
 }
 
-// bazel-out/k8-fastbuild/bin/docs/markdown/examples/stackblitz/defaults.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/examples/stackblitz/defaults.js
 var TEST_FILES_EXTENSION_SUFFIX = ".spec.ts";
 var TEST_FILES_E2E_EXTENSION_SUFFIX = ".e2e-spec.ts";
 var BUILD_BAZEL_FILENAME = "BUILD.bazel";
@@ -5687,7 +5693,7 @@ var EXCLUDE_FILES_FOR_STACKBLITZ = [
   TEST_FILES_E2E_EXTENSION_SUFFIX
 ];
 
-// bazel-out/k8-fastbuild/bin/docs/markdown/examples/stackblitz/builder.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/examples/stackblitz/builder.js
 async function generateStackblitzExample(exampleDir2, temporaryExampleDir, stackblitzTemplateDir) {
   const config = await readFile(join2(exampleDir2, STACKBLITZ_CONFIG_FILENAME), "utf-8");
   const stackblitzConfig = JSON.parse(config);
@@ -5800,7 +5806,7 @@ function extractRegions(path2, contents) {
   return regionParserResult.contents;
 }
 
-// bazel-out/k8-fastbuild/bin/docs/markdown/examples/stackblitz/index.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/examples/stackblitz/index.js
 var [exampleDir, tmpDir, templateDir, outputFilePath] = process.argv.slice(2);
 var htmlOutputContent = await generateStackblitzExample(exampleDir, tmpDir, templateDir);
 writeFileSync(outputFilePath, htmlOutputContent, { encoding: "utf8" });

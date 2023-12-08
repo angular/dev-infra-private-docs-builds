@@ -1,0 +1,10 @@
+/*!
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
+export const shouldReduceMotion = () => typeof window !== 'undefined' &&
+    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYW5pbWF0aW9ucy51dGlscy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2RvY3MvdXRpbHMvYW5pbWF0aW9ucy51dGlscy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7QUFFSCxNQUFNLENBQUMsTUFBTSxrQkFBa0IsR0FBRyxHQUFHLEVBQUUsQ0FDckMsT0FBTyxNQUFNLEtBQUssV0FBVztJQUM3QixNQUFNLENBQUMsVUFBVSxDQUFDLGtDQUFrQyxDQUFDLENBQUMsT0FBTyxLQUFLLElBQUksQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qIVxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmRldi9saWNlbnNlXG4gKi9cblxuZXhwb3J0IGNvbnN0IHNob3VsZFJlZHVjZU1vdGlvbiA9ICgpID0+XG4gIHR5cGVvZiB3aW5kb3cgIT09ICd1bmRlZmluZWQnICYmXG4gIHdpbmRvdy5tYXRjaE1lZGlhKGAocHJlZmVycy1yZWR1Y2VkLW1vdGlvbjogcmVkdWNlKWApLm1hdGNoZXMgPT09IHRydWU7XG4iXX0=
