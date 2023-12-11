@@ -52011,7 +52011,7 @@ async function main() {
     }
     const markdownContent = readFileSync2(filePath, { encoding: "utf8" });
     const htmlOutputContent = await parseMarkdown(markdownContent);
-    const htmlFileName = filePath.substring(0, filePath.length - ".md".length) + ".html";
+    const htmlFileName = filePath + ".html";
     const htmlOutputPath = path.join(outputFilenameExecRootRelativePath, htmlFileName);
     writeFileSync(htmlOutputPath, htmlOutputContent, { encoding: "utf8" });
   }
