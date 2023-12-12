@@ -17256,6 +17256,8 @@ let AlertManager = class AlertManager {
         this.localStorage = inject(LOCAL_STORAGE);
         this.window = inject(WINDOW);
         this.snackBar = inject(MatSnackBar);
+        // Note: used as a property to allow changing in tests
+        this.isMobile = isMobile;
     }
     init() {
         this.listenToLocalStorageValuesChange();
@@ -17296,7 +17298,7 @@ let AlertManager = class AlertManager {
         }
     }
     checkDevice() {
-        if (isMobile) {
+        if (this.isMobile) {
             this.openSnackBar(AlertReason.MOBILE);
         }
     }
