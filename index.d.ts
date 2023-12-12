@@ -761,7 +761,7 @@ export declare class TableOfContentsScrollSpy {
     startListeningToScroll(contentSourceElement: HTMLElement | null): void;
     scrollToTop(): void;
     scrollToSection(id: string): void;
-    offsetToSection(id: string): void;
+    private offsetToSection;
     private setResizeEventHandlers;
     private updateHeadingsTopAfterResize;
     private setScrollEventHandlers;
