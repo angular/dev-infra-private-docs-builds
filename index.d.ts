@@ -1,17 +1,15 @@
 /// <reference types="node" />
-/// <reference types="xterm/typings/xterm" />
 
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { AfterViewInit } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { ElementRef } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { FileSystemTree } from '@webcontainer/api';
+import type { FileSystemTree } from '@webcontainer/api';
 import { Highlightable } from '@angular/cdk/a11y';
 import * as i0 from '@angular/core';
 import { InjectionToken } from '@angular/core';
 import { Injector } from '@angular/core';
-import { MatTabGroup } from '@angular/material/tabs';
 import { Observable } from 'rxjs';
 import { OnChanges } from '@angular/core';
 import { OnDestroy } from '@angular/core';
@@ -156,89 +154,12 @@ export declare interface EditorTutorialConfig extends TutorialConfigBase {
     type: TutorialType.EDITOR;
 }
 
-export declare const EMBEDDED_EDITOR_SELECTOR = "embedded-editor";
-
-export declare class EmbeddedEditor implements OnInit, AfterViewInit, OnDestroy {
-    editorContainer: ElementRef<HTMLDivElement>;
-    matTabGroup: MatTabGroup;
-    private readonly platformId;
-    private readonly changeDetector;
-    private readonly destroyRef;
-    private readonly diagnosticsState;
-    private readonly editorUiState;
-    private readonly nodeRuntimeState;
-    private readonly nodeRuntimeSandbox;
-    private resizeObserver?;
-    protected splitDirection: 'horizontal' | 'vertical';
-    readonly MAX_RECOMMENDED_WEBCONTAINERS_INSTANCES = 3;
-    readonly TerminalType: typeof TerminalType;
-    readonly displayOnlyTerminal: Signal<boolean>;
-    readonly errorsCount: WritableSignal<number>;
-    readonly displayPreviewInMatTabGroup: WritableSignal<boolean>;
-    readonly shouldEnableReset: Signal<boolean>;
-    private readonly errorsCount$;
-    private readonly displayPreviewInMatTabGroup$;
-    ngOnInit(): void;
-    ngAfterViewInit(): void;
-    ngOnDestroy(): void;
-    setVisibleEmbeddedEditorTabs(): void;
-    reset(): Promise<void>;
-    private setFirstTabAsActiveAfterResize;
-    private listenToErrorsCount;
-    private setResizeObserver;
-    private isLargeEmbeddedEditor;
-    static ɵfac: i0.ɵɵFactoryDeclaration<EmbeddedEditor, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<EmbeddedEditor, "embedded-editor", never, {}, {}, never, never, true, never>;
-}
-
-/**
- * A service responsible for the current tutorial, retrieving and providing
- * its source code and metadata.
- */
-export declare class EmbeddedTutorialManager {
-    readonly tutorialId: WritableSignal<string>;
-    readonly tutorialFilesystemTree: WritableSignal<FileSystemTree | null>;
-    readonly commonFilesystemTree: WritableSignal<FileSystemTree | null>;
-    readonly type: WritableSignal<TutorialType | undefined>;
-    private readonly allFiles;
-    readonly hiddenFiles: WritableSignal<string[]>;
-    readonly tutorialFiles: WritableSignal<FileAndContentRecord>;
-    readonly openFiles: WritableSignal<string[]>;
-    readonly answerFiles: WritableSignal<FileAndContentRecord>;
-    readonly dependencies: WritableSignal<Record<string, string> | undefined>;
-    private _shouldReInstallDependencies;
-    readonly shouldReInstallDependencies: Signal<boolean>;
-    private metadata;
-    private _shouldChangeTutorial$;
-    readonly tutorialChanged$: Observable<boolean>;
-    private readonly _filesToDeleteFromPreviousProject;
-    readonly filesToDeleteFromPreviousProject: Signal<Set<string>>;
-    fetchAndSetTutorialFiles(tutorial: string): Promise<void>;
-    revealAnswer(): void;
-    resetRevealAnswer(): void;
-    fetchCommonFiles(): Promise<FileSystemTree>;
-    private fetchTutorialSourceCode;
-    private fetchTutorialMetadata;
-    /**
-     * Compare previous and new dependencies to determine if the dependencies changed.
-     */
-    private checkIfDependenciesChanged;
-    private computeFilesToRemove;
-}
-
 export declare const ENVIRONMENT: InjectionToken<Environment>;
 
 export declare interface Environment {
     production: boolean;
     algolia: AlgoliaConfig;
     googleAnalyticsId: string;
-}
-
-declare enum ErrorType {
-    UNKNOWN = 0,
-    COOKIES = 1,
-    OUT_OF_MEMORY = 2,
-    UNSUPPORTED_BROWSER_ENVIRONMENT = 3
 }
 
 export declare const EXAMPLE_VIEWER_CONTENT_LOADER: InjectionToken<ExampleViewerContentLoader>;
@@ -353,20 +274,6 @@ export declare const isIpad: boolean;
 
 export declare const isMobile: boolean;
 
-export declare const LARGE_EDITOR_HEIGHT_BREAKPOINT = 550;
-
-export declare const LARGE_EDITOR_WIDTH_BREAKPOINT = 950;
-
-export declare enum LoadingStep {
-    NOT_STARTED = 0,
-    BOOT = 1,
-    LOAD_FILES = 2,
-    INSTALL = 3,
-    START_DEV_SERVER = 4,
-    READY = 5,
-    ERROR = 6
-}
-
 export declare const LOCAL_STORAGE: InjectionToken<Storage | null>;
 
 /** Represents a tutorial config that won't use the embedded editor */
@@ -445,111 +352,6 @@ export declare class NavigationState {
     private navigateToFirstPageOfTheCategory;
     static ɵfac: i0.ɵɵFactoryDeclaration<NavigationState, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<NavigationState>;
-}
-
-declare type NodeRuntimeError = {
-    message: string | undefined;
-    type: ErrorType | undefined;
-};
-
-/**
- * This service is responsible for handling the WebContainer instance, which
- * allows running a Node.js environment in the browser. It is used by the
- * embedded editor to run an executable Angular project in the browser.
- *
- * It boots the WebContainer, loads the project files into the WebContainer
- * filesystem, install the project dependencies and starts the dev server.
- */
-export declare class NodeRuntimeSandbox {
-    private readonly _createdFile$;
-    readonly createdFile$: Observable<string>;
-    private readonly _createdFiles;
-    private interactiveShellProcess;
-    private interactiveShellWriter;
-    private readonly destroyRef;
-    private readonly alertManager;
-    private readonly terminalHandler;
-    private embeddedTutorialManager;
-    private readonly nodeRuntimeState;
-    private readonly typingsLoader;
-    private readonly _isProjectInitialized;
-    private readonly _isAngularCliInitialized;
-    private urlToPreview$;
-    private readonly _previewUrl$;
-    private readonly processes;
-    private devServerProcess;
-    private webContainerPromise;
-    get previewUrl$(): Observable<string | null>;
-    init(): Promise<void>;
-    reset(): Promise<void>;
-    restartDevServer(): Promise<void>;
-    getSolutionFiles(): Promise<FileAndContent[]>;
-    /**
-     * Initialize the WebContainer for an Angular project
-     */
-    private initProject;
-    private handleProjectChanges;
-    private handleFilesToDeleteOnProjectChange;
-    private handleInstallDependenciesOnProjectChange;
-    /**
-     * Initialize the WebContainer for the Angular CLI
-     */
-    private initAngularCli;
-    writeFile(path: string, content: string | Buffer): Promise<void>;
-    readFile(filePath: string): Promise<string>;
-    deleteFile(filepath: string): Promise<void>;
-    /**
-     * Implemented based on:
-     * https://webcontainers.io/tutorial/7-add-interactivity#_2-start-the-shell
-     */
-    private startInteractiveTerminal;
-    private mountProjectFiles;
-    private setLoading;
-    private mountFiles;
-    private boot;
-    private terminate;
-    private handleWebcontainerErrors;
-    private checkForOutOfMemoryError;
-    private setErrorState;
-    private installDependencies;
-    private loadTypes;
-    private installAngularCli;
-    private startDevServer;
-    /**
-     * Spawn a process in the WebContainer and store the process in the service.
-     * Later on the stored process can be used to kill the process on `cleanup`
-     */
-    private spawn;
-    /**
-     * Kill existing processes and remove files from the WebContainer
-     * when switching tutorials that have diferent requirements
-     */
-    private cleanup;
-    private killExistingProcesses;
-    private removeFiles;
-}
-
-export declare class NodeRuntimeState {
-    private readonly _loadingStep;
-    loadingStep: Signal<number>;
-    private readonly _isResetting;
-    readonly isResetting: Signal<boolean>;
-    readonly _error: WritableSignal<NodeRuntimeError | undefined>;
-    readonly error: Signal<NodeRuntimeError | undefined>;
-    constructor();
-    setLoadingStep(step: LoadingStep): void;
-    setIsResetting(isResetting: boolean): void;
-    setError({ message, type }: NodeRuntimeError): void;
-    private getErrorType;
-    /**
-     * This method defines whether the current environment is compatible
-     * with the NodeRuntimeSandbox. The embedded editor requires significant
-     * CPU and memory resources and can not be ran in all browsers/devices. More
-     * specifically, mobile devices are affected by this, so for the best user
-     * experience (to avoid crashes), we disable the NodeRuntimeSandbox and
-     * recommend using desktop.
-     */
-    private checkUnsupportedEnvironment;
 }
 
 export declare const normalizePath: (path: string) => string;
@@ -770,11 +572,6 @@ export declare class TableOfContentsScrollSpy {
     private getContentWidth;
     static ɵfac: i0.ɵɵFactoryDeclaration<TableOfContentsScrollSpy, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<TableOfContentsScrollSpy>;
-}
-
-declare enum TerminalType {
-    READONLY = 0,
-    INTERACTIVE = 1
 }
 
 export declare class TextField implements ControlValueAccessor {
