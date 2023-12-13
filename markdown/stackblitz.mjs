@@ -273,7 +273,7 @@ import { writeFileSync } from "fs";
 import { join as join2 } from "path";
 import { readFile } from "fs/promises";
 
-// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/examples/stackblitz/file-system.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/examples/shared/file-system.js
 import { existsSync } from "fs";
 import { copyFile, mkdir, readdir, rm, stat } from "fs/promises";
 import { join } from "path";
@@ -5652,7 +5652,7 @@ function removeLast(array, item) {
   array.splice(index, 1);
 }
 
-// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/examples/stackblitz/copyright.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/examples/shared/copyright.js
 var PAD = "\n\n";
 var COPYRIGHT = `
 @license

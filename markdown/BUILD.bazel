@@ -12,6 +12,12 @@ nodejs_binary(
 )
 
 nodejs_binary(
+    name = "zip",
+    entry_point = "@npm//@angular/docs/markdown:zip.mjs",
+    visibility = ["//visibility:public"],
+)
+
+nodejs_binary(
     name = "markdown",
     data = [
         "@npm//jsdom",
