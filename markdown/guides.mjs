@@ -1128,13 +1128,13 @@ var require_core = __commonJS({
         if (ignoreIllegals === void 0) {
           ignoreIllegals = true;
         }
-        const context = {
+        const context2 = {
           code,
           language: languageName
         };
-        fire("before:highlight", context);
-        const result = context.result ? context.result : _highlight(context.language, context.code, ignoreIllegals);
-        result.code = context.code;
+        fire("before:highlight", context2);
+        const result = context2.result ? context2.result : _highlight(context2.language, context2.code, ignoreIllegals);
+        result.code = context2.code;
         fire("after:highlight", result);
         return result;
       }
@@ -50213,10 +50213,14 @@ var _Hooks = class {
   postprocess(html2) {
     return html2;
   }
+  processAllTokens(tokens) {
+    return tokens;
+  }
 };
 __publicField(_Hooks, "passThroughHooks", /* @__PURE__ */ new Set([
   "preprocess",
-  "postprocess"
+  "postprocess",
+  "processAllTokens"
 ]));
 var Marked = class {
   defaults = _getDefaults();
@@ -50327,8 +50331,11 @@ var Marked = class {
       if (pack.renderer) {
         const renderer2 = this.defaults.renderer || new _Renderer(this.defaults);
         for (const prop in pack.renderer) {
-          if (!(prop in renderer2) || prop === "options") {
+          if (!(prop in renderer2)) {
             throw new Error(`renderer '${prop}' does not exist`);
+          }
+          if (prop === "options") {
+            continue;
           }
           const rendererProp = prop;
           const rendererFunc = pack.renderer[rendererProp];
@@ -50346,8 +50353,11 @@ var Marked = class {
       if (pack.tokenizer) {
         const tokenizer = this.defaults.tokenizer || new _Tokenizer(this.defaults);
         for (const prop in pack.tokenizer) {
-          if (!(prop in tokenizer) || ["options", "rules", "lexer"].includes(prop)) {
+          if (!(prop in tokenizer)) {
             throw new Error(`tokenizer '${prop}' does not exist`);
+          }
+          if (["options", "rules", "lexer"].includes(prop)) {
+            continue;
           }
           const tokenizerProp = prop;
           const tokenizerFunc = pack.tokenizer[tokenizerProp];
@@ -50365,8 +50375,11 @@ var Marked = class {
       if (pack.hooks) {
         const hooks2 = this.defaults.hooks || new _Hooks();
         for (const prop in pack.hooks) {
-          if (!(prop in hooks2) || prop === "options") {
+          if (!(prop in hooks2)) {
             throw new Error(`hook '${prop}' does not exist`);
+          }
+          if (prop === "options") {
+            continue;
           }
           const hooksProp = prop;
           const hooksFunc = pack.hooks[hooksProp];
@@ -50440,13 +50453,16 @@ var Marked = class {
         opt.hooks.options = opt;
       }
       if (opt.async) {
-        return Promise.resolve(opt.hooks ? opt.hooks.preprocess(src) : src).then((src2) => lexer2(src2, opt)).then((tokens) => opt.walkTokens ? Promise.all(this.walkTokens(tokens, opt.walkTokens)).then(() => tokens) : tokens).then((tokens) => parser2(tokens, opt)).then((html2) => opt.hooks ? opt.hooks.postprocess(html2) : html2).catch(throwError);
+        return Promise.resolve(opt.hooks ? opt.hooks.preprocess(src) : src).then((src2) => lexer2(src2, opt)).then((tokens) => opt.hooks ? opt.hooks.processAllTokens(tokens) : tokens).then((tokens) => opt.walkTokens ? Promise.all(this.walkTokens(tokens, opt.walkTokens)).then(() => tokens) : tokens).then((tokens) => parser2(tokens, opt)).then((html2) => opt.hooks ? opt.hooks.postprocess(html2) : html2).catch(throwError);
       }
       try {
         if (opt.hooks) {
           src = opt.hooks.preprocess(src);
         }
-        const tokens = lexer2(src, opt);
+        let tokens = lexer2(src, opt);
+        if (opt.hooks) {
+          tokens = opt.hooks.processAllTokens(tokens);
+        }
         if (opt.walkTokens) {
           this.walkTokens(tokens, opt.walkTokens);
         }
@@ -50609,18 +50625,21 @@ var textRender = (text) => {
 import { existsSync, readFileSync } from "fs";
 import { join } from "path";
 import { cwd } from "process";
-var GITHUB_EDIT_CONTENT_URL = "//";
-var CURRENT_PAGE_PATH = "//";
+var GITHUB_EDIT_CONTENT_URL = "https://github.com/angular/angular/edit/main";
 function getPageTitle(text) {
   return `
   <!-- Page title -->
   <div class="docs-page-title">
     <h1 tabindex="-1">${text}</h1>
-    <a class="docs-github-links" target="_blank" href="${GITHUB_EDIT_CONTENT_URL}/${CURRENT_PAGE_PATH}" title="Edit this page" aria-label="Edit this page">
+    <a class="docs-github-links" target="_blank" href="${GITHUB_EDIT_CONTENT_URL}/${context?.markdownFilePath}" title="Edit this page" aria-label="Edit this page">
       <!-- Pencil -->
       <docs-icon role="presentation">edit</docs-icon>
     </a>
   </div>`;
+}
+var context = {};
+function setContext(envContext) {
+  context = envContext;
 }
 var WORKSPACE_DIR = cwd();
 function loadWorkspaceRelativeFile(filePath) {
@@ -51975,7 +51994,8 @@ var docsCodeMultifileExtension = {
 };
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/guides/parse.js
-async function parseMarkdown(markdownContent) {
+async function parseMarkdown(markdownContent, context2) {
+  setContext(context2);
   marked.use({
     hooks,
     renderer,
@@ -52010,7 +52030,7 @@ async function main() {
       throw new Error(`Input file "${filePath}" does not end in a ".md" file extension.`);
     }
     const markdownContent = readFileSync2(filePath, { encoding: "utf8" });
-    const htmlOutputContent = await parseMarkdown(markdownContent);
+    const htmlOutputContent = await parseMarkdown(markdownContent, { markdownFilePath: filePath });
     const htmlFileName = filePath + ".html";
     const htmlOutputPath = path.join(outputFilenameExecRootRelativePath, htmlFileName);
     writeFileSync(htmlOutputPath, htmlOutputContent, { encoding: "utf8" });
