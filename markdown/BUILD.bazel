@@ -25,3 +25,15 @@ nodejs_binary(
     entry_point = "@npm//@angular/docs/markdown:guides.mjs",
     visibility = ["//visibility:public"],
 )
+
+nodejs_binary(
+    name = "playground",
+    entry_point = "@npm//@angular/docs/markdown:playground.mjs",
+    visibility = ["//visibility:public"],
+)
+
+nodejs_binary(
+    name = "tutorial",
+    entry_point = "@npm//@angular/docs/markdown:tutorial.mjs",
+    visibility = ["//visibility:public"],
+)

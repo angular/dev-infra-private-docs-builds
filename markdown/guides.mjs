@@ -52025,7 +52025,6 @@ async function main() {
   const rawParamLines = readFileSync2(paramFilePath, { encoding: "utf8" }).split("\n");
   const [srcs, outputFilenameExecRootRelativePath] = rawParamLines;
   for (const filePath of srcs.split(",")) {
-    console.log(filePath);
     if (!filePath.endsWith(".md")) {
       throw new Error(`Input file "${filePath}" does not end in a ".md" file extension.`);
     }
