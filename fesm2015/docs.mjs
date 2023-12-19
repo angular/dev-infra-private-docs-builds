@@ -1,13 +1,13 @@
 import * as i1 from '@angular/common';
-import { DOCUMENT, isPlatformBrowser, ViewportScroller, NgIf, NgFor, CommonModule, Location } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser, ViewportScroller, NgIf, NgFor, CommonModule, NgClass, Location } from '@angular/common';
 import * as i0 from '@angular/core';
-import { EventEmitter, inject, ElementRef, Directive, Input, Output, InjectionToken, signal, PLATFORM_ID, assertInInjectionContext, DestroyRef, Injector, effect, untracked, assertNotInReactiveContext, ɵRuntimeError, computed, Injectable, NgZone, EnvironmentInjector, afterNextRender, createEnvironmentInjector, ENVIRONMENT_INITIALIZER, ChangeDetectorRef, Component, ChangeDetectionStrategy, Inject, Optional, NgModule, booleanAttribute, CSP_NONCE, APP_ID, QueryList, Version, LOCALE_ID, ViewEncapsulation, ViewChild, ANIMATION_MODULE_TYPE as ANIMATION_MODULE_TYPE$1, forwardRef, SkipSelf, TemplateRef, ContentChild, numberAttribute, ContentChildren, Attribute, ViewContainerRef, ApplicationRef, ɵInitialRenderPendingTasks, createComponent, Pipe, ViewChildren } from '@angular/core';
+import { EventEmitter, inject, ElementRef, Directive, Input, Output, InjectionToken, signal, PLATFORM_ID, assertInInjectionContext, DestroyRef, Injector, untracked, effect, assertNotInReactiveContext, ɵRuntimeError as _RuntimeError, computed, Injectable, NgZone, EnvironmentInjector, afterNextRender, createEnvironmentInjector, ENVIRONMENT_INITIALIZER, ChangeDetectorRef, Component, ChangeDetectionStrategy, Inject, Optional, NgModule, booleanAttribute, CSP_NONCE, APP_ID, QueryList, Version, LOCALE_ID, ViewEncapsulation, ViewChild, ANIMATION_MODULE_TYPE as ANIMATION_MODULE_TYPE$1, forwardRef, SkipSelf, TemplateRef, ContentChild, numberAttribute, ContentChildren, Attribute, ViewContainerRef, ApplicationRef, ɵInitialRenderPendingTasks as _InitialRenderPendingTasks, createComponent, Pipe, ViewChildren } from '@angular/core';
 import { __awaiter } from 'tslib';
-import { Observable, ReplaySubject, fromEvent, debounceTime, startWith, auditTime, switchMap, from, of, filter, Subject, combineLatest, concat, Subscription, BehaviorSubject, ConnectableObservable, isObservable, animationFrameScheduler, asapScheduler, merge, EMPTY, timer } from 'rxjs';
+import { Observable, ReplaySubject, debounceTime, startWith, fromEvent, auditTime, from, of, switchMap, filter, Subject, combineLatest, concat, Subscription, BehaviorSubject, ConnectableObservable, isObservable, animationFrameScheduler, asapScheduler, merge, EMPTY, timer } from 'rxjs';
 import { takeUntil, debounceTime as debounceTime$1, take, skip, map, startWith as startWith$1, tap, filter as filter$1, distinctUntilChanged, auditTime as auditTime$1, pairwise, switchMap as switchMap$1, shareReplay } from 'rxjs/operators';
 import { Router, NavigationEnd, RouterLink, RouterLinkActive } from '@angular/router';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { style, state, animate, transition, trigger } from '@angular/animations';
 import * as i1$1 from '@angular/forms';
 import { NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 
@@ -43,9 +43,9 @@ class ClickOutside {
         });
     }
 }
-ClickOutside.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: ClickOutside, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-ClickOutside.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.1", type: ClickOutside, isStandalone: true, selector: "[docsClickOutside]", inputs: { ignoredElementsIds: ["docsClickOutsideIgnore", "ignoredElementsIds"] }, outputs: { clickOutside: "docsClickOutside" }, host: { listeners: { "document:click": "onClick($event)" } }, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: ClickOutside, decorators: [{
+ClickOutside.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: ClickOutside, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+ClickOutside.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.4", type: ClickOutside, isStandalone: true, selector: "[docsClickOutside]", inputs: { ignoredElementsIds: ["docsClickOutsideIgnore", "ignoredElementsIds"] }, outputs: { clickOutside: "docsClickOutside" }, host: { listeners: { "document:click": "onClick($event)" } }, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: ClickOutside, decorators: [{
             type: Directive,
             args: [{
                     selector: '[docsClickOutside]',
@@ -1970,9 +1970,9 @@ class ExternalLink {
         }
     }
 }
-ExternalLink.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: ExternalLink, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-ExternalLink.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.1", type: ExternalLink, isStandalone: true, selector: "a[href]:not([noBlankForExternalLink])", host: { properties: { "attr.target": "target" } }, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: ExternalLink, decorators: [{
+ExternalLink.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: ExternalLink, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+ExternalLink.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.4", type: ExternalLink, isStandalone: true, selector: "a[href]:not([noBlankForExternalLink])", host: { properties: { "attr.target": "target" } }, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: ExternalLink, decorators: [{
             type: Directive,
             args: [{
                     selector: 'a[href]:not([noBlankForExternalLink])',
@@ -1992,7 +1992,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", 
  */
 
 /**
- * @license Angular v17.1.0-next.1
+ * @license Angular v17.1.0-next.4
  * (c) 2010-2022 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -2113,7 +2113,7 @@ function toSignal(source, options) {
         // "complete".
     });
     if (ngDevMode && (options === null || options === void 0 ? void 0 : options.requireSync) && state().kind === 0 /* StateKind.NoValue */) {
-        throw new ɵRuntimeError(601 /* ɵRuntimeErrorCode.REQUIRE_SYNC_WITHOUT_SYNC_EMIT */, '`toSignal()` called with `requireSync` but `Observable` did not emit synchronously.');
+        throw new _RuntimeError(601 /* ɵRuntimeErrorCode.REQUIRE_SYNC_WITHOUT_SYNC_EMIT */, '`toSignal()` called with `requireSync` but `Observable` did not emit synchronously.');
     }
     // Unsubscribe when the current context is destroyed, if requested.
     cleanupRef === null || cleanupRef === void 0 ? void 0 : cleanupRef.onDestroy(sub.unsubscribe.bind(sub));
@@ -2129,7 +2129,7 @@ function toSignal(source, options) {
             case 0 /* StateKind.NoValue */:
                 // This shouldn't really happen because the error is thrown on creation.
                 // TODO(alxhub): use a RuntimeError when we finalize the error semantics
-                throw new ɵRuntimeError(601 /* ɵRuntimeErrorCode.REQUIRE_SYNC_WITHOUT_SYNC_EMIT */, '`toSignal()` called with `requireSync` but `Observable` did not emit synchronously.');
+                throw new _RuntimeError(601 /* ɵRuntimeErrorCode.REQUIRE_SYNC_WITHOUT_SYNC_EMIT */, '`toSignal()` called with `requireSync` but `Observable` did not emit synchronously.');
         }
     });
 }
@@ -2214,9 +2214,9 @@ class NavigationState {
         });
     }
 }
-NavigationState.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: NavigationState, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-NavigationState.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: NavigationState, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: NavigationState, decorators: [{
+NavigationState.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: NavigationState, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+NavigationState.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: NavigationState, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: NavigationState, decorators: [{
             type: Injectable,
             args: [{
                     providedIn: 'root',
@@ -2291,9 +2291,9 @@ class TableOfContentsLoader {
             this.toleranceThreshold);
     }
 }
-TableOfContentsLoader.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: TableOfContentsLoader, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-TableOfContentsLoader.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: TableOfContentsLoader });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: TableOfContentsLoader, decorators: [{
+TableOfContentsLoader.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: TableOfContentsLoader, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+TableOfContentsLoader.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: TableOfContentsLoader });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: TableOfContentsLoader, decorators: [{
             type: Injectable
         }] });
 
@@ -2439,9 +2439,9 @@ class TableOfContentsScrollSpy {
         return this.document.body.clientWidth || Number.MAX_SAFE_INTEGER;
     }
 }
-TableOfContentsScrollSpy.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: TableOfContentsScrollSpy, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-TableOfContentsScrollSpy.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: TableOfContentsScrollSpy });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: TableOfContentsScrollSpy, decorators: [{
+TableOfContentsScrollSpy.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: TableOfContentsScrollSpy, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+TableOfContentsScrollSpy.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: TableOfContentsScrollSpy });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: TableOfContentsScrollSpy, decorators: [{
             type: Injectable
         }] });
 
@@ -2592,9 +2592,9 @@ class Search {
         });
     }
 }
-Search.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: Search, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-Search.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: Search, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: Search, decorators: [{
+Search.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: Search, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+Search.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: Search, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: Search, decorators: [{
             type: Injectable,
             args: [{
                     providedIn: 'root',
@@ -2643,9 +2643,9 @@ class InjectAsyncImpl {
         });
     }
 }
-InjectAsyncImpl.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: InjectAsyncImpl, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-InjectAsyncImpl.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: InjectAsyncImpl, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: InjectAsyncImpl, decorators: [{
+InjectAsyncImpl.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: InjectAsyncImpl, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+InjectAsyncImpl.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: InjectAsyncImpl, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: InjectAsyncImpl, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }] });
@@ -2722,9 +2722,9 @@ class IconComponent {
     }
 }
 IconComponent.isFontLoaded = false;
-IconComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: IconComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
-IconComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.1.0-next.1", type: IconComponent, isStandalone: true, selector: "docs-icon", host: { attributes: { "aria-hidden": "true" }, properties: { "class": "MATERIAL_SYMBOLS_OUTLINED", "style.font-size.px": "fontSize" } }, ngImport: i0, template: "<ng-content></ng-content>\n", styles: [".docs-icon_high-contrast{color:var(--primary-contrast)}/*# sourceMappingURL=icon.component.css.map */\n"], changeDetection: i0.ChangeDetectionStrategy.OnPush });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: IconComponent, decorators: [{
+IconComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: IconComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
+IconComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.1.0-next.4", type: IconComponent, isStandalone: true, selector: "docs-icon", host: { attributes: { "aria-hidden": "true" }, properties: { "class": "MATERIAL_SYMBOLS_OUTLINED", "style.font-size.px": "fontSize" } }, ngImport: i0, template: "<ng-content></ng-content>\n", styles: [".docs-icon_high-contrast{color:var(--primary-contrast)}/*# sourceMappingURL=icon.component.css.map */\n"], changeDetection: i0.ChangeDetectionStrategy.OnPush });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: IconComponent, decorators: [{
             type: Component,
             args: [{ selector: 'docs-icon', standalone: true, host: {
                         '[class]': 'MATERIAL_SYMBOLS_OUTLINED',
@@ -2759,9 +2759,9 @@ class TableOfContents {
         this.scrollSpy.scrollToTop();
     }
 }
-TableOfContents.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: TableOfContents, deps: [], target: i0.ɵɵFactoryTarget.Component });
-TableOfContents.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.1", type: TableOfContents, isStandalone: true, selector: "docs-table-of-contents", inputs: { contentSourceElement: "contentSourceElement" }, providers: [TableOfContentsLoader, TableOfContentsScrollSpy], ngImport: i0, template: "<aside>\n  <nav>\n    <header>\n      <h2 class=\"docs-title\">On this page</h2>\n    </header>\n    <ul class=\"adev-faceted-list\">\n      <!-- TODO: Hide li elements with class docs-toc-item-h3 for laptop, table and phone screen resolutions  -->\n      @for (item of tableOfContentItems(); track item.id) {\n      <li\n        class=\"adev-faceted-list-item\"\n        [class.docs-toc-item-h2]=\"item.level === TableOfContentsLevel.H2\"\n        [class.docs-toc-item-h3]=\"item.level === TableOfContentsLevel.H3\"\n      >\n        <a\n          routerLink=\".\"\n          [fragment]=\"item.id\"\n          [class.adev-faceted-list-item-active]=\"item.id === activeItemId()\"\n        >\n          {{ item.title }}\n        </a>\n      </li>\n      }\n    </ul>\n  </nav>\n  @if (shouldDisplayScrollToTop()) {\n  <button type=\"button\" (click)=\"scrollToTop()\">\n    <docs-icon role=\"presentation\">arrow_upward_alt</docs-icon>\n    Back to the top\n  </button>\n  }\n</aside>\n", styles: [":host{display:flex;flex-direction:column;position:fixed;right:16px;top:0;height:fit-content;width:14rem;padding-inline:1rem;max-height:100vh;overflow-y:scroll}:host aside{margin-bottom:2rem}@media only screen and (max-width: 1430px){:host{position:relative;right:0;max-height:min-content;width:100%}}:host .docs-title{font-size:1.25rem;margin-block-start:var(--layout-padding)}:host::-webkit-scrollbar-track{background:rgba(0,0,0,0);cursor:pointer}:host::-webkit-scrollbar{width:6px;height:6px}:host::-webkit-scrollbar-thumb{background-color:var(--septenary-contrast);border-radius:10px;transition:background-color .3s ease}:host::-webkit-scrollbar-thumb:hover{background-color:var(--quinary-contrast)}:host .adev-faceted-list-item{font-size:.875rem}:host .adev-faceted-list-item a{display:block;padding:.5rem .5rem .5rem 1rem;font-weight:500}:host .adev-faceted-list-item.docs-toc-item-h3 a{padding-inline-start:2rem}button{background:rgba(0,0,0,0);border:none;font-size:.875rem;font-family:var(--inter-font);display:flex;align-items:center;margin:.5rem 0;color:var(--tertiary-contrast);transition:color .3s ease;cursor:pointer}button docs-icon{margin-inline-end:.35rem;opacity:.6;transition:opacity .3s ease}button:hover docs-icon{opacity:1}@media only screen and (max-width: 1430px){button{display:none}}/*# sourceMappingURL=table-of-contents.component.css.map */\n"], dependencies: [{ kind: "directive", type: RouterLink, selector: "[routerLink]", inputs: ["target", "queryParams", "fragment", "queryParamsHandling", "state", "relativeTo", "preserveFragment", "skipLocationChange", "replaceUrl", "routerLink"] }, { kind: "component", type: IconComponent, selector: "docs-icon" }] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: TableOfContents, decorators: [{
+TableOfContents.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: TableOfContents, deps: [], target: i0.ɵɵFactoryTarget.Component });
+TableOfContents.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.4", type: TableOfContents, isStandalone: true, selector: "docs-table-of-contents", inputs: { contentSourceElement: "contentSourceElement" }, providers: [TableOfContentsLoader, TableOfContentsScrollSpy], ngImport: i0, template: "<aside>\n  <nav>\n    <header>\n      <h2 class=\"docs-title\">On this page</h2>\n    </header>\n    <ul class=\"adev-faceted-list\">\n      <!-- TODO: Hide li elements with class docs-toc-item-h3 for laptop, table and phone screen resolutions  -->\n      @for (item of tableOfContentItems(); track item.id) {\n      <li\n        class=\"adev-faceted-list-item\"\n        [class.docs-toc-item-h2]=\"item.level === TableOfContentsLevel.H2\"\n        [class.docs-toc-item-h3]=\"item.level === TableOfContentsLevel.H3\"\n      >\n        <a\n          routerLink=\".\"\n          [fragment]=\"item.id\"\n          [class.adev-faceted-list-item-active]=\"item.id === activeItemId()\"\n        >\n          {{ item.title }}\n        </a>\n      </li>\n      }\n    </ul>\n  </nav>\n  @if (shouldDisplayScrollToTop()) {\n  <button type=\"button\" (click)=\"scrollToTop()\">\n    <docs-icon role=\"presentation\">arrow_upward_alt</docs-icon>\n    Back to the top\n  </button>\n  }\n</aside>\n", styles: [":host{display:flex;flex-direction:column;position:fixed;right:16px;top:0;height:fit-content;width:14rem;padding-inline:1rem;max-height:100vh;overflow-y:scroll}:host aside{margin-bottom:2rem}@media only screen and (max-width: 1430px){:host{position:relative;right:0;max-height:min-content;width:100%}}:host .docs-title{font-size:1.25rem;margin-block-start:var(--layout-padding)}:host::-webkit-scrollbar-track{background:rgba(0,0,0,0);cursor:pointer}:host::-webkit-scrollbar{width:6px;height:6px}:host::-webkit-scrollbar-thumb{background-color:var(--septenary-contrast);border-radius:10px;transition:background-color .3s ease}:host::-webkit-scrollbar-thumb:hover{background-color:var(--quinary-contrast)}:host .adev-faceted-list-item{font-size:.875rem}:host .adev-faceted-list-item a{display:block;padding:.5rem .5rem .5rem 1rem;font-weight:500}:host .adev-faceted-list-item.docs-toc-item-h3 a{padding-inline-start:2rem}button{background:rgba(0,0,0,0);border:none;font-size:.875rem;font-family:var(--inter-font);display:flex;align-items:center;margin:.5rem 0;color:var(--tertiary-contrast);transition:color .3s ease;cursor:pointer}button docs-icon{margin-inline-end:.35rem;opacity:.6;transition:opacity .3s ease}button:hover docs-icon{opacity:1}@media only screen and (max-width: 1430px){button{display:none}}/*# sourceMappingURL=table-of-contents.component.css.map */\n"], dependencies: [{ kind: "directive", type: RouterLink, selector: "[routerLink]", inputs: ["target", "queryParams", "fragment", "queryParamsHandling", "state", "relativeTo", "preserveFragment", "skipLocationChange", "replaceUrl", "routerLink"] }, { kind: "component", type: IconComponent, selector: "docs-icon" }] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: TableOfContents, decorators: [{
             type: Component,
             args: [{ selector: 'docs-table-of-contents', standalone: true, providers: [TableOfContentsLoader, TableOfContentsScrollSpy], imports: [NgIf, NgFor, RouterLink, IconComponent], template: "<aside>\n  <nav>\n    <header>\n      <h2 class=\"docs-title\">On this page</h2>\n    </header>\n    <ul class=\"adev-faceted-list\">\n      <!-- TODO: Hide li elements with class docs-toc-item-h3 for laptop, table and phone screen resolutions  -->\n      @for (item of tableOfContentItems(); track item.id) {\n      <li\n        class=\"adev-faceted-list-item\"\n        [class.docs-toc-item-h2]=\"item.level === TableOfContentsLevel.H2\"\n        [class.docs-toc-item-h3]=\"item.level === TableOfContentsLevel.H3\"\n      >\n        <a\n          routerLink=\".\"\n          [fragment]=\"item.id\"\n          [class.adev-faceted-list-item-active]=\"item.id === activeItemId()\"\n        >\n          {{ item.title }}\n        </a>\n      </li>\n      }\n    </ul>\n  </nav>\n  @if (shouldDisplayScrollToTop()) {\n  <button type=\"button\" (click)=\"scrollToTop()\">\n    <docs-icon role=\"presentation\">arrow_upward_alt</docs-icon>\n    Back to the top\n  </button>\n  }\n</aside>\n", styles: [":host{display:flex;flex-direction:column;position:fixed;right:16px;top:0;height:fit-content;width:14rem;padding-inline:1rem;max-height:100vh;overflow-y:scroll}:host aside{margin-bottom:2rem}@media only screen and (max-width: 1430px){:host{position:relative;right:0;max-height:min-content;width:100%}}:host .docs-title{font-size:1.25rem;margin-block-start:var(--layout-padding)}:host::-webkit-scrollbar-track{background:rgba(0,0,0,0);cursor:pointer}:host::-webkit-scrollbar{width:6px;height:6px}:host::-webkit-scrollbar-thumb{background-color:var(--septenary-contrast);border-radius:10px;transition:background-color .3s ease}:host::-webkit-scrollbar-thumb:hover{background-color:var(--quinary-contrast)}:host .adev-faceted-list-item{font-size:.875rem}:host .adev-faceted-list-item a{display:block;padding:.5rem .5rem .5rem 1rem;font-weight:500}:host .adev-faceted-list-item.docs-toc-item-h3 a{padding-inline-start:2rem}button{background:rgba(0,0,0,0);border:none;font-size:.875rem;font-family:var(--inter-font);display:flex;align-items:center;margin:.5rem 0;color:var(--tertiary-contrast);transition:color .3s ease;cursor:pointer}button docs-icon{margin-inline-end:.35rem;opacity:.6;transition:opacity .3s ease}button:hover docs-icon{opacity:1}@media only screen and (max-width: 1430px){button{display:none}}/*# sourceMappingURL=table-of-contents.component.css.map */\n"] }]
         }], propDecorators: { contentSourceElement: [{
@@ -2799,9 +2799,9 @@ class Breadcrumb {
         this.breadcrumbItems.set(breadcrumbs);
     }
 }
-Breadcrumb.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: Breadcrumb, deps: [], target: i0.ɵɵFactoryTarget.Component });
-Breadcrumb.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.1", type: Breadcrumb, isStandalone: true, selector: "docs-breadcrumb", ngImport: i0, template: "@for (breadcrumb of breadcrumbItems(); track breadcrumb) {\n  <div class=\"docs-breadcrumb\">\n    @if (breadcrumb.path) {\n      @if (breadcrumb.isExternal) {\n        <a [href]=\"breadcrumb.path\">{{ breadcrumb.label }}</a>\n      } @else {\n        <a [routerLink]=\"'/' + breadcrumb.path\">{{ breadcrumb.label }}</a>\n      }\n    } @else {\n      <span>{{ breadcrumb.label }}</span>\n    }\n  </div>\n}\n", styles: [":host{display:flex;align-items:center;padding-block-end:1.5rem}.docs-breadcrumb span{color:var(--quaternary-contrast);font-size:.875rem;display:flex;align-items:center}.docs-breadcrumb:not(:last-child) span::after{content:\"chevron_right\";font-family:var(--icons);margin-inline:.5rem;color:var(--quinary-contrast)}/*# sourceMappingURL=breadcrumb.component.css.map */\n"], dependencies: [{ kind: "directive", type: RouterLink, selector: "[routerLink]", inputs: ["target", "queryParams", "fragment", "queryParamsHandling", "state", "relativeTo", "preserveFragment", "skipLocationChange", "replaceUrl", "routerLink"] }], changeDetection: i0.ChangeDetectionStrategy.OnPush });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: Breadcrumb, decorators: [{
+Breadcrumb.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: Breadcrumb, deps: [], target: i0.ɵɵFactoryTarget.Component });
+Breadcrumb.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.4", type: Breadcrumb, isStandalone: true, selector: "docs-breadcrumb", ngImport: i0, template: "@for (breadcrumb of breadcrumbItems(); track breadcrumb) {\n  <div class=\"docs-breadcrumb\">\n    @if (breadcrumb.path) {\n      @if (breadcrumb.isExternal) {\n        <a [href]=\"breadcrumb.path\">{{ breadcrumb.label }}</a>\n      } @else {\n        <a [routerLink]=\"'/' + breadcrumb.path\">{{ breadcrumb.label }}</a>\n      }\n    } @else {\n      <span>{{ breadcrumb.label }}</span>\n    }\n  </div>\n}\n", styles: [":host{display:flex;align-items:center;padding-block-end:1.5rem}.docs-breadcrumb span{color:var(--quaternary-contrast);font-size:.875rem;display:flex;align-items:center}.docs-breadcrumb:not(:last-child) span::after{content:\"chevron_right\";font-family:var(--icons);margin-inline:.5rem;color:var(--quinary-contrast)}/*# sourceMappingURL=breadcrumb.component.css.map */\n"], dependencies: [{ kind: "directive", type: RouterLink, selector: "[routerLink]", inputs: ["target", "queryParams", "fragment", "queryParamsHandling", "state", "relativeTo", "preserveFragment", "skipLocationChange", "replaceUrl", "routerLink"] }], changeDetection: i0.ChangeDetectionStrategy.OnPush });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: Breadcrumb, decorators: [{
             type: Component,
             args: [{ selector: 'docs-breadcrumb', standalone: true, imports: [NgIf, NgFor, RouterLink], changeDetection: ChangeDetectionStrategy.OnPush, template: "@for (breadcrumb of breadcrumbItems(); track breadcrumb) {\n  <div class=\"docs-breadcrumb\">\n    @if (breadcrumb.path) {\n      @if (breadcrumb.isExternal) {\n        <a [href]=\"breadcrumb.path\">{{ breadcrumb.label }}</a>\n      } @else {\n        <a [routerLink]=\"'/' + breadcrumb.path\">{{ breadcrumb.label }}</a>\n      }\n    } @else {\n      <span>{{ breadcrumb.label }}</span>\n    }\n  </div>\n}\n", styles: [":host{display:flex;align-items:center;padding-block-end:1.5rem}.docs-breadcrumb span{color:var(--quaternary-contrast);font-size:.875rem;display:flex;align-items:center}.docs-breadcrumb:not(:last-child) span::after{content:\"chevron_right\";font-family:var(--icons);margin-inline:.5rem;color:var(--quinary-contrast)}/*# sourceMappingURL=breadcrumb.component.css.map */\n"] }]
         }] });
@@ -2904,12 +2904,12 @@ class Clipboard {
 }
 _a$a = Clipboard;
 (() => {
-    _a$a.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$a, deps: [{ token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Injectable });
+    _a$a.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$a, deps: [{ token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _a$a.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$a, providedIn: 'root' });
+    _a$a.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$a, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: Clipboard, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: Clipboard, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: undefined, decorators: [{
@@ -2980,18 +2980,19 @@ class CdkCopyToClipboard {
 }
 _b$9 = CdkCopyToClipboard;
 (() => {
-    _b$9.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _b$9, deps: [{ token: Clipboard }, { token: i0.NgZone }, { token: CDK_COPY_TO_CLIPBOARD_CONFIG, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
+    _b$9.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b$9, deps: [{ token: Clipboard }, { token: i0.NgZone }, { token: CDK_COPY_TO_CLIPBOARD_CONFIG, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _b$9.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _b$9, selector: "[cdkCopyToClipboard]", inputs: { text: ["cdkCopyToClipboard", "text"], attempts: ["cdkCopyToClipboardAttempts", "attempts"] }, outputs: { copied: "cdkCopyToClipboardCopied" }, host: { listeners: { "click": "copy()" } }, ngImport: i0 });
+    _b$9.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _b$9, isStandalone: true, selector: "[cdkCopyToClipboard]", inputs: { text: ["cdkCopyToClipboard", "text"], attempts: ["cdkCopyToClipboardAttempts", "attempts"] }, outputs: { copied: "cdkCopyToClipboardCopied" }, host: { listeners: { "click": "copy()" } }, ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkCopyToClipboard, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkCopyToClipboard, decorators: [{
             type: Directive,
             args: [{
                     selector: '[cdkCopyToClipboard]',
                     host: {
                         '(click)': 'copy()',
                     },
+                    standalone: true,
                 }]
         }], ctorParameters: () => [{ type: Clipboard }, { type: i0.NgZone }, { type: undefined, decorators: [{
                     type: Optional
@@ -3012,18 +3013,18 @@ class ClipboardModule {
 }
 _c$8 = ClipboardModule;
 (() => {
-    _c$8.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _c$8, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _c$8.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$8, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _c$8.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _c$8, declarations: [CdkCopyToClipboard], exports: [CdkCopyToClipboard] });
+    _c$8.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$8, imports: [CdkCopyToClipboard], exports: [CdkCopyToClipboard] });
 })();
 (() => {
-    _c$8.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _c$8 });
+    _c$8.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$8 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: ClipboardModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: ClipboardModule, decorators: [{
             type: NgModule,
             args: [{
-                    declarations: [CdkCopyToClipboard],
+                    imports: [CdkCopyToClipboard],
                     exports: [CdkCopyToClipboard],
                 }]
         }] });
@@ -3081,9 +3082,9 @@ class CopySourceCodeButton {
         }, CONFIRMATION_DISPLAY_TIME_MS);
     }
 }
-CopySourceCodeButton.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: CopySourceCodeButton, deps: [], target: i0.ɵɵFactoryTarget.Component });
-CopySourceCodeButton.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.1.0-next.1", type: CopySourceCodeButton, isStandalone: true, selector: "button[docs-copy-source-code]", host: { attributes: { "type": "button", "aria-label": "Copy example source to clipboard", "title": "Copy example source" }, listeners: { "click": "copySourceCode()" }, properties: { "class.docs-copy-source-code-button-success": "showCopySuccess()", "class.docs-copy-source-code-button-failed": "showCopyFailure()" } }, ngImport: i0, template: "<i>\n  <svg\n    aria-hidden=\"true\"\n    width=\"24\"\n    height=\"24\"\n    viewBox=\"0 0 24 24\"\n    fill=\"none\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    class=\"adev-copy\"\n  >\n    <path\n      d=\"M5 22C4.45 22 3.97917 21.8042 3.5875 21.4125C3.19583 21.0208 3 20.55 3 20V6H5V20H16V22H5ZM9 18C8.45 18 7.97917 17.8042 7.5875 17.4125C7.19583 17.0208 7 16.55 7 16V4C7 3.45 7.19583 2.97917 7.5875 2.5875C7.97917 2.19583 8.45 2 9 2H18C18.55 2 19.0208 2.19583 19.4125 2.5875C19.8042 2.97917 20 3.45 20 4V16C20 16.55 19.8042 17.0208 19.4125 17.4125C19.0208 17.8042 18.55 18 18 18H9ZM9 16H18V4H9V16Z\"\n      fill=\"#A39FA9\"\n    />\n  </svg>\n</i>\n\n<docs-icon class=\"adev-check\">check</docs-icon>\n", dependencies: [{ kind: "ngmodule", type: CommonModule }, { kind: "component", type: IconComponent, selector: "docs-icon" }], changeDetection: i0.ChangeDetectionStrategy.OnPush });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: CopySourceCodeButton, decorators: [{
+CopySourceCodeButton.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: CopySourceCodeButton, deps: [], target: i0.ɵɵFactoryTarget.Component });
+CopySourceCodeButton.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.1.0-next.4", type: CopySourceCodeButton, isStandalone: true, selector: "button[docs-copy-source-code]", host: { attributes: { "type": "button", "aria-label": "Copy example source to clipboard", "title": "Copy example source" }, listeners: { "click": "copySourceCode()" }, properties: { "class.docs-copy-source-code-button-success": "showCopySuccess()", "class.docs-copy-source-code-button-failed": "showCopyFailure()" } }, ngImport: i0, template: "<i>\n  <svg\n    aria-hidden=\"true\"\n    width=\"24\"\n    height=\"24\"\n    viewBox=\"0 0 24 24\"\n    fill=\"none\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    class=\"adev-copy\"\n  >\n    <path\n      d=\"M5 22C4.45 22 3.97917 21.8042 3.5875 21.4125C3.19583 21.0208 3 20.55 3 20V6H5V20H16V22H5ZM9 18C8.45 18 7.97917 17.8042 7.5875 17.4125C7.19583 17.0208 7 16.55 7 16V4C7 3.45 7.19583 2.97917 7.5875 2.5875C7.97917 2.19583 8.45 2 9 2H18C18.55 2 19.0208 2.19583 19.4125 2.5875C19.8042 2.97917 20 3.45 20 4V16C20 16.55 19.8042 17.0208 19.4125 17.4125C19.0208 17.8042 18.55 18 18 18H9ZM9 16H18V4H9V16Z\"\n      fill=\"#A39FA9\"\n    />\n  </svg>\n</i>\n\n<docs-icon class=\"adev-check\">check</docs-icon>\n", dependencies: [{ kind: "ngmodule", type: CommonModule }, { kind: "component", type: IconComponent, selector: "docs-icon" }], changeDetection: i0.ChangeDetectionStrategy.OnPush });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: CopySourceCodeButton, decorators: [{
             type: Component,
             args: [{ selector: 'button[docs-copy-source-code]', standalone: true, imports: [CommonModule, IconComponent], host: {
                         'type': 'button',
@@ -3163,12 +3164,12 @@ class Platform {
 }
 _a$9 = Platform;
 (() => {
-    _a$9.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$9, deps: [{ token: PLATFORM_ID }], target: i0.ɵɵFactoryTarget.Injectable });
+    _a$9.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$9, deps: [{ token: PLATFORM_ID }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _a$9.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$9, providedIn: 'root' });
+    _a$9.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$9, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: Platform, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: Platform, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: Object, decorators: [{
@@ -3179,15 +3180,15 @@ class PlatformModule {
 }
 _b$8 = PlatformModule;
 (() => {
-    _b$8.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _b$8, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _b$8.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b$8, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _b$8.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _b$8 });
+    _b$8.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b$8 });
 })();
 (() => {
-    _b$8.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _b$8 });
+    _b$8.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b$8 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: PlatformModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: PlatformModule, decorators: [{
             type: NgModule,
             args: [{}]
         }] });
@@ -3636,12 +3637,12 @@ class MutationObserverFactory {
 }
 _a$8 = MutationObserverFactory;
 (() => {
-    _a$8.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$8, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+    _a$8.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$8, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _a$8.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$8, providedIn: 'root' });
+    _a$8.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$8, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MutationObserverFactory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MutationObserverFactory, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }] });
@@ -3714,12 +3715,12 @@ class ContentObserver {
 }
 _b$7 = ContentObserver;
 (() => {
-    _b$7.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _b$7, deps: [{ token: MutationObserverFactory }], target: i0.ɵɵFactoryTarget.Injectable });
+    _b$7.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b$7, deps: [{ token: MutationObserverFactory }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _b$7.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _b$7, providedIn: 'root' });
+    _b$7.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b$7, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: ContentObserver, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: ContentObserver, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: MutationObserverFactory }] });
@@ -3782,16 +3783,17 @@ class CdkObserveContent {
 }
 _c$7 = CdkObserveContent;
 (() => {
-    _c$7.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _c$7, deps: [{ token: ContentObserver }, { token: i0.ElementRef }, { token: i0.NgZone }], target: i0.ɵɵFactoryTarget.Directive });
+    _c$7.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$7, deps: [{ token: ContentObserver }, { token: i0.ElementRef }, { token: i0.NgZone }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _c$7.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "16.1.0", version: "17.0.0", type: _c$7, selector: "[cdkObserveContent]", inputs: { disabled: ["cdkObserveContentDisabled", "disabled", booleanAttribute], debounce: "debounce" }, outputs: { event: "cdkObserveContent" }, exportAs: ["cdkObserveContent"], ngImport: i0 });
+    _c$7.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "16.1.0", version: "17.1.0-next.2", type: _c$7, isStandalone: true, selector: "[cdkObserveContent]", inputs: { disabled: ["cdkObserveContentDisabled", "disabled", booleanAttribute], debounce: "debounce" }, outputs: { event: "cdkObserveContent" }, exportAs: ["cdkObserveContent"], ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkObserveContent, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkObserveContent, decorators: [{
             type: Directive,
             args: [{
                     selector: '[cdkObserveContent]',
                     exportAs: 'cdkObserveContent',
+                    standalone: true,
                 }]
         }], ctorParameters: () => [{ type: ContentObserver }, { type: i0.ElementRef }, { type: i0.NgZone }], propDecorators: { event: [{
                 type: Output,
@@ -3806,19 +3808,19 @@ class ObserversModule {
 }
 _d$5 = ObserversModule;
 (() => {
-    _d$5.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _d$5, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _d$5.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _d$5, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _d$5.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _d$5, declarations: [CdkObserveContent], exports: [CdkObserveContent] });
+    _d$5.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _d$5, imports: [CdkObserveContent], exports: [CdkObserveContent] });
 })();
 (() => {
-    _d$5.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _d$5, providers: [MutationObserverFactory] });
+    _d$5.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _d$5, providers: [MutationObserverFactory] });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: ObserversModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: ObserversModule, decorators: [{
             type: NgModule,
             args: [{
+                    imports: [CdkObserveContent],
                     exports: [CdkObserveContent],
-                    declarations: [CdkObserveContent],
                     providers: [MutationObserverFactory],
                 }]
         }] });
@@ -3828,15 +3830,15 @@ class LayoutModule {
 }
 _a$7 = LayoutModule;
 (() => {
-    _a$7.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$7, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _a$7.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$7, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _a$7.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _a$7 });
+    _a$7.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$7 });
 })();
 (() => {
-    _a$7.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$7 });
+    _a$7.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$7 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: LayoutModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: LayoutModule, decorators: [{
             type: NgModule,
             args: [{}]
         }] });
@@ -3871,12 +3873,12 @@ class MediaMatcher {
 }
 _b$6 = MediaMatcher;
 (() => {
-    _b$6.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _b$6, deps: [{ token: Platform }, { token: CSP_NONCE, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+    _b$6.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b$6, deps: [{ token: Platform }, { token: CSP_NONCE, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _b$6.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _b$6, providedIn: 'root' });
+    _b$6.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b$6, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MediaMatcher, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MediaMatcher, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: Platform }, { type: undefined, decorators: [{
@@ -4003,12 +4005,12 @@ class BreakpointObserver {
 }
 _c$6 = BreakpointObserver;
 (() => {
-    _c$6.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _c$6, deps: [{ token: MediaMatcher }, { token: i0.NgZone }], target: i0.ɵɵFactoryTarget.Injectable });
+    _c$6.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$6, deps: [{ token: MediaMatcher }, { token: i0.NgZone }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _c$6.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _c$6, providedIn: 'root' });
+    _c$6.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$6, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: BreakpointObserver, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: BreakpointObserver, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: MediaMatcher }, { type: i0.NgZone }] });
@@ -4285,12 +4287,12 @@ class AriaDescriber {
 }
 _a$6 = AriaDescriber;
 (() => {
-    _a$6.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$6, deps: [{ token: DOCUMENT }, { token: Platform }], target: i0.ɵɵFactoryTarget.Injectable });
+    _a$6.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$6, deps: [{ token: DOCUMENT }, { token: Platform }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _a$6.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$6, providedIn: 'root' });
+    _a$6.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$6, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: AriaDescriber, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: AriaDescriber, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: undefined, decorators: [{
@@ -4821,12 +4823,12 @@ class InteractivityChecker {
 }
 _b$5 = InteractivityChecker;
 (() => {
-    _b$5.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _b$5, deps: [{ token: Platform }], target: i0.ɵɵFactoryTarget.Injectable });
+    _b$5.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b$5, deps: [{ token: Platform }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _b$5.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _b$5, providedIn: 'root' });
+    _b$5.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b$5, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: InteractivityChecker, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: InteractivityChecker, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: Platform }] });
@@ -5219,12 +5221,12 @@ class FocusTrapFactory {
 }
 _c$5 = FocusTrapFactory;
 (() => {
-    _c$5.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _c$5, deps: [{ token: InteractivityChecker }, { token: i0.NgZone }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Injectable });
+    _c$5.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$5, deps: [{ token: InteractivityChecker }, { token: i0.NgZone }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _c$5.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _c$5, providedIn: 'root' });
+    _c$5.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$5, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: FocusTrapFactory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: FocusTrapFactory, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: InteractivityChecker }, { type: i0.NgZone }, { type: undefined, decorators: [{
@@ -5288,16 +5290,17 @@ class CdkTrapFocus {
 }
 _d$4 = CdkTrapFocus;
 (() => {
-    _d$4.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _d$4, deps: [{ token: i0.ElementRef }, { token: FocusTrapFactory }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Directive });
+    _d$4.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _d$4, deps: [{ token: i0.ElementRef }, { token: FocusTrapFactory }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _d$4.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "16.1.0", version: "17.0.0", type: _d$4, selector: "[cdkTrapFocus]", inputs: { enabled: ["cdkTrapFocus", "enabled", booleanAttribute], autoCapture: ["cdkTrapFocusAutoCapture", "autoCapture", booleanAttribute] }, exportAs: ["cdkTrapFocus"], usesOnChanges: true, ngImport: i0 });
+    _d$4.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "16.1.0", version: "17.1.0-next.2", type: _d$4, isStandalone: true, selector: "[cdkTrapFocus]", inputs: { enabled: ["cdkTrapFocus", "enabled", booleanAttribute], autoCapture: ["cdkTrapFocusAutoCapture", "autoCapture", booleanAttribute] }, exportAs: ["cdkTrapFocus"], usesOnChanges: true, ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkTrapFocus, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkTrapFocus, decorators: [{
             type: Directive,
             args: [{
                     selector: '[cdkTrapFocus]',
                     exportAs: 'cdkTrapFocus',
+                    standalone: true,
                 }]
         }], ctorParameters: () => [{ type: i0.ElementRef }, { type: FocusTrapFactory }, { type: undefined, decorators: [{
                     type: Inject,
@@ -5446,12 +5449,12 @@ class FocusTrapManager {
 }
 _e$4 = FocusTrapManager;
 (() => {
-    _e$4.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _e$4, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+    _e$4.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _e$4, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _e$4.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _e$4, providedIn: 'root' });
+    _e$4.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _e$4, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: FocusTrapManager, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: FocusTrapManager, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }] });
@@ -5478,12 +5481,12 @@ class ConfigurableFocusTrapFactory {
 }
 _f$3 = ConfigurableFocusTrapFactory;
 (() => {
-    _f$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _f$3, deps: [{ token: InteractivityChecker }, { token: i0.NgZone }, { token: FocusTrapManager }, { token: DOCUMENT }, { token: FOCUS_TRAP_INERT_STRATEGY, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+    _f$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _f$3, deps: [{ token: InteractivityChecker }, { token: i0.NgZone }, { token: FocusTrapManager }, { token: DOCUMENT }, { token: FOCUS_TRAP_INERT_STRATEGY, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _f$3.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _f$3, providedIn: 'root' });
+    _f$3.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _f$3, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: ConfigurableFocusTrapFactory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: ConfigurableFocusTrapFactory, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: InteractivityChecker }, { type: i0.NgZone }, { type: FocusTrapManager }, { type: undefined, decorators: [{
@@ -5661,12 +5664,12 @@ class InputModalityDetector {
 }
 _g$3 = InputModalityDetector;
 (() => {
-    _g$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _g$3, deps: [{ token: Platform }, { token: i0.NgZone }, { token: DOCUMENT }, { token: INPUT_MODALITY_DETECTOR_OPTIONS, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+    _g$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _g$3, deps: [{ token: Platform }, { token: i0.NgZone }, { token: DOCUMENT }, { token: INPUT_MODALITY_DETECTOR_OPTIONS, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _g$3.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _g$3, providedIn: 'root' });
+    _g$3.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _g$3, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: InputModalityDetector, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: InputModalityDetector, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: Platform }, { type: i0.NgZone }, { type: Document, decorators: [{
@@ -5805,12 +5808,12 @@ class LiveAnnouncer {
 }
 _h$3 = LiveAnnouncer;
 (() => {
-    _h$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _h$3, deps: [{ token: LIVE_ANNOUNCER_ELEMENT_TOKEN, optional: true }, { token: i0.NgZone }, { token: DOCUMENT }, { token: LIVE_ANNOUNCER_DEFAULT_OPTIONS, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+    _h$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _h$3, deps: [{ token: LIVE_ANNOUNCER_ELEMENT_TOKEN, optional: true }, { token: i0.NgZone }, { token: DOCUMENT }, { token: LIVE_ANNOUNCER_DEFAULT_OPTIONS, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _h$3.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _h$3, providedIn: 'root' });
+    _h$3.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _h$3, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: LiveAnnouncer, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: LiveAnnouncer, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: undefined, decorators: [{
@@ -5874,16 +5877,17 @@ class CdkAriaLive {
 }
 _j$3 = CdkAriaLive;
 (() => {
-    _j$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _j$3, deps: [{ token: i0.ElementRef }, { token: LiveAnnouncer }, { token: ContentObserver }, { token: i0.NgZone }], target: i0.ɵɵFactoryTarget.Directive });
+    _j$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _j$3, deps: [{ token: i0.ElementRef }, { token: LiveAnnouncer }, { token: ContentObserver }, { token: i0.NgZone }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _j$3.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _j$3, selector: "[cdkAriaLive]", inputs: { politeness: ["cdkAriaLive", "politeness"], duration: ["cdkAriaLiveDuration", "duration"] }, exportAs: ["cdkAriaLive"], ngImport: i0 });
+    _j$3.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _j$3, isStandalone: true, selector: "[cdkAriaLive]", inputs: { politeness: ["cdkAriaLive", "politeness"], duration: ["cdkAriaLiveDuration", "duration"] }, exportAs: ["cdkAriaLive"], ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkAriaLive, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkAriaLive, decorators: [{
             type: Directive,
             args: [{
                     selector: '[cdkAriaLive]',
                     exportAs: 'cdkAriaLive',
+                    standalone: true,
                 }]
         }], ctorParameters: () => [{ type: i0.ElementRef }, { type: LiveAnnouncer }, { type: ContentObserver }, { type: i0.NgZone }], propDecorators: { politeness: [{
                 type: Input,
@@ -6281,12 +6285,12 @@ class FocusMonitor {
 }
 _k$3 = FocusMonitor;
 (() => {
-    _k$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _k$3, deps: [{ token: i0.NgZone }, { token: Platform }, { token: InputModalityDetector }, { token: DOCUMENT, optional: true }, { token: FOCUS_MONITOR_DEFAULT_OPTIONS, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+    _k$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _k$3, deps: [{ token: i0.NgZone }, { token: Platform }, { token: InputModalityDetector }, { token: DOCUMENT, optional: true }, { token: FOCUS_MONITOR_DEFAULT_OPTIONS, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _k$3.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _k$3, providedIn: 'root' });
+    _k$3.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _k$3, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: FocusMonitor, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: FocusMonitor, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: i0.NgZone }, { type: Platform }, { type: InputModalityDetector }, { type: undefined, decorators: [{
@@ -6337,16 +6341,17 @@ class CdkMonitorFocus {
 }
 _l$3 = CdkMonitorFocus;
 (() => {
-    _l$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _l$3, deps: [{ token: i0.ElementRef }, { token: FocusMonitor }], target: i0.ɵɵFactoryTarget.Directive });
+    _l$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _l$3, deps: [{ token: i0.ElementRef }, { token: FocusMonitor }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _l$3.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _l$3, selector: "[cdkMonitorElementFocus], [cdkMonitorSubtreeFocus]", outputs: { cdkFocusChange: "cdkFocusChange" }, exportAs: ["cdkMonitorFocus"], ngImport: i0 });
+    _l$3.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _l$3, isStandalone: true, selector: "[cdkMonitorElementFocus], [cdkMonitorSubtreeFocus]", outputs: { cdkFocusChange: "cdkFocusChange" }, exportAs: ["cdkMonitorFocus"], ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkMonitorFocus, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkMonitorFocus, decorators: [{
             type: Directive,
             args: [{
                     selector: '[cdkMonitorElementFocus], [cdkMonitorSubtreeFocus]',
                     exportAs: 'cdkMonitorFocus',
+                    standalone: true,
                 }]
         }], ctorParameters: () => [{ type: i0.ElementRef }, { type: FocusMonitor }], propDecorators: { cdkFocusChange: [{
                 type: Output
@@ -6446,12 +6451,12 @@ class HighContrastModeDetector {
 }
 _m$2 = HighContrastModeDetector;
 (() => {
-    _m$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _m$2, deps: [{ token: Platform }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Injectable });
+    _m$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _m$2, deps: [{ token: Platform }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _m$2.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _m$2, providedIn: 'root' });
+    _m$2.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _m$2, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: HighContrastModeDetector, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: HighContrastModeDetector, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: Platform }, { type: undefined, decorators: [{
@@ -6465,19 +6470,18 @@ class A11yModule {
 }
 _o$2 = A11yModule;
 (() => {
-    _o$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _o$2, deps: [{ token: HighContrastModeDetector }], target: i0.ɵɵFactoryTarget.NgModule });
+    _o$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _o$2, deps: [{ token: HighContrastModeDetector }], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _o$2.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _o$2, declarations: [CdkAriaLive, CdkTrapFocus, CdkMonitorFocus], imports: [ObserversModule], exports: [CdkAriaLive, CdkTrapFocus, CdkMonitorFocus] });
+    _o$2.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _o$2, imports: [ObserversModule, CdkAriaLive, CdkTrapFocus, CdkMonitorFocus], exports: [CdkAriaLive, CdkTrapFocus, CdkMonitorFocus] });
 })();
 (() => {
-    _o$2.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _o$2, imports: [ObserversModule] });
+    _o$2.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _o$2, imports: [ObserversModule] });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: A11yModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: A11yModule, decorators: [{
             type: NgModule,
             args: [{
-                    imports: [ObserversModule],
-                    declarations: [CdkAriaLive, CdkTrapFocus, CdkMonitorFocus],
+                    imports: [ObserversModule, CdkAriaLive, CdkTrapFocus, CdkMonitorFocus],
                     exports: [CdkAriaLive, CdkTrapFocus, CdkMonitorFocus],
                 }]
         }], ctorParameters: () => [{ type: HighContrastModeDetector }] });
@@ -6538,12 +6542,12 @@ class Directionality {
 }
 _a$5 = Directionality;
 (() => {
-    _a$5.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$5, deps: [{ token: DIR_DOCUMENT, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+    _a$5.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$5, deps: [{ token: DIR_DOCUMENT, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _a$5.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$5, providedIn: 'root' });
+    _a$5.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$5, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: Directionality, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: Directionality, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: undefined, decorators: [{
@@ -6596,18 +6600,19 @@ class Dir {
 }
 _b$4 = Dir;
 (() => {
-    _b$4.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _b$4, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    _b$4.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b$4, deps: [], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _b$4.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _b$4, selector: "[dir]", inputs: { dir: "dir" }, outputs: { change: "dirChange" }, host: { properties: { "attr.dir": "_rawDir" } }, providers: [{ provide: Directionality, useExisting: _b$4 }], exportAs: ["dir"], ngImport: i0 });
+    _b$4.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _b$4, isStandalone: true, selector: "[dir]", inputs: { dir: "dir" }, outputs: { change: "dirChange" }, host: { properties: { "attr.dir": "_rawDir" } }, providers: [{ provide: Directionality, useExisting: _b$4 }], exportAs: ["dir"], ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: Dir, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: Dir, decorators: [{
             type: Directive,
             args: [{
                     selector: '[dir]',
                     providers: [{ provide: Directionality, useExisting: Dir }],
                     host: { '[attr.dir]': '_rawDir' },
                     exportAs: 'dir',
+                    standalone: true,
                 }]
         }], propDecorators: { change: [{
                 type: Output,
@@ -6619,28 +6624,28 @@ class BidiModule {
 }
 _c$4 = BidiModule;
 (() => {
-    _c$4.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _c$4, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _c$4.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$4, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _c$4.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _c$4, declarations: [Dir], exports: [Dir] });
+    _c$4.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$4, imports: [Dir], exports: [Dir] });
 })();
 (() => {
-    _c$4.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _c$4 });
+    _c$4.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$4 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: BidiModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: BidiModule, decorators: [{
             type: NgModule,
             args: [{
+                    imports: [Dir],
                     exports: [Dir],
-                    declarations: [Dir],
                 }]
         }] });
 
 /** Current version of the Angular Component Development Kit. */
-const VERSION$1 = new Version('17.1.0-next.0');
+const VERSION$1 = new Version('17.1.0-next.3');
 
-var _a$4, _b$3, _c$3, _d$3, _e$3, _f$2, _g$2, _h$2, _j$2, _k$2, _l$2, _m$1, _o$1, _p, _q, _r, _s, _t, _u;
+var _a$4, _b$3, _c$3, _d$3, _e$3, _f$2, _g$2, _h$2, _j$2, _k$2, _l$2, _m$1, _o$1, _p, _q, _r, _s, _t, _u, _v;
 /** Current version of Angular Material. */
-const VERSION = new Version('17.1.0-next.0');
+const VERSION = new Version('17.1.0-next.3');
 /** @docs-private */
 class AnimationCurves {
 }
@@ -6724,15 +6729,15 @@ class MatCommonModule {
 }
 _c$3 = MatCommonModule;
 (() => {
-    _c$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _c$3, deps: [{ token: HighContrastModeDetector }, { token: MATERIAL_SANITY_CHECKS, optional: true }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.NgModule });
+    _c$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$3, deps: [{ token: HighContrastModeDetector }, { token: MATERIAL_SANITY_CHECKS, optional: true }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _c$3.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _c$3, imports: [BidiModule], exports: [BidiModule] });
+    _c$3.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$3, imports: [BidiModule], exports: [BidiModule] });
 })();
 (() => {
-    _c$3.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _c$3, imports: [BidiModule, BidiModule] });
+    _c$3.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$3, imports: [BidiModule, BidiModule] });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatCommonModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatCommonModule, decorators: [{
             type: NgModule,
             args: [{
                     imports: [BidiModule],
@@ -6857,24 +6862,63 @@ function mixinTabIndex(base, defaultTabIndex = 0) {
         }
     };
 }
+/**
+ * Class that tracks the error state of a component.
+ * @docs-private
+ */
+class _ErrorStateTracker {
+    constructor(_defaultMatcher, ngControl, _parentFormGroup, _parentForm, _stateChanges) {
+        this._defaultMatcher = _defaultMatcher;
+        this.ngControl = ngControl;
+        this._parentFormGroup = _parentFormGroup;
+        this._parentForm = _parentForm;
+        this._stateChanges = _stateChanges;
+        /** Whether the tracker is currently in an error state. */
+        this.errorState = false;
+    }
+    /** Updates the error state based on the provided error state matcher. */
+    updateErrorState() {
+        const oldState = this.errorState;
+        const parent = this._parentFormGroup || this._parentForm;
+        const matcher = this.matcher || this._defaultMatcher;
+        const control = this.ngControl ? this.ngControl.control : null;
+        // Note: the null check here shouldn't be necessary, but there's an internal
+        // test that appears to pass an object whose `isErrorState` isn't a function.
+        const newState = typeof (matcher === null || matcher === void 0 ? void 0 : matcher.isErrorState) === 'function' ? matcher.isErrorState(control, parent) : false;
+        if (newState !== oldState) {
+            this.errorState = newState;
+            this._stateChanges.next();
+        }
+    }
+}
 function mixinErrorState(base) {
     return class extends base {
+        /** Whether the component is in an error state. */
+        get errorState() {
+            return this._getTracker().errorState;
+        }
+        set errorState(value) {
+            this._getTracker().errorState = value;
+        }
+        /** An object used to control the error state of the component. */
+        get errorStateMatcher() {
+            return this._getTracker().matcher;
+        }
+        set errorStateMatcher(value) {
+            this._getTracker().matcher = value;
+        }
         /** Updates the error state based on the provided error state matcher. */
         updateErrorState() {
-            const oldState = this.errorState;
-            const parent = this._parentFormGroup || this._parentForm;
-            const matcher = this.errorStateMatcher || this._defaultErrorStateMatcher;
-            const control = this.ngControl ? this.ngControl.control : null;
-            const newState = matcher.isErrorState(control, parent);
-            if (newState !== oldState) {
-                this.errorState = newState;
-                this.stateChanges.next();
+            this._getTracker().updateErrorState();
+        }
+        _getTracker() {
+            if (!this._tracker) {
+                this._tracker = new _ErrorStateTracker(this._defaultErrorStateMatcher, this.ngControl, this._parentFormGroup, this._parentForm, this.stateChanges);
             }
+            return this._tracker;
         }
         constructor(...args) {
             super(...args);
-            /** Whether the component is in an error state. */
-            this.errorState = false;
         }
     };
 }
@@ -7229,12 +7273,12 @@ class NativeDateAdapter extends DateAdapter {
 }
 _d$3 = NativeDateAdapter;
 (() => {
-    _d$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _d$3, deps: [{ token: MAT_DATE_LOCALE, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+    _d$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _d$3, deps: [{ token: MAT_DATE_LOCALE, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _d$3.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _d$3 });
+    _d$3.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _d$3 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: NativeDateAdapter, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: NativeDateAdapter, decorators: [{
             type: Injectable
         }], ctorParameters: () => [{ type: undefined, decorators: [{
                     type: Optional
@@ -7257,15 +7301,15 @@ class NativeDateModule {
 }
 _e$3 = NativeDateModule;
 (() => {
-    _e$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _e$3, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _e$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _e$3, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _e$3.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _e$3 });
+    _e$3.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _e$3 });
 })();
 (() => {
-    _e$3.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _e$3, providers: [{ provide: DateAdapter, useClass: NativeDateAdapter }] });
+    _e$3.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _e$3, providers: [{ provide: DateAdapter, useClass: NativeDateAdapter }] });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: NativeDateModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: NativeDateModule, decorators: [{
             type: NgModule,
             args: [{
                     providers: [{ provide: DateAdapter, useClass: NativeDateAdapter }],
@@ -7275,15 +7319,15 @@ class MatNativeDateModule {
 }
 _f$2 = MatNativeDateModule;
 (() => {
-    _f$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _f$2, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _f$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _f$2, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _f$2.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _f$2, imports: [NativeDateModule] });
+    _f$2.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _f$2, imports: [NativeDateModule] });
 })();
 (() => {
-    _f$2.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _f$2, providers: [{ provide: MAT_DATE_FORMATS, useValue: MAT_NATIVE_DATE_FORMATS }], imports: [NativeDateModule] });
+    _f$2.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _f$2, providers: [{ provide: MAT_DATE_FORMATS, useValue: MAT_NATIVE_DATE_FORMATS }], imports: [NativeDateModule] });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatNativeDateModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatNativeDateModule, decorators: [{
             type: NgModule,
             args: [{
                     imports: [NativeDateModule],
@@ -7298,12 +7342,12 @@ class ShowOnDirtyErrorStateMatcher {
 }
 _g$2 = ShowOnDirtyErrorStateMatcher;
 (() => {
-    _g$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _g$2, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+    _g$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _g$2, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _g$2.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _g$2 });
+    _g$2.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _g$2 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: ShowOnDirtyErrorStateMatcher, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: ShowOnDirtyErrorStateMatcher, decorators: [{
             type: Injectable
         }] });
 /** Provider that defines how form controls behave with regards to displaying error messages. */
@@ -7314,12 +7358,12 @@ class ErrorStateMatcher {
 }
 _h$2 = ErrorStateMatcher;
 (() => {
-    _h$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _h$2, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+    _h$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _h$2, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _h$2.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _h$2, providedIn: 'root' });
+    _h$2.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _h$2, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: ErrorStateMatcher, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: ErrorStateMatcher, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }] });
@@ -7332,16 +7376,17 @@ class MatLine {
 }
 _j$2 = MatLine;
 (() => {
-    _j$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _j$2, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    _j$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _j$2, deps: [], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _j$2.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _j$2, selector: "[mat-line], [matLine]", host: { classAttribute: "mat-line" }, ngImport: i0 });
+    _j$2.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _j$2, isStandalone: true, selector: "[mat-line], [matLine]", host: { classAttribute: "mat-line" }, ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatLine, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatLine, decorators: [{
             type: Directive,
             args: [{
                     selector: '[mat-line], [matLine]',
                     host: { 'class': 'mat-line' },
+                    standalone: true,
                 }]
         }] });
 /**
@@ -7371,20 +7416,19 @@ class MatLineModule {
 }
 _k$2 = MatLineModule;
 (() => {
-    _k$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _k$2, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _k$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _k$2, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _k$2.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _k$2, declarations: [MatLine], imports: [MatCommonModule], exports: [MatLine, MatCommonModule] });
+    _k$2.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _k$2, imports: [MatCommonModule, MatLine], exports: [MatLine, MatCommonModule] });
 })();
 (() => {
-    _k$2.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _k$2, imports: [MatCommonModule, MatCommonModule] });
+    _k$2.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _k$2, imports: [MatCommonModule, MatCommonModule] });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatLineModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatLineModule, decorators: [{
             type: NgModule,
             args: [{
-                    imports: [MatCommonModule],
+                    imports: [MatCommonModule, MatLine],
                     exports: [MatLine, MatCommonModule],
-                    declarations: [MatLine],
                 }]
         }] });
 /** Possible states for a ripple element. */
@@ -7429,10 +7473,10 @@ class RippleEventManager {
         this._events = new Map();
         /** Event handler that is bound and which dispatches the events to the different targets. */
         this._delegateEventHandler = (event) => {
-            var _v;
+            var _w;
             const target = _getEventTarget(event);
             if (target) {
-                (_v = this._events.get(event.type)) === null || _v === void 0 ? void 0 : _v.forEach((handlers, element) => {
+                (_w = this._events.get(event.type)) === null || _w === void 0 ? void 0 : _w.forEach((handlers, element) => {
                     if (element === target || element.contains(target)) {
                         handlers.forEach(handler => handler.handleEvent(event));
                     }
@@ -7718,8 +7762,8 @@ class RippleRenderer {
     }
     /** Destroys the given ripple by removing it from the DOM and updating its state. */
     _destroyRipple(rippleRef) {
-        var _v;
-        const eventListeners = (_v = this._activeRipples.get(rippleRef)) !== null && _v !== void 0 ? _v : null;
+        var _w;
+        const eventListeners = (_w = this._activeRipples.get(rippleRef)) !== null && _w !== void 0 ? _w : null;
         this._activeRipples.delete(rippleRef);
         // Clear out the cached bounding rect if we have no more ripples.
         if (!this._activeRipples.size) {
@@ -7908,12 +7952,12 @@ class MatRipple {
 }
 _m$1 = MatRipple;
 (() => {
-    _m$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _m$1, deps: [{ token: i0.ElementRef }, { token: i0.NgZone }, { token: Platform }, { token: MAT_RIPPLE_GLOBAL_OPTIONS, optional: true }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
+    _m$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _m$1, deps: [{ token: i0.ElementRef }, { token: i0.NgZone }, { token: Platform }, { token: MAT_RIPPLE_GLOBAL_OPTIONS, optional: true }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _m$1.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _m$1, selector: "[mat-ripple], [matRipple]", inputs: { color: ["matRippleColor", "color"], unbounded: ["matRippleUnbounded", "unbounded"], centered: ["matRippleCentered", "centered"], radius: ["matRippleRadius", "radius"], animation: ["matRippleAnimation", "animation"], disabled: ["matRippleDisabled", "disabled"], trigger: ["matRippleTrigger", "trigger"] }, host: { properties: { "class.mat-ripple-unbounded": "unbounded" }, classAttribute: "mat-ripple" }, exportAs: ["matRipple"], ngImport: i0 });
+    _m$1.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _m$1, isStandalone: true, selector: "[mat-ripple], [matRipple]", inputs: { color: ["matRippleColor", "color"], unbounded: ["matRippleUnbounded", "unbounded"], centered: ["matRippleCentered", "centered"], radius: ["matRippleRadius", "radius"], animation: ["matRippleAnimation", "animation"], disabled: ["matRippleDisabled", "disabled"], trigger: ["matRippleTrigger", "trigger"] }, host: { properties: { "class.mat-ripple-unbounded": "unbounded" }, classAttribute: "mat-ripple" }, exportAs: ["matRipple"], ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatRipple, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatRipple, decorators: [{
             type: Directive,
             args: [{
                     selector: '[mat-ripple], [matRipple]',
@@ -7922,6 +7966,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                         'class': 'mat-ripple',
                         '[class.mat-ripple-unbounded]': 'unbounded',
                     },
+                    standalone: true,
                 }]
         }], ctorParameters: () => [{ type: i0.ElementRef }, { type: i0.NgZone }, { type: Platform }, { type: undefined, decorators: [{
                     type: Optional
@@ -7959,20 +8004,19 @@ class MatRippleModule {
 }
 _o$1 = MatRippleModule;
 (() => {
-    _o$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _o$1, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _o$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _o$1, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _o$1.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _o$1, declarations: [MatRipple], imports: [MatCommonModule], exports: [MatRipple, MatCommonModule] });
+    _o$1.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _o$1, imports: [MatCommonModule, MatRipple], exports: [MatRipple, MatCommonModule] });
 })();
 (() => {
-    _o$1.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _o$1, imports: [MatCommonModule, MatCommonModule] });
+    _o$1.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _o$1, imports: [MatCommonModule, MatCommonModule] });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatRippleModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatRippleModule, decorators: [{
             type: NgModule,
             args: [{
-                    imports: [MatCommonModule],
+                    imports: [MatCommonModule, MatRipple],
                     exports: [MatRipple, MatCommonModule],
-                    declarations: [MatRipple],
                 }]
         }] });
 /**
@@ -8004,12 +8048,12 @@ class MatPseudoCheckbox {
 }
 _p = MatPseudoCheckbox;
 (() => {
-    _p.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _p, deps: [{ token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
+    _p.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _p, deps: [{ token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
 })();
 (() => {
-    _p.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.0.0", type: _p, selector: "mat-pseudo-checkbox", inputs: { state: "state", disabled: "disabled", appearance: "appearance" }, host: { properties: { "class.mat-pseudo-checkbox-indeterminate": "state === \"indeterminate\"", "class.mat-pseudo-checkbox-checked": "state === \"checked\"", "class.mat-pseudo-checkbox-disabled": "disabled", "class.mat-pseudo-checkbox-minimal": "appearance === \"minimal\"", "class.mat-pseudo-checkbox-full": "appearance === \"full\"", "class._mat-animation-noopable": "_animationMode === \"NoopAnimations\"" }, classAttribute: "mat-pseudo-checkbox" }, ngImport: i0, template: '', isInline: true, styles: [".mat-pseudo-checkbox{border-radius:2px;cursor:pointer;display:inline-block;vertical-align:middle;box-sizing:border-box;position:relative;flex-shrink:0;transition:border-color 90ms cubic-bezier(0, 0, 0.2, 0.1),background-color 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox::after{position:absolute;opacity:0;content:\"\";border-bottom:2px solid currentColor;transition:opacity 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox._mat-animation-noopable{transition:none !important;animation:none !important}.mat-pseudo-checkbox._mat-animation-noopable::after{transition:none}.mat-pseudo-checkbox-disabled{cursor:default}.mat-pseudo-checkbox-indeterminate::after{left:1px;opacity:1;border-radius:2px}.mat-pseudo-checkbox-checked::after{left:1px;border-left:2px solid currentColor;transform:rotate(-45deg);opacity:1;box-sizing:content-box}.mat-pseudo-checkbox-full{border:2px solid}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate{border-color:rgba(0,0,0,0)}.mat-pseudo-checkbox{width:18px;height:18px}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after{width:14px;height:6px;transform-origin:center;top:-4.2426406871px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{top:8px;width:16px}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after{width:10px;height:4px;transform-origin:center;top:-2.8284271247px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{top:6px;width:12px}"], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
+    _p.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _p, isStandalone: true, selector: "mat-pseudo-checkbox", inputs: { state: "state", disabled: "disabled", appearance: "appearance" }, host: { properties: { "class.mat-pseudo-checkbox-indeterminate": "state === \"indeterminate\"", "class.mat-pseudo-checkbox-checked": "state === \"checked\"", "class.mat-pseudo-checkbox-disabled": "disabled", "class.mat-pseudo-checkbox-minimal": "appearance === \"minimal\"", "class.mat-pseudo-checkbox-full": "appearance === \"full\"", "class._mat-animation-noopable": "_animationMode === \"NoopAnimations\"" }, classAttribute: "mat-pseudo-checkbox" }, ngImport: i0, template: '', isInline: true, styles: [".mat-pseudo-checkbox{border-radius:2px;cursor:pointer;display:inline-block;vertical-align:middle;box-sizing:border-box;position:relative;flex-shrink:0;transition:border-color 90ms cubic-bezier(0, 0, 0.2, 0.1),background-color 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox::after{position:absolute;opacity:0;content:\"\";border-bottom:2px solid currentColor;transition:opacity 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox._mat-animation-noopable{transition:none !important;animation:none !important}.mat-pseudo-checkbox._mat-animation-noopable::after{transition:none}.mat-pseudo-checkbox-disabled{cursor:default}.mat-pseudo-checkbox-indeterminate::after{left:1px;opacity:1;border-radius:2px}.mat-pseudo-checkbox-checked::after{left:1px;border-left:2px solid currentColor;transform:rotate(-45deg);opacity:1;box-sizing:content-box}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after,.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{color:var(--mat-minimal-pseudo-checkbox-selected-checkmark-color)}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled::after,.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled::after{color:var(--mat-minimal-pseudo-checkbox-disabled-selected-checkmark-color)}.mat-pseudo-checkbox-full{border-color:var(--mat-full-pseudo-checkbox-unselected-icon-color);border-width:2px;border-style:solid}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-disabled{border-color:var(--mat-full-pseudo-checkbox-disabled-unselected-icon-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate{background-color:var(--mat-full-pseudo-checkbox-selected-icon-color);border-color:rgba(0,0,0,0)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{color:var(--mat-full-pseudo-checkbox-selected-checkmark-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled{background-color:var(--mat-full-pseudo-checkbox-disabled-selected-icon-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled::after,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled::after{color:var(--mat-full-pseudo-checkbox-disabled-selected-checkmark-color)}.mat-pseudo-checkbox{width:18px;height:18px}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after{width:14px;height:6px;transform-origin:center;top:-4.2426406871px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{top:8px;width:16px}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after{width:10px;height:4px;transform-origin:center;top:-2.8284271247px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{top:6px;width:12px}"], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatPseudoCheckbox, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatPseudoCheckbox, decorators: [{
             type: Component,
             args: [{ encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush, selector: 'mat-pseudo-checkbox', template: '', host: {
                         'class': 'mat-pseudo-checkbox',
@@ -8019,7 +8063,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                         '[class.mat-pseudo-checkbox-minimal]': 'appearance === "minimal"',
                         '[class.mat-pseudo-checkbox-full]': 'appearance === "full"',
                         '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
-                    }, styles: [".mat-pseudo-checkbox{border-radius:2px;cursor:pointer;display:inline-block;vertical-align:middle;box-sizing:border-box;position:relative;flex-shrink:0;transition:border-color 90ms cubic-bezier(0, 0, 0.2, 0.1),background-color 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox::after{position:absolute;opacity:0;content:\"\";border-bottom:2px solid currentColor;transition:opacity 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox._mat-animation-noopable{transition:none !important;animation:none !important}.mat-pseudo-checkbox._mat-animation-noopable::after{transition:none}.mat-pseudo-checkbox-disabled{cursor:default}.mat-pseudo-checkbox-indeterminate::after{left:1px;opacity:1;border-radius:2px}.mat-pseudo-checkbox-checked::after{left:1px;border-left:2px solid currentColor;transform:rotate(-45deg);opacity:1;box-sizing:content-box}.mat-pseudo-checkbox-full{border:2px solid}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate{border-color:rgba(0,0,0,0)}.mat-pseudo-checkbox{width:18px;height:18px}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after{width:14px;height:6px;transform-origin:center;top:-4.2426406871px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{top:8px;width:16px}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after{width:10px;height:4px;transform-origin:center;top:-2.8284271247px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{top:6px;width:12px}"] }]
+                    }, standalone: true, styles: [".mat-pseudo-checkbox{border-radius:2px;cursor:pointer;display:inline-block;vertical-align:middle;box-sizing:border-box;position:relative;flex-shrink:0;transition:border-color 90ms cubic-bezier(0, 0, 0.2, 0.1),background-color 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox::after{position:absolute;opacity:0;content:\"\";border-bottom:2px solid currentColor;transition:opacity 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox._mat-animation-noopable{transition:none !important;animation:none !important}.mat-pseudo-checkbox._mat-animation-noopable::after{transition:none}.mat-pseudo-checkbox-disabled{cursor:default}.mat-pseudo-checkbox-indeterminate::after{left:1px;opacity:1;border-radius:2px}.mat-pseudo-checkbox-checked::after{left:1px;border-left:2px solid currentColor;transform:rotate(-45deg);opacity:1;box-sizing:content-box}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after,.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{color:var(--mat-minimal-pseudo-checkbox-selected-checkmark-color)}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled::after,.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled::after{color:var(--mat-minimal-pseudo-checkbox-disabled-selected-checkmark-color)}.mat-pseudo-checkbox-full{border-color:var(--mat-full-pseudo-checkbox-unselected-icon-color);border-width:2px;border-style:solid}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-disabled{border-color:var(--mat-full-pseudo-checkbox-disabled-unselected-icon-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate{background-color:var(--mat-full-pseudo-checkbox-selected-icon-color);border-color:rgba(0,0,0,0)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{color:var(--mat-full-pseudo-checkbox-selected-checkmark-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled{background-color:var(--mat-full-pseudo-checkbox-disabled-selected-icon-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled::after,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled::after{color:var(--mat-full-pseudo-checkbox-disabled-selected-checkmark-color)}.mat-pseudo-checkbox{width:18px;height:18px}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after{width:14px;height:6px;transform-origin:center;top:-4.2426406871px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{top:8px;width:16px}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after{width:10px;height:4px;transform-origin:center;top:-2.8284271247px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{top:6px;width:12px}"] }]
         }], ctorParameters: () => [{ type: undefined, decorators: [{
                     type: Optional
                 }, {
@@ -8036,20 +8080,19 @@ class MatPseudoCheckboxModule {
 }
 _q = MatPseudoCheckboxModule;
 (() => {
-    _q.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _q, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _q.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _q, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _q.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _q, declarations: [MatPseudoCheckbox], imports: [MatCommonModule], exports: [MatPseudoCheckbox] });
+    _q.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _q, imports: [MatCommonModule, MatPseudoCheckbox], exports: [MatPseudoCheckbox] });
 })();
 (() => {
-    _q.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _q, imports: [MatCommonModule] });
+    _q.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _q, imports: [MatCommonModule] });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatPseudoCheckboxModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatPseudoCheckboxModule, decorators: [{
             type: NgModule,
             args: [{
-                    imports: [MatCommonModule],
+                    imports: [MatCommonModule, MatPseudoCheckbox],
                     exports: [MatPseudoCheckbox],
-                    declarations: [MatPseudoCheckbox],
                 }]
         }] });
 /**
@@ -8088,29 +8131,29 @@ const MAT_OPTGROUP = new InjectionToken('MatOptgroup');
  */
 class MatOptgroup {
     constructor(parent) {
-        var _v;
+        var _w;
         /** whether the option group is disabled. */
         this.disabled = false;
         /** Unique id for the underlying label. */
         this._labelId = `mat-optgroup-label-${_uniqueOptgroupIdCounter++}`;
-        this._inert = (_v = parent === null || parent === void 0 ? void 0 : parent.inertGroups) !== null && _v !== void 0 ? _v : false;
+        this._inert = (_w = parent === null || parent === void 0 ? void 0 : parent.inertGroups) !== null && _w !== void 0 ? _w : false;
     }
 }
 _r = MatOptgroup;
 (() => {
-    _r.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _r, deps: [{ token: MAT_OPTION_PARENT_COMPONENT, optional: true }], target: i0.ɵɵFactoryTarget.Component });
+    _r.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _r, deps: [{ token: MAT_OPTION_PARENT_COMPONENT, optional: true }], target: i0.ɵɵFactoryTarget.Component });
 })();
 (() => {
-    _r.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "16.1.0", version: "17.0.0", type: _r, selector: "mat-optgroup", inputs: { label: "label", disabled: ["disabled", "disabled", booleanAttribute] }, host: { properties: { "attr.role": "_inert ? null : \"group\"", "attr.aria-disabled": "_inert ? null : disabled.toString()", "attr.aria-labelledby": "_inert ? null : _labelId" }, classAttribute: "mat-mdc-optgroup" }, providers: [{ provide: MAT_OPTGROUP, useExisting: _r }], exportAs: ["matOptgroup"], ngImport: i0, template: "<span\n  class=\"mat-mdc-optgroup-label\"\n  role=\"presentation\"\n  [class.mdc-list-item--disabled]=\"disabled\"\n  [id]=\"_labelId\">\n  <span class=\"mdc-list-item__primary-text\">{{ label }} <ng-content></ng-content></span>\n</span>\n\n<ng-content select=\"mat-option, ng-container\"></ng-content>\n", styles: [".mat-mdc-optgroup{color:var(--mat-optgroup-label-text-color);font-family:var(--mat-optgroup-label-text-font);line-height:var(--mat-optgroup-label-text-line-height);font-size:var(--mat-optgroup-label-text-size);letter-spacing:var(--mat-optgroup-label-text-tracking);font-weight:var(--mat-optgroup-label-text-weight)}.mat-mdc-optgroup-label{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;min-height:48px}.mat-mdc-optgroup-label:focus{outline:none}[dir=rtl] .mat-mdc-optgroup-label,.mat-mdc-optgroup-label[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-optgroup-label.mdc-list-item--disabled{opacity:.38}.mat-mdc-optgroup-label .mdc-list-item__primary-text{font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;white-space:normal}"], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
+    _r.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "16.1.0", version: "17.1.0-next.2", type: _r, isStandalone: true, selector: "mat-optgroup", inputs: { label: "label", disabled: ["disabled", "disabled", booleanAttribute] }, host: { properties: { "attr.role": "_inert ? null : \"group\"", "attr.aria-disabled": "_inert ? null : disabled.toString()", "attr.aria-labelledby": "_inert ? null : _labelId" }, classAttribute: "mat-mdc-optgroup" }, providers: [{ provide: MAT_OPTGROUP, useExisting: _r }], exportAs: ["matOptgroup"], ngImport: i0, template: "<span\n  class=\"mat-mdc-optgroup-label\"\n  role=\"presentation\"\n  [class.mdc-list-item--disabled]=\"disabled\"\n  [id]=\"_labelId\">\n  <span class=\"mdc-list-item__primary-text\">{{ label }} <ng-content></ng-content></span>\n</span>\n\n<ng-content select=\"mat-option, ng-container\"></ng-content>\n", styles: [".mat-mdc-optgroup{color:var(--mat-optgroup-label-text-color);font-family:var(--mat-optgroup-label-text-font);line-height:var(--mat-optgroup-label-text-line-height);font-size:var(--mat-optgroup-label-text-size);letter-spacing:var(--mat-optgroup-label-text-tracking);font-weight:var(--mat-optgroup-label-text-weight)}.mat-mdc-optgroup-label{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;min-height:48px}.mat-mdc-optgroup-label:focus{outline:none}[dir=rtl] .mat-mdc-optgroup-label,.mat-mdc-optgroup-label[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-optgroup-label.mdc-list-item--disabled{opacity:.38}.mat-mdc-optgroup-label .mdc-list-item__primary-text{font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;white-space:normal}"], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatOptgroup, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatOptgroup, decorators: [{
             type: Component,
             args: [{ selector: 'mat-optgroup', exportAs: 'matOptgroup', encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush, host: {
                         'class': 'mat-mdc-optgroup',
                         '[attr.role]': '_inert ? null : "group"',
                         '[attr.aria-disabled]': '_inert ? null : disabled.toString()',
                         '[attr.aria-labelledby]': '_inert ? null : _labelId',
-                    }, providers: [{ provide: MAT_OPTGROUP, useExisting: MatOptgroup }], template: "<span\n  class=\"mat-mdc-optgroup-label\"\n  role=\"presentation\"\n  [class.mdc-list-item--disabled]=\"disabled\"\n  [id]=\"_labelId\">\n  <span class=\"mdc-list-item__primary-text\">{{ label }} <ng-content></ng-content></span>\n</span>\n\n<ng-content select=\"mat-option, ng-container\"></ng-content>\n", styles: [".mat-mdc-optgroup{color:var(--mat-optgroup-label-text-color);font-family:var(--mat-optgroup-label-text-font);line-height:var(--mat-optgroup-label-text-line-height);font-size:var(--mat-optgroup-label-text-size);letter-spacing:var(--mat-optgroup-label-text-tracking);font-weight:var(--mat-optgroup-label-text-weight)}.mat-mdc-optgroup-label{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;min-height:48px}.mat-mdc-optgroup-label:focus{outline:none}[dir=rtl] .mat-mdc-optgroup-label,.mat-mdc-optgroup-label[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-optgroup-label.mdc-list-item--disabled{opacity:.38}.mat-mdc-optgroup-label .mdc-list-item__primary-text{font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;white-space:normal}"] }]
+                    }, providers: [{ provide: MAT_OPTGROUP, useExisting: MatOptgroup }], standalone: true, template: "<span\n  class=\"mat-mdc-optgroup-label\"\n  role=\"presentation\"\n  [class.mdc-list-item--disabled]=\"disabled\"\n  [id]=\"_labelId\">\n  <span class=\"mdc-list-item__primary-text\">{{ label }} <ng-content></ng-content></span>\n</span>\n\n<ng-content select=\"mat-option, ng-container\"></ng-content>\n", styles: [".mat-mdc-optgroup{color:var(--mat-optgroup-label-text-color);font-family:var(--mat-optgroup-label-text-font);line-height:var(--mat-optgroup-label-text-line-height);font-size:var(--mat-optgroup-label-text-size);letter-spacing:var(--mat-optgroup-label-text-tracking);font-weight:var(--mat-optgroup-label-text-weight)}.mat-mdc-optgroup-label{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;min-height:48px}.mat-mdc-optgroup-label:focus{outline:none}[dir=rtl] .mat-mdc-optgroup-label,.mat-mdc-optgroup-label[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-optgroup-label.mdc-list-item--disabled{opacity:.38}.mat-mdc-optgroup-label .mdc-list-item__primary-text{font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;white-space:normal}"] }]
         }], ctorParameters: () => [{ type: undefined, decorators: [{
                     type: Inject,
                     args: [MAT_OPTION_PARENT_COMPONENT]
@@ -8196,9 +8239,9 @@ class MatOption {
      * select's trigger.
      */
     get viewValue() {
-        var _v;
+        var _w;
         // TODO(kara): Add input property alternative for node envs.
-        return (((_v = this._text) === null || _v === void 0 ? void 0 : _v.nativeElement.textContent) || '').trim();
+        return (((_w = this._text) === null || _w === void 0 ? void 0 : _w.nativeElement.textContent) || '').trim();
     }
     /** Selects the option. */
     select(emitEvent = true) {
@@ -8311,12 +8354,12 @@ class MatOption {
 }
 _s = MatOption;
 (() => {
-    _s.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _s, deps: [{ token: i0.ElementRef }, { token: i0.ChangeDetectorRef }, { token: MAT_OPTION_PARENT_COMPONENT, optional: true }, { token: MAT_OPTGROUP, optional: true }], target: i0.ɵɵFactoryTarget.Component });
+    _s.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _s, deps: [{ token: i0.ElementRef }, { token: i0.ChangeDetectorRef }, { token: MAT_OPTION_PARENT_COMPONENT, optional: true }, { token: MAT_OPTGROUP, optional: true }], target: i0.ɵɵFactoryTarget.Component });
 })();
 (() => {
-    _s.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.0.0", type: _s, selector: "mat-option", inputs: { value: "value", id: "id", disabled: ["disabled", "disabled", booleanAttribute] }, outputs: { onSelectionChange: "onSelectionChange" }, host: { attributes: { "role": "option" }, listeners: { "click": "_selectViaInteraction()", "keydown": "_handleKeydown($event)" }, properties: { "class.mdc-list-item--selected": "selected", "class.mat-mdc-option-multiple": "multiple", "class.mat-mdc-option-active": "active", "class.mdc-list-item--disabled": "disabled", "id": "id", "attr.aria-selected": "selected", "attr.aria-disabled": "disabled.toString()" }, classAttribute: "mat-mdc-option mdc-list-item" }, viewQueries: [{ propertyName: "_text", first: true, predicate: ["text"], descendants: true, static: true }], exportAs: ["matOption"], ngImport: i0, template: "<!-- Set aria-hidden=\"true\" to this DOM node and other decorative nodes in this file. This might\n be contributing to issue where sometimes VoiceOver focuses on a TextNode in the a11y tree instead\n of the Option node (#23202). Most assistive technology will generally ignore non-role,\n non-text-content elements. Adding aria-hidden seems to make VoiceOver behave more consistently. -->\n@if (multiple) {\n    <mat-pseudo-checkbox\n        class=\"mat-mdc-option-pseudo-checkbox\"\n        [disabled]=\"disabled\"\n        [state]=\"selected ? 'checked' : 'unchecked'\"\n        aria-hidden=\"true\"></mat-pseudo-checkbox>\n}\n\n<ng-content select=\"mat-icon\"></ng-content>\n\n<span class=\"mdc-list-item__primary-text\" #text><ng-content></ng-content></span>\n\n<!-- Render checkmark at the end for single-selection. -->\n@if (!multiple && selected && !hideSingleSelectionIndicator) {\n    <mat-pseudo-checkbox\n        class=\"mat-mdc-option-pseudo-checkbox\"\n        [disabled]=\"disabled\"\n        state=\"checked\"\n        aria-hidden=\"true\"\n        appearance=\"minimal\"></mat-pseudo-checkbox>\n}\n\n<!-- See a11y notes inside optgroup.ts for context behind this element. -->\n@if (group && group._inert) {\n    <span class=\"cdk-visually-hidden\">({{ group.label }})</span>\n}\n\n<div class=\"mat-mdc-option-ripple mat-mdc-focus-indicator\" aria-hidden=\"true\" mat-ripple\n     [matRippleTrigger]=\"_getHostElement()\" [matRippleDisabled]=\"disabled || disableRipple\">\n</div>\n", styles: [".mat-mdc-option{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;-webkit-user-select:none;user-select:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0);color:var(--mat-option-label-text-color);font-family:var(--mat-option-label-text-font);line-height:var(--mat-option-label-text-line-height);font-size:var(--mat-option-label-text-size);letter-spacing:var(--mat-option-label-text-tracking);font-weight:var(--mat-option-label-text-weight);min-height:48px}.mat-mdc-option:focus{outline:none}[dir=rtl] .mat-mdc-option,.mat-mdc-option[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-option:hover:not(.mdc-list-item--disabled){background-color:var(--mat-option-hover-state-layer-color)}.mat-mdc-option:focus.mdc-list-item,.mat-mdc-option.mat-mdc-option-active.mdc-list-item{background-color:var(--mat-option-focus-state-layer-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text{color:var(--mat-option-selected-state-label-text-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple){background-color:var(--mat-option-selected-state-layer-color)}.mat-mdc-option.mdc-list-item{align-items:center}.mat-mdc-option.mdc-list-item--disabled{cursor:default;pointer-events:none}.mat-mdc-option.mdc-list-item--disabled .mat-mdc-option-pseudo-checkbox,.mat-mdc-option.mdc-list-item--disabled .mdc-list-item__primary-text,.mat-mdc-option.mdc-list-item--disabled>mat-icon{opacity:.38}.mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:32px}[dir=rtl] .mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:16px;padding-right:32px}.mat-mdc-option .mat-icon,.mat-mdc-option .mat-pseudo-checkbox-full{margin-right:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-icon,[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-full{margin-right:0;margin-left:16px}.mat-mdc-option .mat-pseudo-checkbox-minimal{margin-left:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-minimal{margin-right:16px;margin-left:0}.mat-mdc-option .mat-mdc-option-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-mdc-option .mdc-list-item__primary-text{white-space:normal;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;margin-right:auto}[dir=rtl] .mat-mdc-option .mdc-list-item__primary-text{margin-right:0;margin-left:auto}.cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{content:\"\";position:absolute;top:50%;right:16px;transform:translateY(-50%);width:10px;height:0;border-bottom:solid 10px;border-radius:10px}[dir=rtl] .cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{right:auto;left:16px}.mat-mdc-option-active .mat-mdc-focus-indicator::before{content:\"\"}"], dependencies: [{ kind: "directive", type: MatRipple, selector: "[mat-ripple], [matRipple]", inputs: ["matRippleColor", "matRippleUnbounded", "matRippleCentered", "matRippleRadius", "matRippleAnimation", "matRippleDisabled", "matRippleTrigger"], exportAs: ["matRipple"] }, { kind: "component", type: MatPseudoCheckbox, selector: "mat-pseudo-checkbox", inputs: ["state", "disabled", "appearance"] }], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
+    _s.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.2", type: _s, isStandalone: true, selector: "mat-option", inputs: { value: "value", id: "id", disabled: ["disabled", "disabled", booleanAttribute] }, outputs: { onSelectionChange: "onSelectionChange" }, host: { attributes: { "role": "option" }, listeners: { "click": "_selectViaInteraction()", "keydown": "_handleKeydown($event)" }, properties: { "class.mdc-list-item--selected": "selected", "class.mat-mdc-option-multiple": "multiple", "class.mat-mdc-option-active": "active", "class.mdc-list-item--disabled": "disabled", "id": "id", "attr.aria-selected": "selected", "attr.aria-disabled": "disabled.toString()" }, classAttribute: "mat-mdc-option mdc-list-item" }, viewQueries: [{ propertyName: "_text", first: true, predicate: ["text"], descendants: true, static: true }], exportAs: ["matOption"], ngImport: i0, template: "<!-- Set aria-hidden=\"true\" to this DOM node and other decorative nodes in this file. This might\n be contributing to issue where sometimes VoiceOver focuses on a TextNode in the a11y tree instead\n of the Option node (#23202). Most assistive technology will generally ignore non-role,\n non-text-content elements. Adding aria-hidden seems to make VoiceOver behave more consistently. -->\n@if (multiple) {\n    <mat-pseudo-checkbox\n        class=\"mat-mdc-option-pseudo-checkbox\"\n        [disabled]=\"disabled\"\n        [state]=\"selected ? 'checked' : 'unchecked'\"\n        aria-hidden=\"true\"></mat-pseudo-checkbox>\n}\n\n<ng-content select=\"mat-icon\"></ng-content>\n\n<span class=\"mdc-list-item__primary-text\" #text><ng-content></ng-content></span>\n\n<!-- Render checkmark at the end for single-selection. -->\n@if (!multiple && selected && !hideSingleSelectionIndicator) {\n    <mat-pseudo-checkbox\n        class=\"mat-mdc-option-pseudo-checkbox\"\n        [disabled]=\"disabled\"\n        state=\"checked\"\n        aria-hidden=\"true\"\n        appearance=\"minimal\"></mat-pseudo-checkbox>\n}\n\n<!-- See a11y notes inside optgroup.ts for context behind this element. -->\n@if (group && group._inert) {\n    <span class=\"cdk-visually-hidden\">({{ group.label }})</span>\n}\n\n<div class=\"mat-mdc-option-ripple mat-mdc-focus-indicator\" aria-hidden=\"true\" mat-ripple\n     [matRippleTrigger]=\"_getHostElement()\" [matRippleDisabled]=\"disabled || disableRipple\">\n</div>\n", styles: [".mat-mdc-option{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;-webkit-user-select:none;user-select:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0);color:var(--mat-option-label-text-color);font-family:var(--mat-option-label-text-font);line-height:var(--mat-option-label-text-line-height);font-size:var(--mat-option-label-text-size);letter-spacing:var(--mat-option-label-text-tracking);font-weight:var(--mat-option-label-text-weight);min-height:48px}.mat-mdc-option:focus{outline:none}[dir=rtl] .mat-mdc-option,.mat-mdc-option[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-option:hover:not(.mdc-list-item--disabled){background-color:var(--mat-option-hover-state-layer-color)}.mat-mdc-option:focus.mdc-list-item,.mat-mdc-option.mat-mdc-option-active.mdc-list-item{background-color:var(--mat-option-focus-state-layer-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text{color:var(--mat-option-selected-state-label-text-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple){background-color:var(--mat-option-selected-state-layer-color)}.mat-mdc-option.mdc-list-item{align-items:center}.mat-mdc-option.mdc-list-item--disabled{cursor:default;pointer-events:none}.mat-mdc-option.mdc-list-item--disabled .mat-mdc-option-pseudo-checkbox,.mat-mdc-option.mdc-list-item--disabled .mdc-list-item__primary-text,.mat-mdc-option.mdc-list-item--disabled>mat-icon{opacity:.38}.mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:32px}[dir=rtl] .mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:16px;padding-right:32px}.mat-mdc-option .mat-icon,.mat-mdc-option .mat-pseudo-checkbox-full{margin-right:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-icon,[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-full{margin-right:0;margin-left:16px}.mat-mdc-option .mat-pseudo-checkbox-minimal{margin-left:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-minimal{margin-right:16px;margin-left:0}.mat-mdc-option .mat-mdc-option-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-mdc-option .mdc-list-item__primary-text{white-space:normal;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;margin-right:auto}[dir=rtl] .mat-mdc-option .mdc-list-item__primary-text{margin-right:0;margin-left:auto}.cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{content:\"\";position:absolute;top:50%;right:16px;transform:translateY(-50%);width:10px;height:0;border-bottom:solid 10px;border-radius:10px}[dir=rtl] .cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{right:auto;left:16px}.mat-mdc-option-active .mat-mdc-focus-indicator::before{content:\"\"}"], dependencies: [{ kind: "component", type: MatPseudoCheckbox, selector: "mat-pseudo-checkbox", inputs: ["state", "disabled", "appearance"] }, { kind: "directive", type: MatRipple, selector: "[mat-ripple], [matRipple]", inputs: ["matRippleColor", "matRippleUnbounded", "matRippleCentered", "matRippleRadius", "matRippleAnimation", "matRippleDisabled", "matRippleTrigger"], exportAs: ["matRipple"] }], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatOption, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatOption, decorators: [{
             type: Component,
             args: [{ selector: 'mat-option', exportAs: 'matOption', host: {
                         'role': 'option',
@@ -8339,7 +8382,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                         '(click)': '_selectViaInteraction()',
                         '(keydown)': '_handleKeydown($event)',
                         'class': 'mat-mdc-option mdc-list-item',
-                    }, encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush, template: "<!-- Set aria-hidden=\"true\" to this DOM node and other decorative nodes in this file. This might\n be contributing to issue where sometimes VoiceOver focuses on a TextNode in the a11y tree instead\n of the Option node (#23202). Most assistive technology will generally ignore non-role,\n non-text-content elements. Adding aria-hidden seems to make VoiceOver behave more consistently. -->\n@if (multiple) {\n    <mat-pseudo-checkbox\n        class=\"mat-mdc-option-pseudo-checkbox\"\n        [disabled]=\"disabled\"\n        [state]=\"selected ? 'checked' : 'unchecked'\"\n        aria-hidden=\"true\"></mat-pseudo-checkbox>\n}\n\n<ng-content select=\"mat-icon\"></ng-content>\n\n<span class=\"mdc-list-item__primary-text\" #text><ng-content></ng-content></span>\n\n<!-- Render checkmark at the end for single-selection. -->\n@if (!multiple && selected && !hideSingleSelectionIndicator) {\n    <mat-pseudo-checkbox\n        class=\"mat-mdc-option-pseudo-checkbox\"\n        [disabled]=\"disabled\"\n        state=\"checked\"\n        aria-hidden=\"true\"\n        appearance=\"minimal\"></mat-pseudo-checkbox>\n}\n\n<!-- See a11y notes inside optgroup.ts for context behind this element. -->\n@if (group && group._inert) {\n    <span class=\"cdk-visually-hidden\">({{ group.label }})</span>\n}\n\n<div class=\"mat-mdc-option-ripple mat-mdc-focus-indicator\" aria-hidden=\"true\" mat-ripple\n     [matRippleTrigger]=\"_getHostElement()\" [matRippleDisabled]=\"disabled || disableRipple\">\n</div>\n", styles: [".mat-mdc-option{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;-webkit-user-select:none;user-select:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0);color:var(--mat-option-label-text-color);font-family:var(--mat-option-label-text-font);line-height:var(--mat-option-label-text-line-height);font-size:var(--mat-option-label-text-size);letter-spacing:var(--mat-option-label-text-tracking);font-weight:var(--mat-option-label-text-weight);min-height:48px}.mat-mdc-option:focus{outline:none}[dir=rtl] .mat-mdc-option,.mat-mdc-option[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-option:hover:not(.mdc-list-item--disabled){background-color:var(--mat-option-hover-state-layer-color)}.mat-mdc-option:focus.mdc-list-item,.mat-mdc-option.mat-mdc-option-active.mdc-list-item{background-color:var(--mat-option-focus-state-layer-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text{color:var(--mat-option-selected-state-label-text-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple){background-color:var(--mat-option-selected-state-layer-color)}.mat-mdc-option.mdc-list-item{align-items:center}.mat-mdc-option.mdc-list-item--disabled{cursor:default;pointer-events:none}.mat-mdc-option.mdc-list-item--disabled .mat-mdc-option-pseudo-checkbox,.mat-mdc-option.mdc-list-item--disabled .mdc-list-item__primary-text,.mat-mdc-option.mdc-list-item--disabled>mat-icon{opacity:.38}.mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:32px}[dir=rtl] .mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:16px;padding-right:32px}.mat-mdc-option .mat-icon,.mat-mdc-option .mat-pseudo-checkbox-full{margin-right:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-icon,[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-full{margin-right:0;margin-left:16px}.mat-mdc-option .mat-pseudo-checkbox-minimal{margin-left:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-minimal{margin-right:16px;margin-left:0}.mat-mdc-option .mat-mdc-option-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-mdc-option .mdc-list-item__primary-text{white-space:normal;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;margin-right:auto}[dir=rtl] .mat-mdc-option .mdc-list-item__primary-text{margin-right:0;margin-left:auto}.cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{content:\"\";position:absolute;top:50%;right:16px;transform:translateY(-50%);width:10px;height:0;border-bottom:solid 10px;border-radius:10px}[dir=rtl] .cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{right:auto;left:16px}.mat-mdc-option-active .mat-mdc-focus-indicator::before{content:\"\"}"] }]
+                    }, encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush, standalone: true, imports: [MatPseudoCheckbox, MatRipple], template: "<!-- Set aria-hidden=\"true\" to this DOM node and other decorative nodes in this file. This might\n be contributing to issue where sometimes VoiceOver focuses on a TextNode in the a11y tree instead\n of the Option node (#23202). Most assistive technology will generally ignore non-role,\n non-text-content elements. Adding aria-hidden seems to make VoiceOver behave more consistently. -->\n@if (multiple) {\n    <mat-pseudo-checkbox\n        class=\"mat-mdc-option-pseudo-checkbox\"\n        [disabled]=\"disabled\"\n        [state]=\"selected ? 'checked' : 'unchecked'\"\n        aria-hidden=\"true\"></mat-pseudo-checkbox>\n}\n\n<ng-content select=\"mat-icon\"></ng-content>\n\n<span class=\"mdc-list-item__primary-text\" #text><ng-content></ng-content></span>\n\n<!-- Render checkmark at the end for single-selection. -->\n@if (!multiple && selected && !hideSingleSelectionIndicator) {\n    <mat-pseudo-checkbox\n        class=\"mat-mdc-option-pseudo-checkbox\"\n        [disabled]=\"disabled\"\n        state=\"checked\"\n        aria-hidden=\"true\"\n        appearance=\"minimal\"></mat-pseudo-checkbox>\n}\n\n<!-- See a11y notes inside optgroup.ts for context behind this element. -->\n@if (group && group._inert) {\n    <span class=\"cdk-visually-hidden\">({{ group.label }})</span>\n}\n\n<div class=\"mat-mdc-option-ripple mat-mdc-focus-indicator\" aria-hidden=\"true\" mat-ripple\n     [matRippleTrigger]=\"_getHostElement()\" [matRippleDisabled]=\"disabled || disableRipple\">\n</div>\n", styles: [".mat-mdc-option{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;-webkit-user-select:none;user-select:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0);color:var(--mat-option-label-text-color);font-family:var(--mat-option-label-text-font);line-height:var(--mat-option-label-text-line-height);font-size:var(--mat-option-label-text-size);letter-spacing:var(--mat-option-label-text-tracking);font-weight:var(--mat-option-label-text-weight);min-height:48px}.mat-mdc-option:focus{outline:none}[dir=rtl] .mat-mdc-option,.mat-mdc-option[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-option:hover:not(.mdc-list-item--disabled){background-color:var(--mat-option-hover-state-layer-color)}.mat-mdc-option:focus.mdc-list-item,.mat-mdc-option.mat-mdc-option-active.mdc-list-item{background-color:var(--mat-option-focus-state-layer-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text{color:var(--mat-option-selected-state-label-text-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple){background-color:var(--mat-option-selected-state-layer-color)}.mat-mdc-option.mdc-list-item{align-items:center}.mat-mdc-option.mdc-list-item--disabled{cursor:default;pointer-events:none}.mat-mdc-option.mdc-list-item--disabled .mat-mdc-option-pseudo-checkbox,.mat-mdc-option.mdc-list-item--disabled .mdc-list-item__primary-text,.mat-mdc-option.mdc-list-item--disabled>mat-icon{opacity:.38}.mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:32px}[dir=rtl] .mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:16px;padding-right:32px}.mat-mdc-option .mat-icon,.mat-mdc-option .mat-pseudo-checkbox-full{margin-right:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-icon,[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-full{margin-right:0;margin-left:16px}.mat-mdc-option .mat-pseudo-checkbox-minimal{margin-left:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-minimal{margin-right:16px;margin-left:0}.mat-mdc-option .mat-mdc-option-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-mdc-option .mdc-list-item__primary-text{white-space:normal;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;margin-right:auto}[dir=rtl] .mat-mdc-option .mdc-list-item__primary-text{margin-right:0;margin-left:auto}.cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{content:\"\";position:absolute;top:50%;right:16px;transform:translateY(-50%);width:10px;height:0;border-bottom:solid 10px;border-radius:10px}[dir=rtl] .cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{right:auto;left:16px}.mat-mdc-option-active .mat-mdc-focus-indicator::before{content:\"\"}"] }]
         }], ctorParameters: () => [{ type: i0.ElementRef }, { type: i0.ChangeDetectorRef }, { type: undefined, decorators: [{
                     type: Optional
                 }, {
@@ -8405,20 +8448,19 @@ class MatOptionModule {
 }
 _t = MatOptionModule;
 (() => {
-    _t.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _t, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _t.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _t, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _t.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _t, declarations: [MatOption, MatOptgroup], imports: [MatRippleModule, MatCommonModule, MatPseudoCheckboxModule], exports: [MatOption, MatOptgroup] });
+    _t.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _t, imports: [MatRippleModule, MatCommonModule, MatPseudoCheckboxModule, MatOption, MatOptgroup], exports: [MatOption, MatOptgroup] });
 })();
 (() => {
-    _t.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _t, imports: [MatRippleModule, MatCommonModule, MatPseudoCheckboxModule] });
+    _t.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _t, imports: [MatRippleModule, MatCommonModule, MatPseudoCheckboxModule] });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatOptionModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatOptionModule, decorators: [{
             type: NgModule,
             args: [{
-                    imports: [MatRippleModule, MatCommonModule, MatPseudoCheckboxModule],
+                    imports: [MatRippleModule, MatCommonModule, MatPseudoCheckboxModule, MatOption, MatOptgroup],
                     exports: [MatOption, MatOptgroup],
-                    declarations: [MatOption, MatOptgroup],
                 }]
         }] });
 /** The options for the MatRippleLoader's event listeners. */
@@ -8438,6 +8480,8 @@ const matRippleDisabled = 'mat-ripple-loader-disabled';
  *
  * This service allows us to avoid eagerly creating & attaching MatRipples.
  * It works by creating & attaching a ripple only when a component is first interacted with.
+ *
+ * @docs-private
  */
 class MatRippleLoader {
     constructor() {
@@ -8446,6 +8490,7 @@ class MatRippleLoader {
         this._globalRippleOptions = inject(MAT_RIPPLE_GLOBAL_OPTIONS, { optional: true });
         this._platform = inject(Platform);
         this._ngZone = inject(NgZone);
+        this._hosts = new Map();
         /** Handles creating and attaching component internals when a component it is initially interacted with. */
         this._onInteraction = (event) => {
             if (!(event.target instanceof HTMLElement)) {
@@ -8455,20 +8500,24 @@ class MatRippleLoader {
             // TODO(wagnermaciel): Consider batching these events to improve runtime performance.
             const element = eventTarget.closest(`[${matRippleUninitialized}]`);
             if (element) {
-                this.createRipple(element);
+                this._createRipple(element);
             }
         };
         this._ngZone.runOutsideAngular(() => {
-            var _v;
+            var _w;
             for (const event of rippleInteractionEvents) {
-                (_v = this._document) === null || _v === void 0 ? void 0 : _v.addEventListener(event, this._onInteraction, eventListenerOptions);
+                (_w = this._document) === null || _w === void 0 ? void 0 : _w.addEventListener(event, this._onInteraction, eventListenerOptions);
             }
         });
     }
     ngOnDestroy() {
-        var _v;
+        var _w;
+        const hosts = this._hosts.keys();
+        for (const host of hosts) {
+            this.destroyRipple(host);
+        }
         for (const event of rippleInteractionEvents) {
-            (_v = this._document) === null || _v === void 0 ? void 0 : _v.removeEventListener(event, this._onInteraction, eventListenerOptions);
+            (_w = this._document) === null || _w === void 0 ? void 0 : _w.removeEventListener(event, this._onInteraction, eventListenerOptions);
         }
     }
     /**
@@ -8494,14 +8543,12 @@ class MatRippleLoader {
     }
     /** Returns the ripple instance for the given host element. */
     getRipple(host) {
-        if (host.matRipple) {
-            return host.matRipple;
-        }
-        return this.createRipple(host);
+        const ripple = this._hosts.get(host);
+        return ripple || this._createRipple(host);
     }
     /** Sets the disabled state on the ripple instance corresponding to the given host element. */
     setDisabled(host, disabled) {
-        const ripple = host.matRipple;
+        const ripple = this._hosts.get(host);
         // If the ripple has already been instantiated, just disable it.
         if (ripple) {
             ripple.disabled = disabled;
@@ -8517,13 +8564,17 @@ class MatRippleLoader {
         }
     }
     /** Creates a MatRipple and appends it to the given element. */
-    createRipple(host) {
-        var _v;
+    _createRipple(host) {
+        var _w;
         if (!this._document) {
             return;
         }
+        const existingRipple = this._hosts.get(host);
+        if (existingRipple) {
+            return existingRipple;
+        }
         // Create the ripple element.
-        (_v = host.querySelector('.mat-ripple')) === null || _v === void 0 ? void 0 : _v.remove();
+        (_w = host.querySelector('.mat-ripple')) === null || _w === void 0 ? void 0 : _w.remove();
         const rippleEl = this._document.createElement('span');
         rippleEl.classList.add('mat-ripple', host.getAttribute(matRippleClassName));
         host.append(rippleEl);
@@ -8538,20 +8589,53 @@ class MatRippleLoader {
     }
     attachRipple(host, ripple) {
         host.removeAttribute(matRippleUninitialized);
-        host.matRipple = ripple;
+        this._hosts.set(host, ripple);
+    }
+    destroyRipple(host) {
+        const ripple = this._hosts.get(host);
+        if (ripple) {
+            // Since this directive is created manually, it needs to be destroyed manually too.
+            // tslint:disable-next-line:no-lifecycle-invocation
+            ripple.ngOnDestroy();
+            this._hosts.delete(host);
+        }
     }
 }
 _u = MatRippleLoader;
 (() => {
-    _u.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _u, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+    _u.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _u, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _u.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _u, providedIn: 'root' });
+    _u.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _u, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatRippleLoader, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatRippleLoader, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [] });
+/**
+ * Internal shared component used as a container in form field controls.
+ * Not to be confused with `mat-form-field` which MDC calls a "text field".
+ * @docs-private
+ */
+class _MatInternalFormField {
+}
+_v = _MatInternalFormField;
+(() => {
+    _v.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _v, deps: [], target: i0.ɵɵFactoryTarget.Component });
+})();
+(() => {
+    _v.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _v, isStandalone: true, selector: "div[mat-internal-form-field]", inputs: { labelPosition: "labelPosition" }, host: { properties: { "class.mdc-form-field--align-end": "labelPosition === \"before\"" }, classAttribute: "mdc-form-field mat-internal-form-field" }, ngImport: i0, template: '<ng-content></ng-content>', isInline: true, styles: [".mdc-form-field{display:inline-flex;align-items:center;vertical-align:middle}.mdc-form-field[hidden]{display:none}.mdc-form-field>label{margin-left:0;margin-right:auto;padding-left:4px;padding-right:0;order:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{margin-left:auto;margin-right:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{padding-left:0;padding-right:4px}.mdc-form-field--nowrap>label{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.mdc-form-field--align-end>label{margin-left:auto;margin-right:0;padding-left:0;padding-right:4px;order:-1}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{margin-left:0;margin-right:auto}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{padding-left:4px;padding-right:0}.mdc-form-field--space-between{justify-content:space-between}.mdc-form-field--space-between>label{margin:0}[dir=rtl] .mdc-form-field--space-between>label,.mdc-form-field--space-between>label[dir=rtl]{margin:0}.mdc-form-field{font-family:var(--mdc-form-field-label-text-font);line-height:var(--mdc-form-field-label-text-line-height);font-size:var(--mdc-form-field-label-text-size);font-weight:var(--mdc-form-field-label-text-weight);letter-spacing:var(--mdc-form-field-label-text-tracking);color:var(--mdc-form-field-label-text-color)}.mat-internal-form-field{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}"], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
+})();
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _MatInternalFormField, decorators: [{
+            type: Component,
+            args: [{ selector: 'div[mat-internal-form-field]', standalone: true, template: '<ng-content></ng-content>', encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush, host: {
+                        'class': 'mdc-form-field mat-internal-form-field',
+                        '[class.mdc-form-field--align-end]': 'labelPosition === "before"',
+                    }, styles: [".mdc-form-field{display:inline-flex;align-items:center;vertical-align:middle}.mdc-form-field[hidden]{display:none}.mdc-form-field>label{margin-left:0;margin-right:auto;padding-left:4px;padding-right:0;order:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{margin-left:auto;margin-right:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{padding-left:0;padding-right:4px}.mdc-form-field--nowrap>label{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.mdc-form-field--align-end>label{margin-left:auto;margin-right:0;padding-left:0;padding-right:4px;order:-1}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{margin-left:0;margin-right:auto}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{padding-left:4px;padding-right:0}.mdc-form-field--space-between{justify-content:space-between}.mdc-form-field--space-between>label{margin:0}[dir=rtl] .mdc-form-field--space-between>label,.mdc-form-field--space-between>label[dir=rtl]{margin:0}.mdc-form-field{font-family:var(--mdc-form-field-label-text-font);line-height:var(--mdc-form-field-label-text-line-height);font-size:var(--mdc-form-field-label-text-size);font-weight:var(--mdc-form-field-label-text-weight);letter-spacing:var(--mdc-form-field-label-text-tracking);color:var(--mdc-form-field-label-text-color)}.mat-internal-form-field{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}"] }]
+        }], propDecorators: { labelPosition: [{
+                type: Input,
+                args: [{ required: true }]
+            }] } });
 
 var _a$3, _b$2, _c$2, _d$2, _e$2;
 /**
@@ -8935,16 +9019,17 @@ class CdkPortal extends TemplatePortal {
 }
 _a$3 = CdkPortal;
 (() => {
-    _a$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$3, deps: [{ token: i0.TemplateRef }, { token: i0.ViewContainerRef }], target: i0.ɵɵFactoryTarget.Directive });
+    _a$3.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$3, deps: [{ token: i0.TemplateRef }, { token: i0.ViewContainerRef }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _a$3.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _a$3, selector: "[cdkPortal]", exportAs: ["cdkPortal"], usesInheritance: true, ngImport: i0 });
+    _a$3.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _a$3, isStandalone: true, selector: "[cdkPortal]", exportAs: ["cdkPortal"], usesInheritance: true, ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkPortal, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkPortal, decorators: [{
             type: Directive,
             args: [{
                     selector: '[cdkPortal]',
                     exportAs: 'cdkPortal',
+                    standalone: true,
                 }]
         }], ctorParameters: () => [{ type: i0.TemplateRef }, { type: i0.ViewContainerRef }] });
 /**
@@ -8955,17 +9040,17 @@ class TemplatePortalDirective extends CdkPortal {
 }
 _b$2 = TemplatePortalDirective;
 (() => {
-    _b$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _b$2, deps: null, target: i0.ɵɵFactoryTarget.Directive });
+    _b$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b$2, deps: null, target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _b$2.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _b$2, selector: "[cdk-portal], [portal]", providers: [
+    _b$2.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _b$2, isStandalone: true, selector: "[cdk-portal], [portal]", providers: [
             {
                 provide: CdkPortal,
                 useExisting: _b$2,
             },
         ], exportAs: ["cdkPortal"], usesInheritance: true, ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: TemplatePortalDirective, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: TemplatePortalDirective, decorators: [{
             type: Directive,
             args: [{
                     selector: '[cdk-portal], [portal]',
@@ -8976,6 +9061,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                             useExisting: TemplatePortalDirective,
                         },
                     ],
+                    standalone: true,
                 }]
         }] });
 /**
@@ -9115,17 +9201,18 @@ class CdkPortalOutlet extends BasePortalOutlet {
 }
 _c$2 = CdkPortalOutlet;
 (() => {
-    _c$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _c$2, deps: [{ token: i0.ComponentFactoryResolver }, { token: i0.ViewContainerRef }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Directive });
+    _c$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$2, deps: [{ token: i0.ComponentFactoryResolver }, { token: i0.ViewContainerRef }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _c$2.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _c$2, selector: "[cdkPortalOutlet]", inputs: { portal: ["cdkPortalOutlet", "portal"] }, outputs: { attached: "attached" }, exportAs: ["cdkPortalOutlet"], usesInheritance: true, ngImport: i0 });
+    _c$2.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _c$2, isStandalone: true, selector: "[cdkPortalOutlet]", inputs: { portal: ["cdkPortalOutlet", "portal"] }, outputs: { attached: "attached" }, exportAs: ["cdkPortalOutlet"], usesInheritance: true, ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkPortalOutlet, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkPortalOutlet, decorators: [{
             type: Directive,
             args: [{
                     selector: '[cdkPortalOutlet]',
                     exportAs: 'cdkPortalOutlet',
                     inputs: ['portal: cdkPortalOutlet'],
+                    standalone: true,
                 }]
         }], ctorParameters: () => [{ type: i0.ComponentFactoryResolver }, { type: i0.ViewContainerRef }, { type: undefined, decorators: [{
                     type: Inject,
@@ -9141,17 +9228,17 @@ class PortalHostDirective extends CdkPortalOutlet {
 }
 _d$2 = PortalHostDirective;
 (() => {
-    _d$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _d$2, deps: null, target: i0.ɵɵFactoryTarget.Directive });
+    _d$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _d$2, deps: null, target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _d$2.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _d$2, selector: "[cdkPortalHost], [portalHost]", inputs: { portal: ["cdkPortalHost", "portal"] }, providers: [
+    _d$2.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _d$2, isStandalone: true, selector: "[cdkPortalHost], [portalHost]", inputs: { portal: ["cdkPortalHost", "portal"] }, providers: [
             {
                 provide: CdkPortalOutlet,
                 useExisting: _d$2,
             },
         ], exportAs: ["cdkPortalHost"], usesInheritance: true, ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: PortalHostDirective, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: PortalHostDirective, decorators: [{
             type: Directive,
             args: [{
                     selector: '[cdkPortalHost], [portalHost]',
@@ -9163,25 +9250,26 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                             useExisting: PortalHostDirective,
                         },
                     ],
+                    standalone: true,
                 }]
         }] });
 class PortalModule {
 }
 _e$2 = PortalModule;
 (() => {
-    _e$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _e$2, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _e$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _e$2, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _e$2.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _e$2, declarations: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective], exports: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective] });
+    _e$2.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _e$2, imports: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective], exports: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective] });
 })();
 (() => {
-    _e$2.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _e$2 });
+    _e$2.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _e$2 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: PortalModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: PortalModule, decorators: [{
             type: NgModule,
             args: [{
+                    imports: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective],
                     exports: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective],
-                    declarations: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective],
                 }]
         }] });
 /**
@@ -9659,12 +9747,12 @@ class UniqueSelectionDispatcher {
 }
 _a$2 = UniqueSelectionDispatcher;
 (() => {
-    _a$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$2, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+    _a$2.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$2, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _a$2.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$2, providedIn: 'root' });
+    _a$2.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$2, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: UniqueSelectionDispatcher, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: UniqueSelectionDispatcher, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }] });
@@ -9850,10 +9938,10 @@ class CdkFixedSizeVirtualScroll {
 }
 _a$1 = CdkFixedSizeVirtualScroll;
 (() => {
-    _a$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a$1, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+    _a$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a$1, deps: [], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _a$1.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _a$1, isStandalone: true, selector: "cdk-virtual-scroll-viewport[itemSize]", inputs: { itemSize: "itemSize", minBufferPx: "minBufferPx", maxBufferPx: "maxBufferPx" }, providers: [
+    _a$1.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _a$1, isStandalone: true, selector: "cdk-virtual-scroll-viewport[itemSize]", inputs: { itemSize: "itemSize", minBufferPx: "minBufferPx", maxBufferPx: "maxBufferPx" }, providers: [
             {
                 provide: VIRTUAL_SCROLL_STRATEGY,
                 useFactory: _fixedSizeVirtualScrollStrategyFactory,
@@ -9861,7 +9949,7 @@ _a$1 = CdkFixedSizeVirtualScroll;
             },
         ], usesOnChanges: true, ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkFixedSizeVirtualScroll, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkFixedSizeVirtualScroll, decorators: [{
             type: Directive,
             args: [{
                     selector: 'cdk-virtual-scroll-viewport[itemSize]',
@@ -10019,12 +10107,12 @@ class ScrollDispatcher {
 }
 _b$1 = ScrollDispatcher;
 (() => {
-    _b$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _b$1, deps: [{ token: i0.NgZone }, { token: Platform }, { token: DOCUMENT, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+    _b$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b$1, deps: [{ token: i0.NgZone }, { token: Platform }, { token: DOCUMENT, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _b$1.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _b$1, providedIn: 'root' });
+    _b$1.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b$1, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: ScrollDispatcher, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: ScrollDispatcher, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: i0.NgZone }, { type: Platform }, { type: undefined, decorators: [{
@@ -10184,12 +10272,12 @@ class CdkScrollable {
 }
 _c$1 = CdkScrollable;
 (() => {
-    _c$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _c$1, deps: [{ token: i0.ElementRef }, { token: ScrollDispatcher }, { token: i0.NgZone }, { token: Directionality, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
+    _c$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c$1, deps: [{ token: i0.ElementRef }, { token: ScrollDispatcher }, { token: i0.NgZone }, { token: Directionality, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _c$1.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _c$1, isStandalone: true, selector: "[cdk-scrollable], [cdkScrollable]", ngImport: i0 });
+    _c$1.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _c$1, isStandalone: true, selector: "[cdk-scrollable], [cdkScrollable]", ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkScrollable, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkScrollable, decorators: [{
             type: Directive,
             args: [{
                     selector: '[cdk-scrollable], [cdkScrollable]',
@@ -10320,12 +10408,12 @@ class ViewportRuler {
 }
 _d$1 = ViewportRuler;
 (() => {
-    _d$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _d$1, deps: [{ token: Platform }, { token: i0.NgZone }, { token: DOCUMENT, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+    _d$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _d$1, deps: [{ token: Platform }, { token: i0.NgZone }, { token: DOCUMENT, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
 })();
 (() => {
-    _d$1.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _d$1, providedIn: 'root' });
+    _d$1.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _d$1, providedIn: 'root' });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: ViewportRuler, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: ViewportRuler, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }], ctorParameters: () => [{ type: Platform }, { type: i0.NgZone }, { type: undefined, decorators: [{
@@ -10354,12 +10442,12 @@ class CdkVirtualScrollable extends CdkScrollable {
 }
 _e$1 = CdkVirtualScrollable;
 (() => {
-    _e$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _e$1, deps: [{ token: i0.ElementRef }, { token: ScrollDispatcher }, { token: i0.NgZone }, { token: Directionality, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
+    _e$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _e$1, deps: [{ token: i0.ElementRef }, { token: ScrollDispatcher }, { token: i0.NgZone }, { token: Directionality, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _e$1.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _e$1, usesInheritance: true, ngImport: i0 });
+    _e$1.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _e$1, usesInheritance: true, ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkVirtualScrollable, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkVirtualScrollable, decorators: [{
             type: Directive
         }], ctorParameters: () => [{ type: i0.ElementRef }, { type: ScrollDispatcher }, { type: i0.NgZone }, { type: Directionality, decorators: [{
                     type: Optional
@@ -10735,10 +10823,10 @@ class CdkVirtualScrollViewport extends CdkVirtualScrollable {
 }
 _f$1 = CdkVirtualScrollViewport;
 (() => {
-    _f$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _f$1, deps: [{ token: i0.ElementRef }, { token: i0.ChangeDetectorRef }, { token: i0.NgZone }, { token: VIRTUAL_SCROLL_STRATEGY, optional: true }, { token: Directionality, optional: true }, { token: ScrollDispatcher }, { token: ViewportRuler }, { token: VIRTUAL_SCROLLABLE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
+    _f$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _f$1, deps: [{ token: i0.ElementRef }, { token: i0.ChangeDetectorRef }, { token: i0.NgZone }, { token: VIRTUAL_SCROLL_STRATEGY, optional: true }, { token: Directionality, optional: true }, { token: ScrollDispatcher }, { token: ViewportRuler }, { token: VIRTUAL_SCROLLABLE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
 })();
 (() => {
-    _f$1.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "16.1.0", version: "17.0.0", type: _f$1, isStandalone: true, selector: "cdk-virtual-scroll-viewport", inputs: { orientation: "orientation", appendOnly: ["appendOnly", "appendOnly", booleanAttribute] }, outputs: { scrolledIndexChange: "scrolledIndexChange" }, host: { properties: { "class.cdk-virtual-scroll-orientation-horizontal": "orientation === \"horizontal\"", "class.cdk-virtual-scroll-orientation-vertical": "orientation !== \"horizontal\"" }, classAttribute: "cdk-virtual-scroll-viewport" }, providers: [
+    _f$1.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "16.1.0", version: "17.1.0-next.2", type: _f$1, isStandalone: true, selector: "cdk-virtual-scroll-viewport", inputs: { orientation: "orientation", appendOnly: ["appendOnly", "appendOnly", booleanAttribute] }, outputs: { scrolledIndexChange: "scrolledIndexChange" }, host: { properties: { "class.cdk-virtual-scroll-orientation-horizontal": "orientation === \"horizontal\"", "class.cdk-virtual-scroll-orientation-vertical": "orientation !== \"horizontal\"" }, classAttribute: "cdk-virtual-scroll-viewport" }, providers: [
             {
                 provide: CdkScrollable,
                 useFactory: (virtualScrollable, viewport) => virtualScrollable || viewport,
@@ -10746,7 +10834,7 @@ _f$1 = CdkVirtualScrollViewport;
             },
         ], viewQueries: [{ propertyName: "_contentWrapper", first: true, predicate: ["contentWrapper"], descendants: true, static: true }], usesInheritance: true, ngImport: i0, template: "<!--\n  Wrap the rendered content in an element that will be used to offset it based on the scroll\n  position.\n-->\n<div #contentWrapper class=\"cdk-virtual-scroll-content-wrapper\">\n  <ng-content></ng-content>\n</div>\n<!--\n  Spacer used to force the scrolling container to the correct size for the *total* number of items\n  so that the scrollbar captures the size of the entire data set.\n-->\n<div class=\"cdk-virtual-scroll-spacer\"\n     [style.width]=\"_totalContentWidth\" [style.height]=\"_totalContentHeight\"></div>\n", styles: ["cdk-virtual-scroll-viewport{display:block;position:relative;transform:translateZ(0)}.cdk-virtual-scrollable{overflow:auto;will-change:scroll-position;contain:strict;-webkit-overflow-scrolling:touch}.cdk-virtual-scroll-content-wrapper{position:absolute;top:0;left:0;contain:content}[dir=rtl] .cdk-virtual-scroll-content-wrapper{right:0;left:auto}.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper{min-height:100%}.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>dl:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>ol:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>table:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>ul:not([cdkVirtualFor]){padding-left:0;padding-right:0;margin-left:0;margin-right:0;border-left-width:0;border-right-width:0;outline:none}.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper{min-width:100%}.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>dl:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>ol:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>table:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>ul:not([cdkVirtualFor]){padding-top:0;padding-bottom:0;margin-top:0;margin-bottom:0;border-top-width:0;border-bottom-width:0;outline:none}.cdk-virtual-scroll-spacer{height:1px;transform-origin:0 0;flex:0 0 auto}[dir=rtl] .cdk-virtual-scroll-spacer{transform-origin:100% 0}"], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkVirtualScrollViewport, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkVirtualScrollViewport, decorators: [{
             type: Component,
             args: [{ selector: 'cdk-virtual-scroll-viewport', host: {
                         'class': 'cdk-virtual-scroll-viewport',
@@ -11043,12 +11131,12 @@ class CdkVirtualForOf {
 }
 _g$1 = CdkVirtualForOf;
 (() => {
-    _g$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _g$1, deps: [{ token: i0.ViewContainerRef }, { token: i0.TemplateRef }, { token: i0.IterableDiffers }, { token: _VIEW_REPEATER_STRATEGY }, { token: CdkVirtualScrollViewport, skipSelf: true }, { token: i0.NgZone }], target: i0.ɵɵFactoryTarget.Directive });
+    _g$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _g$1, deps: [{ token: i0.ViewContainerRef }, { token: i0.TemplateRef }, { token: i0.IterableDiffers }, { token: _VIEW_REPEATER_STRATEGY }, { token: CdkVirtualScrollViewport, skipSelf: true }, { token: i0.NgZone }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _g$1.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _g$1, isStandalone: true, selector: "[cdkVirtualFor][cdkVirtualForOf]", inputs: { cdkVirtualForOf: "cdkVirtualForOf", cdkVirtualForTrackBy: "cdkVirtualForTrackBy", cdkVirtualForTemplate: "cdkVirtualForTemplate", cdkVirtualForTemplateCacheSize: "cdkVirtualForTemplateCacheSize" }, providers: [{ provide: _VIEW_REPEATER_STRATEGY, useClass: _RecycleViewRepeaterStrategy }], ngImport: i0 });
+    _g$1.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _g$1, isStandalone: true, selector: "[cdkVirtualFor][cdkVirtualForOf]", inputs: { cdkVirtualForOf: "cdkVirtualForOf", cdkVirtualForTrackBy: "cdkVirtualForTrackBy", cdkVirtualForTemplate: "cdkVirtualForTemplate", cdkVirtualForTemplateCacheSize: "cdkVirtualForTemplateCacheSize" }, providers: [{ provide: _VIEW_REPEATER_STRATEGY, useClass: _RecycleViewRepeaterStrategy }], ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkVirtualForOf, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkVirtualForOf, decorators: [{
             type: Directive,
             args: [{
                     selector: '[cdkVirtualFor][cdkVirtualForOf]',
@@ -11083,12 +11171,12 @@ class CdkVirtualScrollableElement extends CdkVirtualScrollable {
 }
 _h$1 = CdkVirtualScrollableElement;
 (() => {
-    _h$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _h$1, deps: [{ token: i0.ElementRef }, { token: ScrollDispatcher }, { token: i0.NgZone }, { token: Directionality, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
+    _h$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _h$1, deps: [{ token: i0.ElementRef }, { token: ScrollDispatcher }, { token: i0.NgZone }, { token: Directionality, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _h$1.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _h$1, isStandalone: true, selector: "[cdkVirtualScrollingElement]", host: { classAttribute: "cdk-virtual-scrollable" }, providers: [{ provide: VIRTUAL_SCROLLABLE, useExisting: _h$1 }], usesInheritance: true, ngImport: i0 });
+    _h$1.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _h$1, isStandalone: true, selector: "[cdkVirtualScrollingElement]", host: { classAttribute: "cdk-virtual-scrollable" }, providers: [{ provide: VIRTUAL_SCROLLABLE, useExisting: _h$1 }], usesInheritance: true, ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkVirtualScrollableElement, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkVirtualScrollableElement, decorators: [{
             type: Directive,
             args: [{
                     selector: '[cdkVirtualScrollingElement]',
@@ -11115,12 +11203,12 @@ class CdkVirtualScrollableWindow extends CdkVirtualScrollable {
 }
 _j$1 = CdkVirtualScrollableWindow;
 (() => {
-    _j$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _j$1, deps: [{ token: ScrollDispatcher }, { token: i0.NgZone }, { token: Directionality, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
+    _j$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _j$1, deps: [{ token: ScrollDispatcher }, { token: i0.NgZone }, { token: Directionality, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _j$1.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _j$1, isStandalone: true, selector: "cdk-virtual-scroll-viewport[scrollWindow]", providers: [{ provide: VIRTUAL_SCROLLABLE, useExisting: _j$1 }], usesInheritance: true, ngImport: i0 });
+    _j$1.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _j$1, isStandalone: true, selector: "cdk-virtual-scroll-viewport[scrollWindow]", providers: [{ provide: VIRTUAL_SCROLLABLE, useExisting: _j$1 }], usesInheritance: true, ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkVirtualScrollableWindow, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkVirtualScrollableWindow, decorators: [{
             type: Directive,
             args: [{
                     selector: 'cdk-virtual-scroll-viewport[scrollWindow]',
@@ -11134,15 +11222,15 @@ class CdkScrollableModule {
 }
 _k$1 = CdkScrollableModule;
 (() => {
-    _k$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _k$1, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _k$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _k$1, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _k$1.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _k$1, imports: [CdkScrollable], exports: [CdkScrollable] });
+    _k$1.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _k$1, imports: [CdkScrollable], exports: [CdkScrollable] });
 })();
 (() => {
-    _k$1.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _k$1 });
+    _k$1.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _k$1 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: CdkScrollableModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: CdkScrollableModule, decorators: [{
             type: NgModule,
             args: [{
                     exports: [CdkScrollable],
@@ -11156,10 +11244,10 @@ class ScrollingModule {
 }
 _l$1 = ScrollingModule;
 (() => {
-    _l$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _l$1, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _l$1.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _l$1, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _l$1.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _l$1, imports: [BidiModule, CdkScrollableModule, CdkVirtualScrollViewport,
+    _l$1.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _l$1, imports: [BidiModule, CdkScrollableModule, CdkVirtualScrollViewport,
             CdkFixedSizeVirtualScroll,
             CdkVirtualForOf,
             CdkVirtualScrollableWindow,
@@ -11170,10 +11258,10 @@ _l$1 = ScrollingModule;
             CdkVirtualScrollableElement] });
 })();
 (() => {
-    _l$1.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _l$1, imports: [BidiModule,
+    _l$1.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _l$1, imports: [BidiModule,
             CdkScrollableModule, BidiModule, CdkScrollableModule] });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: ScrollingModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: ScrollingModule, decorators: [{
             type: NgModule,
             args: [{
                     imports: [
@@ -11199,239 +11287,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
 
 var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
 /**
- * Animations used by the Material tabs.
- * @docs-private
- */
-const matTabsAnimations = {
-    /** Animation translates a tab along the X axis. */
-    translateTab: trigger('translateTab', [
-        // Transitions to `none` instead of 0, because some browsers might blur the content.
-        state('center, void, left-origin-center, right-origin-center', style({ transform: 'none' })),
-        // If the tab is either on the left or right, we additionally add a `min-height` of 1px
-        // in order to ensure that the element has a height before its state changes. This is
-        // necessary because Chrome does seem to skip the transition in RTL mode if the element does
-        // not have a static height and is not rendered. See related issue: #9465
-        state('left', style({
-            transform: 'translate3d(-100%, 0, 0)',
-            minHeight: '1px',
-            // Normally this is redundant since we detach the content from the DOM, but if the user
-            // opted into keeping the content in the DOM, we have to hide it so it isn't focusable.
-            visibility: 'hidden',
-        })),
-        state('right', style({
-            transform: 'translate3d(100%, 0, 0)',
-            minHeight: '1px',
-            visibility: 'hidden',
-        })),
-        transition('* => left, * => right, left => center, right => center', animate('{{animationDuration}} cubic-bezier(0.35, 0, 0.25, 1)')),
-        transition('void => left-origin-center', [
-            style({ transform: 'translate3d(-100%, 0, 0)', visibility: 'hidden' }),
-            animate('{{animationDuration}} cubic-bezier(0.35, 0, 0.25, 1)'),
-        ]),
-        transition('void => right-origin-center', [
-            style({ transform: 'translate3d(100%, 0, 0)', visibility: 'hidden' }),
-            animate('{{animationDuration}} cubic-bezier(0.35, 0, 0.25, 1)'),
-        ]),
-    ]),
-};
-/**
- * The portal host directive for the contents of the tab.
- * @docs-private
- */
-class MatTabBodyPortal extends CdkPortalOutlet {
-    constructor(componentFactoryResolver, viewContainerRef, _host, _document) {
-        super(componentFactoryResolver, viewContainerRef, _document);
-        this._host = _host;
-        /** Subscription to events for when the tab body begins centering. */
-        this._centeringSub = Subscription.EMPTY;
-        /** Subscription to events for when the tab body finishes leaving from center position. */
-        this._leavingSub = Subscription.EMPTY;
-    }
-    /** Set initial visibility or set up subscription for changing visibility. */
-    ngOnInit() {
-        super.ngOnInit();
-        this._centeringSub = this._host._beforeCentering
-            .pipe(startWith$1(this._host._isCenterPosition(this._host._position)))
-            .subscribe((isCentering) => {
-            if (isCentering && !this.hasAttached()) {
-                this.attach(this._host._content);
-            }
-        });
-        this._leavingSub = this._host._afterLeavingCenter.subscribe(() => {
-            if (!this._host.preserveContent) {
-                this.detach();
-            }
-        });
-    }
-    /** Clean up centering subscription. */
-    ngOnDestroy() {
-        super.ngOnDestroy();
-        this._centeringSub.unsubscribe();
-        this._leavingSub.unsubscribe();
-    }
-}
-_a = MatTabBodyPortal;
-(() => {
-    _a.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _a, deps: [{ token: i0.ComponentFactoryResolver }, { token: i0.ViewContainerRef }, { token: forwardRef(() => MatTabBody) }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Directive });
-})();
-(() => {
-    _a.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _a, selector: "[matTabBodyHost]", usesInheritance: true, ngImport: i0 });
-})();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatTabBodyPortal, decorators: [{
-            type: Directive,
-            args: [{
-                    selector: '[matTabBodyHost]',
-                }]
-        }], ctorParameters: () => [{ type: i0.ComponentFactoryResolver }, { type: i0.ViewContainerRef }, { type: MatTabBody, decorators: [{
-                    type: Inject,
-                    args: [forwardRef(() => MatTabBody)]
-                }] }, { type: undefined, decorators: [{
-                    type: Inject,
-                    args: [DOCUMENT]
-                }] }] });
-/**
- * Wrapper for the contents of a tab.
- * @docs-private
- */
-class MatTabBody {
-    /** The shifted index position of the tab body, where zero represents the active center tab. */
-    set position(position) {
-        this._positionIndex = position;
-        this._computePositionAnimationState();
-    }
-    constructor(_elementRef, _dir, changeDetectorRef) {
-        this._elementRef = _elementRef;
-        this._dir = _dir;
-        /** Subscription to the directionality change observable. */
-        this._dirChangeSubscription = Subscription.EMPTY;
-        /** Emits when an animation on the tab is complete. */
-        this._translateTabComplete = new Subject();
-        /** Event emitted when the tab begins to animate towards the center as the active tab. */
-        this._onCentering = new EventEmitter();
-        /** Event emitted before the centering of the tab begins. */
-        this._beforeCentering = new EventEmitter();
-        /** Event emitted before the centering of the tab begins. */
-        this._afterLeavingCenter = new EventEmitter();
-        /** Event emitted when the tab completes its animation towards the center. */
-        this._onCentered = new EventEmitter(true);
-        // Note that the default value will always be overwritten by `MatTabBody`, but we need one
-        // anyway to prevent the animations module from throwing an error if the body is used on its own.
-        /** Duration for the tab's animation. */
-        this.animationDuration = '500ms';
-        /** Whether the tab's content should be kept in the DOM while it's off-screen. */
-        this.preserveContent = false;
-        if (_dir) {
-            this._dirChangeSubscription = _dir.change.subscribe((dir) => {
-                this._computePositionAnimationState(dir);
-                changeDetectorRef.markForCheck();
-            });
-        }
-        // Ensure that we get unique animation events, because the `.done` callback can get
-        // invoked twice in some browsers. See https://github.com/angular/angular/issues/24084.
-        this._translateTabComplete
-            .pipe(distinctUntilChanged((x, y) => {
-            return x.fromState === y.fromState && x.toState === y.toState;
-        }))
-            .subscribe(event => {
-            // If the transition to the center is complete, emit an event.
-            if (this._isCenterPosition(event.toState) && this._isCenterPosition(this._position)) {
-                this._onCentered.emit();
-            }
-            if (this._isCenterPosition(event.fromState) && !this._isCenterPosition(this._position)) {
-                this._afterLeavingCenter.emit();
-            }
-        });
-    }
-    /**
-     * After initialized, check if the content is centered and has an origin. If so, set the
-     * special position states that transition the tab from the left or right before centering.
-     */
-    ngOnInit() {
-        if (this._position == 'center' && this.origin != null) {
-            this._position = this._computePositionFromOrigin(this.origin);
-        }
-    }
-    ngOnDestroy() {
-        this._dirChangeSubscription.unsubscribe();
-        this._translateTabComplete.complete();
-    }
-    _onTranslateTabStarted(event) {
-        const isCentering = this._isCenterPosition(event.toState);
-        this._beforeCentering.emit(isCentering);
-        if (isCentering) {
-            this._onCentering.emit(this._elementRef.nativeElement.clientHeight);
-        }
-    }
-    /** The text direction of the containing app. */
-    _getLayoutDirection() {
-        return this._dir && this._dir.value === 'rtl' ? 'rtl' : 'ltr';
-    }
-    /** Whether the provided position state is considered center, regardless of origin. */
-    _isCenterPosition(position) {
-        return (position == 'center' || position == 'left-origin-center' || position == 'right-origin-center');
-    }
-    /** Computes the position state that will be used for the tab-body animation trigger. */
-    _computePositionAnimationState(dir = this._getLayoutDirection()) {
-        if (this._positionIndex < 0) {
-            this._position = dir == 'ltr' ? 'left' : 'right';
-        }
-        else if (this._positionIndex > 0) {
-            this._position = dir == 'ltr' ? 'right' : 'left';
-        }
-        else {
-            this._position = 'center';
-        }
-    }
-    /**
-     * Computes the position state based on the specified origin position. This is used if the
-     * tab is becoming visible immediately after creation.
-     */
-    _computePositionFromOrigin(origin) {
-        const dir = this._getLayoutDirection();
-        if ((dir == 'ltr' && origin <= 0) || (dir == 'rtl' && origin > 0)) {
-            return 'left-origin-center';
-        }
-        return 'right-origin-center';
-    }
-}
-_b = MatTabBody;
-(() => {
-    _b.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _b, deps: [{ token: i0.ElementRef }, { token: Directionality, optional: true }, { token: i0.ChangeDetectorRef }], target: i0.ɵɵFactoryTarget.Component });
-})();
-(() => {
-    _b.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.0.0", type: _b, selector: "mat-tab-body", inputs: { _content: ["content", "_content"], origin: "origin", animationDuration: "animationDuration", preserveContent: "preserveContent", position: "position" }, outputs: { _onCentering: "_onCentering", _beforeCentering: "_beforeCentering", _afterLeavingCenter: "_afterLeavingCenter", _onCentered: "_onCentered" }, host: { classAttribute: "mat-mdc-tab-body" }, viewQueries: [{ propertyName: "_portalHost", first: true, predicate: CdkPortalOutlet, descendants: true }], ngImport: i0, template: "<div class=\"mat-mdc-tab-body-content\" #content\n     [@translateTab]=\"{\n        value: _position,\n        params: {animationDuration: animationDuration}\n     }\"\n     (@translateTab.start)=\"_onTranslateTabStarted($event)\"\n     (@translateTab.done)=\"_translateTabComplete.next($event)\"\n     cdkScrollable>\n  <ng-template matTabBodyHost></ng-template>\n</div>\n", styles: [".mat-mdc-tab-body{top:0;left:0;right:0;bottom:0;position:absolute;display:block;overflow:hidden;outline:0;flex-basis:100%}.mat-mdc-tab-body.mat-mdc-tab-body-active{position:relative;overflow-x:hidden;overflow-y:auto;z-index:1;flex-grow:1}.mat-mdc-tab-group.mat-mdc-tab-group-dynamic-height .mat-mdc-tab-body.mat-mdc-tab-body-active{overflow-y:hidden}.mat-mdc-tab-body-content{height:100%;overflow:auto}.mat-mdc-tab-group-dynamic-height .mat-mdc-tab-body-content{overflow:hidden}.mat-mdc-tab-body-content[style*=\"visibility: hidden\"]{display:none}"], dependencies: [{ kind: "directive", type: MatTabBodyPortal, selector: "[matTabBodyHost]" }], animations: [matTabsAnimations.translateTab], changeDetection: i0.ChangeDetectionStrategy.Default, encapsulation: i0.ViewEncapsulation.None });
-})();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatTabBody, decorators: [{
-            type: Component,
-            args: [{ selector: 'mat-tab-body', encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.Default, animations: [matTabsAnimations.translateTab], host: {
-                        'class': 'mat-mdc-tab-body',
-                    }, template: "<div class=\"mat-mdc-tab-body-content\" #content\n     [@translateTab]=\"{\n        value: _position,\n        params: {animationDuration: animationDuration}\n     }\"\n     (@translateTab.start)=\"_onTranslateTabStarted($event)\"\n     (@translateTab.done)=\"_translateTabComplete.next($event)\"\n     cdkScrollable>\n  <ng-template matTabBodyHost></ng-template>\n</div>\n", styles: [".mat-mdc-tab-body{top:0;left:0;right:0;bottom:0;position:absolute;display:block;overflow:hidden;outline:0;flex-basis:100%}.mat-mdc-tab-body.mat-mdc-tab-body-active{position:relative;overflow-x:hidden;overflow-y:auto;z-index:1;flex-grow:1}.mat-mdc-tab-group.mat-mdc-tab-group-dynamic-height .mat-mdc-tab-body.mat-mdc-tab-body-active{overflow-y:hidden}.mat-mdc-tab-body-content{height:100%;overflow:auto}.mat-mdc-tab-group-dynamic-height .mat-mdc-tab-body-content{overflow:hidden}.mat-mdc-tab-body-content[style*=\"visibility: hidden\"]{display:none}"] }]
-        }], ctorParameters: () => [{ type: i0.ElementRef }, { type: Directionality, decorators: [{
-                    type: Optional
-                }] }, { type: i0.ChangeDetectorRef }], propDecorators: { _onCentering: [{
-                type: Output
-            }], _beforeCentering: [{
-                type: Output
-            }], _afterLeavingCenter: [{
-                type: Output
-            }], _onCentered: [{
-                type: Output
-            }], _portalHost: [{
-                type: ViewChild,
-                args: [CdkPortalOutlet]
-            }], _content: [{
-                type: Input,
-                args: ['content']
-            }], origin: [{
-                type: Input
-            }], animationDuration: [{
-                type: Input
-            }], preserveContent: [{
-                type: Input
-            }], position: [{
-                type: Input
-            }] } });
-/**
  * Injection token that can be used to reference instances of `MatTabContent`. It serves as
  * alternative token to the actual `MatTabContent` class which could cause unnecessary
  * retention of the class and its directive metadata.
@@ -11443,18 +11298,19 @@ class MatTabContent {
         this.template = template;
     }
 }
-_c = MatTabContent;
+_a = MatTabContent;
 (() => {
-    _c.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _c, deps: [{ token: i0.TemplateRef }], target: i0.ɵɵFactoryTarget.Directive });
+    _a.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _a, deps: [{ token: i0.TemplateRef }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _c.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _c, selector: "[matTabContent]", providers: [{ provide: MAT_TAB_CONTENT, useExisting: _c }], ngImport: i0 });
+    _a.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _a, isStandalone: true, selector: "[matTabContent]", providers: [{ provide: MAT_TAB_CONTENT, useExisting: _a }], ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatTabContent, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatTabContent, decorators: [{
             type: Directive,
             args: [{
                     selector: '[matTabContent]',
                     providers: [{ provide: MAT_TAB_CONTENT, useExisting: MatTabContent }],
+                    standalone: true,
                 }]
         }], ctorParameters: () => [{ type: i0.TemplateRef }] });
 /**
@@ -11475,18 +11331,19 @@ class MatTabLabel extends CdkPortal {
         this._closestTab = _closestTab;
     }
 }
-_d = MatTabLabel;
+_b = MatTabLabel;
 (() => {
-    _d.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _d, deps: [{ token: i0.TemplateRef }, { token: i0.ViewContainerRef }, { token: MAT_TAB, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
+    _b.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _b, deps: [{ token: i0.TemplateRef }, { token: i0.ViewContainerRef }, { token: MAT_TAB, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _d.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: _d, selector: "[mat-tab-label], [matTabLabel]", providers: [{ provide: MAT_TAB_LABEL, useExisting: _d }], usesInheritance: true, ngImport: i0 });
+    _b.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _b, isStandalone: true, selector: "[mat-tab-label], [matTabLabel]", providers: [{ provide: MAT_TAB_LABEL, useExisting: _b }], usesInheritance: true, ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatTabLabel, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatTabLabel, decorators: [{
             type: Directive,
             args: [{
                     selector: '[mat-tab-label], [matTabLabel]',
                     providers: [{ provide: MAT_TAB_LABEL, useExisting: MatTabLabel }],
+                    standalone: true,
                 }]
         }], ctorParameters: () => [{ type: i0.TemplateRef }, { type: i0.ViewContainerRef }, { type: undefined, decorators: [{
                     type: Inject,
@@ -11494,6 +11351,121 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                 }, {
                     type: Optional
                 }] }] });
+/**
+ * Used to provide a tab group to a tab without causing a circular dependency.
+ * @docs-private
+ */
+const MAT_TAB_GROUP = new InjectionToken('MAT_TAB_GROUP');
+class MatTab {
+    /** Content for the tab label given by `<ng-template mat-tab-label>`. */
+    get templateLabel() {
+        return this._templateLabel;
+    }
+    set templateLabel(value) {
+        this._setTemplateLabelInput(value);
+    }
+    /** @docs-private */
+    get content() {
+        return this._contentPortal;
+    }
+    constructor(_viewContainerRef, _closestTabGroup) {
+        this._viewContainerRef = _viewContainerRef;
+        this._closestTabGroup = _closestTabGroup;
+        /** whether the tab is disabled. */
+        this.disabled = false;
+        /**
+         * Template provided in the tab content that will be used if present, used to enable lazy-loading
+         */
+        this._explicitContent = undefined;
+        /** Plain text label for the tab, used when there is no template label. */
+        this.textLabel = '';
+        /** Portal that will be the hosted content of the tab */
+        this._contentPortal = null;
+        /** Emits whenever the internal state of the tab changes. */
+        this._stateChanges = new Subject();
+        /**
+         * The relatively indexed position where 0 represents the center, negative is left, and positive
+         * represents the right.
+         */
+        this.position = null;
+        /**
+         * The initial relatively index origin of the tab if it was created and selected after there
+         * was already a selected tab. Provides context of what position the tab should originate from.
+         */
+        this.origin = null;
+        /**
+         * Whether the tab is currently active.
+         */
+        this.isActive = false;
+    }
+    ngOnChanges(changes) {
+        if (changes.hasOwnProperty('textLabel') || changes.hasOwnProperty('disabled')) {
+            this._stateChanges.next();
+        }
+    }
+    ngOnDestroy() {
+        this._stateChanges.complete();
+    }
+    ngOnInit() {
+        this._contentPortal = new TemplatePortal(this._explicitContent || this._implicitContent, this._viewContainerRef);
+    }
+    /**
+     * This has been extracted to a util because of TS 4 and VE.
+     * View Engine doesn't support property rename inheritance.
+     * TS 4.0 doesn't allow properties to override accessors or vice-versa.
+     * @docs-private
+     */
+    _setTemplateLabelInput(value) {
+        // Only update the label if the query managed to find one. This works around an issue where a
+        // user may have manually set `templateLabel` during creation mode, which would then get
+        // clobbered by `undefined` when the query resolves. Also note that we check that the closest
+        // tab matches the current one so that we don't pick up labels from nested tabs.
+        if (value && value._closestTab === this) {
+            this._templateLabel = value;
+        }
+    }
+}
+_c = MatTab;
+(() => {
+    _c.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _c, deps: [{ token: i0.ViewContainerRef }, { token: MAT_TAB_GROUP, optional: true }], target: i0.ɵɵFactoryTarget.Component });
+})();
+(() => {
+    _c.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "16.1.0", version: "17.1.0-next.2", type: _c, isStandalone: true, selector: "mat-tab", inputs: { disabled: ["disabled", "disabled", booleanAttribute], textLabel: ["label", "textLabel"], ariaLabel: ["aria-label", "ariaLabel"], ariaLabelledby: ["aria-labelledby", "ariaLabelledby"], labelClass: "labelClass", bodyClass: "bodyClass" }, providers: [{ provide: MAT_TAB, useExisting: _c }], queries: [{ propertyName: "templateLabel", first: true, predicate: MatTabLabel, descendants: true }, { propertyName: "_explicitContent", first: true, predicate: MatTabContent, descendants: true, read: TemplateRef, static: true }], viewQueries: [{ propertyName: "_implicitContent", first: true, predicate: TemplateRef, descendants: true, static: true }], exportAs: ["matTab"], usesOnChanges: true, ngImport: i0, template: "<!-- Create a template for the content of the <mat-tab> so that we can grab a reference to this\n    TemplateRef and use it in a Portal to render the tab content in the appropriate place in the\n    tab-group. -->\n<ng-template><ng-content></ng-content></ng-template>\n", changeDetection: i0.ChangeDetectionStrategy.Default, encapsulation: i0.ViewEncapsulation.None });
+})();
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatTab, decorators: [{
+            type: Component,
+            args: [{ selector: 'mat-tab', changeDetection: ChangeDetectionStrategy.Default, encapsulation: ViewEncapsulation.None, exportAs: 'matTab', providers: [{ provide: MAT_TAB, useExisting: MatTab }], standalone: true, template: "<!-- Create a template for the content of the <mat-tab> so that we can grab a reference to this\n    TemplateRef and use it in a Portal to render the tab content in the appropriate place in the\n    tab-group. -->\n<ng-template><ng-content></ng-content></ng-template>\n" }]
+        }], ctorParameters: () => [{ type: i0.ViewContainerRef }, { type: undefined, decorators: [{
+                    type: Inject,
+                    args: [MAT_TAB_GROUP]
+                }, {
+                    type: Optional
+                }] }], propDecorators: { disabled: [{
+                type: Input,
+                args: [{ transform: booleanAttribute }]
+            }], templateLabel: [{
+                type: ContentChild,
+                args: [MatTabLabel]
+            }], _explicitContent: [{
+                type: ContentChild,
+                args: [MatTabContent, { read: TemplateRef, static: true }]
+            }], _implicitContent: [{
+                type: ViewChild,
+                args: [TemplateRef, { static: true }]
+            }], textLabel: [{
+                type: Input,
+                args: ['label']
+            }], ariaLabel: [{
+                type: Input,
+                args: ['aria-label']
+            }], ariaLabelledby: [{
+                type: Input,
+                args: ['aria-labelledby']
+            }], labelClass: [{
+                type: Input
+            }], bodyClass: [{
+                type: Input
+            }] } });
 /** Class that is applied when a tab indicator is active. */
 const ACTIVE_CLASS = 'mdc-tab-indicator--active';
 /** Class that is applied when the tab indicator should not transition. */
@@ -11662,14 +11634,14 @@ class MatTabLabelWrapper extends _MatTabLabelWrapperMixinBase {
         return this.elementRef.nativeElement.offsetWidth;
     }
 }
-_e = MatTabLabelWrapper;
+_d = MatTabLabelWrapper;
 (() => {
-    _e.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _e, deps: [{ token: i0.ElementRef }], target: i0.ɵɵFactoryTarget.Directive });
+    _d.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _d, deps: [{ token: i0.ElementRef }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _e.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "16.1.0", version: "17.0.0", type: _e, selector: "[matTabLabelWrapper]", inputs: { fitInkBarToContent: "fitInkBarToContent", disabled: ["disabled", "disabled", booleanAttribute] }, host: { properties: { "class.mat-mdc-tab-disabled": "disabled", "attr.aria-disabled": "!!disabled" } }, usesInheritance: true, ngImport: i0 });
+    _d.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "16.1.0", version: "17.1.0-next.2", type: _d, isStandalone: true, selector: "[matTabLabelWrapper]", inputs: { fitInkBarToContent: "fitInkBarToContent", disabled: ["disabled", "disabled", booleanAttribute] }, host: { properties: { "class.mat-mdc-tab-disabled": "disabled", "attr.aria-disabled": "!!disabled" } }, usesInheritance: true, ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatTabLabelWrapper, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatTabLabelWrapper, decorators: [{
             type: Directive,
             args: [{
                     selector: '[matTabLabelWrapper]',
@@ -11678,125 +11650,11 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                         '[class.mat-mdc-tab-disabled]': 'disabled',
                         '[attr.aria-disabled]': '!!disabled',
                     },
+                    standalone: true,
                 }]
         }], ctorParameters: () => [{ type: i0.ElementRef }], propDecorators: { disabled: [{
                 type: Input,
                 args: [{ transform: booleanAttribute }]
-            }] } });
-/**
- * Used to provide a tab group to a tab without causing a circular dependency.
- * @docs-private
- */
-const MAT_TAB_GROUP = new InjectionToken('MAT_TAB_GROUP');
-class MatTab {
-    /** Content for the tab label given by `<ng-template mat-tab-label>`. */
-    get templateLabel() {
-        return this._templateLabel;
-    }
-    set templateLabel(value) {
-        this._setTemplateLabelInput(value);
-    }
-    /** @docs-private */
-    get content() {
-        return this._contentPortal;
-    }
-    constructor(_viewContainerRef, _closestTabGroup) {
-        this._viewContainerRef = _viewContainerRef;
-        this._closestTabGroup = _closestTabGroup;
-        /** whether the tab is disabled. */
-        this.disabled = false;
-        /**
-         * Template provided in the tab content that will be used if present, used to enable lazy-loading
-         */
-        this._explicitContent = undefined;
-        /** Plain text label for the tab, used when there is no template label. */
-        this.textLabel = '';
-        /** Portal that will be the hosted content of the tab */
-        this._contentPortal = null;
-        /** Emits whenever the internal state of the tab changes. */
-        this._stateChanges = new Subject();
-        /**
-         * The relatively indexed position where 0 represents the center, negative is left, and positive
-         * represents the right.
-         */
-        this.position = null;
-        /**
-         * The initial relatively index origin of the tab if it was created and selected after there
-         * was already a selected tab. Provides context of what position the tab should originate from.
-         */
-        this.origin = null;
-        /**
-         * Whether the tab is currently active.
-         */
-        this.isActive = false;
-    }
-    ngOnChanges(changes) {
-        if (changes.hasOwnProperty('textLabel') || changes.hasOwnProperty('disabled')) {
-            this._stateChanges.next();
-        }
-    }
-    ngOnDestroy() {
-        this._stateChanges.complete();
-    }
-    ngOnInit() {
-        this._contentPortal = new TemplatePortal(this._explicitContent || this._implicitContent, this._viewContainerRef);
-    }
-    /**
-     * This has been extracted to a util because of TS 4 and VE.
-     * View Engine doesn't support property rename inheritance.
-     * TS 4.0 doesn't allow properties to override accessors or vice-versa.
-     * @docs-private
-     */
-    _setTemplateLabelInput(value) {
-        // Only update the label if the query managed to find one. This works around an issue where a
-        // user may have manually set `templateLabel` during creation mode, which would then get
-        // clobbered by `undefined` when the query resolves. Also note that we check that the closest
-        // tab matches the current one so that we don't pick up labels from nested tabs.
-        if (value && value._closestTab === this) {
-            this._templateLabel = value;
-        }
-    }
-}
-_f = MatTab;
-(() => {
-    _f.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _f, deps: [{ token: i0.ViewContainerRef }, { token: MAT_TAB_GROUP, optional: true }], target: i0.ɵɵFactoryTarget.Component });
-})();
-(() => {
-    _f.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "16.1.0", version: "17.0.0", type: _f, selector: "mat-tab", inputs: { disabled: ["disabled", "disabled", booleanAttribute], textLabel: ["label", "textLabel"], ariaLabel: ["aria-label", "ariaLabel"], ariaLabelledby: ["aria-labelledby", "ariaLabelledby"], labelClass: "labelClass", bodyClass: "bodyClass" }, providers: [{ provide: MAT_TAB, useExisting: _f }], queries: [{ propertyName: "templateLabel", first: true, predicate: MatTabLabel, descendants: true }, { propertyName: "_explicitContent", first: true, predicate: MatTabContent, descendants: true, read: TemplateRef, static: true }], viewQueries: [{ propertyName: "_implicitContent", first: true, predicate: TemplateRef, descendants: true, static: true }], exportAs: ["matTab"], usesOnChanges: true, ngImport: i0, template: "<!-- Create a template for the content of the <mat-tab> so that we can grab a reference to this\n    TemplateRef and use it in a Portal to render the tab content in the appropriate place in the\n    tab-group. -->\n<ng-template><ng-content></ng-content></ng-template>\n", changeDetection: i0.ChangeDetectionStrategy.Default, encapsulation: i0.ViewEncapsulation.None });
-})();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatTab, decorators: [{
-            type: Component,
-            args: [{ selector: 'mat-tab', changeDetection: ChangeDetectionStrategy.Default, encapsulation: ViewEncapsulation.None, exportAs: 'matTab', providers: [{ provide: MAT_TAB, useExisting: MatTab }], template: "<!-- Create a template for the content of the <mat-tab> so that we can grab a reference to this\n    TemplateRef and use it in a Portal to render the tab content in the appropriate place in the\n    tab-group. -->\n<ng-template><ng-content></ng-content></ng-template>\n" }]
-        }], ctorParameters: () => [{ type: i0.ViewContainerRef }, { type: undefined, decorators: [{
-                    type: Inject,
-                    args: [MAT_TAB_GROUP]
-                }, {
-                    type: Optional
-                }] }], propDecorators: { disabled: [{
-                type: Input,
-                args: [{ transform: booleanAttribute }]
-            }], templateLabel: [{
-                type: ContentChild,
-                args: [MatTabLabel]
-            }], _explicitContent: [{
-                type: ContentChild,
-                args: [MatTabContent, { read: TemplateRef, static: true }]
-            }], _implicitContent: [{
-                type: ViewChild,
-                args: [TemplateRef, { static: true }]
-            }], textLabel: [{
-                type: Input,
-                args: ['label']
-            }], ariaLabel: [{
-                type: Input,
-                args: ['aria-label']
-            }], ariaLabelledby: [{
-                type: Input,
-                args: ['aria-labelledby']
-            }], labelClass: [{
-                type: Input
-            }], bodyClass: [{
-                type: Input
             }] } });
 /** Config used to bind passive event listeners */
 const passiveEventListenerOptions = normalizePassiveListenerOptions({
@@ -12274,14 +12132,14 @@ class MatPaginatedTabHeader {
         return { maxScrollDistance, distance: this._scrollDistance };
     }
 }
-_g = MatPaginatedTabHeader;
+_e = MatPaginatedTabHeader;
 (() => {
-    _g.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _g, deps: [{ token: i0.ElementRef }, { token: i0.ChangeDetectorRef }, { token: ViewportRuler }, { token: Directionality, optional: true }, { token: i0.NgZone }, { token: Platform }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
+    _e.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _e, deps: [{ token: i0.ElementRef }, { token: i0.ChangeDetectorRef }, { token: ViewportRuler }, { token: Directionality, optional: true }, { token: i0.NgZone }, { token: Platform }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
 })();
 (() => {
-    _g.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "16.1.0", version: "17.0.0", type: _g, inputs: { disablePagination: ["disablePagination", "disablePagination", booleanAttribute] }, ngImport: i0 });
+    _e.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "16.1.0", version: "17.1.0-next.2", type: _e, inputs: { disablePagination: ["disablePagination", "disablePagination", booleanAttribute] }, ngImport: i0 });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatPaginatedTabHeader, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatPaginatedTabHeader, decorators: [{
             type: Directive
         }], ctorParameters: () => [{ type: i0.ElementRef }, { type: i0.ChangeDetectorRef }, { type: ViewportRuler }, { type: Directionality, decorators: [{
                     type: Optional
@@ -12315,20 +12173,20 @@ class MatTabHeader extends MatPaginatedTabHeader {
         event.preventDefault();
     }
 }
-_h = MatTabHeader;
+_f = MatTabHeader;
 (() => {
-    _h.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _h, deps: [{ token: i0.ElementRef }, { token: i0.ChangeDetectorRef }, { token: ViewportRuler }, { token: Directionality, optional: true }, { token: i0.NgZone }, { token: Platform }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
+    _f.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _f, deps: [{ token: i0.ElementRef }, { token: i0.ChangeDetectorRef }, { token: ViewportRuler }, { token: Directionality, optional: true }, { token: i0.NgZone }, { token: Platform }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
 })();
 (() => {
-    _h.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "16.1.0", version: "17.0.0", type: _h, selector: "mat-tab-header", inputs: { selectedIndex: "selectedIndex", disableRipple: ["disableRipple", "disableRipple", booleanAttribute] }, outputs: { selectFocusedIndex: "selectFocusedIndex", indexFocused: "indexFocused" }, host: { properties: { "class.mat-mdc-tab-header-pagination-controls-enabled": "_showPaginationControls", "class.mat-mdc-tab-header-rtl": "_getLayoutDirection() == 'rtl'" }, classAttribute: "mat-mdc-tab-header" }, queries: [{ propertyName: "_items", predicate: MatTabLabelWrapper }], viewQueries: [{ propertyName: "_tabListContainer", first: true, predicate: ["tabListContainer"], descendants: true, static: true }, { propertyName: "_tabList", first: true, predicate: ["tabList"], descendants: true, static: true }, { propertyName: "_tabListInner", first: true, predicate: ["tabListInner"], descendants: true, static: true }, { propertyName: "_nextPaginator", first: true, predicate: ["nextPaginator"], descendants: true }, { propertyName: "_previousPaginator", first: true, predicate: ["previousPaginator"], descendants: true }], usesInheritance: true, ngImport: i0, template: "<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-before\"\n     #previousPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     tabindex=\"-1\"\n     [matRippleDisabled]=\"_disableScrollBefore || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollBefore\"\n     [disabled]=\"_disableScrollBefore || null\"\n     (click)=\"_handlePaginatorClick('before')\"\n     (mousedown)=\"_handlePaginatorPress('before', $event)\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n\n<div\n  class=\"mat-mdc-tab-label-container\"\n  #tabListContainer\n  (keydown)=\"_handleKeydown($event)\"\n  [class._mat-animation-noopable]=\"_animationMode === 'NoopAnimations'\">\n  <div\n    #tabList\n    class=\"mat-mdc-tab-list\"\n    role=\"tablist\"\n    (cdkObserveContent)=\"_onContentChanges()\">\n    <div class=\"mat-mdc-tab-labels\" #tabListInner>\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n\n<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-after\"\n     #nextPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     [matRippleDisabled]=\"_disableScrollAfter || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollAfter\"\n     [disabled]=\"_disableScrollAfter || null\"\n     tabindex=\"-1\"\n     (mousedown)=\"_handlePaginatorPress('after', $event)\"\n     (click)=\"_handlePaginatorClick('after')\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n", styles: [".mat-mdc-tab-header{display:flex;overflow:hidden;position:relative;flex-shrink:0}.mdc-tab-indicator .mdc-tab-indicator__content{transition-duration:var(--mat-tab-animation-duration, 250ms)}.mat-mdc-tab-header-pagination{-webkit-user-select:none;user-select:none;position:relative;display:none;justify-content:center;align-items:center;min-width:32px;cursor:pointer;z-index:2;-webkit-tap-highlight-color:rgba(0,0,0,0);touch-action:none;box-sizing:content-box;background:none;border:none;outline:0;padding:0}.mat-mdc-tab-header-pagination::-moz-focus-inner{border:0}.mat-mdc-tab-header-pagination .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-header-pagination-controls-enabled .mat-mdc-tab-header-pagination{display:flex}.mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after{padding-left:4px}.mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(-135deg)}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-pagination-after{padding-right:4px}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(45deg)}.mat-mdc-tab-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;height:8px;width:8px;border-color:var(--mat-tab-header-pagination-icon-color)}.mat-mdc-tab-header-pagination-disabled{box-shadow:none;cursor:default;pointer-events:none}.mat-mdc-tab-header-pagination-disabled .mat-mdc-tab-header-pagination-chevron{opacity:.4}.mat-mdc-tab-list{flex-grow:1;position:relative;transition:transform 500ms cubic-bezier(0.35, 0, 0.25, 1)}._mat-animation-noopable .mat-mdc-tab-list{transition:none}._mat-animation-noopable span.mdc-tab-indicator__content,._mat-animation-noopable span.mdc-tab__text-label{transition:none}.mat-mdc-tab-label-container{display:flex;flex-grow:1;overflow:hidden;z-index:1}.mat-mdc-tab-labels{display:flex;flex:1 0 auto}[mat-align-tabs=center]>.mat-mdc-tab-header .mat-mdc-tab-labels{justify-content:center}[mat-align-tabs=end]>.mat-mdc-tab-header .mat-mdc-tab-labels{justify-content:flex-end}.mat-mdc-tab::before{margin:5px}.cdk-high-contrast-active .mat-mdc-tab[aria-disabled=true]{color:GrayText}"], dependencies: [{ kind: "directive", type: MatRipple, selector: "[mat-ripple], [matRipple]", inputs: ["matRippleColor", "matRippleUnbounded", "matRippleCentered", "matRippleRadius", "matRippleAnimation", "matRippleDisabled", "matRippleTrigger"], exportAs: ["matRipple"] }, { kind: "directive", type: CdkObserveContent, selector: "[cdkObserveContent]", inputs: ["cdkObserveContentDisabled", "debounce"], outputs: ["cdkObserveContent"], exportAs: ["cdkObserveContent"] }], changeDetection: i0.ChangeDetectionStrategy.Default, encapsulation: i0.ViewEncapsulation.None });
+    _f.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "16.1.0", version: "17.1.0-next.2", type: _f, isStandalone: true, selector: "mat-tab-header", inputs: { selectedIndex: "selectedIndex", disableRipple: ["disableRipple", "disableRipple", booleanAttribute] }, outputs: { selectFocusedIndex: "selectFocusedIndex", indexFocused: "indexFocused" }, host: { properties: { "class.mat-mdc-tab-header-pagination-controls-enabled": "_showPaginationControls", "class.mat-mdc-tab-header-rtl": "_getLayoutDirection() == 'rtl'" }, classAttribute: "mat-mdc-tab-header" }, queries: [{ propertyName: "_items", predicate: MatTabLabelWrapper }], viewQueries: [{ propertyName: "_tabListContainer", first: true, predicate: ["tabListContainer"], descendants: true, static: true }, { propertyName: "_tabList", first: true, predicate: ["tabList"], descendants: true, static: true }, { propertyName: "_tabListInner", first: true, predicate: ["tabListInner"], descendants: true, static: true }, { propertyName: "_nextPaginator", first: true, predicate: ["nextPaginator"], descendants: true }, { propertyName: "_previousPaginator", first: true, predicate: ["previousPaginator"], descendants: true }], usesInheritance: true, ngImport: i0, template: "<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-before\"\n     #previousPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     tabindex=\"-1\"\n     [matRippleDisabled]=\"_disableScrollBefore || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollBefore\"\n     [disabled]=\"_disableScrollBefore || null\"\n     (click)=\"_handlePaginatorClick('before')\"\n     (mousedown)=\"_handlePaginatorPress('before', $event)\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n\n<div\n  class=\"mat-mdc-tab-label-container\"\n  #tabListContainer\n  (keydown)=\"_handleKeydown($event)\"\n  [class._mat-animation-noopable]=\"_animationMode === 'NoopAnimations'\">\n  <div\n    #tabList\n    class=\"mat-mdc-tab-list\"\n    role=\"tablist\"\n    (cdkObserveContent)=\"_onContentChanges()\">\n    <div class=\"mat-mdc-tab-labels\" #tabListInner>\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n\n<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-after\"\n     #nextPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     [matRippleDisabled]=\"_disableScrollAfter || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollAfter\"\n     [disabled]=\"_disableScrollAfter || null\"\n     tabindex=\"-1\"\n     (mousedown)=\"_handlePaginatorPress('after', $event)\"\n     (click)=\"_handlePaginatorClick('after')\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n", styles: [".mat-mdc-tab-header{display:flex;overflow:hidden;position:relative;flex-shrink:0}.mdc-tab-indicator .mdc-tab-indicator__content{transition-duration:var(--mat-tab-animation-duration, 250ms)}.mat-mdc-tab-header-pagination{-webkit-user-select:none;user-select:none;position:relative;display:none;justify-content:center;align-items:center;min-width:32px;cursor:pointer;z-index:2;-webkit-tap-highlight-color:rgba(0,0,0,0);touch-action:none;box-sizing:content-box;background:none;border:none;outline:0;padding:0}.mat-mdc-tab-header-pagination::-moz-focus-inner{border:0}.mat-mdc-tab-header-pagination .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-header-pagination-controls-enabled .mat-mdc-tab-header-pagination{display:flex}.mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after{padding-left:4px}.mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(-135deg)}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-pagination-after{padding-right:4px}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(45deg)}.mat-mdc-tab-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;height:8px;width:8px;border-color:var(--mat-tab-header-pagination-icon-color)}.mat-mdc-tab-header-pagination-disabled{box-shadow:none;cursor:default;pointer-events:none}.mat-mdc-tab-header-pagination-disabled .mat-mdc-tab-header-pagination-chevron{opacity:.4}.mat-mdc-tab-list{flex-grow:1;position:relative;transition:transform 500ms cubic-bezier(0.35, 0, 0.25, 1)}._mat-animation-noopable .mat-mdc-tab-list{transition:none}._mat-animation-noopable span.mdc-tab-indicator__content,._mat-animation-noopable span.mdc-tab__text-label{transition:none}.mat-mdc-tab-label-container{display:flex;flex-grow:1;overflow:hidden;z-index:1;border-bottom-style:solid;border-bottom-width:var(--mat-tab-header-divider-height);border-bottom-color:var(--mat-tab-header-divider-color)}.mat-mdc-tab-group-inverted-header .mat-mdc-tab-label-container{border-bottom:none;border-top-style:solid;border-top-width:var(--mat-tab-header-divider-height);border-top-color:var(--mat-tab-header-divider-color)}.mat-mdc-tab-labels{display:flex;flex:1 0 auto}[mat-align-tabs=center]>.mat-mdc-tab-header .mat-mdc-tab-labels{justify-content:center}[mat-align-tabs=end]>.mat-mdc-tab-header .mat-mdc-tab-labels{justify-content:flex-end}.mat-mdc-tab::before{margin:5px}.cdk-high-contrast-active .mat-mdc-tab[aria-disabled=true]{color:GrayText}"], dependencies: [{ kind: "directive", type: MatRipple, selector: "[mat-ripple], [matRipple]", inputs: ["matRippleColor", "matRippleUnbounded", "matRippleCentered", "matRippleRadius", "matRippleAnimation", "matRippleDisabled", "matRippleTrigger"], exportAs: ["matRipple"] }, { kind: "directive", type: CdkObserveContent, selector: "[cdkObserveContent]", inputs: ["cdkObserveContentDisabled", "debounce"], outputs: ["cdkObserveContent"], exportAs: ["cdkObserveContent"] }], changeDetection: i0.ChangeDetectionStrategy.Default, encapsulation: i0.ViewEncapsulation.None });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatTabHeader, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatTabHeader, decorators: [{
             type: Component,
             args: [{ selector: 'mat-tab-header', inputs: ['selectedIndex'], outputs: ['selectFocusedIndex', 'indexFocused'], encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.Default, host: {
                         'class': 'mat-mdc-tab-header',
                         '[class.mat-mdc-tab-header-pagination-controls-enabled]': '_showPaginationControls',
                         '[class.mat-mdc-tab-header-rtl]': "_getLayoutDirection() == 'rtl'",
-                    }, template: "<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-before\"\n     #previousPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     tabindex=\"-1\"\n     [matRippleDisabled]=\"_disableScrollBefore || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollBefore\"\n     [disabled]=\"_disableScrollBefore || null\"\n     (click)=\"_handlePaginatorClick('before')\"\n     (mousedown)=\"_handlePaginatorPress('before', $event)\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n\n<div\n  class=\"mat-mdc-tab-label-container\"\n  #tabListContainer\n  (keydown)=\"_handleKeydown($event)\"\n  [class._mat-animation-noopable]=\"_animationMode === 'NoopAnimations'\">\n  <div\n    #tabList\n    class=\"mat-mdc-tab-list\"\n    role=\"tablist\"\n    (cdkObserveContent)=\"_onContentChanges()\">\n    <div class=\"mat-mdc-tab-labels\" #tabListInner>\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n\n<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-after\"\n     #nextPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     [matRippleDisabled]=\"_disableScrollAfter || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollAfter\"\n     [disabled]=\"_disableScrollAfter || null\"\n     tabindex=\"-1\"\n     (mousedown)=\"_handlePaginatorPress('after', $event)\"\n     (click)=\"_handlePaginatorClick('after')\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n", styles: [".mat-mdc-tab-header{display:flex;overflow:hidden;position:relative;flex-shrink:0}.mdc-tab-indicator .mdc-tab-indicator__content{transition-duration:var(--mat-tab-animation-duration, 250ms)}.mat-mdc-tab-header-pagination{-webkit-user-select:none;user-select:none;position:relative;display:none;justify-content:center;align-items:center;min-width:32px;cursor:pointer;z-index:2;-webkit-tap-highlight-color:rgba(0,0,0,0);touch-action:none;box-sizing:content-box;background:none;border:none;outline:0;padding:0}.mat-mdc-tab-header-pagination::-moz-focus-inner{border:0}.mat-mdc-tab-header-pagination .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-header-pagination-controls-enabled .mat-mdc-tab-header-pagination{display:flex}.mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after{padding-left:4px}.mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(-135deg)}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-pagination-after{padding-right:4px}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(45deg)}.mat-mdc-tab-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;height:8px;width:8px;border-color:var(--mat-tab-header-pagination-icon-color)}.mat-mdc-tab-header-pagination-disabled{box-shadow:none;cursor:default;pointer-events:none}.mat-mdc-tab-header-pagination-disabled .mat-mdc-tab-header-pagination-chevron{opacity:.4}.mat-mdc-tab-list{flex-grow:1;position:relative;transition:transform 500ms cubic-bezier(0.35, 0, 0.25, 1)}._mat-animation-noopable .mat-mdc-tab-list{transition:none}._mat-animation-noopable span.mdc-tab-indicator__content,._mat-animation-noopable span.mdc-tab__text-label{transition:none}.mat-mdc-tab-label-container{display:flex;flex-grow:1;overflow:hidden;z-index:1}.mat-mdc-tab-labels{display:flex;flex:1 0 auto}[mat-align-tabs=center]>.mat-mdc-tab-header .mat-mdc-tab-labels{justify-content:center}[mat-align-tabs=end]>.mat-mdc-tab-header .mat-mdc-tab-labels{justify-content:flex-end}.mat-mdc-tab::before{margin:5px}.cdk-high-contrast-active .mat-mdc-tab[aria-disabled=true]{color:GrayText}"] }]
+                    }, standalone: true, imports: [MatRipple, CdkObserveContent], template: "<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-before\"\n     #previousPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     tabindex=\"-1\"\n     [matRippleDisabled]=\"_disableScrollBefore || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollBefore\"\n     [disabled]=\"_disableScrollBefore || null\"\n     (click)=\"_handlePaginatorClick('before')\"\n     (mousedown)=\"_handlePaginatorPress('before', $event)\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n\n<div\n  class=\"mat-mdc-tab-label-container\"\n  #tabListContainer\n  (keydown)=\"_handleKeydown($event)\"\n  [class._mat-animation-noopable]=\"_animationMode === 'NoopAnimations'\">\n  <div\n    #tabList\n    class=\"mat-mdc-tab-list\"\n    role=\"tablist\"\n    (cdkObserveContent)=\"_onContentChanges()\">\n    <div class=\"mat-mdc-tab-labels\" #tabListInner>\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n\n<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-after\"\n     #nextPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     [matRippleDisabled]=\"_disableScrollAfter || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollAfter\"\n     [disabled]=\"_disableScrollAfter || null\"\n     tabindex=\"-1\"\n     (mousedown)=\"_handlePaginatorPress('after', $event)\"\n     (click)=\"_handlePaginatorClick('after')\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n", styles: [".mat-mdc-tab-header{display:flex;overflow:hidden;position:relative;flex-shrink:0}.mdc-tab-indicator .mdc-tab-indicator__content{transition-duration:var(--mat-tab-animation-duration, 250ms)}.mat-mdc-tab-header-pagination{-webkit-user-select:none;user-select:none;position:relative;display:none;justify-content:center;align-items:center;min-width:32px;cursor:pointer;z-index:2;-webkit-tap-highlight-color:rgba(0,0,0,0);touch-action:none;box-sizing:content-box;background:none;border:none;outline:0;padding:0}.mat-mdc-tab-header-pagination::-moz-focus-inner{border:0}.mat-mdc-tab-header-pagination .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-header-pagination-controls-enabled .mat-mdc-tab-header-pagination{display:flex}.mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after{padding-left:4px}.mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(-135deg)}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-pagination-after{padding-right:4px}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(45deg)}.mat-mdc-tab-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;height:8px;width:8px;border-color:var(--mat-tab-header-pagination-icon-color)}.mat-mdc-tab-header-pagination-disabled{box-shadow:none;cursor:default;pointer-events:none}.mat-mdc-tab-header-pagination-disabled .mat-mdc-tab-header-pagination-chevron{opacity:.4}.mat-mdc-tab-list{flex-grow:1;position:relative;transition:transform 500ms cubic-bezier(0.35, 0, 0.25, 1)}._mat-animation-noopable .mat-mdc-tab-list{transition:none}._mat-animation-noopable span.mdc-tab-indicator__content,._mat-animation-noopable span.mdc-tab__text-label{transition:none}.mat-mdc-tab-label-container{display:flex;flex-grow:1;overflow:hidden;z-index:1;border-bottom-style:solid;border-bottom-width:var(--mat-tab-header-divider-height);border-bottom-color:var(--mat-tab-header-divider-color)}.mat-mdc-tab-group-inverted-header .mat-mdc-tab-label-container{border-bottom:none;border-top-style:solid;border-top-width:var(--mat-tab-header-divider-height);border-top-color:var(--mat-tab-header-divider-color)}.mat-mdc-tab-labels{display:flex;flex:1 0 auto}[mat-align-tabs=center]>.mat-mdc-tab-header .mat-mdc-tab-labels{justify-content:center}[mat-align-tabs=end]>.mat-mdc-tab-header .mat-mdc-tab-labels{justify-content:flex-end}.mat-mdc-tab::before{margin:5px}.cdk-high-contrast-active .mat-mdc-tab[aria-disabled=true]{color:GrayText}"] }]
         }], ctorParameters: () => [{ type: i0.ElementRef }, { type: i0.ChangeDetectorRef }, { type: ViewportRuler }, { type: Directionality, decorators: [{
                     type: Optional
                 }] }, { type: i0.NgZone }, { type: Platform }, { type: undefined, decorators: [{
@@ -12360,8 +12218,244 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
             }] } });
 /** Injection token that can be used to provide the default options the tabs module. */
 const MAT_TABS_CONFIG = new InjectionToken('MAT_TABS_CONFIG');
+/**
+ * Animations used by the Material tabs.
+ * @docs-private
+ */
+const matTabsAnimations = {
+    /** Animation translates a tab along the X axis. */
+    translateTab: trigger('translateTab', [
+        // Transitions to `none` instead of 0, because some browsers might blur the content.
+        state('center, void, left-origin-center, right-origin-center', style({ transform: 'none' })),
+        // If the tab is either on the left or right, we additionally add a `min-height` of 1px
+        // in order to ensure that the element has a height before its state changes. This is
+        // necessary because Chrome does seem to skip the transition in RTL mode if the element does
+        // not have a static height and is not rendered. See related issue: #9465
+        state('left', style({
+            transform: 'translate3d(-100%, 0, 0)',
+            minHeight: '1px',
+            // Normally this is redundant since we detach the content from the DOM, but if the user
+            // opted into keeping the content in the DOM, we have to hide it so it isn't focusable.
+            visibility: 'hidden',
+        })),
+        state('right', style({
+            transform: 'translate3d(100%, 0, 0)',
+            minHeight: '1px',
+            visibility: 'hidden',
+        })),
+        transition('* => left, * => right, left => center, right => center', animate('{{animationDuration}} cubic-bezier(0.35, 0, 0.25, 1)')),
+        transition('void => left-origin-center', [
+            style({ transform: 'translate3d(-100%, 0, 0)', visibility: 'hidden' }),
+            animate('{{animationDuration}} cubic-bezier(0.35, 0, 0.25, 1)'),
+        ]),
+        transition('void => right-origin-center', [
+            style({ transform: 'translate3d(100%, 0, 0)', visibility: 'hidden' }),
+            animate('{{animationDuration}} cubic-bezier(0.35, 0, 0.25, 1)'),
+        ]),
+    ]),
+};
+/**
+ * The portal host directive for the contents of the tab.
+ * @docs-private
+ */
+class MatTabBodyPortal extends CdkPortalOutlet {
+    constructor(componentFactoryResolver, viewContainerRef, _host, _document) {
+        super(componentFactoryResolver, viewContainerRef, _document);
+        this._host = _host;
+        /** Subscription to events for when the tab body begins centering. */
+        this._centeringSub = Subscription.EMPTY;
+        /** Subscription to events for when the tab body finishes leaving from center position. */
+        this._leavingSub = Subscription.EMPTY;
+    }
+    /** Set initial visibility or set up subscription for changing visibility. */
+    ngOnInit() {
+        super.ngOnInit();
+        this._centeringSub = this._host._beforeCentering
+            .pipe(startWith$1(this._host._isCenterPosition(this._host._position)))
+            .subscribe((isCentering) => {
+            if (isCentering && !this.hasAttached()) {
+                this.attach(this._host._content);
+            }
+        });
+        this._leavingSub = this._host._afterLeavingCenter.subscribe(() => {
+            if (!this._host.preserveContent) {
+                this.detach();
+            }
+        });
+    }
+    /** Clean up centering subscription. */
+    ngOnDestroy() {
+        super.ngOnDestroy();
+        this._centeringSub.unsubscribe();
+        this._leavingSub.unsubscribe();
+    }
+}
+_g = MatTabBodyPortal;
+(() => {
+    _g.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _g, deps: [{ token: i0.ComponentFactoryResolver }, { token: i0.ViewContainerRef }, { token: forwardRef(() => MatTabBody) }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Directive });
+})();
+(() => {
+    _g.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _g, isStandalone: true, selector: "[matTabBodyHost]", usesInheritance: true, ngImport: i0 });
+})();
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatTabBodyPortal, decorators: [{
+            type: Directive,
+            args: [{
+                    selector: '[matTabBodyHost]',
+                    standalone: true,
+                }]
+        }], ctorParameters: () => [{ type: i0.ComponentFactoryResolver }, { type: i0.ViewContainerRef }, { type: MatTabBody, decorators: [{
+                    type: Inject,
+                    args: [forwardRef(() => MatTabBody)]
+                }] }, { type: undefined, decorators: [{
+                    type: Inject,
+                    args: [DOCUMENT]
+                }] }] });
+/**
+ * Wrapper for the contents of a tab.
+ * @docs-private
+ */
+class MatTabBody {
+    /** The shifted index position of the tab body, where zero represents the active center tab. */
+    set position(position) {
+        this._positionIndex = position;
+        this._computePositionAnimationState();
+    }
+    constructor(_elementRef, _dir, changeDetectorRef) {
+        this._elementRef = _elementRef;
+        this._dir = _dir;
+        /** Subscription to the directionality change observable. */
+        this._dirChangeSubscription = Subscription.EMPTY;
+        /** Emits when an animation on the tab is complete. */
+        this._translateTabComplete = new Subject();
+        /** Event emitted when the tab begins to animate towards the center as the active tab. */
+        this._onCentering = new EventEmitter();
+        /** Event emitted before the centering of the tab begins. */
+        this._beforeCentering = new EventEmitter();
+        /** Event emitted before the centering of the tab begins. */
+        this._afterLeavingCenter = new EventEmitter();
+        /** Event emitted when the tab completes its animation towards the center. */
+        this._onCentered = new EventEmitter(true);
+        // Note that the default value will always be overwritten by `MatTabBody`, but we need one
+        // anyway to prevent the animations module from throwing an error if the body is used on its own.
+        /** Duration for the tab's animation. */
+        this.animationDuration = '500ms';
+        /** Whether the tab's content should be kept in the DOM while it's off-screen. */
+        this.preserveContent = false;
+        if (_dir) {
+            this._dirChangeSubscription = _dir.change.subscribe((dir) => {
+                this._computePositionAnimationState(dir);
+                changeDetectorRef.markForCheck();
+            });
+        }
+        // Ensure that we get unique animation events, because the `.done` callback can get
+        // invoked twice in some browsers. See https://github.com/angular/angular/issues/24084.
+        this._translateTabComplete
+            .pipe(distinctUntilChanged((x, y) => {
+            return x.fromState === y.fromState && x.toState === y.toState;
+        }))
+            .subscribe(event => {
+            // If the transition to the center is complete, emit an event.
+            if (this._isCenterPosition(event.toState) && this._isCenterPosition(this._position)) {
+                this._onCentered.emit();
+            }
+            if (this._isCenterPosition(event.fromState) && !this._isCenterPosition(this._position)) {
+                this._afterLeavingCenter.emit();
+            }
+        });
+    }
+    /**
+     * After initialized, check if the content is centered and has an origin. If so, set the
+     * special position states that transition the tab from the left or right before centering.
+     */
+    ngOnInit() {
+        if (this._position == 'center' && this.origin != null) {
+            this._position = this._computePositionFromOrigin(this.origin);
+        }
+    }
+    ngOnDestroy() {
+        this._dirChangeSubscription.unsubscribe();
+        this._translateTabComplete.complete();
+    }
+    _onTranslateTabStarted(event) {
+        const isCentering = this._isCenterPosition(event.toState);
+        this._beforeCentering.emit(isCentering);
+        if (isCentering) {
+            this._onCentering.emit(this._elementRef.nativeElement.clientHeight);
+        }
+    }
+    /** The text direction of the containing app. */
+    _getLayoutDirection() {
+        return this._dir && this._dir.value === 'rtl' ? 'rtl' : 'ltr';
+    }
+    /** Whether the provided position state is considered center, regardless of origin. */
+    _isCenterPosition(position) {
+        return (position == 'center' || position == 'left-origin-center' || position == 'right-origin-center');
+    }
+    /** Computes the position state that will be used for the tab-body animation trigger. */
+    _computePositionAnimationState(dir = this._getLayoutDirection()) {
+        if (this._positionIndex < 0) {
+            this._position = dir == 'ltr' ? 'left' : 'right';
+        }
+        else if (this._positionIndex > 0) {
+            this._position = dir == 'ltr' ? 'right' : 'left';
+        }
+        else {
+            this._position = 'center';
+        }
+    }
+    /**
+     * Computes the position state based on the specified origin position. This is used if the
+     * tab is becoming visible immediately after creation.
+     */
+    _computePositionFromOrigin(origin) {
+        const dir = this._getLayoutDirection();
+        if ((dir == 'ltr' && origin <= 0) || (dir == 'rtl' && origin > 0)) {
+            return 'left-origin-center';
+        }
+        return 'right-origin-center';
+    }
+}
+_h = MatTabBody;
+(() => {
+    _h.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _h, deps: [{ token: i0.ElementRef }, { token: Directionality, optional: true }, { token: i0.ChangeDetectorRef }], target: i0.ɵɵFactoryTarget.Component });
+})();
+(() => {
+    _h.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _h, isStandalone: true, selector: "mat-tab-body", inputs: { _content: ["content", "_content"], origin: "origin", animationDuration: "animationDuration", preserveContent: "preserveContent", position: "position" }, outputs: { _onCentering: "_onCentering", _beforeCentering: "_beforeCentering", _afterLeavingCenter: "_afterLeavingCenter", _onCentered: "_onCentered" }, host: { classAttribute: "mat-mdc-tab-body" }, viewQueries: [{ propertyName: "_portalHost", first: true, predicate: CdkPortalOutlet, descendants: true }], ngImport: i0, template: "<div class=\"mat-mdc-tab-body-content\" #content\n     [@translateTab]=\"{\n        value: _position,\n        params: {animationDuration: animationDuration}\n     }\"\n     (@translateTab.start)=\"_onTranslateTabStarted($event)\"\n     (@translateTab.done)=\"_translateTabComplete.next($event)\"\n     cdkScrollable>\n  <ng-template matTabBodyHost></ng-template>\n</div>\n", styles: [".mat-mdc-tab-body{top:0;left:0;right:0;bottom:0;position:absolute;display:block;overflow:hidden;outline:0;flex-basis:100%}.mat-mdc-tab-body.mat-mdc-tab-body-active{position:relative;overflow-x:hidden;overflow-y:auto;z-index:1;flex-grow:1}.mat-mdc-tab-group.mat-mdc-tab-group-dynamic-height .mat-mdc-tab-body.mat-mdc-tab-body-active{overflow-y:hidden}.mat-mdc-tab-body-content{height:100%;overflow:auto}.mat-mdc-tab-group-dynamic-height .mat-mdc-tab-body-content{overflow:hidden}.mat-mdc-tab-body-content[style*=\"visibility: hidden\"]{display:none}"], dependencies: [{ kind: "directive", type: MatTabBodyPortal, selector: "[matTabBodyHost]" }, { kind: "directive", type: CdkScrollable, selector: "[cdk-scrollable], [cdkScrollable]" }], animations: [matTabsAnimations.translateTab], changeDetection: i0.ChangeDetectionStrategy.Default, encapsulation: i0.ViewEncapsulation.None });
+})();
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatTabBody, decorators: [{
+            type: Component,
+            args: [{ selector: 'mat-tab-body', encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.Default, animations: [matTabsAnimations.translateTab], host: {
+                        'class': 'mat-mdc-tab-body',
+                    }, standalone: true, imports: [MatTabBodyPortal, CdkScrollable], template: "<div class=\"mat-mdc-tab-body-content\" #content\n     [@translateTab]=\"{\n        value: _position,\n        params: {animationDuration: animationDuration}\n     }\"\n     (@translateTab.start)=\"_onTranslateTabStarted($event)\"\n     (@translateTab.done)=\"_translateTabComplete.next($event)\"\n     cdkScrollable>\n  <ng-template matTabBodyHost></ng-template>\n</div>\n", styles: [".mat-mdc-tab-body{top:0;left:0;right:0;bottom:0;position:absolute;display:block;overflow:hidden;outline:0;flex-basis:100%}.mat-mdc-tab-body.mat-mdc-tab-body-active{position:relative;overflow-x:hidden;overflow-y:auto;z-index:1;flex-grow:1}.mat-mdc-tab-group.mat-mdc-tab-group-dynamic-height .mat-mdc-tab-body.mat-mdc-tab-body-active{overflow-y:hidden}.mat-mdc-tab-body-content{height:100%;overflow:auto}.mat-mdc-tab-group-dynamic-height .mat-mdc-tab-body-content{overflow:hidden}.mat-mdc-tab-body-content[style*=\"visibility: hidden\"]{display:none}"] }]
+        }], ctorParameters: () => [{ type: i0.ElementRef }, { type: Directionality, decorators: [{
+                    type: Optional
+                }] }, { type: i0.ChangeDetectorRef }], propDecorators: { _onCentering: [{
+                type: Output
+            }], _beforeCentering: [{
+                type: Output
+            }], _afterLeavingCenter: [{
+                type: Output
+            }], _onCentered: [{
+                type: Output
+            }], _portalHost: [{
+                type: ViewChild,
+                args: [CdkPortalOutlet]
+            }], _content: [{
+                type: Input,
+                args: ['content']
+            }], origin: [{
+                type: Input
+            }], animationDuration: [{
+                type: Input
+            }], preserveContent: [{
+                type: Input
+            }], position: [{
+                type: Input
+            }] } });
 /** Used to generate unique ID's for each tab component */
 let nextId = 0;
+/** Boolean constant that determines whether the tab group supports the `backgroundColor` input */
+const ENABLE_BACKGROUND_INPUT = true;
 /**
  * Material design tab-group component. Supports basic tab pairs (label + content) and includes
  * animated ink-bar, keyboard navigation, and screen reader.
@@ -12403,11 +12497,18 @@ class MatTabGroup {
     set contentTabIndex(value) {
         this._contentTabIndex = isNaN(value) ? null : value;
     }
-    /** Background color of the tab group. */
+    /**
+     * Background color of the tab group.
+     * @deprecated The background color should be customized through Sass theming APIs.
+     * @breaking-change 20.0.0 Remove this input
+     */
     get backgroundColor() {
         return this._backgroundColor;
     }
     set backgroundColor(value) {
+        if (!ENABLE_BACKGROUND_INPUT) {
+            throw new Error(`mat-tab-group background color must be set through the Sass theming API`);
+        }
         const classList = this._elementRef.nativeElement.classList;
         classList.remove('mat-tabs-with-background', `mat-background-${this.backgroundColor}`);
         if (value) {
@@ -12697,17 +12798,17 @@ class MatTabGroup {
 }
 _j = MatTabGroup;
 (() => {
-    _j.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _j, deps: [{ token: i0.ElementRef }, { token: i0.ChangeDetectorRef }, { token: MAT_TABS_CONFIG, optional: true }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
+    _j.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _j, deps: [{ token: i0.ElementRef }, { token: i0.ChangeDetectorRef }, { token: MAT_TABS_CONFIG, optional: true }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
 })();
 (() => {
-    _j.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.0.0", type: _j, selector: "mat-tab-group", inputs: { color: "color", fitInkBarToContent: ["fitInkBarToContent", "fitInkBarToContent", booleanAttribute], stretchTabs: ["mat-stretch-tabs", "stretchTabs", booleanAttribute], dynamicHeight: ["dynamicHeight", "dynamicHeight", booleanAttribute], selectedIndex: ["selectedIndex", "selectedIndex", numberAttribute], headerPosition: "headerPosition", animationDuration: "animationDuration", contentTabIndex: ["contentTabIndex", "contentTabIndex", numberAttribute], disablePagination: ["disablePagination", "disablePagination", booleanAttribute], disableRipple: ["disableRipple", "disableRipple", booleanAttribute], preserveContent: ["preserveContent", "preserveContent", booleanAttribute], backgroundColor: "backgroundColor" }, outputs: { selectedIndexChange: "selectedIndexChange", focusChange: "focusChange", animationDone: "animationDone", selectedTabChange: "selectedTabChange" }, host: { attributes: { "ngSkipHydration": "" }, properties: { "class": "\"mat-\" + (color || \"primary\")", "class.mat-mdc-tab-group-dynamic-height": "dynamicHeight", "class.mat-mdc-tab-group-inverted-header": "headerPosition === \"below\"", "class.mat-mdc-tab-group-stretch-tabs": "stretchTabs", "style.--mat-tab-animation-duration": "animationDuration" }, classAttribute: "mat-mdc-tab-group" }, providers: [
+    _j.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.2", type: _j, isStandalone: true, selector: "mat-tab-group", inputs: { color: "color", fitInkBarToContent: ["fitInkBarToContent", "fitInkBarToContent", booleanAttribute], stretchTabs: ["mat-stretch-tabs", "stretchTabs", booleanAttribute], dynamicHeight: ["dynamicHeight", "dynamicHeight", booleanAttribute], selectedIndex: ["selectedIndex", "selectedIndex", numberAttribute], headerPosition: "headerPosition", animationDuration: "animationDuration", contentTabIndex: ["contentTabIndex", "contentTabIndex", numberAttribute], disablePagination: ["disablePagination", "disablePagination", booleanAttribute], disableRipple: ["disableRipple", "disableRipple", booleanAttribute], preserveContent: ["preserveContent", "preserveContent", booleanAttribute], backgroundColor: "backgroundColor" }, outputs: { selectedIndexChange: "selectedIndexChange", focusChange: "focusChange", animationDone: "animationDone", selectedTabChange: "selectedTabChange" }, host: { attributes: { "ngSkipHydration": "" }, properties: { "class": "\"mat-\" + (color || \"primary\")", "class.mat-mdc-tab-group-dynamic-height": "dynamicHeight", "class.mat-mdc-tab-group-inverted-header": "headerPosition === \"below\"", "class.mat-mdc-tab-group-stretch-tabs": "stretchTabs", "style.--mat-tab-animation-duration": "animationDuration" }, classAttribute: "mat-mdc-tab-group" }, providers: [
             {
                 provide: MAT_TAB_GROUP,
                 useExisting: _j,
             },
-        ], queries: [{ propertyName: "_allTabs", predicate: MatTab, descendants: true }], viewQueries: [{ propertyName: "_tabBodyWrapper", first: true, predicate: ["tabBodyWrapper"], descendants: true }, { propertyName: "_tabHeader", first: true, predicate: ["tabHeader"], descendants: true }], exportAs: ["matTabGroup"], ngImport: i0, template: "<mat-tab-header #tabHeader\n                [selectedIndex]=\"selectedIndex || 0\"\n                [disableRipple]=\"disableRipple\"\n                [disablePagination]=\"disablePagination\"\n                (indexFocused)=\"_focusChanged($event)\"\n                (selectFocusedIndex)=\"selectedIndex = $event\">\n\n  @for (tab of _tabs; track tab; let i = $index) {\n    <div class=\"mdc-tab mat-mdc-tab mat-mdc-focus-indicator\"\n        #tabNode\n        role=\"tab\"\n        matTabLabelWrapper\n        cdkMonitorElementFocus\n        [id]=\"_getTabLabelId(i)\"\n        [attr.tabIndex]=\"_getTabIndex(i)\"\n        [attr.aria-posinset]=\"i + 1\"\n        [attr.aria-setsize]=\"_tabs.length\"\n        [attr.aria-controls]=\"_getTabContentId(i)\"\n        [attr.aria-selected]=\"selectedIndex === i\"\n        [attr.aria-label]=\"tab.ariaLabel || null\"\n        [attr.aria-labelledby]=\"(!tab.ariaLabel && tab.ariaLabelledby) ? tab.ariaLabelledby : null\"\n        [class.mdc-tab--active]=\"selectedIndex === i\"\n        [ngClass]=\"tab.labelClass\"\n        [disabled]=\"tab.disabled\"\n        [fitInkBarToContent]=\"fitInkBarToContent\"\n        (click)=\"_handleClick(tab, tabHeader, i)\"\n        (cdkFocusChange)=\"_tabFocusChanged($event, i)\">\n      <span class=\"mdc-tab__ripple\"></span>\n\n      <!-- Needs to be a separate element, because we can't put\n          `overflow: hidden` on tab due to the ink bar. -->\n      <div\n        class=\"mat-mdc-tab-ripple\"\n        mat-ripple\n        [matRippleTrigger]=\"tabNode\"\n        [matRippleDisabled]=\"tab.disabled || disableRipple\"></div>\n\n      <span class=\"mdc-tab__content\">\n        <span class=\"mdc-tab__text-label\">\n          <!--\n            If there is a label template, use it, otherwise fall back to the text label.\n            Note that we don't have indentation around the text label, because it adds\n            whitespace around the text which breaks some internal tests.\n          -->\n          @if (tab.templateLabel) {\n            <ng-template [cdkPortalOutlet]=\"tab.templateLabel\"></ng-template>\n          } @else {{{tab.textLabel}}}\n        </span>\n      </span>\n    </div>\n  }\n</mat-tab-header>\n\n<div\n  class=\"mat-mdc-tab-body-wrapper\"\n  [class._mat-animation-noopable]=\"_animationMode === 'NoopAnimations'\"\n  #tabBodyWrapper>\n  @for (tab of _tabs; track tab; let i = $index) {\n    <mat-tab-body role=\"tabpanel\"\n                 [id]=\"_getTabContentId(i)\"\n                 [attr.tabindex]=\"(contentTabIndex != null && selectedIndex === i) ? contentTabIndex : null\"\n                 [attr.aria-labelledby]=\"_getTabLabelId(i)\"\n                 [attr.aria-hidden]=\"selectedIndex !== i\"\n                 [class.mat-mdc-tab-body-active]=\"selectedIndex === i\"\n                 [ngClass]=\"tab.bodyClass\"\n                 [content]=\"tab.content!\"\n                 [position]=\"tab.position!\"\n                 [origin]=\"tab.origin\"\n                 [animationDuration]=\"animationDuration\"\n                 [preserveContent]=\"preserveContent\"\n                 (_onCentered)=\"_removeTabBodyWrapperHeight()\"\n                 (_onCentering)=\"_setTabBodyWrapperHeight($event)\">\n    </mat-tab-body>\n  }\n</div>\n", styles: [".mdc-tab{min-width:90px;padding-right:24px;padding-left:24px;display:flex;flex:1 0 auto;justify-content:center;box-sizing:border-box;margin:0;padding-top:0;padding-bottom:0;border:none;outline:none;text-align:center;white-space:nowrap;cursor:pointer;-webkit-appearance:none;z-index:1}.mdc-tab::-moz-focus-inner{padding:0;border:0}.mdc-tab[hidden]{display:none}.mdc-tab--min-width{flex:0 1 auto}.mdc-tab__content{display:flex;align-items:center;justify-content:center;height:inherit;pointer-events:none}.mdc-tab__text-label{transition:150ms color linear;display:inline-block;line-height:1;z-index:2}.mdc-tab__icon{transition:150ms color linear;z-index:2}.mdc-tab--stacked .mdc-tab__content{flex-direction:column;align-items:center;justify-content:center}.mdc-tab--stacked .mdc-tab__text-label{padding-top:6px;padding-bottom:4px}.mdc-tab--active .mdc-tab__text-label,.mdc-tab--active .mdc-tab__icon{transition-delay:100ms}.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label{padding-left:8px;padding-right:0}[dir=rtl] .mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label,.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label[dir=rtl]{padding-left:0;padding-right:8px}.mdc-tab-indicator{display:flex;position:absolute;top:0;left:0;justify-content:center;width:100%;height:100%;pointer-events:none;z-index:1}.mdc-tab-indicator__content{transform-origin:left;opacity:0}.mdc-tab-indicator__content--underline{align-self:flex-end;box-sizing:border-box;width:100%;border-top-style:solid}.mdc-tab-indicator__content--icon{align-self:center;margin:0 auto}.mdc-tab-indicator--active .mdc-tab-indicator__content{opacity:1}.mdc-tab-indicator .mdc-tab-indicator__content{transition:250ms transform cubic-bezier(0.4, 0, 0.2, 1)}.mdc-tab-indicator--no-transition .mdc-tab-indicator__content{transition:none}.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition:150ms opacity linear}.mdc-tab-indicator--active.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition-delay:100ms}.mat-mdc-tab-ripple{position:absolute;top:0;left:0;bottom:0;right:0;pointer-events:none}.mat-mdc-tab{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-decoration:none;background:none;font-family:var(--mat-tab-header-label-text-font);font-size:var(--mat-tab-header-label-text-size);letter-spacing:var(--mat-tab-header-label-text-tracking);line-height:var(--mat-tab-header-label-text-line-height);font-weight:var(--mat-tab-header-label-text-weight)}.mat-mdc-tab .mdc-tab-indicator__content--underline{border-color:var(--mdc-tab-indicator-active-indicator-color)}.mat-mdc-tab .mdc-tab-indicator__content--underline{border-top-width:var(--mdc-tab-indicator-active-indicator-height)}.mat-mdc-tab .mdc-tab-indicator__content--underline{border-radius:var(--mdc-tab-indicator-active-indicator-shape)}.mat-mdc-tab:not(.mdc-tab--stacked){height:var(--mdc-secondary-navigation-tab-container-height)}.mat-mdc-tab:not(:disabled).mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):hover.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):focus.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):active.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:disabled.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):hover:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):focus:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):active:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:disabled:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab.mdc-tab{flex-grow:0}.mat-mdc-tab:hover .mdc-tab__text-label{color:var(--mat-tab-header-inactive-hover-label-text-color)}.mat-mdc-tab:focus .mdc-tab__text-label{color:var(--mat-tab-header-inactive-focus-label-text-color)}.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label{color:var(--mat-tab-header-active-label-text-color)}.mat-mdc-tab.mdc-tab--active .mdc-tab__ripple::before,.mat-mdc-tab.mdc-tab--active .mat-ripple-element{background-color:var(--mat-tab-header-active-ripple-color)}.mat-mdc-tab.mdc-tab--active:hover .mdc-tab__text-label{color:var(--mat-tab-header-active-hover-label-text-color)}.mat-mdc-tab.mdc-tab--active:hover .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-hover-indicator-color)}.mat-mdc-tab.mdc-tab--active:focus .mdc-tab__text-label{color:var(--mat-tab-header-active-focus-label-text-color)}.mat-mdc-tab.mdc-tab--active:focus .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-focus-indicator-color)}.mat-mdc-tab.mat-mdc-tab-disabled{opacity:.4;pointer-events:none}.mat-mdc-tab.mat-mdc-tab-disabled .mdc-tab__content{pointer-events:none}.mat-mdc-tab.mat-mdc-tab-disabled .mdc-tab__ripple::before,.mat-mdc-tab.mat-mdc-tab-disabled .mat-ripple-element{background-color:var(--mat-tab-header-disabled-ripple-color)}.mat-mdc-tab .mdc-tab__ripple::before{content:\"\";display:block;position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;pointer-events:none;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab .mdc-tab__text-label{color:var(--mat-tab-header-inactive-label-text-color);display:inline-flex;align-items:center}.mat-mdc-tab .mdc-tab__content{position:relative;pointer-events:auto}.mat-mdc-tab:hover .mdc-tab__ripple::before{opacity:.04}.mat-mdc-tab.cdk-program-focused .mdc-tab__ripple::before,.mat-mdc-tab.cdk-keyboard-focused .mdc-tab__ripple::before{opacity:.12}.mat-mdc-tab .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header .mat-mdc-tab{flex-grow:1}.mat-mdc-tab-group{display:flex;flex-direction:column;max-width:100%}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination{background-color:var(--mat-tab-header-with-background-background-color)}.mat-mdc-tab-group.mat-tabs-with-background.mat-primary>.mat-mdc-tab-header .mat-mdc-tab .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background.mat-primary>.mat-mdc-tab-header .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-header .mat-mdc-tab:not(.mdc-tab--active) .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-header .mat-mdc-tab:not(.mdc-tab--active) .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-mdc-focus-indicator::before,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-focus-indicator::before{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-ripple-element,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mdc-tab__ripple::before,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-ripple-element,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mdc-tab__ripple::before{background-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-mdc-tab-group-inverted-header{flex-direction:column-reverse}.mat-mdc-tab-group.mat-mdc-tab-group-inverted-header .mdc-tab-indicator__content--underline{align-self:flex-start}.mat-mdc-tab-body-wrapper{position:relative;overflow:hidden;display:flex;transition:height 500ms cubic-bezier(0.35, 0, 0.25, 1)}.mat-mdc-tab-body-wrapper._mat-animation-noopable{transition:none !important;animation:none !important}"], dependencies: [{ kind: "directive", type: i1.NgClass, selector: "[ngClass]", inputs: ["class", "ngClass"] }, { kind: "directive", type: CdkPortalOutlet, selector: "[cdkPortalOutlet]", inputs: ["cdkPortalOutlet"], outputs: ["attached"], exportAs: ["cdkPortalOutlet"] }, { kind: "directive", type: MatRipple, selector: "[mat-ripple], [matRipple]", inputs: ["matRippleColor", "matRippleUnbounded", "matRippleCentered", "matRippleRadius", "matRippleAnimation", "matRippleDisabled", "matRippleTrigger"], exportAs: ["matRipple"] }, { kind: "directive", type: CdkMonitorFocus, selector: "[cdkMonitorElementFocus], [cdkMonitorSubtreeFocus]", outputs: ["cdkFocusChange"], exportAs: ["cdkMonitorFocus"] }, { kind: "component", type: MatTabBody, selector: "mat-tab-body", inputs: ["content", "origin", "animationDuration", "preserveContent", "position"], outputs: ["_onCentering", "_beforeCentering", "_afterLeavingCenter", "_onCentered"] }, { kind: "directive", type: MatTabLabelWrapper, selector: "[matTabLabelWrapper]", inputs: ["fitInkBarToContent", "disabled"] }, { kind: "component", type: MatTabHeader, selector: "mat-tab-header", inputs: ["selectedIndex", "disableRipple"], outputs: ["selectFocusedIndex", "indexFocused"] }], changeDetection: i0.ChangeDetectionStrategy.Default, encapsulation: i0.ViewEncapsulation.None });
+        ], queries: [{ propertyName: "_allTabs", predicate: MatTab, descendants: true }], viewQueries: [{ propertyName: "_tabBodyWrapper", first: true, predicate: ["tabBodyWrapper"], descendants: true }, { propertyName: "_tabHeader", first: true, predicate: ["tabHeader"], descendants: true }], exportAs: ["matTabGroup"], ngImport: i0, template: "<mat-tab-header #tabHeader\n                [selectedIndex]=\"selectedIndex || 0\"\n                [disableRipple]=\"disableRipple\"\n                [disablePagination]=\"disablePagination\"\n                (indexFocused)=\"_focusChanged($event)\"\n                (selectFocusedIndex)=\"selectedIndex = $event\">\n\n  @for (tab of _tabs; track tab; let i = $index) {\n    <div class=\"mdc-tab mat-mdc-tab mat-mdc-focus-indicator\"\n        #tabNode\n        role=\"tab\"\n        matTabLabelWrapper\n        cdkMonitorElementFocus\n        [id]=\"_getTabLabelId(i)\"\n        [attr.tabIndex]=\"_getTabIndex(i)\"\n        [attr.aria-posinset]=\"i + 1\"\n        [attr.aria-setsize]=\"_tabs.length\"\n        [attr.aria-controls]=\"_getTabContentId(i)\"\n        [attr.aria-selected]=\"selectedIndex === i\"\n        [attr.aria-label]=\"tab.ariaLabel || null\"\n        [attr.aria-labelledby]=\"(!tab.ariaLabel && tab.ariaLabelledby) ? tab.ariaLabelledby : null\"\n        [class.mdc-tab--active]=\"selectedIndex === i\"\n        [ngClass]=\"tab.labelClass\"\n        [disabled]=\"tab.disabled\"\n        [fitInkBarToContent]=\"fitInkBarToContent\"\n        (click)=\"_handleClick(tab, tabHeader, i)\"\n        (cdkFocusChange)=\"_tabFocusChanged($event, i)\">\n      <span class=\"mdc-tab__ripple\"></span>\n\n      <!-- Needs to be a separate element, because we can't put\n          `overflow: hidden` on tab due to the ink bar. -->\n      <div\n        class=\"mat-mdc-tab-ripple\"\n        mat-ripple\n        [matRippleTrigger]=\"tabNode\"\n        [matRippleDisabled]=\"tab.disabled || disableRipple\"></div>\n\n      <span class=\"mdc-tab__content\">\n        <span class=\"mdc-tab__text-label\">\n          <!--\n            If there is a label template, use it, otherwise fall back to the text label.\n            Note that we don't have indentation around the text label, because it adds\n            whitespace around the text which breaks some internal tests.\n          -->\n          @if (tab.templateLabel) {\n            <ng-template [cdkPortalOutlet]=\"tab.templateLabel\"></ng-template>\n          } @else {{{tab.textLabel}}}\n        </span>\n      </span>\n    </div>\n  }\n</mat-tab-header>\n\n<div\n  class=\"mat-mdc-tab-body-wrapper\"\n  [class._mat-animation-noopable]=\"_animationMode === 'NoopAnimations'\"\n  #tabBodyWrapper>\n  @for (tab of _tabs; track tab; let i = $index) {\n    <mat-tab-body role=\"tabpanel\"\n                 [id]=\"_getTabContentId(i)\"\n                 [attr.tabindex]=\"(contentTabIndex != null && selectedIndex === i) ? contentTabIndex : null\"\n                 [attr.aria-labelledby]=\"_getTabLabelId(i)\"\n                 [attr.aria-hidden]=\"selectedIndex !== i\"\n                 [class.mat-mdc-tab-body-active]=\"selectedIndex === i\"\n                 [ngClass]=\"tab.bodyClass\"\n                 [content]=\"tab.content!\"\n                 [position]=\"tab.position!\"\n                 [origin]=\"tab.origin\"\n                 [animationDuration]=\"animationDuration\"\n                 [preserveContent]=\"preserveContent\"\n                 (_onCentered)=\"_removeTabBodyWrapperHeight()\"\n                 (_onCentering)=\"_setTabBodyWrapperHeight($event)\">\n    </mat-tab-body>\n  }\n</div>\n", styles: [".mdc-tab{min-width:90px;padding-right:24px;padding-left:24px;display:flex;flex:1 0 auto;justify-content:center;box-sizing:border-box;margin:0;padding-top:0;padding-bottom:0;border:none;outline:none;text-align:center;white-space:nowrap;cursor:pointer;-webkit-appearance:none;z-index:1}.mdc-tab::-moz-focus-inner{padding:0;border:0}.mdc-tab[hidden]{display:none}.mdc-tab--min-width{flex:0 1 auto}.mdc-tab__content{display:flex;align-items:center;justify-content:center;height:inherit;pointer-events:none}.mdc-tab__text-label{transition:150ms color linear;display:inline-block;line-height:1;z-index:2}.mdc-tab__icon{transition:150ms color linear;z-index:2}.mdc-tab--stacked .mdc-tab__content{flex-direction:column;align-items:center;justify-content:center}.mdc-tab--stacked .mdc-tab__text-label{padding-top:6px;padding-bottom:4px}.mdc-tab--active .mdc-tab__text-label,.mdc-tab--active .mdc-tab__icon{transition-delay:100ms}.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label{padding-left:8px;padding-right:0}[dir=rtl] .mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label,.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label[dir=rtl]{padding-left:0;padding-right:8px}.mdc-tab-indicator{display:flex;position:absolute;top:0;left:0;justify-content:center;width:100%;height:100%;pointer-events:none;z-index:1}.mdc-tab-indicator__content{transform-origin:left;opacity:0}.mdc-tab-indicator__content--underline{align-self:flex-end;box-sizing:border-box;width:100%;border-top-style:solid}.mdc-tab-indicator__content--icon{align-self:center;margin:0 auto}.mdc-tab-indicator--active .mdc-tab-indicator__content{opacity:1}.mdc-tab-indicator .mdc-tab-indicator__content{transition:250ms transform cubic-bezier(0.4, 0, 0.2, 1)}.mdc-tab-indicator--no-transition .mdc-tab-indicator__content{transition:none}.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition:150ms opacity linear}.mdc-tab-indicator--active.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition-delay:100ms}.mat-mdc-tab-ripple{position:absolute;top:0;left:0;bottom:0;right:0;pointer-events:none}.mat-mdc-tab{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-decoration:none;background:none;font-family:var(--mat-tab-header-label-text-font);font-size:var(--mat-tab-header-label-text-size);letter-spacing:var(--mat-tab-header-label-text-tracking);line-height:var(--mat-tab-header-label-text-line-height);font-weight:var(--mat-tab-header-label-text-weight)}.mat-mdc-tab .mdc-tab-indicator__content--underline{border-color:var(--mdc-tab-indicator-active-indicator-color)}.mat-mdc-tab .mdc-tab-indicator__content--underline{border-top-width:var(--mdc-tab-indicator-active-indicator-height)}.mat-mdc-tab .mdc-tab-indicator__content--underline{border-radius:var(--mdc-tab-indicator-active-indicator-shape)}.mat-mdc-tab:not(.mdc-tab--stacked){height:var(--mdc-secondary-navigation-tab-container-height)}.mat-mdc-tab:not(:disabled).mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):hover.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):focus.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):active.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:disabled.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):hover:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):focus:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):active:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:disabled:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab.mdc-tab{flex-grow:0}.mat-mdc-tab:hover .mdc-tab__text-label{color:var(--mat-tab-header-inactive-hover-label-text-color)}.mat-mdc-tab:focus .mdc-tab__text-label{color:var(--mat-tab-header-inactive-focus-label-text-color)}.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label{color:var(--mat-tab-header-active-label-text-color)}.mat-mdc-tab.mdc-tab--active .mdc-tab__ripple::before,.mat-mdc-tab.mdc-tab--active .mat-ripple-element{background-color:var(--mat-tab-header-active-ripple-color)}.mat-mdc-tab.mdc-tab--active:hover .mdc-tab__text-label{color:var(--mat-tab-header-active-hover-label-text-color)}.mat-mdc-tab.mdc-tab--active:hover .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-hover-indicator-color)}.mat-mdc-tab.mdc-tab--active:focus .mdc-tab__text-label{color:var(--mat-tab-header-active-focus-label-text-color)}.mat-mdc-tab.mdc-tab--active:focus .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-focus-indicator-color)}.mat-mdc-tab.mat-mdc-tab-disabled{opacity:.4;pointer-events:none}.mat-mdc-tab.mat-mdc-tab-disabled .mdc-tab__content{pointer-events:none}.mat-mdc-tab.mat-mdc-tab-disabled .mdc-tab__ripple::before,.mat-mdc-tab.mat-mdc-tab-disabled .mat-ripple-element{background-color:var(--mat-tab-header-disabled-ripple-color)}.mat-mdc-tab .mdc-tab__ripple::before{content:\"\";display:block;position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;pointer-events:none;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab .mdc-tab__text-label{color:var(--mat-tab-header-inactive-label-text-color);display:inline-flex;align-items:center}.mat-mdc-tab .mdc-tab__content{position:relative;pointer-events:auto}.mat-mdc-tab:hover .mdc-tab__ripple::before{opacity:.04}.mat-mdc-tab.cdk-program-focused .mdc-tab__ripple::before,.mat-mdc-tab.cdk-keyboard-focused .mdc-tab__ripple::before{opacity:.12}.mat-mdc-tab .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header .mat-mdc-tab{flex-grow:1}.mat-mdc-tab-group{display:flex;flex-direction:column;max-width:100%}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination{background-color:var(--mat-tab-header-with-background-background-color)}.mat-mdc-tab-group.mat-tabs-with-background.mat-primary>.mat-mdc-tab-header .mat-mdc-tab .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background.mat-primary>.mat-mdc-tab-header .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-header .mat-mdc-tab:not(.mdc-tab--active) .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-header .mat-mdc-tab:not(.mdc-tab--active) .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-mdc-focus-indicator::before,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-focus-indicator::before{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-ripple-element,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mdc-tab__ripple::before,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-ripple-element,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mdc-tab__ripple::before{background-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-mdc-tab-group-inverted-header{flex-direction:column-reverse}.mat-mdc-tab-group.mat-mdc-tab-group-inverted-header .mdc-tab-indicator__content--underline{align-self:flex-start}.mat-mdc-tab-body-wrapper{position:relative;overflow:hidden;display:flex;transition:height 500ms cubic-bezier(0.35, 0, 0.25, 1)}.mat-mdc-tab-body-wrapper._mat-animation-noopable{transition:none !important;animation:none !important}"], dependencies: [{ kind: "component", type: MatTabHeader, selector: "mat-tab-header", inputs: ["selectedIndex", "disableRipple"], outputs: ["selectFocusedIndex", "indexFocused"] }, { kind: "directive", type: MatTabLabelWrapper, selector: "[matTabLabelWrapper]", inputs: ["fitInkBarToContent", "disabled"] }, { kind: "directive", type: CdkMonitorFocus, selector: "[cdkMonitorElementFocus], [cdkMonitorSubtreeFocus]", outputs: ["cdkFocusChange"], exportAs: ["cdkMonitorFocus"] }, { kind: "directive", type: NgClass, selector: "[ngClass]", inputs: ["class", "ngClass"] }, { kind: "directive", type: MatRipple, selector: "[mat-ripple], [matRipple]", inputs: ["matRippleColor", "matRippleUnbounded", "matRippleCentered", "matRippleRadius", "matRippleAnimation", "matRippleDisabled", "matRippleTrigger"], exportAs: ["matRipple"] }, { kind: "directive", type: CdkPortalOutlet, selector: "[cdkPortalOutlet]", inputs: ["cdkPortalOutlet"], outputs: ["attached"], exportAs: ["cdkPortalOutlet"] }, { kind: "component", type: MatTabBody, selector: "mat-tab-body", inputs: ["content", "origin", "animationDuration", "preserveContent", "position"], outputs: ["_onCentering", "_beforeCentering", "_afterLeavingCenter", "_onCentered"] }], changeDetection: i0.ChangeDetectionStrategy.Default, encapsulation: i0.ViewEncapsulation.None });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatTabGroup, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatTabGroup, decorators: [{
             type: Component,
             args: [{ selector: 'mat-tab-group', exportAs: 'matTabGroup', encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.Default, providers: [
                         {
@@ -12722,7 +12823,15 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                         '[class.mat-mdc-tab-group-inverted-header]': 'headerPosition === "below"',
                         '[class.mat-mdc-tab-group-stretch-tabs]': 'stretchTabs',
                         '[style.--mat-tab-animation-duration]': 'animationDuration',
-                    }, template: "<mat-tab-header #tabHeader\n                [selectedIndex]=\"selectedIndex || 0\"\n                [disableRipple]=\"disableRipple\"\n                [disablePagination]=\"disablePagination\"\n                (indexFocused)=\"_focusChanged($event)\"\n                (selectFocusedIndex)=\"selectedIndex = $event\">\n\n  @for (tab of _tabs; track tab; let i = $index) {\n    <div class=\"mdc-tab mat-mdc-tab mat-mdc-focus-indicator\"\n        #tabNode\n        role=\"tab\"\n        matTabLabelWrapper\n        cdkMonitorElementFocus\n        [id]=\"_getTabLabelId(i)\"\n        [attr.tabIndex]=\"_getTabIndex(i)\"\n        [attr.aria-posinset]=\"i + 1\"\n        [attr.aria-setsize]=\"_tabs.length\"\n        [attr.aria-controls]=\"_getTabContentId(i)\"\n        [attr.aria-selected]=\"selectedIndex === i\"\n        [attr.aria-label]=\"tab.ariaLabel || null\"\n        [attr.aria-labelledby]=\"(!tab.ariaLabel && tab.ariaLabelledby) ? tab.ariaLabelledby : null\"\n        [class.mdc-tab--active]=\"selectedIndex === i\"\n        [ngClass]=\"tab.labelClass\"\n        [disabled]=\"tab.disabled\"\n        [fitInkBarToContent]=\"fitInkBarToContent\"\n        (click)=\"_handleClick(tab, tabHeader, i)\"\n        (cdkFocusChange)=\"_tabFocusChanged($event, i)\">\n      <span class=\"mdc-tab__ripple\"></span>\n\n      <!-- Needs to be a separate element, because we can't put\n          `overflow: hidden` on tab due to the ink bar. -->\n      <div\n        class=\"mat-mdc-tab-ripple\"\n        mat-ripple\n        [matRippleTrigger]=\"tabNode\"\n        [matRippleDisabled]=\"tab.disabled || disableRipple\"></div>\n\n      <span class=\"mdc-tab__content\">\n        <span class=\"mdc-tab__text-label\">\n          <!--\n            If there is a label template, use it, otherwise fall back to the text label.\n            Note that we don't have indentation around the text label, because it adds\n            whitespace around the text which breaks some internal tests.\n          -->\n          @if (tab.templateLabel) {\n            <ng-template [cdkPortalOutlet]=\"tab.templateLabel\"></ng-template>\n          } @else {{{tab.textLabel}}}\n        </span>\n      </span>\n    </div>\n  }\n</mat-tab-header>\n\n<div\n  class=\"mat-mdc-tab-body-wrapper\"\n  [class._mat-animation-noopable]=\"_animationMode === 'NoopAnimations'\"\n  #tabBodyWrapper>\n  @for (tab of _tabs; track tab; let i = $index) {\n    <mat-tab-body role=\"tabpanel\"\n                 [id]=\"_getTabContentId(i)\"\n                 [attr.tabindex]=\"(contentTabIndex != null && selectedIndex === i) ? contentTabIndex : null\"\n                 [attr.aria-labelledby]=\"_getTabLabelId(i)\"\n                 [attr.aria-hidden]=\"selectedIndex !== i\"\n                 [class.mat-mdc-tab-body-active]=\"selectedIndex === i\"\n                 [ngClass]=\"tab.bodyClass\"\n                 [content]=\"tab.content!\"\n                 [position]=\"tab.position!\"\n                 [origin]=\"tab.origin\"\n                 [animationDuration]=\"animationDuration\"\n                 [preserveContent]=\"preserveContent\"\n                 (_onCentered)=\"_removeTabBodyWrapperHeight()\"\n                 (_onCentering)=\"_setTabBodyWrapperHeight($event)\">\n    </mat-tab-body>\n  }\n</div>\n", styles: [".mdc-tab{min-width:90px;padding-right:24px;padding-left:24px;display:flex;flex:1 0 auto;justify-content:center;box-sizing:border-box;margin:0;padding-top:0;padding-bottom:0;border:none;outline:none;text-align:center;white-space:nowrap;cursor:pointer;-webkit-appearance:none;z-index:1}.mdc-tab::-moz-focus-inner{padding:0;border:0}.mdc-tab[hidden]{display:none}.mdc-tab--min-width{flex:0 1 auto}.mdc-tab__content{display:flex;align-items:center;justify-content:center;height:inherit;pointer-events:none}.mdc-tab__text-label{transition:150ms color linear;display:inline-block;line-height:1;z-index:2}.mdc-tab__icon{transition:150ms color linear;z-index:2}.mdc-tab--stacked .mdc-tab__content{flex-direction:column;align-items:center;justify-content:center}.mdc-tab--stacked .mdc-tab__text-label{padding-top:6px;padding-bottom:4px}.mdc-tab--active .mdc-tab__text-label,.mdc-tab--active .mdc-tab__icon{transition-delay:100ms}.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label{padding-left:8px;padding-right:0}[dir=rtl] .mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label,.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label[dir=rtl]{padding-left:0;padding-right:8px}.mdc-tab-indicator{display:flex;position:absolute;top:0;left:0;justify-content:center;width:100%;height:100%;pointer-events:none;z-index:1}.mdc-tab-indicator__content{transform-origin:left;opacity:0}.mdc-tab-indicator__content--underline{align-self:flex-end;box-sizing:border-box;width:100%;border-top-style:solid}.mdc-tab-indicator__content--icon{align-self:center;margin:0 auto}.mdc-tab-indicator--active .mdc-tab-indicator__content{opacity:1}.mdc-tab-indicator .mdc-tab-indicator__content{transition:250ms transform cubic-bezier(0.4, 0, 0.2, 1)}.mdc-tab-indicator--no-transition .mdc-tab-indicator__content{transition:none}.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition:150ms opacity linear}.mdc-tab-indicator--active.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition-delay:100ms}.mat-mdc-tab-ripple{position:absolute;top:0;left:0;bottom:0;right:0;pointer-events:none}.mat-mdc-tab{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-decoration:none;background:none;font-family:var(--mat-tab-header-label-text-font);font-size:var(--mat-tab-header-label-text-size);letter-spacing:var(--mat-tab-header-label-text-tracking);line-height:var(--mat-tab-header-label-text-line-height);font-weight:var(--mat-tab-header-label-text-weight)}.mat-mdc-tab .mdc-tab-indicator__content--underline{border-color:var(--mdc-tab-indicator-active-indicator-color)}.mat-mdc-tab .mdc-tab-indicator__content--underline{border-top-width:var(--mdc-tab-indicator-active-indicator-height)}.mat-mdc-tab .mdc-tab-indicator__content--underline{border-radius:var(--mdc-tab-indicator-active-indicator-shape)}.mat-mdc-tab:not(.mdc-tab--stacked){height:var(--mdc-secondary-navigation-tab-container-height)}.mat-mdc-tab:not(:disabled).mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):hover.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):focus.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):active.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:disabled.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):hover:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):focus:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):active:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:disabled:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab.mdc-tab{flex-grow:0}.mat-mdc-tab:hover .mdc-tab__text-label{color:var(--mat-tab-header-inactive-hover-label-text-color)}.mat-mdc-tab:focus .mdc-tab__text-label{color:var(--mat-tab-header-inactive-focus-label-text-color)}.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label{color:var(--mat-tab-header-active-label-text-color)}.mat-mdc-tab.mdc-tab--active .mdc-tab__ripple::before,.mat-mdc-tab.mdc-tab--active .mat-ripple-element{background-color:var(--mat-tab-header-active-ripple-color)}.mat-mdc-tab.mdc-tab--active:hover .mdc-tab__text-label{color:var(--mat-tab-header-active-hover-label-text-color)}.mat-mdc-tab.mdc-tab--active:hover .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-hover-indicator-color)}.mat-mdc-tab.mdc-tab--active:focus .mdc-tab__text-label{color:var(--mat-tab-header-active-focus-label-text-color)}.mat-mdc-tab.mdc-tab--active:focus .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-focus-indicator-color)}.mat-mdc-tab.mat-mdc-tab-disabled{opacity:.4;pointer-events:none}.mat-mdc-tab.mat-mdc-tab-disabled .mdc-tab__content{pointer-events:none}.mat-mdc-tab.mat-mdc-tab-disabled .mdc-tab__ripple::before,.mat-mdc-tab.mat-mdc-tab-disabled .mat-ripple-element{background-color:var(--mat-tab-header-disabled-ripple-color)}.mat-mdc-tab .mdc-tab__ripple::before{content:\"\";display:block;position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;pointer-events:none;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab .mdc-tab__text-label{color:var(--mat-tab-header-inactive-label-text-color);display:inline-flex;align-items:center}.mat-mdc-tab .mdc-tab__content{position:relative;pointer-events:auto}.mat-mdc-tab:hover .mdc-tab__ripple::before{opacity:.04}.mat-mdc-tab.cdk-program-focused .mdc-tab__ripple::before,.mat-mdc-tab.cdk-keyboard-focused .mdc-tab__ripple::before{opacity:.12}.mat-mdc-tab .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header .mat-mdc-tab{flex-grow:1}.mat-mdc-tab-group{display:flex;flex-direction:column;max-width:100%}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination{background-color:var(--mat-tab-header-with-background-background-color)}.mat-mdc-tab-group.mat-tabs-with-background.mat-primary>.mat-mdc-tab-header .mat-mdc-tab .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background.mat-primary>.mat-mdc-tab-header .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-header .mat-mdc-tab:not(.mdc-tab--active) .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-header .mat-mdc-tab:not(.mdc-tab--active) .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-mdc-focus-indicator::before,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-focus-indicator::before{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-ripple-element,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mdc-tab__ripple::before,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-ripple-element,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mdc-tab__ripple::before{background-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-mdc-tab-group-inverted-header{flex-direction:column-reverse}.mat-mdc-tab-group.mat-mdc-tab-group-inverted-header .mdc-tab-indicator__content--underline{align-self:flex-start}.mat-mdc-tab-body-wrapper{position:relative;overflow:hidden;display:flex;transition:height 500ms cubic-bezier(0.35, 0, 0.25, 1)}.mat-mdc-tab-body-wrapper._mat-animation-noopable{transition:none !important;animation:none !important}"] }]
+                    }, standalone: true, imports: [
+                        MatTabHeader,
+                        MatTabLabelWrapper,
+                        CdkMonitorFocus,
+                        NgClass,
+                        MatRipple,
+                        CdkPortalOutlet,
+                        MatTabBody,
+                    ], template: "<mat-tab-header #tabHeader\n                [selectedIndex]=\"selectedIndex || 0\"\n                [disableRipple]=\"disableRipple\"\n                [disablePagination]=\"disablePagination\"\n                (indexFocused)=\"_focusChanged($event)\"\n                (selectFocusedIndex)=\"selectedIndex = $event\">\n\n  @for (tab of _tabs; track tab; let i = $index) {\n    <div class=\"mdc-tab mat-mdc-tab mat-mdc-focus-indicator\"\n        #tabNode\n        role=\"tab\"\n        matTabLabelWrapper\n        cdkMonitorElementFocus\n        [id]=\"_getTabLabelId(i)\"\n        [attr.tabIndex]=\"_getTabIndex(i)\"\n        [attr.aria-posinset]=\"i + 1\"\n        [attr.aria-setsize]=\"_tabs.length\"\n        [attr.aria-controls]=\"_getTabContentId(i)\"\n        [attr.aria-selected]=\"selectedIndex === i\"\n        [attr.aria-label]=\"tab.ariaLabel || null\"\n        [attr.aria-labelledby]=\"(!tab.ariaLabel && tab.ariaLabelledby) ? tab.ariaLabelledby : null\"\n        [class.mdc-tab--active]=\"selectedIndex === i\"\n        [ngClass]=\"tab.labelClass\"\n        [disabled]=\"tab.disabled\"\n        [fitInkBarToContent]=\"fitInkBarToContent\"\n        (click)=\"_handleClick(tab, tabHeader, i)\"\n        (cdkFocusChange)=\"_tabFocusChanged($event, i)\">\n      <span class=\"mdc-tab__ripple\"></span>\n\n      <!-- Needs to be a separate element, because we can't put\n          `overflow: hidden` on tab due to the ink bar. -->\n      <div\n        class=\"mat-mdc-tab-ripple\"\n        mat-ripple\n        [matRippleTrigger]=\"tabNode\"\n        [matRippleDisabled]=\"tab.disabled || disableRipple\"></div>\n\n      <span class=\"mdc-tab__content\">\n        <span class=\"mdc-tab__text-label\">\n          <!--\n            If there is a label template, use it, otherwise fall back to the text label.\n            Note that we don't have indentation around the text label, because it adds\n            whitespace around the text which breaks some internal tests.\n          -->\n          @if (tab.templateLabel) {\n            <ng-template [cdkPortalOutlet]=\"tab.templateLabel\"></ng-template>\n          } @else {{{tab.textLabel}}}\n        </span>\n      </span>\n    </div>\n  }\n</mat-tab-header>\n\n<div\n  class=\"mat-mdc-tab-body-wrapper\"\n  [class._mat-animation-noopable]=\"_animationMode === 'NoopAnimations'\"\n  #tabBodyWrapper>\n  @for (tab of _tabs; track tab; let i = $index) {\n    <mat-tab-body role=\"tabpanel\"\n                 [id]=\"_getTabContentId(i)\"\n                 [attr.tabindex]=\"(contentTabIndex != null && selectedIndex === i) ? contentTabIndex : null\"\n                 [attr.aria-labelledby]=\"_getTabLabelId(i)\"\n                 [attr.aria-hidden]=\"selectedIndex !== i\"\n                 [class.mat-mdc-tab-body-active]=\"selectedIndex === i\"\n                 [ngClass]=\"tab.bodyClass\"\n                 [content]=\"tab.content!\"\n                 [position]=\"tab.position!\"\n                 [origin]=\"tab.origin\"\n                 [animationDuration]=\"animationDuration\"\n                 [preserveContent]=\"preserveContent\"\n                 (_onCentered)=\"_removeTabBodyWrapperHeight()\"\n                 (_onCentering)=\"_setTabBodyWrapperHeight($event)\">\n    </mat-tab-body>\n  }\n</div>\n", styles: [".mdc-tab{min-width:90px;padding-right:24px;padding-left:24px;display:flex;flex:1 0 auto;justify-content:center;box-sizing:border-box;margin:0;padding-top:0;padding-bottom:0;border:none;outline:none;text-align:center;white-space:nowrap;cursor:pointer;-webkit-appearance:none;z-index:1}.mdc-tab::-moz-focus-inner{padding:0;border:0}.mdc-tab[hidden]{display:none}.mdc-tab--min-width{flex:0 1 auto}.mdc-tab__content{display:flex;align-items:center;justify-content:center;height:inherit;pointer-events:none}.mdc-tab__text-label{transition:150ms color linear;display:inline-block;line-height:1;z-index:2}.mdc-tab__icon{transition:150ms color linear;z-index:2}.mdc-tab--stacked .mdc-tab__content{flex-direction:column;align-items:center;justify-content:center}.mdc-tab--stacked .mdc-tab__text-label{padding-top:6px;padding-bottom:4px}.mdc-tab--active .mdc-tab__text-label,.mdc-tab--active .mdc-tab__icon{transition-delay:100ms}.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label{padding-left:8px;padding-right:0}[dir=rtl] .mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label,.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label[dir=rtl]{padding-left:0;padding-right:8px}.mdc-tab-indicator{display:flex;position:absolute;top:0;left:0;justify-content:center;width:100%;height:100%;pointer-events:none;z-index:1}.mdc-tab-indicator__content{transform-origin:left;opacity:0}.mdc-tab-indicator__content--underline{align-self:flex-end;box-sizing:border-box;width:100%;border-top-style:solid}.mdc-tab-indicator__content--icon{align-self:center;margin:0 auto}.mdc-tab-indicator--active .mdc-tab-indicator__content{opacity:1}.mdc-tab-indicator .mdc-tab-indicator__content{transition:250ms transform cubic-bezier(0.4, 0, 0.2, 1)}.mdc-tab-indicator--no-transition .mdc-tab-indicator__content{transition:none}.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition:150ms opacity linear}.mdc-tab-indicator--active.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition-delay:100ms}.mat-mdc-tab-ripple{position:absolute;top:0;left:0;bottom:0;right:0;pointer-events:none}.mat-mdc-tab{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-decoration:none;background:none;font-family:var(--mat-tab-header-label-text-font);font-size:var(--mat-tab-header-label-text-size);letter-spacing:var(--mat-tab-header-label-text-tracking);line-height:var(--mat-tab-header-label-text-line-height);font-weight:var(--mat-tab-header-label-text-weight)}.mat-mdc-tab .mdc-tab-indicator__content--underline{border-color:var(--mdc-tab-indicator-active-indicator-color)}.mat-mdc-tab .mdc-tab-indicator__content--underline{border-top-width:var(--mdc-tab-indicator-active-indicator-height)}.mat-mdc-tab .mdc-tab-indicator__content--underline{border-radius:var(--mdc-tab-indicator-active-indicator-shape)}.mat-mdc-tab:not(.mdc-tab--stacked){height:var(--mdc-secondary-navigation-tab-container-height)}.mat-mdc-tab:not(:disabled).mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):hover.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):focus.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):active.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:disabled.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):hover:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):focus:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:not(:disabled):active:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab:disabled:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab.mdc-tab{flex-grow:0}.mat-mdc-tab:hover .mdc-tab__text-label{color:var(--mat-tab-header-inactive-hover-label-text-color)}.mat-mdc-tab:focus .mdc-tab__text-label{color:var(--mat-tab-header-inactive-focus-label-text-color)}.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label{color:var(--mat-tab-header-active-label-text-color)}.mat-mdc-tab.mdc-tab--active .mdc-tab__ripple::before,.mat-mdc-tab.mdc-tab--active .mat-ripple-element{background-color:var(--mat-tab-header-active-ripple-color)}.mat-mdc-tab.mdc-tab--active:hover .mdc-tab__text-label{color:var(--mat-tab-header-active-hover-label-text-color)}.mat-mdc-tab.mdc-tab--active:hover .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-hover-indicator-color)}.mat-mdc-tab.mdc-tab--active:focus .mdc-tab__text-label{color:var(--mat-tab-header-active-focus-label-text-color)}.mat-mdc-tab.mdc-tab--active:focus .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-focus-indicator-color)}.mat-mdc-tab.mat-mdc-tab-disabled{opacity:.4;pointer-events:none}.mat-mdc-tab.mat-mdc-tab-disabled .mdc-tab__content{pointer-events:none}.mat-mdc-tab.mat-mdc-tab-disabled .mdc-tab__ripple::before,.mat-mdc-tab.mat-mdc-tab-disabled .mat-ripple-element{background-color:var(--mat-tab-header-disabled-ripple-color)}.mat-mdc-tab .mdc-tab__ripple::before{content:\"\";display:block;position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;pointer-events:none;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab .mdc-tab__text-label{color:var(--mat-tab-header-inactive-label-text-color);display:inline-flex;align-items:center}.mat-mdc-tab .mdc-tab__content{position:relative;pointer-events:auto}.mat-mdc-tab:hover .mdc-tab__ripple::before{opacity:.04}.mat-mdc-tab.cdk-program-focused .mdc-tab__ripple::before,.mat-mdc-tab.cdk-keyboard-focused .mdc-tab__ripple::before{opacity:.12}.mat-mdc-tab .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header .mat-mdc-tab{flex-grow:1}.mat-mdc-tab-group{display:flex;flex-direction:column;max-width:100%}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination{background-color:var(--mat-tab-header-with-background-background-color)}.mat-mdc-tab-group.mat-tabs-with-background.mat-primary>.mat-mdc-tab-header .mat-mdc-tab .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background.mat-primary>.mat-mdc-tab-header .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-header .mat-mdc-tab:not(.mdc-tab--active) .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-header .mat-mdc-tab:not(.mdc-tab--active) .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-mdc-focus-indicator::before,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-focus-indicator::before{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-ripple-element,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mdc-tab__ripple::before,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-ripple-element,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mdc-tab__ripple::before{background-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-group.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-group.mat-mdc-tab-group-inverted-header{flex-direction:column-reverse}.mat-mdc-tab-group.mat-mdc-tab-group-inverted-header .mdc-tab-indicator__content--underline{align-self:flex-start}.mat-mdc-tab-body-wrapper{position:relative;overflow:hidden;display:flex;transition:height 500ms cubic-bezier(0.35, 0, 0.25, 1)}.mat-mdc-tab-body-wrapper._mat-animation-noopable{transition:none !important;animation:none !important}"] }]
         }], ctorParameters: () => [{ type: i0.ElementRef }, { type: i0.ChangeDetectorRef }, { type: undefined, decorators: [{
                     type: Inject,
                     args: [MAT_TABS_CONFIG]
@@ -12884,12 +12993,12 @@ class MatTabNav extends MatPaginatedTabHeader {
 }
 _k = MatTabNav;
 (() => {
-    _k.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _k, deps: [{ token: i0.ElementRef }, { token: Directionality, optional: true }, { token: i0.NgZone }, { token: i0.ChangeDetectorRef }, { token: ViewportRuler }, { token: Platform }, { token: ANIMATION_MODULE_TYPE, optional: true }, { token: MAT_TABS_CONFIG, optional: true }], target: i0.ɵɵFactoryTarget.Component });
+    _k.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _k, deps: [{ token: i0.ElementRef }, { token: Directionality, optional: true }, { token: i0.NgZone }, { token: i0.ChangeDetectorRef }, { token: ViewportRuler }, { token: Platform }, { token: ANIMATION_MODULE_TYPE, optional: true }, { token: MAT_TABS_CONFIG, optional: true }], target: i0.ɵɵFactoryTarget.Component });
 })();
 (() => {
-    _k.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "16.1.0", version: "17.0.0", type: _k, selector: "[mat-tab-nav-bar]", inputs: { fitInkBarToContent: ["fitInkBarToContent", "fitInkBarToContent", booleanAttribute], stretchTabs: ["mat-stretch-tabs", "stretchTabs", booleanAttribute], animationDuration: "animationDuration", backgroundColor: "backgroundColor", disableRipple: ["disableRipple", "disableRipple", booleanAttribute], color: "color", tabPanel: "tabPanel" }, host: { properties: { "attr.role": "_getRole()", "class.mat-mdc-tab-header-pagination-controls-enabled": "_showPaginationControls", "class.mat-mdc-tab-header-rtl": "_getLayoutDirection() == 'rtl'", "class.mat-mdc-tab-nav-bar-stretch-tabs": "stretchTabs", "class.mat-primary": "color !== \"warn\" && color !== \"accent\"", "class.mat-accent": "color === \"accent\"", "class.mat-warn": "color === \"warn\"", "class._mat-animation-noopable": "_animationMode === \"NoopAnimations\"", "style.--mat-tab-animation-duration": "animationDuration" }, classAttribute: "mat-mdc-tab-nav-bar mat-mdc-tab-header" }, queries: [{ propertyName: "_items", predicate: i0.forwardRef(() => MatTabLink), descendants: true }], viewQueries: [{ propertyName: "_tabListContainer", first: true, predicate: ["tabListContainer"], descendants: true, static: true }, { propertyName: "_tabList", first: true, predicate: ["tabList"], descendants: true, static: true }, { propertyName: "_tabListInner", first: true, predicate: ["tabListInner"], descendants: true, static: true }, { propertyName: "_nextPaginator", first: true, predicate: ["nextPaginator"], descendants: true }, { propertyName: "_previousPaginator", first: true, predicate: ["previousPaginator"], descendants: true }], exportAs: ["matTabNavBar", "matTabNav"], usesInheritance: true, ngImport: i0, template: "<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-before\"\n     #previousPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     tabindex=\"-1\"\n     [matRippleDisabled]=\"_disableScrollBefore || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollBefore\"\n     [disabled]=\"_disableScrollBefore || null\"\n     (click)=\"_handlePaginatorClick('before')\"\n     (mousedown)=\"_handlePaginatorPress('before', $event)\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n\n<div class=\"mat-mdc-tab-link-container\" #tabListContainer (keydown)=\"_handleKeydown($event)\">\n  <div class=\"mat-mdc-tab-list\" #tabList (cdkObserveContent)=\"_onContentChanges()\">\n    <div class=\"mat-mdc-tab-links\" #tabListInner>\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n\n<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-after\"\n     #nextPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     [matRippleDisabled]=\"_disableScrollAfter || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollAfter\"\n     [disabled]=\"_disableScrollAfter || null\"\n     tabindex=\"-1\"\n     (mousedown)=\"_handlePaginatorPress('after', $event)\"\n     (click)=\"_handlePaginatorClick('after')\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n", styles: [".mdc-tab{min-width:90px;padding-right:24px;padding-left:24px;display:flex;flex:1 0 auto;justify-content:center;box-sizing:border-box;margin:0;padding-top:0;padding-bottom:0;border:none;outline:none;text-align:center;white-space:nowrap;cursor:pointer;-webkit-appearance:none;z-index:1}.mdc-tab::-moz-focus-inner{padding:0;border:0}.mdc-tab[hidden]{display:none}.mdc-tab--min-width{flex:0 1 auto}.mdc-tab__content{display:flex;align-items:center;justify-content:center;height:inherit;pointer-events:none}.mdc-tab__text-label{transition:150ms color linear;display:inline-block;line-height:1;z-index:2}.mdc-tab__icon{transition:150ms color linear;z-index:2}.mdc-tab--stacked .mdc-tab__content{flex-direction:column;align-items:center;justify-content:center}.mdc-tab--stacked .mdc-tab__text-label{padding-top:6px;padding-bottom:4px}.mdc-tab--active .mdc-tab__text-label,.mdc-tab--active .mdc-tab__icon{transition-delay:100ms}.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label{padding-left:8px;padding-right:0}[dir=rtl] .mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label,.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label[dir=rtl]{padding-left:0;padding-right:8px}.mdc-tab-indicator{display:flex;position:absolute;top:0;left:0;justify-content:center;width:100%;height:100%;pointer-events:none;z-index:1}.mdc-tab-indicator__content{transform-origin:left;opacity:0}.mdc-tab-indicator__content--underline{align-self:flex-end;box-sizing:border-box;width:100%;border-top-style:solid}.mdc-tab-indicator__content--icon{align-self:center;margin:0 auto}.mdc-tab-indicator--active .mdc-tab-indicator__content{opacity:1}.mdc-tab-indicator .mdc-tab-indicator__content{transition:250ms transform cubic-bezier(0.4, 0, 0.2, 1)}.mdc-tab-indicator--no-transition .mdc-tab-indicator__content{transition:none}.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition:150ms opacity linear}.mdc-tab-indicator--active.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition-delay:100ms}.mat-mdc-tab-ripple{position:absolute;top:0;left:0;bottom:0;right:0;pointer-events:none}.mat-mdc-tab-header{display:flex;overflow:hidden;position:relative;flex-shrink:0}.mdc-tab-indicator .mdc-tab-indicator__content{transition-duration:var(--mat-tab-animation-duration, 250ms)}.mat-mdc-tab-header-pagination{-webkit-user-select:none;user-select:none;position:relative;display:none;justify-content:center;align-items:center;min-width:32px;cursor:pointer;z-index:2;-webkit-tap-highlight-color:rgba(0,0,0,0);touch-action:none;box-sizing:content-box;background:none;border:none;outline:0;padding:0}.mat-mdc-tab-header-pagination::-moz-focus-inner{border:0}.mat-mdc-tab-header-pagination .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-header-pagination-controls-enabled .mat-mdc-tab-header-pagination{display:flex}.mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after{padding-left:4px}.mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(-135deg)}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-pagination-after{padding-right:4px}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(45deg)}.mat-mdc-tab-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;height:8px;width:8px;border-color:var(--mat-tab-header-pagination-icon-color)}.mat-mdc-tab-header-pagination-disabled{box-shadow:none;cursor:default;pointer-events:none}.mat-mdc-tab-header-pagination-disabled .mat-mdc-tab-header-pagination-chevron{opacity:.4}.mat-mdc-tab-list{flex-grow:1;position:relative;transition:transform 500ms cubic-bezier(0.35, 0, 0.25, 1)}._mat-animation-noopable .mat-mdc-tab-list{transition:none}._mat-animation-noopable span.mdc-tab-indicator__content,._mat-animation-noopable span.mdc-tab__text-label{transition:none}.mat-mdc-tab-links{display:flex;flex:1 0 auto}[mat-align-tabs=center]>.mat-mdc-tab-link-container .mat-mdc-tab-links{justify-content:center}[mat-align-tabs=end]>.mat-mdc-tab-link-container .mat-mdc-tab-links{justify-content:flex-end}.mat-mdc-tab-link-container{display:flex;flex-grow:1;overflow:hidden;z-index:1}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination{background-color:var(--mat-tab-header-with-background-background-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background.mat-primary>.mat-mdc-tab-link-container .mat-mdc-tab-link .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background.mat-primary>.mat-mdc-tab-link-container .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-link-container .mat-mdc-tab-link:not(.mdc-tab--active) .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-link-container .mat-mdc-tab-link:not(.mdc-tab--active) .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-mdc-focus-indicator::before,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-focus-indicator::before{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-ripple-element,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mdc-tab__ripple::before,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-ripple-element,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mdc-tab__ripple::before{background-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron{color:var(--mat-tab-header-with-background-foreground-color)}"], dependencies: [{ kind: "directive", type: MatRipple, selector: "[mat-ripple], [matRipple]", inputs: ["matRippleColor", "matRippleUnbounded", "matRippleCentered", "matRippleRadius", "matRippleAnimation", "matRippleDisabled", "matRippleTrigger"], exportAs: ["matRipple"] }, { kind: "directive", type: CdkObserveContent, selector: "[cdkObserveContent]", inputs: ["cdkObserveContentDisabled", "debounce"], outputs: ["cdkObserveContent"], exportAs: ["cdkObserveContent"] }], changeDetection: i0.ChangeDetectionStrategy.Default, encapsulation: i0.ViewEncapsulation.None });
+    _k.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "16.1.0", version: "17.1.0-next.2", type: _k, isStandalone: true, selector: "[mat-tab-nav-bar]", inputs: { fitInkBarToContent: ["fitInkBarToContent", "fitInkBarToContent", booleanAttribute], stretchTabs: ["mat-stretch-tabs", "stretchTabs", booleanAttribute], animationDuration: "animationDuration", backgroundColor: "backgroundColor", disableRipple: ["disableRipple", "disableRipple", booleanAttribute], color: "color", tabPanel: "tabPanel" }, host: { properties: { "attr.role": "_getRole()", "class.mat-mdc-tab-header-pagination-controls-enabled": "_showPaginationControls", "class.mat-mdc-tab-header-rtl": "_getLayoutDirection() == 'rtl'", "class.mat-mdc-tab-nav-bar-stretch-tabs": "stretchTabs", "class.mat-primary": "color !== \"warn\" && color !== \"accent\"", "class.mat-accent": "color === \"accent\"", "class.mat-warn": "color === \"warn\"", "class._mat-animation-noopable": "_animationMode === \"NoopAnimations\"", "style.--mat-tab-animation-duration": "animationDuration" }, classAttribute: "mat-mdc-tab-nav-bar mat-mdc-tab-header" }, queries: [{ propertyName: "_items", predicate: i0.forwardRef(() => MatTabLink), descendants: true }], viewQueries: [{ propertyName: "_tabListContainer", first: true, predicate: ["tabListContainer"], descendants: true, static: true }, { propertyName: "_tabList", first: true, predicate: ["tabList"], descendants: true, static: true }, { propertyName: "_tabListInner", first: true, predicate: ["tabListInner"], descendants: true, static: true }, { propertyName: "_nextPaginator", first: true, predicate: ["nextPaginator"], descendants: true }, { propertyName: "_previousPaginator", first: true, predicate: ["previousPaginator"], descendants: true }], exportAs: ["matTabNavBar", "matTabNav"], usesInheritance: true, ngImport: i0, template: "<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-before\"\n     #previousPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     tabindex=\"-1\"\n     [matRippleDisabled]=\"_disableScrollBefore || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollBefore\"\n     [disabled]=\"_disableScrollBefore || null\"\n     (click)=\"_handlePaginatorClick('before')\"\n     (mousedown)=\"_handlePaginatorPress('before', $event)\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n\n<div class=\"mat-mdc-tab-link-container\" #tabListContainer (keydown)=\"_handleKeydown($event)\">\n  <div class=\"mat-mdc-tab-list\" #tabList (cdkObserveContent)=\"_onContentChanges()\">\n    <div class=\"mat-mdc-tab-links\" #tabListInner>\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n\n<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-after\"\n     #nextPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     [matRippleDisabled]=\"_disableScrollAfter || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollAfter\"\n     [disabled]=\"_disableScrollAfter || null\"\n     tabindex=\"-1\"\n     (mousedown)=\"_handlePaginatorPress('after', $event)\"\n     (click)=\"_handlePaginatorClick('after')\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n", styles: [".mdc-tab{min-width:90px;padding-right:24px;padding-left:24px;display:flex;flex:1 0 auto;justify-content:center;box-sizing:border-box;margin:0;padding-top:0;padding-bottom:0;border:none;outline:none;text-align:center;white-space:nowrap;cursor:pointer;-webkit-appearance:none;z-index:1}.mdc-tab::-moz-focus-inner{padding:0;border:0}.mdc-tab[hidden]{display:none}.mdc-tab--min-width{flex:0 1 auto}.mdc-tab__content{display:flex;align-items:center;justify-content:center;height:inherit;pointer-events:none}.mdc-tab__text-label{transition:150ms color linear;display:inline-block;line-height:1;z-index:2}.mdc-tab__icon{transition:150ms color linear;z-index:2}.mdc-tab--stacked .mdc-tab__content{flex-direction:column;align-items:center;justify-content:center}.mdc-tab--stacked .mdc-tab__text-label{padding-top:6px;padding-bottom:4px}.mdc-tab--active .mdc-tab__text-label,.mdc-tab--active .mdc-tab__icon{transition-delay:100ms}.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label{padding-left:8px;padding-right:0}[dir=rtl] .mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label,.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label[dir=rtl]{padding-left:0;padding-right:8px}.mdc-tab-indicator{display:flex;position:absolute;top:0;left:0;justify-content:center;width:100%;height:100%;pointer-events:none;z-index:1}.mdc-tab-indicator__content{transform-origin:left;opacity:0}.mdc-tab-indicator__content--underline{align-self:flex-end;box-sizing:border-box;width:100%;border-top-style:solid}.mdc-tab-indicator__content--icon{align-self:center;margin:0 auto}.mdc-tab-indicator--active .mdc-tab-indicator__content{opacity:1}.mdc-tab-indicator .mdc-tab-indicator__content{transition:250ms transform cubic-bezier(0.4, 0, 0.2, 1)}.mdc-tab-indicator--no-transition .mdc-tab-indicator__content{transition:none}.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition:150ms opacity linear}.mdc-tab-indicator--active.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition-delay:100ms}.mat-mdc-tab-ripple{position:absolute;top:0;left:0;bottom:0;right:0;pointer-events:none}.mat-mdc-tab-header{display:flex;overflow:hidden;position:relative;flex-shrink:0}.mdc-tab-indicator .mdc-tab-indicator__content{transition-duration:var(--mat-tab-animation-duration, 250ms)}.mat-mdc-tab-header-pagination{-webkit-user-select:none;user-select:none;position:relative;display:none;justify-content:center;align-items:center;min-width:32px;cursor:pointer;z-index:2;-webkit-tap-highlight-color:rgba(0,0,0,0);touch-action:none;box-sizing:content-box;background:none;border:none;outline:0;padding:0}.mat-mdc-tab-header-pagination::-moz-focus-inner{border:0}.mat-mdc-tab-header-pagination .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-header-pagination-controls-enabled .mat-mdc-tab-header-pagination{display:flex}.mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after{padding-left:4px}.mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(-135deg)}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-pagination-after{padding-right:4px}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(45deg)}.mat-mdc-tab-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;height:8px;width:8px;border-color:var(--mat-tab-header-pagination-icon-color)}.mat-mdc-tab-header-pagination-disabled{box-shadow:none;cursor:default;pointer-events:none}.mat-mdc-tab-header-pagination-disabled .mat-mdc-tab-header-pagination-chevron{opacity:.4}.mat-mdc-tab-list{flex-grow:1;position:relative;transition:transform 500ms cubic-bezier(0.35, 0, 0.25, 1)}._mat-animation-noopable .mat-mdc-tab-list{transition:none}._mat-animation-noopable span.mdc-tab-indicator__content,._mat-animation-noopable span.mdc-tab__text-label{transition:none}.mat-mdc-tab-links{display:flex;flex:1 0 auto}[mat-align-tabs=center]>.mat-mdc-tab-link-container .mat-mdc-tab-links{justify-content:center}[mat-align-tabs=end]>.mat-mdc-tab-link-container .mat-mdc-tab-links{justify-content:flex-end}.mat-mdc-tab-link-container{display:flex;flex-grow:1;overflow:hidden;z-index:1;border-bottom-style:solid;border-bottom-width:var(--mat-tab-header-divider-height);border-bottom-color:var(--mat-tab-header-divider-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination{background-color:var(--mat-tab-header-with-background-background-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background.mat-primary>.mat-mdc-tab-link-container .mat-mdc-tab-link .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background.mat-primary>.mat-mdc-tab-link-container .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-link-container .mat-mdc-tab-link:not(.mdc-tab--active) .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-link-container .mat-mdc-tab-link:not(.mdc-tab--active) .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-mdc-focus-indicator::before,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-focus-indicator::before{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-ripple-element,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mdc-tab__ripple::before,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-ripple-element,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mdc-tab__ripple::before{background-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron{color:var(--mat-tab-header-with-background-foreground-color)}"], dependencies: [{ kind: "directive", type: MatRipple, selector: "[mat-ripple], [matRipple]", inputs: ["matRippleColor", "matRippleUnbounded", "matRippleCentered", "matRippleRadius", "matRippleAnimation", "matRippleDisabled", "matRippleTrigger"], exportAs: ["matRipple"] }, { kind: "directive", type: CdkObserveContent, selector: "[cdkObserveContent]", inputs: ["cdkObserveContentDisabled", "debounce"], outputs: ["cdkObserveContent"], exportAs: ["cdkObserveContent"] }], changeDetection: i0.ChangeDetectionStrategy.Default, encapsulation: i0.ViewEncapsulation.None });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatTabNav, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatTabNav, decorators: [{
             type: Component,
             args: [{ selector: '[mat-tab-nav-bar]', exportAs: 'matTabNavBar, matTabNav', host: {
                         '[attr.role]': '_getRole()',
@@ -12902,7 +13011,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                         '[class.mat-warn]': 'color === "warn"',
                         '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
                         '[style.--mat-tab-animation-duration]': 'animationDuration',
-                    }, encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.Default, template: "<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-before\"\n     #previousPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     tabindex=\"-1\"\n     [matRippleDisabled]=\"_disableScrollBefore || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollBefore\"\n     [disabled]=\"_disableScrollBefore || null\"\n     (click)=\"_handlePaginatorClick('before')\"\n     (mousedown)=\"_handlePaginatorPress('before', $event)\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n\n<div class=\"mat-mdc-tab-link-container\" #tabListContainer (keydown)=\"_handleKeydown($event)\">\n  <div class=\"mat-mdc-tab-list\" #tabList (cdkObserveContent)=\"_onContentChanges()\">\n    <div class=\"mat-mdc-tab-links\" #tabListInner>\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n\n<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-after\"\n     #nextPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     [matRippleDisabled]=\"_disableScrollAfter || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollAfter\"\n     [disabled]=\"_disableScrollAfter || null\"\n     tabindex=\"-1\"\n     (mousedown)=\"_handlePaginatorPress('after', $event)\"\n     (click)=\"_handlePaginatorClick('after')\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n", styles: [".mdc-tab{min-width:90px;padding-right:24px;padding-left:24px;display:flex;flex:1 0 auto;justify-content:center;box-sizing:border-box;margin:0;padding-top:0;padding-bottom:0;border:none;outline:none;text-align:center;white-space:nowrap;cursor:pointer;-webkit-appearance:none;z-index:1}.mdc-tab::-moz-focus-inner{padding:0;border:0}.mdc-tab[hidden]{display:none}.mdc-tab--min-width{flex:0 1 auto}.mdc-tab__content{display:flex;align-items:center;justify-content:center;height:inherit;pointer-events:none}.mdc-tab__text-label{transition:150ms color linear;display:inline-block;line-height:1;z-index:2}.mdc-tab__icon{transition:150ms color linear;z-index:2}.mdc-tab--stacked .mdc-tab__content{flex-direction:column;align-items:center;justify-content:center}.mdc-tab--stacked .mdc-tab__text-label{padding-top:6px;padding-bottom:4px}.mdc-tab--active .mdc-tab__text-label,.mdc-tab--active .mdc-tab__icon{transition-delay:100ms}.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label{padding-left:8px;padding-right:0}[dir=rtl] .mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label,.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label[dir=rtl]{padding-left:0;padding-right:8px}.mdc-tab-indicator{display:flex;position:absolute;top:0;left:0;justify-content:center;width:100%;height:100%;pointer-events:none;z-index:1}.mdc-tab-indicator__content{transform-origin:left;opacity:0}.mdc-tab-indicator__content--underline{align-self:flex-end;box-sizing:border-box;width:100%;border-top-style:solid}.mdc-tab-indicator__content--icon{align-self:center;margin:0 auto}.mdc-tab-indicator--active .mdc-tab-indicator__content{opacity:1}.mdc-tab-indicator .mdc-tab-indicator__content{transition:250ms transform cubic-bezier(0.4, 0, 0.2, 1)}.mdc-tab-indicator--no-transition .mdc-tab-indicator__content{transition:none}.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition:150ms opacity linear}.mdc-tab-indicator--active.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition-delay:100ms}.mat-mdc-tab-ripple{position:absolute;top:0;left:0;bottom:0;right:0;pointer-events:none}.mat-mdc-tab-header{display:flex;overflow:hidden;position:relative;flex-shrink:0}.mdc-tab-indicator .mdc-tab-indicator__content{transition-duration:var(--mat-tab-animation-duration, 250ms)}.mat-mdc-tab-header-pagination{-webkit-user-select:none;user-select:none;position:relative;display:none;justify-content:center;align-items:center;min-width:32px;cursor:pointer;z-index:2;-webkit-tap-highlight-color:rgba(0,0,0,0);touch-action:none;box-sizing:content-box;background:none;border:none;outline:0;padding:0}.mat-mdc-tab-header-pagination::-moz-focus-inner{border:0}.mat-mdc-tab-header-pagination .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-header-pagination-controls-enabled .mat-mdc-tab-header-pagination{display:flex}.mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after{padding-left:4px}.mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(-135deg)}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-pagination-after{padding-right:4px}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(45deg)}.mat-mdc-tab-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;height:8px;width:8px;border-color:var(--mat-tab-header-pagination-icon-color)}.mat-mdc-tab-header-pagination-disabled{box-shadow:none;cursor:default;pointer-events:none}.mat-mdc-tab-header-pagination-disabled .mat-mdc-tab-header-pagination-chevron{opacity:.4}.mat-mdc-tab-list{flex-grow:1;position:relative;transition:transform 500ms cubic-bezier(0.35, 0, 0.25, 1)}._mat-animation-noopable .mat-mdc-tab-list{transition:none}._mat-animation-noopable span.mdc-tab-indicator__content,._mat-animation-noopable span.mdc-tab__text-label{transition:none}.mat-mdc-tab-links{display:flex;flex:1 0 auto}[mat-align-tabs=center]>.mat-mdc-tab-link-container .mat-mdc-tab-links{justify-content:center}[mat-align-tabs=end]>.mat-mdc-tab-link-container .mat-mdc-tab-links{justify-content:flex-end}.mat-mdc-tab-link-container{display:flex;flex-grow:1;overflow:hidden;z-index:1}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination{background-color:var(--mat-tab-header-with-background-background-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background.mat-primary>.mat-mdc-tab-link-container .mat-mdc-tab-link .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background.mat-primary>.mat-mdc-tab-link-container .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-link-container .mat-mdc-tab-link:not(.mdc-tab--active) .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-link-container .mat-mdc-tab-link:not(.mdc-tab--active) .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-mdc-focus-indicator::before,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-focus-indicator::before{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-ripple-element,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mdc-tab__ripple::before,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-ripple-element,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mdc-tab__ripple::before{background-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron{color:var(--mat-tab-header-with-background-foreground-color)}"] }]
+                    }, encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.Default, standalone: true, imports: [MatRipple, CdkObserveContent], template: "<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-before\"\n     #previousPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     tabindex=\"-1\"\n     [matRippleDisabled]=\"_disableScrollBefore || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollBefore\"\n     [disabled]=\"_disableScrollBefore || null\"\n     (click)=\"_handlePaginatorClick('before')\"\n     (mousedown)=\"_handlePaginatorPress('before', $event)\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n\n<div class=\"mat-mdc-tab-link-container\" #tabListContainer (keydown)=\"_handleKeydown($event)\">\n  <div class=\"mat-mdc-tab-list\" #tabList (cdkObserveContent)=\"_onContentChanges()\">\n    <div class=\"mat-mdc-tab-links\" #tabListInner>\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n\n<!-- TODO: this also had `mat-elevation-z4`. Figure out what we should do with it. -->\n<button class=\"mat-mdc-tab-header-pagination mat-mdc-tab-header-pagination-after\"\n     #nextPaginator\n     aria-hidden=\"true\"\n     type=\"button\"\n     mat-ripple\n     [matRippleDisabled]=\"_disableScrollAfter || disableRipple\"\n     [class.mat-mdc-tab-header-pagination-disabled]=\"_disableScrollAfter\"\n     [disabled]=\"_disableScrollAfter || null\"\n     tabindex=\"-1\"\n     (mousedown)=\"_handlePaginatorPress('after', $event)\"\n     (click)=\"_handlePaginatorClick('after')\"\n     (touchend)=\"_stopInterval()\">\n  <div class=\"mat-mdc-tab-header-pagination-chevron\"></div>\n</button>\n", styles: [".mdc-tab{min-width:90px;padding-right:24px;padding-left:24px;display:flex;flex:1 0 auto;justify-content:center;box-sizing:border-box;margin:0;padding-top:0;padding-bottom:0;border:none;outline:none;text-align:center;white-space:nowrap;cursor:pointer;-webkit-appearance:none;z-index:1}.mdc-tab::-moz-focus-inner{padding:0;border:0}.mdc-tab[hidden]{display:none}.mdc-tab--min-width{flex:0 1 auto}.mdc-tab__content{display:flex;align-items:center;justify-content:center;height:inherit;pointer-events:none}.mdc-tab__text-label{transition:150ms color linear;display:inline-block;line-height:1;z-index:2}.mdc-tab__icon{transition:150ms color linear;z-index:2}.mdc-tab--stacked .mdc-tab__content{flex-direction:column;align-items:center;justify-content:center}.mdc-tab--stacked .mdc-tab__text-label{padding-top:6px;padding-bottom:4px}.mdc-tab--active .mdc-tab__text-label,.mdc-tab--active .mdc-tab__icon{transition-delay:100ms}.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label{padding-left:8px;padding-right:0}[dir=rtl] .mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label,.mdc-tab:not(.mdc-tab--stacked) .mdc-tab__icon+.mdc-tab__text-label[dir=rtl]{padding-left:0;padding-right:8px}.mdc-tab-indicator{display:flex;position:absolute;top:0;left:0;justify-content:center;width:100%;height:100%;pointer-events:none;z-index:1}.mdc-tab-indicator__content{transform-origin:left;opacity:0}.mdc-tab-indicator__content--underline{align-self:flex-end;box-sizing:border-box;width:100%;border-top-style:solid}.mdc-tab-indicator__content--icon{align-self:center;margin:0 auto}.mdc-tab-indicator--active .mdc-tab-indicator__content{opacity:1}.mdc-tab-indicator .mdc-tab-indicator__content{transition:250ms transform cubic-bezier(0.4, 0, 0.2, 1)}.mdc-tab-indicator--no-transition .mdc-tab-indicator__content{transition:none}.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition:150ms opacity linear}.mdc-tab-indicator--active.mdc-tab-indicator--fade .mdc-tab-indicator__content{transition-delay:100ms}.mat-mdc-tab-ripple{position:absolute;top:0;left:0;bottom:0;right:0;pointer-events:none}.mat-mdc-tab-header{display:flex;overflow:hidden;position:relative;flex-shrink:0}.mdc-tab-indicator .mdc-tab-indicator__content{transition-duration:var(--mat-tab-animation-duration, 250ms)}.mat-mdc-tab-header-pagination{-webkit-user-select:none;user-select:none;position:relative;display:none;justify-content:center;align-items:center;min-width:32px;cursor:pointer;z-index:2;-webkit-tap-highlight-color:rgba(0,0,0,0);touch-action:none;box-sizing:content-box;background:none;border:none;outline:0;padding:0}.mat-mdc-tab-header-pagination::-moz-focus-inner{border:0}.mat-mdc-tab-header-pagination .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-header-pagination-controls-enabled .mat-mdc-tab-header-pagination{display:flex}.mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after{padding-left:4px}.mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(-135deg)}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before,.mat-mdc-tab-header-pagination-after{padding-right:4px}.mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-header-pagination-after .mat-mdc-tab-header-pagination-chevron{transform:rotate(45deg)}.mat-mdc-tab-header-pagination-chevron{border-style:solid;border-width:2px 2px 0 0;height:8px;width:8px;border-color:var(--mat-tab-header-pagination-icon-color)}.mat-mdc-tab-header-pagination-disabled{box-shadow:none;cursor:default;pointer-events:none}.mat-mdc-tab-header-pagination-disabled .mat-mdc-tab-header-pagination-chevron{opacity:.4}.mat-mdc-tab-list{flex-grow:1;position:relative;transition:transform 500ms cubic-bezier(0.35, 0, 0.25, 1)}._mat-animation-noopable .mat-mdc-tab-list{transition:none}._mat-animation-noopable span.mdc-tab-indicator__content,._mat-animation-noopable span.mdc-tab__text-label{transition:none}.mat-mdc-tab-links{display:flex;flex:1 0 auto}[mat-align-tabs=center]>.mat-mdc-tab-link-container .mat-mdc-tab-links{justify-content:center}[mat-align-tabs=end]>.mat-mdc-tab-link-container .mat-mdc-tab-links{justify-content:flex-end}.mat-mdc-tab-link-container{display:flex;flex-grow:1;overflow:hidden;z-index:1;border-bottom-style:solid;border-bottom-width:var(--mat-tab-header-divider-height);border-bottom-color:var(--mat-tab-header-divider-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination{background-color:var(--mat-tab-header-with-background-background-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background.mat-primary>.mat-mdc-tab-link-container .mat-mdc-tab-link .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background.mat-primary>.mat-mdc-tab-link-container .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-link-container .mat-mdc-tab-link:not(.mdc-tab--active) .mdc-tab__text-label{color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background:not(.mat-primary)>.mat-mdc-tab-link-container .mat-mdc-tab-link:not(.mdc-tab--active) .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-mdc-focus-indicator::before,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-focus-indicator::before{border-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-ripple-element,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mdc-tab__ripple::before,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-ripple-element,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mdc-tab__ripple::before{background-color:var(--mat-tab-header-with-background-foreground-color)}.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-link-container .mat-mdc-tab-header-pagination-chevron,.mat-mdc-tab-nav-bar.mat-tabs-with-background>.mat-mdc-tab-header-pagination .mat-mdc-tab-header-pagination-chevron{color:var(--mat-tab-header-with-background-foreground-color)}"] }]
         }], ctorParameters: () => [{ type: i0.ElementRef }, { type: Directionality, decorators: [{
                     type: Optional
                 }] }, { type: i0.NgZone }, { type: i0.ChangeDetectorRef }, { type: ViewportRuler }, { type: Platform }, { type: undefined, decorators: [{
@@ -13064,12 +13173,12 @@ class MatTabLink extends _MatTabLinkMixinBase {
 }
 _l = MatTabLink;
 (() => {
-    _l.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _l, deps: [{ token: MatTabNav }, { token: i0.ElementRef }, { token: MAT_RIPPLE_GLOBAL_OPTIONS, optional: true }, { token: 'tabindex', attribute: true }, { token: FocusMonitor }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
+    _l.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _l, deps: [{ token: MatTabNav }, { token: i0.ElementRef }, { token: MAT_RIPPLE_GLOBAL_OPTIONS, optional: true }, { token: 'tabindex', attribute: true }, { token: FocusMonitor }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
 })();
 (() => {
-    _l.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "16.1.0", version: "17.0.0", type: _l, selector: "[mat-tab-link], [matTabLink]", inputs: { active: ["active", "active", booleanAttribute], id: "id", disabled: ["disabled", "disabled", booleanAttribute], disableRipple: ["disableRipple", "disableRipple", booleanAttribute], tabIndex: ["tabIndex", "tabIndex", (value) => (value == null ? 0 : numberAttribute(value))] }, host: { listeners: { "focus": "_handleFocus()", "keydown": "_handleKeydown($event)" }, properties: { "attr.aria-controls": "_getAriaControls()", "attr.aria-current": "_getAriaCurrent()", "attr.aria-disabled": "disabled", "attr.aria-selected": "_getAriaSelected()", "attr.id": "id", "attr.tabIndex": "_getTabIndex()", "attr.role": "_getRole()", "class.mat-mdc-tab-disabled": "disabled", "class.mdc-tab--active": "active" }, classAttribute: "mdc-tab mat-mdc-tab-link mat-mdc-focus-indicator" }, exportAs: ["matTabLink"], usesInheritance: true, ngImport: i0, template: "<span class=\"mdc-tab__ripple\"></span>\n\n<div\n  class=\"mat-mdc-tab-ripple\"\n  mat-ripple\n  [matRippleTrigger]=\"elementRef.nativeElement\"\n  [matRippleDisabled]=\"rippleDisabled\"></div>\n\n<span class=\"mdc-tab__content\">\n  <span class=\"mdc-tab__text-label\">\n    <ng-content></ng-content>\n  </span>\n</span>\n\n", styles: [".mat-mdc-tab-link{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-decoration:none;background:none;font-family:var(--mat-tab-header-label-text-font);font-size:var(--mat-tab-header-label-text-size);letter-spacing:var(--mat-tab-header-label-text-tracking);line-height:var(--mat-tab-header-label-text-line-height);font-weight:var(--mat-tab-header-label-text-weight)}.mat-mdc-tab-link .mdc-tab-indicator__content--underline{border-color:var(--mdc-tab-indicator-active-indicator-color)}.mat-mdc-tab-link .mdc-tab-indicator__content--underline{border-top-width:var(--mdc-tab-indicator-active-indicator-height)}.mat-mdc-tab-link .mdc-tab-indicator__content--underline{border-radius:var(--mdc-tab-indicator-active-indicator-shape)}.mat-mdc-tab-link:not(.mdc-tab--stacked){height:var(--mdc-secondary-navigation-tab-container-height)}.mat-mdc-tab-link:not(:disabled).mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):hover.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):focus.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):active.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:disabled.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):hover:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):focus:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):active:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:disabled:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link.mdc-tab{flex-grow:0}.mat-mdc-tab-link:hover .mdc-tab__text-label{color:var(--mat-tab-header-inactive-hover-label-text-color)}.mat-mdc-tab-link:focus .mdc-tab__text-label{color:var(--mat-tab-header-inactive-focus-label-text-color)}.mat-mdc-tab-link.mdc-tab--active .mdc-tab__text-label{color:var(--mat-tab-header-active-label-text-color)}.mat-mdc-tab-link.mdc-tab--active .mdc-tab__ripple::before,.mat-mdc-tab-link.mdc-tab--active .mat-ripple-element{background-color:var(--mat-tab-header-active-ripple-color)}.mat-mdc-tab-link.mdc-tab--active:hover .mdc-tab__text-label{color:var(--mat-tab-header-active-hover-label-text-color)}.mat-mdc-tab-link.mdc-tab--active:hover .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-hover-indicator-color)}.mat-mdc-tab-link.mdc-tab--active:focus .mdc-tab__text-label{color:var(--mat-tab-header-active-focus-label-text-color)}.mat-mdc-tab-link.mdc-tab--active:focus .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-focus-indicator-color)}.mat-mdc-tab-link.mat-mdc-tab-disabled{opacity:.4;pointer-events:none}.mat-mdc-tab-link.mat-mdc-tab-disabled .mdc-tab__content{pointer-events:none}.mat-mdc-tab-link.mat-mdc-tab-disabled .mdc-tab__ripple::before,.mat-mdc-tab-link.mat-mdc-tab-disabled .mat-ripple-element{background-color:var(--mat-tab-header-disabled-ripple-color)}.mat-mdc-tab-link .mdc-tab__ripple::before{content:\"\";display:block;position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;pointer-events:none;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-link .mdc-tab__text-label{color:var(--mat-tab-header-inactive-label-text-color);display:inline-flex;align-items:center}.mat-mdc-tab-link .mdc-tab__content{position:relative;pointer-events:auto}.mat-mdc-tab-link:hover .mdc-tab__ripple::before{opacity:.04}.mat-mdc-tab-link.cdk-program-focused .mdc-tab__ripple::before,.mat-mdc-tab-link.cdk-keyboard-focused .mdc-tab__ripple::before{opacity:.12}.mat-mdc-tab-link .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-header.mat-mdc-tab-nav-bar-stretch-tabs .mat-mdc-tab-link{flex-grow:1}.mat-mdc-tab-link::before{margin:5px}@media(max-width: 599px){.mat-mdc-tab-link{min-width:72px}}"], dependencies: [{ kind: "directive", type: MatRipple, selector: "[mat-ripple], [matRipple]", inputs: ["matRippleColor", "matRippleUnbounded", "matRippleCentered", "matRippleRadius", "matRippleAnimation", "matRippleDisabled", "matRippleTrigger"], exportAs: ["matRipple"] }], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
+    _l.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "16.1.0", version: "17.1.0-next.2", type: _l, isStandalone: true, selector: "[mat-tab-link], [matTabLink]", inputs: { active: ["active", "active", booleanAttribute], id: "id", disabled: ["disabled", "disabled", booleanAttribute], disableRipple: ["disableRipple", "disableRipple", booleanAttribute], tabIndex: ["tabIndex", "tabIndex", (value) => (value == null ? 0 : numberAttribute(value))] }, host: { listeners: { "focus": "_handleFocus()", "keydown": "_handleKeydown($event)" }, properties: { "attr.aria-controls": "_getAriaControls()", "attr.aria-current": "_getAriaCurrent()", "attr.aria-disabled": "disabled", "attr.aria-selected": "_getAriaSelected()", "attr.id": "id", "attr.tabIndex": "_getTabIndex()", "attr.role": "_getRole()", "class.mat-mdc-tab-disabled": "disabled", "class.mdc-tab--active": "active" }, classAttribute: "mdc-tab mat-mdc-tab-link mat-mdc-focus-indicator" }, exportAs: ["matTabLink"], usesInheritance: true, ngImport: i0, template: "<span class=\"mdc-tab__ripple\"></span>\n\n<div\n  class=\"mat-mdc-tab-ripple\"\n  mat-ripple\n  [matRippleTrigger]=\"elementRef.nativeElement\"\n  [matRippleDisabled]=\"rippleDisabled\"></div>\n\n<span class=\"mdc-tab__content\">\n  <span class=\"mdc-tab__text-label\">\n    <ng-content></ng-content>\n  </span>\n</span>\n\n", styles: [".mat-mdc-tab-link{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-decoration:none;background:none;font-family:var(--mat-tab-header-label-text-font);font-size:var(--mat-tab-header-label-text-size);letter-spacing:var(--mat-tab-header-label-text-tracking);line-height:var(--mat-tab-header-label-text-line-height);font-weight:var(--mat-tab-header-label-text-weight)}.mat-mdc-tab-link .mdc-tab-indicator__content--underline{border-color:var(--mdc-tab-indicator-active-indicator-color)}.mat-mdc-tab-link .mdc-tab-indicator__content--underline{border-top-width:var(--mdc-tab-indicator-active-indicator-height)}.mat-mdc-tab-link .mdc-tab-indicator__content--underline{border-radius:var(--mdc-tab-indicator-active-indicator-shape)}.mat-mdc-tab-link:not(.mdc-tab--stacked){height:var(--mdc-secondary-navigation-tab-container-height)}.mat-mdc-tab-link:not(:disabled).mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):hover.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):focus.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):active.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:disabled.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):hover:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):focus:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):active:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:disabled:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link.mdc-tab{flex-grow:0}.mat-mdc-tab-link:hover .mdc-tab__text-label{color:var(--mat-tab-header-inactive-hover-label-text-color)}.mat-mdc-tab-link:focus .mdc-tab__text-label{color:var(--mat-tab-header-inactive-focus-label-text-color)}.mat-mdc-tab-link.mdc-tab--active .mdc-tab__text-label{color:var(--mat-tab-header-active-label-text-color)}.mat-mdc-tab-link.mdc-tab--active .mdc-tab__ripple::before,.mat-mdc-tab-link.mdc-tab--active .mat-ripple-element{background-color:var(--mat-tab-header-active-ripple-color)}.mat-mdc-tab-link.mdc-tab--active:hover .mdc-tab__text-label{color:var(--mat-tab-header-active-hover-label-text-color)}.mat-mdc-tab-link.mdc-tab--active:hover .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-hover-indicator-color)}.mat-mdc-tab-link.mdc-tab--active:focus .mdc-tab__text-label{color:var(--mat-tab-header-active-focus-label-text-color)}.mat-mdc-tab-link.mdc-tab--active:focus .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-focus-indicator-color)}.mat-mdc-tab-link.mat-mdc-tab-disabled{opacity:.4;pointer-events:none}.mat-mdc-tab-link.mat-mdc-tab-disabled .mdc-tab__content{pointer-events:none}.mat-mdc-tab-link.mat-mdc-tab-disabled .mdc-tab__ripple::before,.mat-mdc-tab-link.mat-mdc-tab-disabled .mat-ripple-element{background-color:var(--mat-tab-header-disabled-ripple-color)}.mat-mdc-tab-link .mdc-tab__ripple::before{content:\"\";display:block;position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;pointer-events:none;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-link .mdc-tab__text-label{color:var(--mat-tab-header-inactive-label-text-color);display:inline-flex;align-items:center}.mat-mdc-tab-link .mdc-tab__content{position:relative;pointer-events:auto}.mat-mdc-tab-link:hover .mdc-tab__ripple::before{opacity:.04}.mat-mdc-tab-link.cdk-program-focused .mdc-tab__ripple::before,.mat-mdc-tab-link.cdk-keyboard-focused .mdc-tab__ripple::before{opacity:.12}.mat-mdc-tab-link .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-header.mat-mdc-tab-nav-bar-stretch-tabs .mat-mdc-tab-link{flex-grow:1}.mat-mdc-tab-link::before{margin:5px}@media(max-width: 599px){.mat-mdc-tab-link{min-width:72px}}"], dependencies: [{ kind: "directive", type: MatRipple, selector: "[mat-ripple], [matRipple]", inputs: ["matRippleColor", "matRippleUnbounded", "matRippleCentered", "matRippleRadius", "matRippleAnimation", "matRippleDisabled", "matRippleTrigger"], exportAs: ["matRipple"] }], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatTabLink, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatTabLink, decorators: [{
             type: Component,
             args: [{ selector: '[mat-tab-link], [matTabLink]', exportAs: 'matTabLink', inputs: ['active', 'id'], changeDetection: ChangeDetectionStrategy.OnPush, encapsulation: ViewEncapsulation.None, host: {
                         'class': 'mdc-tab mat-mdc-tab-link mat-mdc-focus-indicator',
@@ -13084,7 +13193,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                         '[class.mdc-tab--active]': 'active',
                         '(focus)': '_handleFocus()',
                         '(keydown)': '_handleKeydown($event)',
-                    }, template: "<span class=\"mdc-tab__ripple\"></span>\n\n<div\n  class=\"mat-mdc-tab-ripple\"\n  mat-ripple\n  [matRippleTrigger]=\"elementRef.nativeElement\"\n  [matRippleDisabled]=\"rippleDisabled\"></div>\n\n<span class=\"mdc-tab__content\">\n  <span class=\"mdc-tab__text-label\">\n    <ng-content></ng-content>\n  </span>\n</span>\n\n", styles: [".mat-mdc-tab-link{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-decoration:none;background:none;font-family:var(--mat-tab-header-label-text-font);font-size:var(--mat-tab-header-label-text-size);letter-spacing:var(--mat-tab-header-label-text-tracking);line-height:var(--mat-tab-header-label-text-line-height);font-weight:var(--mat-tab-header-label-text-weight)}.mat-mdc-tab-link .mdc-tab-indicator__content--underline{border-color:var(--mdc-tab-indicator-active-indicator-color)}.mat-mdc-tab-link .mdc-tab-indicator__content--underline{border-top-width:var(--mdc-tab-indicator-active-indicator-height)}.mat-mdc-tab-link .mdc-tab-indicator__content--underline{border-radius:var(--mdc-tab-indicator-active-indicator-shape)}.mat-mdc-tab-link:not(.mdc-tab--stacked){height:var(--mdc-secondary-navigation-tab-container-height)}.mat-mdc-tab-link:not(:disabled).mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):hover.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):focus.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):active.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:disabled.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):hover:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):focus:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):active:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:disabled:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link.mdc-tab{flex-grow:0}.mat-mdc-tab-link:hover .mdc-tab__text-label{color:var(--mat-tab-header-inactive-hover-label-text-color)}.mat-mdc-tab-link:focus .mdc-tab__text-label{color:var(--mat-tab-header-inactive-focus-label-text-color)}.mat-mdc-tab-link.mdc-tab--active .mdc-tab__text-label{color:var(--mat-tab-header-active-label-text-color)}.mat-mdc-tab-link.mdc-tab--active .mdc-tab__ripple::before,.mat-mdc-tab-link.mdc-tab--active .mat-ripple-element{background-color:var(--mat-tab-header-active-ripple-color)}.mat-mdc-tab-link.mdc-tab--active:hover .mdc-tab__text-label{color:var(--mat-tab-header-active-hover-label-text-color)}.mat-mdc-tab-link.mdc-tab--active:hover .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-hover-indicator-color)}.mat-mdc-tab-link.mdc-tab--active:focus .mdc-tab__text-label{color:var(--mat-tab-header-active-focus-label-text-color)}.mat-mdc-tab-link.mdc-tab--active:focus .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-focus-indicator-color)}.mat-mdc-tab-link.mat-mdc-tab-disabled{opacity:.4;pointer-events:none}.mat-mdc-tab-link.mat-mdc-tab-disabled .mdc-tab__content{pointer-events:none}.mat-mdc-tab-link.mat-mdc-tab-disabled .mdc-tab__ripple::before,.mat-mdc-tab-link.mat-mdc-tab-disabled .mat-ripple-element{background-color:var(--mat-tab-header-disabled-ripple-color)}.mat-mdc-tab-link .mdc-tab__ripple::before{content:\"\";display:block;position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;pointer-events:none;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-link .mdc-tab__text-label{color:var(--mat-tab-header-inactive-label-text-color);display:inline-flex;align-items:center}.mat-mdc-tab-link .mdc-tab__content{position:relative;pointer-events:auto}.mat-mdc-tab-link:hover .mdc-tab__ripple::before{opacity:.04}.mat-mdc-tab-link.cdk-program-focused .mdc-tab__ripple::before,.mat-mdc-tab-link.cdk-keyboard-focused .mdc-tab__ripple::before{opacity:.12}.mat-mdc-tab-link .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-header.mat-mdc-tab-nav-bar-stretch-tabs .mat-mdc-tab-link{flex-grow:1}.mat-mdc-tab-link::before{margin:5px}@media(max-width: 599px){.mat-mdc-tab-link{min-width:72px}}"] }]
+                    }, standalone: true, imports: [MatRipple], template: "<span class=\"mdc-tab__ripple\"></span>\n\n<div\n  class=\"mat-mdc-tab-ripple\"\n  mat-ripple\n  [matRippleTrigger]=\"elementRef.nativeElement\"\n  [matRippleDisabled]=\"rippleDisabled\"></div>\n\n<span class=\"mdc-tab__content\">\n  <span class=\"mdc-tab__text-label\">\n    <ng-content></ng-content>\n  </span>\n</span>\n\n", styles: [".mat-mdc-tab-link{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-decoration:none;background:none;font-family:var(--mat-tab-header-label-text-font);font-size:var(--mat-tab-header-label-text-size);letter-spacing:var(--mat-tab-header-label-text-tracking);line-height:var(--mat-tab-header-label-text-line-height);font-weight:var(--mat-tab-header-label-text-weight)}.mat-mdc-tab-link .mdc-tab-indicator__content--underline{border-color:var(--mdc-tab-indicator-active-indicator-color)}.mat-mdc-tab-link .mdc-tab-indicator__content--underline{border-top-width:var(--mdc-tab-indicator-active-indicator-height)}.mat-mdc-tab-link .mdc-tab-indicator__content--underline{border-radius:var(--mdc-tab-indicator-active-indicator-shape)}.mat-mdc-tab-link:not(.mdc-tab--stacked){height:var(--mdc-secondary-navigation-tab-container-height)}.mat-mdc-tab-link:not(:disabled).mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):hover.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):focus.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):active.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:disabled.mdc-tab--active .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):hover:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):focus:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:not(:disabled):active:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link:disabled:not(.mdc-tab--active) .mdc-tab__icon{fill:currentColor}.mat-mdc-tab-link.mdc-tab{flex-grow:0}.mat-mdc-tab-link:hover .mdc-tab__text-label{color:var(--mat-tab-header-inactive-hover-label-text-color)}.mat-mdc-tab-link:focus .mdc-tab__text-label{color:var(--mat-tab-header-inactive-focus-label-text-color)}.mat-mdc-tab-link.mdc-tab--active .mdc-tab__text-label{color:var(--mat-tab-header-active-label-text-color)}.mat-mdc-tab-link.mdc-tab--active .mdc-tab__ripple::before,.mat-mdc-tab-link.mdc-tab--active .mat-ripple-element{background-color:var(--mat-tab-header-active-ripple-color)}.mat-mdc-tab-link.mdc-tab--active:hover .mdc-tab__text-label{color:var(--mat-tab-header-active-hover-label-text-color)}.mat-mdc-tab-link.mdc-tab--active:hover .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-hover-indicator-color)}.mat-mdc-tab-link.mdc-tab--active:focus .mdc-tab__text-label{color:var(--mat-tab-header-active-focus-label-text-color)}.mat-mdc-tab-link.mdc-tab--active:focus .mdc-tab-indicator__content--underline{border-color:var(--mat-tab-header-active-focus-indicator-color)}.mat-mdc-tab-link.mat-mdc-tab-disabled{opacity:.4;pointer-events:none}.mat-mdc-tab-link.mat-mdc-tab-disabled .mdc-tab__content{pointer-events:none}.mat-mdc-tab-link.mat-mdc-tab-disabled .mdc-tab__ripple::before,.mat-mdc-tab-link.mat-mdc-tab-disabled .mat-ripple-element{background-color:var(--mat-tab-header-disabled-ripple-color)}.mat-mdc-tab-link .mdc-tab__ripple::before{content:\"\";display:block;position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;pointer-events:none;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-link .mdc-tab__text-label{color:var(--mat-tab-header-inactive-label-text-color);display:inline-flex;align-items:center}.mat-mdc-tab-link .mdc-tab__content{position:relative;pointer-events:auto}.mat-mdc-tab-link:hover .mdc-tab__ripple::before{opacity:.04}.mat-mdc-tab-link.cdk-program-focused .mdc-tab__ripple::before,.mat-mdc-tab-link.cdk-keyboard-focused .mdc-tab__ripple::before{opacity:.12}.mat-mdc-tab-link .mat-ripple-element{opacity:.12;background-color:var(--mat-tab-header-inactive-ripple-color)}.mat-mdc-tab-header.mat-mdc-tab-nav-bar-stretch-tabs .mat-mdc-tab-link{flex-grow:1}.mat-mdc-tab-link::before{margin:5px}@media(max-width: 599px){.mat-mdc-tab-link{min-width:72px}}"] }]
         }], ctorParameters: () => [{ type: MatTabNav }, { type: i0.ElementRef }, { type: undefined, decorators: [{
                     type: Optional
                 }, {
@@ -13126,12 +13235,12 @@ class MatTabNavPanel {
 }
 _m = MatTabNavPanel;
 (() => {
-    _m.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _m, deps: [], target: i0.ɵɵFactoryTarget.Component });
+    _m.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _m, deps: [], target: i0.ɵɵFactoryTarget.Component });
 })();
 (() => {
-    _m.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.0.0", type: _m, selector: "mat-tab-nav-panel", inputs: { id: "id" }, host: { attributes: { "role": "tabpanel" }, properties: { "attr.aria-labelledby": "_activeTabId", "attr.id": "id" }, classAttribute: "mat-mdc-tab-nav-panel" }, exportAs: ["matTabNavPanel"], ngImport: i0, template: '<ng-content></ng-content>', isInline: true, changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
+    _m.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.1.0-next.2", type: _m, isStandalone: true, selector: "mat-tab-nav-panel", inputs: { id: "id" }, host: { attributes: { "role": "tabpanel" }, properties: { "attr.aria-labelledby": "_activeTabId", "attr.id": "id" }, classAttribute: "mat-mdc-tab-nav-panel" }, exportAs: ["matTabNavPanel"], ngImport: i0, template: '<ng-content></ng-content>', isInline: true, changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatTabNavPanel, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatTabNavPanel, decorators: [{
             type: Component,
             args: [{
                     selector: 'mat-tab-nav-panel',
@@ -13145,6 +13254,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                     },
                     encapsulation: ViewEncapsulation.None,
                     changeDetection: ChangeDetectionStrategy.OnPush,
+                    standalone: true,
                 }]
         }], propDecorators: { id: [{
                 type: Input
@@ -13153,26 +13263,17 @@ class MatTabsModule {
 }
 _o = MatTabsModule;
 (() => {
-    _o.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _o, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+    _o.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _o, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 })();
 (() => {
-    _o.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: _o, declarations: [MatTabContent,
+    _o.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.1.0-next.2", ngImport: i0, type: _o, imports: [MatCommonModule,
+            MatTabContent,
             MatTabLabel,
             MatTab,
             MatTabGroup,
             MatTabNav,
             MatTabNavPanel,
-            MatTabLink,
-            // Private directives, should not be exported.
-            MatTabBody,
-            MatTabBodyPortal,
-            MatTabLabelWrapper,
-            MatTabHeader], imports: [CommonModule,
-            MatCommonModule,
-            PortalModule,
-            MatRippleModule,
-            ObserversModule,
-            A11yModule], exports: [MatCommonModule,
+            MatTabLink], exports: [MatCommonModule,
             MatTabContent,
             MatTabLabel,
             MatTab,
@@ -13182,23 +13283,20 @@ _o = MatTabsModule;
             MatTabLink] });
 })();
 (() => {
-    _o.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: _o, imports: [CommonModule,
-            MatCommonModule,
-            PortalModule,
-            MatRippleModule,
-            ObserversModule,
-            A11yModule, MatCommonModule] });
+    _o.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: _o, imports: [MatCommonModule, MatCommonModule] });
 })();
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatTabsModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.2", ngImport: i0, type: MatTabsModule, decorators: [{
             type: NgModule,
             args: [{
                     imports: [
-                        CommonModule,
                         MatCommonModule,
-                        PortalModule,
-                        MatRippleModule,
-                        ObserversModule,
-                        A11yModule,
+                        MatTabContent,
+                        MatTabLabel,
+                        MatTab,
+                        MatTabGroup,
+                        MatTabNav,
+                        MatTabNavPanel,
+                        MatTabLink,
                     ],
                     exports: [
                         MatCommonModule,
@@ -13209,20 +13307,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                         MatTabNav,
                         MatTabNavPanel,
                         MatTabLink,
-                    ],
-                    declarations: [
-                        MatTabContent,
-                        MatTabLabel,
-                        MatTab,
-                        MatTabGroup,
-                        MatTabNav,
-                        MatTabNavPanel,
-                        MatTabLink,
-                        // Private directives, should not be exported.
-                        MatTabBody,
-                        MatTabBodyPortal,
-                        MatTabLabelWrapper,
-                        MatTabHeader,
                     ],
                 }]
         }] });
@@ -13373,9 +13457,9 @@ class ExampleViewer {
         }
     }
 }
-ExampleViewer.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: ExampleViewer, deps: [], target: i0.ɵɵFactoryTarget.Component });
-ExampleViewer.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.1", type: ExampleViewer, isStandalone: true, selector: "docs-example-viewer", inputs: { metadata: "metadata", githubUrl: "githubUrl", stackblitzUrl: "stackblitzUrl" }, viewQueries: [{ propertyName: "matTabGroup", first: true, predicate: ["codeTabs"], descendants: true }], ngImport: i0, template: "<div class=\"docs-example-viewer\" role=\"group\">\n  <header class=\"docs-example-viewer-actions\">\n    @if (view() === CodeExampleViewMode.SNIPPET) {\n      <span>{{ exampleMetadata()?.title }}</span>\n    }\n\n    @if (view() === CodeExampleViewMode.MULTI_FILE) {\n      <mat-tab-group\n        #codeTabs\n        animationDuration=\"0ms\"\n        mat-stretch-tabs=\"false\"\n      >\n        @for (tab of tabs(); track tab) {\n          <mat-tab [label]=\"tab.name\"></mat-tab>\n        }\n      </mat-tab-group>\n    }\n\n    <div class=\"docs-example-viewer-icons\">\n      <button\n        type=\"button\"\n        class=\"docs-example-copy-link\"\n        [attr.aria-label]=\"'Copy link to ' + exampleMetadata()?.title + ' example to the clipboard'\"\n        (click)=\"copyLink()\"\n      >\n        <i aria-hidden=\"true\">\n          <svg\n            aria-hidden=\"true\"\n            width=\"24\"\n            height=\"24\"\n            viewBox=\"0 0 24 24\"\n            fill=\"inherit\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <!-- link icon -->\n            <path\n              d=\"M11 17H7C5.61667 17 4.4375 16.5125 3.4625 15.5375C2.4875 14.5625 2 13.3833 2 12C2 10.6167 2.4875 9.4375 3.4625 8.4625C4.4375 7.4875 5.61667 7 7 7H11V9H7C6.16667 9 5.45833 9.29167 4.875 9.875C4.29167 10.4583 4 11.1667 4 12C4 12.8333 4.29167 13.5417 4.875 14.125C5.45833 14.7083 6.16667 15 7 15H11V17ZM8 13V11H16V13H8ZM13 17V15H17C17.8333 15 18.5417 14.7083 19.125 14.125C19.7083 13.5417 20 12.8333 20 12C20 11.1667 19.7083 10.4583 19.125 9.875C18.5417 9.29167 17.8333 9 17 9H13V7H17C18.3833 7 19.5625 7.4875 20.5375 8.4625C21.5125 9.4375 22 10.6167 22 12C22 13.3833 21.5125 14.5625 20.5375 15.5375C19.5625 16.5125 18.3833 17 17 17H13Z\"\n              fill=\"inherit\"\n            />\n          </svg>\n        </i>\n      </button>\n      <ng-container *ngTemplateOutlet=\"openCodeInExternalProvider\" />\n      @if (expandable()) {\n        <button\n          type=\"button\"\n          (click)=\"toggleExampleVisibility()\"\n          [attr.title]=\"(expanded() ? 'Collapse' : 'Expand') + ' example'\"\n          [attr.aria-label]=\"(expanded() ? 'Collapse' : 'Expand') + ' code example'\"\n        >\n          <i aria-hidden=\"true\">\n            @if (!expanded()) {\n              <svg\n                aria-hidden=\"true\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                width=\"24\"\n                height=\"24\"\n                viewBox=\"0 0 24 24\"\n                fill=\"none\"\n              >\n                <!-- Expand arrow -->\n                <path d=\"M3 21v-8h2v4.6L17.6 5H13V3h8v8h-2V6.4L6.4 19H11v2H3Z\" />\n              </svg>\n            } @else {\n              <svg\n                aria-hidden=\"true\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                width=\"24\"\n                height=\"24\"\n                fill=\"none\"\n              >\n                <path\n                  fill=\"var(--gray-400)\"\n                  d=\"M3.4 22 2 20.6 8.6 14H4v-2h8v8h-2v-4.6L3.4 22ZM12 12V4h2v4.6L20.6 2 22 3.4 15.4 10H20v2h-8Z\"\n                />\n              </svg>\n            }\n          </i>\n        </button>\n      }\n    </div>\n  </header>\n\n  <div\n    class=\"docs-example-viewer-code-wrapper\"\n    [class.docs-example-viewer-snippet]=\"view() === CodeExampleViewMode.SNIPPET\"\n    [class.docs-example-viewer-multi-file]=\"view() === CodeExampleViewMode.MULTI_FILE\"\n  >\n    <button docs-copy-source-code></button>\n    <!-- <docs-viewer [docContent]=\"snippetCode()?.content\" /> -->\n  </div>\n\n  @if (exampleComponent) {\n    <div class=\"docs-example-viewer-preview\">\n      <ng-container *ngComponentOutlet=\"exampleComponent\" />\n    </div>\n  }\n\n  <ng-template #openCodeInExternalProvider>\n    @if (exampleComponent) {\n      @if (githubUrl) {\n        <a\n          [href]=\"githubUrl\"\n          target=\"_blank\"\n          title=\"Open example on GitHub\"\n          class=\"docs-example-github-link\"\n          aria-label=\"Open example on GitHub\"\n        >\n          <i aria-hidden=\"true\">\n            <svg\n              aria-hidden=\"true\"\n              width=\"24\"\n              height=\"24\"\n              viewBox=\"0 0 24 24\"\n              fill=\"inherit\"\n              xmlns=\"http://www.w3.org/2000/svg\"\n            >\n              <path\n                fill-rule=\"evenodd\"\n                clip-rule=\"evenodd\"\n                d=\"M9.16141 22.8681C9.16141 22.5894 9.15159 21.8509 9.14614 20.8707C5.96014 21.5798 5.28759 19.296 5.28759 19.296C4.76668 17.9389 4.01559 17.5778 4.01559 17.5778C2.97541 16.8485 4.09414 16.8638 4.09414 16.8638C5.24396 16.9467 5.84886 18.0747 5.84886 18.0747C6.8705 19.8692 8.52923 19.3516 9.18268 19.0505C9.28686 18.2912 9.5825 17.7736 9.90977 17.4801C7.36632 17.184 4.69196 16.176 4.69196 11.6754C4.69196 10.3936 5.13868 9.34523 5.87123 8.52377C5.75396 8.22705 5.36014 7.03305 5.98359 5.41577C5.98359 5.41577 6.94577 5.09996 9.13359 6.61959C10.0467 6.35941 11.0269 6.2285 12.0016 6.22414C12.9741 6.2285 13.9538 6.35941 14.869 6.61959C17.0558 5.09996 18.0163 5.41577 18.0163 5.41577C18.6414 7.0325 18.2481 8.2265 18.1298 8.52377C18.864 9.34523 19.3069 10.3936 19.3069 11.6754C19.3069 16.1874 16.6287 17.1801 14.077 17.4709C14.4889 17.8336 14.8543 18.5503 14.8543 19.6461C14.8543 21.2165 14.8396 22.4836 14.8396 22.8681C14.8396 23.1829 15.0463 23.5478 15.6278 23.4327C20.1758 21.877 23.4545 17.4774 23.4545 12.2907C23.4545 5.80359 18.3256 0.54541 11.9994 0.54541C5.67432 0.54541 0.54541 5.80359 0.54541 12.2907C0.545956 17.479 3.82796 21.8814 8.37977 23.4343C8.95196 23.5418 9.16141 23.179 9.16141 22.8681Z\"\n                fill=\"inherit\"\n              />\n            </svg>\n          </i>\n        </a>\n      }\n      @if (stackblitzUrl) {\n        <a\n          [href]=\"stackblitzUrl\"\n          target=\"_blank\"\n          class=\"docs-example-stackblitz-link\"\n          title=\"Edit this example in StackBlitz\"\n          aria-label=\"Edit this example in StackBlitz\"\n        >\n          <i aria-hidden=\"true\">\n            <svg\n              width=\"24\"\n              height=\"24\"\n              viewBox=\"0 0 356 511\"\n              fill=\"none\"\n              xmlns=\"http://www.w3.org/2000/svg\"\n            >\n              <path\n                fill-rule=\"evenodd\"\n                clip-rule=\"evenodd\"\n                d=\"M138.719 150.22C62.6928 232.614 0.340573 300.4 0.158928 300.856C-0.0227172 301.311 33.9559 301.799 75.6665 301.939L151.505 302.195L117.656 396.511C74.7852 515.966 76.7972 510.288 77.3522 510.288C78.2145 510.288 355.296 209.735 355.296 208.799C355.296 208.245 325.263 207.879 279.943 207.879C233.709 207.879 204.591 207.518 204.591 206.943C204.591 206.428 220.136 162.751 239.137 109.883C279.06 -1.20153 278.545 0.264614 277.638 0.347453C277.26 0.382384 214.746 67.8247 138.719 150.22Z\"\n              />\n            </svg>\n          </i>\n        </a>\n      }\n    }\n  </ng-template>\n</div>\n", styles: [".adev-dark-mode :host .docs-example-viewer-preview{background:var(--gray-100)}@media screen and (prefers-color-scheme: dark){:host .docs-example-viewer-preview{background:var(--gray-100)}}.adev-light-mode :host .docs-example-viewer-preview{background:var(--page-background)}.docs-example-viewer{border:1px solid var(--senary-contrast);border-radius:.25rem;overflow:hidden}.docs-example-viewer-actions{background:var(--subtle-purple);display:flex;justify-content:space-between;align-items:center;gap:.5rem;border-bottom:1px solid var(--senary-contrast);transition:background .3s ease,border-color .3s ease;padding-inline-end:.65rem;font-family:var(--inter-tight-font)}.docs-example-viewer-actions mat-tab-group{max-width:calc(100% - 140px)}.docs-example-viewer-actions span:first-of-type{background-image:var(--purple-to-blue-horizontal-gradient);background-clip:text;-webkit-background-clip:text;color:rgba(0,0,0,0);padding:.7rem 1.1rem;font-size:.875rem;font-style:normal;font-weight:400;line-height:1.4rem;letter-spacing:-0.00875rem;margin:0;word-wrap:break-word;width:fit-content}.docs-example-viewer-actions .docs-example-viewer-icons{display:flex;gap:.75rem}.docs-example-viewer-actions .docs-example-viewer-icons svg{fill:var(--gray-400)}.docs-example-viewer-actions a,.docs-example-viewer-actions button{padding:0;margin:0;cursor:pointer;height:24px;width:24px}.docs-example-viewer-actions a path,.docs-example-viewer-actions button path{transition:fill .3s ease}.docs-example-viewer-actions a:hover svg,.docs-example-viewer-actions button:hover svg{fill:var(--tertiary-contrast)}.docs-example-viewer-code-wrapper{position:relative;font-size:.875rem;transition:border-color .3s ease;container:viewerblock/inline-size;background-color:var(--octonary-contrast)}.docs-example-viewer-code-wrapper button[docs-copy-source-code]{top:.31rem}@container viewerblock (min-width: 400px){.docs-example-viewer-code-wrapper button[docs-copy-source-code]{background-color:rgba(0,0,0,0);border:1px solid rgba(0,0,0,0)}}::ng-deep .docs-example-viewer-preview{all:initial;display:block;padding:1rem;border-block-start:1px solid var(--senary-contrast)}::ng-deep .docs-example-viewer-preview *,::ng-deep .docs-example-viewer-preview code::before,::ng-deep .docs-example-viewer-preview code,::ng-deep .docs-example-viewer-preview pre,::ng-deep .docs-example-viewer-preview a,::ng-deep .docs-example-viewer-preview i,::ng-deep .docs-example-viewer-preview p,::ng-deep .docs-example-viewer-preview h1,::ng-deep .docs-example-viewer-preview h2,::ng-deep .docs-example-viewer-preview h3,::ng-deep .docs-example-viewer-preview h4,::ng-deep .docs-example-viewer-preview h5,::ng-deep .docs-example-viewer-preview h6,::ng-deep .docs-example-viewer-preview ol,::ng-deep .docs-example-viewer-preview ul,::ng-deep .docs-example-viewer-preview li,::ng-deep .docs-example-viewer-preview hr,::ng-deep .docs-example-viewer-preview input,::ng-deep .docs-example-viewer-preview select,::ng-deep .docs-example-viewer-preview table{all:revert}/*# sourceMappingURL=example-viewer.component.css.map */\n"], dependencies: [{ kind: "ngmodule", type: CommonModule }, { kind: "directive", type: i1.NgComponentOutlet, selector: "[ngComponentOutlet]", inputs: ["ngComponentOutlet", "ngComponentOutletInputs", "ngComponentOutletInjector", "ngComponentOutletContent", "ngComponentOutletNgModule", "ngComponentOutletNgModuleFactory"] }, { kind: "directive", type: i1.NgTemplateOutlet, selector: "[ngTemplateOutlet]", inputs: ["ngTemplateOutletContext", "ngTemplateOutlet", "ngTemplateOutletInjector"] }, { kind: "component", type: CopySourceCodeButton, selector: "button[docs-copy-source-code]" }, { kind: "ngmodule", type: MatTabsModule }, { kind: "component", type: MatTab, selector: "mat-tab", inputs: ["disabled", "label", "aria-label", "aria-labelledby", "labelClass", "bodyClass"], exportAs: ["matTab"] }, { kind: "component", type: MatTabGroup, selector: "mat-tab-group", inputs: ["color", "fitInkBarToContent", "mat-stretch-tabs", "dynamicHeight", "selectedIndex", "headerPosition", "animationDuration", "contentTabIndex", "disablePagination", "disableRipple", "preserveContent", "backgroundColor"], outputs: ["selectedIndexChange", "focusChange", "animationDone", "selectedTabChange"], exportAs: ["matTabGroup"] }], changeDetection: i0.ChangeDetectionStrategy.OnPush });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: ExampleViewer, decorators: [{
+ExampleViewer.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: ExampleViewer, deps: [], target: i0.ɵɵFactoryTarget.Component });
+ExampleViewer.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.4", type: ExampleViewer, isStandalone: true, selector: "docs-example-viewer", inputs: { metadata: "metadata", githubUrl: "githubUrl", stackblitzUrl: "stackblitzUrl" }, viewQueries: [{ propertyName: "matTabGroup", first: true, predicate: ["codeTabs"], descendants: true }], ngImport: i0, template: "<div class=\"docs-example-viewer\" role=\"group\">\n  <header class=\"docs-example-viewer-actions\">\n    @if (view() === CodeExampleViewMode.SNIPPET) {\n      <span>{{ exampleMetadata()?.title }}</span>\n    }\n\n    @if (view() === CodeExampleViewMode.MULTI_FILE) {\n      <mat-tab-group\n        #codeTabs\n        animationDuration=\"0ms\"\n        mat-stretch-tabs=\"false\"\n      >\n        @for (tab of tabs(); track tab) {\n          <mat-tab [label]=\"tab.name\"></mat-tab>\n        }\n      </mat-tab-group>\n    }\n\n    <div class=\"docs-example-viewer-icons\">\n      <button\n        type=\"button\"\n        class=\"docs-example-copy-link\"\n        [attr.aria-label]=\"'Copy link to ' + exampleMetadata()?.title + ' example to the clipboard'\"\n        (click)=\"copyLink()\"\n      >\n        <i aria-hidden=\"true\">\n          <svg\n            aria-hidden=\"true\"\n            width=\"24\"\n            height=\"24\"\n            viewBox=\"0 0 24 24\"\n            fill=\"inherit\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <!-- link icon -->\n            <path\n              d=\"M11 17H7C5.61667 17 4.4375 16.5125 3.4625 15.5375C2.4875 14.5625 2 13.3833 2 12C2 10.6167 2.4875 9.4375 3.4625 8.4625C4.4375 7.4875 5.61667 7 7 7H11V9H7C6.16667 9 5.45833 9.29167 4.875 9.875C4.29167 10.4583 4 11.1667 4 12C4 12.8333 4.29167 13.5417 4.875 14.125C5.45833 14.7083 6.16667 15 7 15H11V17ZM8 13V11H16V13H8ZM13 17V15H17C17.8333 15 18.5417 14.7083 19.125 14.125C19.7083 13.5417 20 12.8333 20 12C20 11.1667 19.7083 10.4583 19.125 9.875C18.5417 9.29167 17.8333 9 17 9H13V7H17C18.3833 7 19.5625 7.4875 20.5375 8.4625C21.5125 9.4375 22 10.6167 22 12C22 13.3833 21.5125 14.5625 20.5375 15.5375C19.5625 16.5125 18.3833 17 17 17H13Z\"\n              fill=\"inherit\"\n            />\n          </svg>\n        </i>\n      </button>\n      <ng-container *ngTemplateOutlet=\"openCodeInExternalProvider\" />\n      @if (expandable()) {\n        <button\n          type=\"button\"\n          (click)=\"toggleExampleVisibility()\"\n          [attr.title]=\"(expanded() ? 'Collapse' : 'Expand') + ' example'\"\n          [attr.aria-label]=\"(expanded() ? 'Collapse' : 'Expand') + ' code example'\"\n        >\n          <i aria-hidden=\"true\">\n            @if (!expanded()) {\n              <svg\n                aria-hidden=\"true\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                width=\"24\"\n                height=\"24\"\n                viewBox=\"0 0 24 24\"\n                fill=\"none\"\n              >\n                <!-- Expand arrow -->\n                <path d=\"M3 21v-8h2v4.6L17.6 5H13V3h8v8h-2V6.4L6.4 19H11v2H3Z\" />\n              </svg>\n            } @else {\n              <svg\n                aria-hidden=\"true\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                width=\"24\"\n                height=\"24\"\n                fill=\"none\"\n              >\n                <path\n                  fill=\"var(--gray-400)\"\n                  d=\"M3.4 22 2 20.6 8.6 14H4v-2h8v8h-2v-4.6L3.4 22ZM12 12V4h2v4.6L20.6 2 22 3.4 15.4 10H20v2h-8Z\"\n                />\n              </svg>\n            }\n          </i>\n        </button>\n      }\n    </div>\n  </header>\n\n  <div\n    class=\"docs-example-viewer-code-wrapper\"\n    [class.docs-example-viewer-snippet]=\"view() === CodeExampleViewMode.SNIPPET\"\n    [class.docs-example-viewer-multi-file]=\"view() === CodeExampleViewMode.MULTI_FILE\"\n  >\n    <button docs-copy-source-code></button>\n    <!-- <docs-viewer [docContent]=\"snippetCode()?.content\" /> -->\n  </div>\n\n  @if (exampleComponent) {\n    <div class=\"docs-example-viewer-preview\">\n      <ng-container *ngComponentOutlet=\"exampleComponent\" />\n    </div>\n  }\n\n  <ng-template #openCodeInExternalProvider>\n    @if (exampleComponent) {\n      @if (githubUrl) {\n        <a\n          [href]=\"githubUrl\"\n          target=\"_blank\"\n          title=\"Open example on GitHub\"\n          class=\"docs-example-github-link\"\n          aria-label=\"Open example on GitHub\"\n        >\n          <i aria-hidden=\"true\">\n            <svg\n              aria-hidden=\"true\"\n              width=\"24\"\n              height=\"24\"\n              viewBox=\"0 0 24 24\"\n              fill=\"inherit\"\n              xmlns=\"http://www.w3.org/2000/svg\"\n            >\n              <path\n                fill-rule=\"evenodd\"\n                clip-rule=\"evenodd\"\n                d=\"M9.16141 22.8681C9.16141 22.5894 9.15159 21.8509 9.14614 20.8707C5.96014 21.5798 5.28759 19.296 5.28759 19.296C4.76668 17.9389 4.01559 17.5778 4.01559 17.5778C2.97541 16.8485 4.09414 16.8638 4.09414 16.8638C5.24396 16.9467 5.84886 18.0747 5.84886 18.0747C6.8705 19.8692 8.52923 19.3516 9.18268 19.0505C9.28686 18.2912 9.5825 17.7736 9.90977 17.4801C7.36632 17.184 4.69196 16.176 4.69196 11.6754C4.69196 10.3936 5.13868 9.34523 5.87123 8.52377C5.75396 8.22705 5.36014 7.03305 5.98359 5.41577C5.98359 5.41577 6.94577 5.09996 9.13359 6.61959C10.0467 6.35941 11.0269 6.2285 12.0016 6.22414C12.9741 6.2285 13.9538 6.35941 14.869 6.61959C17.0558 5.09996 18.0163 5.41577 18.0163 5.41577C18.6414 7.0325 18.2481 8.2265 18.1298 8.52377C18.864 9.34523 19.3069 10.3936 19.3069 11.6754C19.3069 16.1874 16.6287 17.1801 14.077 17.4709C14.4889 17.8336 14.8543 18.5503 14.8543 19.6461C14.8543 21.2165 14.8396 22.4836 14.8396 22.8681C14.8396 23.1829 15.0463 23.5478 15.6278 23.4327C20.1758 21.877 23.4545 17.4774 23.4545 12.2907C23.4545 5.80359 18.3256 0.54541 11.9994 0.54541C5.67432 0.54541 0.54541 5.80359 0.54541 12.2907C0.545956 17.479 3.82796 21.8814 8.37977 23.4343C8.95196 23.5418 9.16141 23.179 9.16141 22.8681Z\"\n                fill=\"inherit\"\n              />\n            </svg>\n          </i>\n        </a>\n      }\n      @if (stackblitzUrl) {\n        <a\n          [href]=\"stackblitzUrl\"\n          target=\"_blank\"\n          class=\"docs-example-stackblitz-link\"\n          title=\"Edit this example in StackBlitz\"\n          aria-label=\"Edit this example in StackBlitz\"\n        >\n          <i aria-hidden=\"true\">\n            <svg\n              width=\"24\"\n              height=\"24\"\n              viewBox=\"0 0 356 511\"\n              fill=\"none\"\n              xmlns=\"http://www.w3.org/2000/svg\"\n            >\n              <path\n                fill-rule=\"evenodd\"\n                clip-rule=\"evenodd\"\n                d=\"M138.719 150.22C62.6928 232.614 0.340573 300.4 0.158928 300.856C-0.0227172 301.311 33.9559 301.799 75.6665 301.939L151.505 302.195L117.656 396.511C74.7852 515.966 76.7972 510.288 77.3522 510.288C78.2145 510.288 355.296 209.735 355.296 208.799C355.296 208.245 325.263 207.879 279.943 207.879C233.709 207.879 204.591 207.518 204.591 206.943C204.591 206.428 220.136 162.751 239.137 109.883C279.06 -1.20153 278.545 0.264614 277.638 0.347453C277.26 0.382384 214.746 67.8247 138.719 150.22Z\"\n              />\n            </svg>\n          </i>\n        </a>\n      }\n    }\n  </ng-template>\n</div>\n", styles: [".adev-dark-mode :host .docs-example-viewer-preview{background:var(--gray-100)}@media screen and (prefers-color-scheme: dark){:host .docs-example-viewer-preview{background:var(--gray-100)}}.adev-light-mode :host .docs-example-viewer-preview{background:var(--page-background)}.docs-example-viewer{border:1px solid var(--senary-contrast);border-radius:.25rem;overflow:hidden}.docs-example-viewer-actions{background:var(--subtle-purple);display:flex;justify-content:space-between;align-items:center;gap:.5rem;border-bottom:1px solid var(--senary-contrast);transition:background .3s ease,border-color .3s ease;padding-inline-end:.65rem;font-family:var(--inter-tight-font)}.docs-example-viewer-actions mat-tab-group{max-width:calc(100% - 140px)}.docs-example-viewer-actions span:first-of-type{background-image:var(--purple-to-blue-horizontal-gradient);background-clip:text;-webkit-background-clip:text;color:rgba(0,0,0,0);padding:.7rem 1.1rem;font-size:.875rem;font-style:normal;font-weight:400;line-height:1.4rem;letter-spacing:-0.00875rem;margin:0;word-wrap:break-word;width:fit-content}.docs-example-viewer-actions .docs-example-viewer-icons{display:flex;gap:.75rem}.docs-example-viewer-actions .docs-example-viewer-icons svg{fill:var(--gray-400)}.docs-example-viewer-actions a,.docs-example-viewer-actions button{padding:0;margin:0;cursor:pointer;height:24px;width:24px}.docs-example-viewer-actions a path,.docs-example-viewer-actions button path{transition:fill .3s ease}.docs-example-viewer-actions a:hover svg,.docs-example-viewer-actions button:hover svg{fill:var(--tertiary-contrast)}.docs-example-viewer-code-wrapper{position:relative;font-size:.875rem;transition:border-color .3s ease;container:viewerblock/inline-size;background-color:var(--octonary-contrast)}.docs-example-viewer-code-wrapper button[docs-copy-source-code]{top:.31rem}@container viewerblock (min-width: 400px){.docs-example-viewer-code-wrapper button[docs-copy-source-code]{background-color:rgba(0,0,0,0);border:1px solid rgba(0,0,0,0)}}::ng-deep .docs-example-viewer-preview{all:initial;display:block;padding:1rem;border-block-start:1px solid var(--senary-contrast)}::ng-deep .docs-example-viewer-preview *,::ng-deep .docs-example-viewer-preview code::before,::ng-deep .docs-example-viewer-preview code,::ng-deep .docs-example-viewer-preview pre,::ng-deep .docs-example-viewer-preview a,::ng-deep .docs-example-viewer-preview i,::ng-deep .docs-example-viewer-preview p,::ng-deep .docs-example-viewer-preview h1,::ng-deep .docs-example-viewer-preview h2,::ng-deep .docs-example-viewer-preview h3,::ng-deep .docs-example-viewer-preview h4,::ng-deep .docs-example-viewer-preview h5,::ng-deep .docs-example-viewer-preview h6,::ng-deep .docs-example-viewer-preview ol,::ng-deep .docs-example-viewer-preview ul,::ng-deep .docs-example-viewer-preview li,::ng-deep .docs-example-viewer-preview hr,::ng-deep .docs-example-viewer-preview input,::ng-deep .docs-example-viewer-preview select,::ng-deep .docs-example-viewer-preview table{all:revert}/*# sourceMappingURL=example-viewer.component.css.map */\n"], dependencies: [{ kind: "ngmodule", type: CommonModule }, { kind: "directive", type: i1.NgComponentOutlet, selector: "[ngComponentOutlet]", inputs: ["ngComponentOutlet", "ngComponentOutletInputs", "ngComponentOutletInjector", "ngComponentOutletContent", "ngComponentOutletNgModule", "ngComponentOutletNgModuleFactory"] }, { kind: "directive", type: i1.NgTemplateOutlet, selector: "[ngTemplateOutlet]", inputs: ["ngTemplateOutletContext", "ngTemplateOutlet", "ngTemplateOutletInjector"] }, { kind: "component", type: CopySourceCodeButton, selector: "button[docs-copy-source-code]" }, { kind: "ngmodule", type: MatTabsModule }, { kind: "component", type: MatTab, selector: "mat-tab", inputs: ["disabled", "label", "aria-label", "aria-labelledby", "labelClass", "bodyClass"], exportAs: ["matTab"] }, { kind: "component", type: MatTabGroup, selector: "mat-tab-group", inputs: ["color", "fitInkBarToContent", "mat-stretch-tabs", "dynamicHeight", "selectedIndex", "headerPosition", "animationDuration", "contentTabIndex", "disablePagination", "disableRipple", "preserveContent", "backgroundColor"], outputs: ["selectedIndexChange", "focusChange", "animationDone", "selectedTabChange"], exportAs: ["matTabGroup"] }], changeDetection: i0.ChangeDetectionStrategy.OnPush });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: ExampleViewer, decorators: [{
             type: Component,
             args: [{ selector: 'docs-example-viewer', standalone: true, imports: [CommonModule, CopySourceCodeButton, MatTabsModule], changeDetection: ChangeDetectionStrategy.OnPush, template: "<div class=\"docs-example-viewer\" role=\"group\">\n  <header class=\"docs-example-viewer-actions\">\n    @if (view() === CodeExampleViewMode.SNIPPET) {\n      <span>{{ exampleMetadata()?.title }}</span>\n    }\n\n    @if (view() === CodeExampleViewMode.MULTI_FILE) {\n      <mat-tab-group\n        #codeTabs\n        animationDuration=\"0ms\"\n        mat-stretch-tabs=\"false\"\n      >\n        @for (tab of tabs(); track tab) {\n          <mat-tab [label]=\"tab.name\"></mat-tab>\n        }\n      </mat-tab-group>\n    }\n\n    <div class=\"docs-example-viewer-icons\">\n      <button\n        type=\"button\"\n        class=\"docs-example-copy-link\"\n        [attr.aria-label]=\"'Copy link to ' + exampleMetadata()?.title + ' example to the clipboard'\"\n        (click)=\"copyLink()\"\n      >\n        <i aria-hidden=\"true\">\n          <svg\n            aria-hidden=\"true\"\n            width=\"24\"\n            height=\"24\"\n            viewBox=\"0 0 24 24\"\n            fill=\"inherit\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <!-- link icon -->\n            <path\n              d=\"M11 17H7C5.61667 17 4.4375 16.5125 3.4625 15.5375C2.4875 14.5625 2 13.3833 2 12C2 10.6167 2.4875 9.4375 3.4625 8.4625C4.4375 7.4875 5.61667 7 7 7H11V9H7C6.16667 9 5.45833 9.29167 4.875 9.875C4.29167 10.4583 4 11.1667 4 12C4 12.8333 4.29167 13.5417 4.875 14.125C5.45833 14.7083 6.16667 15 7 15H11V17ZM8 13V11H16V13H8ZM13 17V15H17C17.8333 15 18.5417 14.7083 19.125 14.125C19.7083 13.5417 20 12.8333 20 12C20 11.1667 19.7083 10.4583 19.125 9.875C18.5417 9.29167 17.8333 9 17 9H13V7H17C18.3833 7 19.5625 7.4875 20.5375 8.4625C21.5125 9.4375 22 10.6167 22 12C22 13.3833 21.5125 14.5625 20.5375 15.5375C19.5625 16.5125 18.3833 17 17 17H13Z\"\n              fill=\"inherit\"\n            />\n          </svg>\n        </i>\n      </button>\n      <ng-container *ngTemplateOutlet=\"openCodeInExternalProvider\" />\n      @if (expandable()) {\n        <button\n          type=\"button\"\n          (click)=\"toggleExampleVisibility()\"\n          [attr.title]=\"(expanded() ? 'Collapse' : 'Expand') + ' example'\"\n          [attr.aria-label]=\"(expanded() ? 'Collapse' : 'Expand') + ' code example'\"\n        >\n          <i aria-hidden=\"true\">\n            @if (!expanded()) {\n              <svg\n                aria-hidden=\"true\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                width=\"24\"\n                height=\"24\"\n                viewBox=\"0 0 24 24\"\n                fill=\"none\"\n              >\n                <!-- Expand arrow -->\n                <path d=\"M3 21v-8h2v4.6L17.6 5H13V3h8v8h-2V6.4L6.4 19H11v2H3Z\" />\n              </svg>\n            } @else {\n              <svg\n                aria-hidden=\"true\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                width=\"24\"\n                height=\"24\"\n                fill=\"none\"\n              >\n                <path\n                  fill=\"var(--gray-400)\"\n                  d=\"M3.4 22 2 20.6 8.6 14H4v-2h8v8h-2v-4.6L3.4 22ZM12 12V4h2v4.6L20.6 2 22 3.4 15.4 10H20v2h-8Z\"\n                />\n              </svg>\n            }\n          </i>\n        </button>\n      }\n    </div>\n  </header>\n\n  <div\n    class=\"docs-example-viewer-code-wrapper\"\n    [class.docs-example-viewer-snippet]=\"view() === CodeExampleViewMode.SNIPPET\"\n    [class.docs-example-viewer-multi-file]=\"view() === CodeExampleViewMode.MULTI_FILE\"\n  >\n    <button docs-copy-source-code></button>\n    <!-- <docs-viewer [docContent]=\"snippetCode()?.content\" /> -->\n  </div>\n\n  @if (exampleComponent) {\n    <div class=\"docs-example-viewer-preview\">\n      <ng-container *ngComponentOutlet=\"exampleComponent\" />\n    </div>\n  }\n\n  <ng-template #openCodeInExternalProvider>\n    @if (exampleComponent) {\n      @if (githubUrl) {\n        <a\n          [href]=\"githubUrl\"\n          target=\"_blank\"\n          title=\"Open example on GitHub\"\n          class=\"docs-example-github-link\"\n          aria-label=\"Open example on GitHub\"\n        >\n          <i aria-hidden=\"true\">\n            <svg\n              aria-hidden=\"true\"\n              width=\"24\"\n              height=\"24\"\n              viewBox=\"0 0 24 24\"\n              fill=\"inherit\"\n              xmlns=\"http://www.w3.org/2000/svg\"\n            >\n              <path\n                fill-rule=\"evenodd\"\n                clip-rule=\"evenodd\"\n                d=\"M9.16141 22.8681C9.16141 22.5894 9.15159 21.8509 9.14614 20.8707C5.96014 21.5798 5.28759 19.296 5.28759 19.296C4.76668 17.9389 4.01559 17.5778 4.01559 17.5778C2.97541 16.8485 4.09414 16.8638 4.09414 16.8638C5.24396 16.9467 5.84886 18.0747 5.84886 18.0747C6.8705 19.8692 8.52923 19.3516 9.18268 19.0505C9.28686 18.2912 9.5825 17.7736 9.90977 17.4801C7.36632 17.184 4.69196 16.176 4.69196 11.6754C4.69196 10.3936 5.13868 9.34523 5.87123 8.52377C5.75396 8.22705 5.36014 7.03305 5.98359 5.41577C5.98359 5.41577 6.94577 5.09996 9.13359 6.61959C10.0467 6.35941 11.0269 6.2285 12.0016 6.22414C12.9741 6.2285 13.9538 6.35941 14.869 6.61959C17.0558 5.09996 18.0163 5.41577 18.0163 5.41577C18.6414 7.0325 18.2481 8.2265 18.1298 8.52377C18.864 9.34523 19.3069 10.3936 19.3069 11.6754C19.3069 16.1874 16.6287 17.1801 14.077 17.4709C14.4889 17.8336 14.8543 18.5503 14.8543 19.6461C14.8543 21.2165 14.8396 22.4836 14.8396 22.8681C14.8396 23.1829 15.0463 23.5478 15.6278 23.4327C20.1758 21.877 23.4545 17.4774 23.4545 12.2907C23.4545 5.80359 18.3256 0.54541 11.9994 0.54541C5.67432 0.54541 0.54541 5.80359 0.54541 12.2907C0.545956 17.479 3.82796 21.8814 8.37977 23.4343C8.95196 23.5418 9.16141 23.179 9.16141 22.8681Z\"\n                fill=\"inherit\"\n              />\n            </svg>\n          </i>\n        </a>\n      }\n      @if (stackblitzUrl) {\n        <a\n          [href]=\"stackblitzUrl\"\n          target=\"_blank\"\n          class=\"docs-example-stackblitz-link\"\n          title=\"Edit this example in StackBlitz\"\n          aria-label=\"Edit this example in StackBlitz\"\n        >\n          <i aria-hidden=\"true\">\n            <svg\n              width=\"24\"\n              height=\"24\"\n              viewBox=\"0 0 356 511\"\n              fill=\"none\"\n              xmlns=\"http://www.w3.org/2000/svg\"\n            >\n              <path\n                fill-rule=\"evenodd\"\n                clip-rule=\"evenodd\"\n                d=\"M138.719 150.22C62.6928 232.614 0.340573 300.4 0.158928 300.856C-0.0227172 301.311 33.9559 301.799 75.6665 301.939L151.505 302.195L117.656 396.511C74.7852 515.966 76.7972 510.288 77.3522 510.288C78.2145 510.288 355.296 209.735 355.296 208.799C355.296 208.245 325.263 207.879 279.943 207.879C233.709 207.879 204.591 207.518 204.591 206.943C204.591 206.428 220.136 162.751 239.137 109.883C279.06 -1.20153 278.545 0.264614 277.638 0.347453C277.26 0.382384 214.746 67.8247 138.719 150.22Z\"\n              />\n            </svg>\n          </i>\n        </a>\n      }\n    }\n  </ng-template>\n</div>\n", styles: [".adev-dark-mode :host .docs-example-viewer-preview{background:var(--gray-100)}@media screen and (prefers-color-scheme: dark){:host .docs-example-viewer-preview{background:var(--gray-100)}}.adev-light-mode :host .docs-example-viewer-preview{background:var(--page-background)}.docs-example-viewer{border:1px solid var(--senary-contrast);border-radius:.25rem;overflow:hidden}.docs-example-viewer-actions{background:var(--subtle-purple);display:flex;justify-content:space-between;align-items:center;gap:.5rem;border-bottom:1px solid var(--senary-contrast);transition:background .3s ease,border-color .3s ease;padding-inline-end:.65rem;font-family:var(--inter-tight-font)}.docs-example-viewer-actions mat-tab-group{max-width:calc(100% - 140px)}.docs-example-viewer-actions span:first-of-type{background-image:var(--purple-to-blue-horizontal-gradient);background-clip:text;-webkit-background-clip:text;color:rgba(0,0,0,0);padding:.7rem 1.1rem;font-size:.875rem;font-style:normal;font-weight:400;line-height:1.4rem;letter-spacing:-0.00875rem;margin:0;word-wrap:break-word;width:fit-content}.docs-example-viewer-actions .docs-example-viewer-icons{display:flex;gap:.75rem}.docs-example-viewer-actions .docs-example-viewer-icons svg{fill:var(--gray-400)}.docs-example-viewer-actions a,.docs-example-viewer-actions button{padding:0;margin:0;cursor:pointer;height:24px;width:24px}.docs-example-viewer-actions a path,.docs-example-viewer-actions button path{transition:fill .3s ease}.docs-example-viewer-actions a:hover svg,.docs-example-viewer-actions button:hover svg{fill:var(--tertiary-contrast)}.docs-example-viewer-code-wrapper{position:relative;font-size:.875rem;transition:border-color .3s ease;container:viewerblock/inline-size;background-color:var(--octonary-contrast)}.docs-example-viewer-code-wrapper button[docs-copy-source-code]{top:.31rem}@container viewerblock (min-width: 400px){.docs-example-viewer-code-wrapper button[docs-copy-source-code]{background-color:rgba(0,0,0,0);border:1px solid rgba(0,0,0,0)}}::ng-deep .docs-example-viewer-preview{all:initial;display:block;padding:1rem;border-block-start:1px solid var(--senary-contrast)}::ng-deep .docs-example-viewer-preview *,::ng-deep .docs-example-viewer-preview code::before,::ng-deep .docs-example-viewer-preview code,::ng-deep .docs-example-viewer-preview pre,::ng-deep .docs-example-viewer-preview a,::ng-deep .docs-example-viewer-preview i,::ng-deep .docs-example-viewer-preview p,::ng-deep .docs-example-viewer-preview h1,::ng-deep .docs-example-viewer-preview h2,::ng-deep .docs-example-viewer-preview h3,::ng-deep .docs-example-viewer-preview h4,::ng-deep .docs-example-viewer-preview h5,::ng-deep .docs-example-viewer-preview h6,::ng-deep .docs-example-viewer-preview ol,::ng-deep .docs-example-viewer-preview ul,::ng-deep .docs-example-viewer-preview li,::ng-deep .docs-example-viewer-preview hr,::ng-deep .docs-example-viewer-preview input,::ng-deep .docs-example-viewer-preview select,::ng-deep .docs-example-viewer-preview table{all:revert}/*# sourceMappingURL=example-viewer.component.css.map */\n"] }]
         }], propDecorators: { metadata: [{
@@ -13415,7 +13499,7 @@ class DocViewer {
         this.appRef = inject(ApplicationRef);
         // tslint:disable-next-line:no-unused-variable
         this.animateContent = false;
-        this.pendingRenderTasks = inject(ɵInitialRenderPendingTasks);
+        this.pendingRenderTasks = inject(_InitialRenderPendingTasks);
         this.countOfExamples = 0;
     }
     ngOnChanges(changes) {
@@ -13619,9 +13703,9 @@ class DocViewer {
         }
     }
 }
-DocViewer.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: DocViewer, deps: [], target: i0.ɵɵFactoryTarget.Component });
-DocViewer.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.1.0-next.1", type: DocViewer, isStandalone: true, selector: "docs-viewer", inputs: { docContent: "docContent", hasToc: "hasToc" }, outputs: { contentLoaded: "contentLoaded" }, host: { properties: { "class.docs-animate-content": "animateContent" } }, usesOnChanges: true, ngImport: i0, template: '', isInline: true, styles: [":host{--translate-y: clamp(5px, 0.25em, 7px)}.docs-viewer{display:flex;flex-direction:column;padding:var(--layout-padding);max-width:var(--page-width);width:100%;box-sizing:border-box}@media only screen and (max-width: 1430px){.docs-viewer{container:docs-content/inline-size}}@media only screen and (min-width: 1430px)and (max-width: 1550px){adev-docs .docs-viewer{width:calc(100% - 195px - var(--layout-padding));max-width:var(--page-width)}}.docs-viewer pre{margin-block:0;padding-block:.75rem}.docs-viewer h1 .docs-anchor,.docs-viewer h2 .docs-anchor,.docs-viewer h3 .docs-anchor,.docs-viewer h4 .docs-anchor,.docs-viewer h5 .docs-anchor,.docs-viewer h6 .docs-anchor{margin-block-start:2.5rem;display:inline-block;color:inherit}.docs-viewer h1 .docs-anchor::after,.docs-viewer h2 .docs-anchor::after,.docs-viewer h3 .docs-anchor::after,.docs-viewer h4 .docs-anchor::after,.docs-viewer h5 .docs-anchor::after,.docs-viewer h6 .docs-anchor::after{content:\"\uE157\";font-family:\"Material Symbols Outlined\";opacity:0;margin-left:8px;vertical-align:middle;color:var(--quaternary-contrast);font-size:clamp(18px,1.25em,30px);transition:opacity .3s ease}.docs-viewer h1 .docs-anchor:hover::after,.docs-viewer h2 .docs-anchor:hover::after,.docs-viewer h3 .docs-anchor:hover::after,.docs-viewer h4 .docs-anchor:hover::after,.docs-viewer h5 .docs-anchor:hover::after,.docs-viewer h6 .docs-anchor:hover::after{opacity:1}.docs-viewer h1{font-size:2.5rem;margin-block-end:0}.docs-viewer h2{font-size:2rem;margin-block-end:.5rem}.docs-viewer h3{font-size:1.5rem;margin-block-end:.5rem}.docs-viewer h4{font-size:1.25rem;margin-block-end:.5rem}.docs-viewer h5{font-size:1rem;margin-block-end:0}.docs-viewer h6{font-size:.875rem;margin-block-end:0}.docs-viewer>:last-child{margin-block-end:0}.docs-viewer a:not(.docs-github-links):not(.docs-card):not(.docs-pill):not(.docs-example-github-link)[href^=\"http:\"]::after,.docs-viewer a:not(.docs-github-links):not(.docs-card):not(.docs-pill):not(.docs-example-github-link)[href^=\"https:\"]::after{display:inline-block;content:\"\uE89E\";font-family:\"Material Symbols Outlined\";margin-left:.2rem;vertical-align:middle}.docs-viewer-scroll-margin-large h2,.docs-viewer-scroll-margin-large h3{scroll-margin:5em}.docs-header{margin-block-end:1rem}.docs-header>p:first-child{color:var(--quaternary-contrast);font-weight:500;margin:0}.docs-page-title{display:flex;justify-content:space-between}.docs-page-title h1{margin-block:0;font-size:2.25rem}.docs-page-title a{color:var(--primary-contrast);height:fit-content}.docs-page-title a docs-icon{color:var(--gray-400);transition:color .3s ease}.docs-page-title a:hover docs-icon{color:var(--primary-contrast)}/*# sourceMappingURL=docs-viewer.component.css.map */\n"], dependencies: [{ kind: "ngmodule", type: CommonModule }], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: DocViewer, decorators: [{
+DocViewer.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: DocViewer, deps: [], target: i0.ɵɵFactoryTarget.Component });
+DocViewer.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.1.0-next.4", type: DocViewer, isStandalone: true, selector: "docs-viewer", inputs: { docContent: "docContent", hasToc: "hasToc" }, outputs: { contentLoaded: "contentLoaded" }, host: { properties: { "class.docs-animate-content": "animateContent" } }, usesOnChanges: true, ngImport: i0, template: '', isInline: true, styles: [":host{--translate-y: clamp(5px, 0.25em, 7px)}.docs-viewer{display:flex;flex-direction:column;padding:var(--layout-padding);max-width:var(--page-width);width:100%;box-sizing:border-box}@media only screen and (max-width: 1430px){.docs-viewer{container:docs-content/inline-size}}@media only screen and (min-width: 1430px)and (max-width: 1550px){adev-docs .docs-viewer{width:calc(100% - 195px - var(--layout-padding));max-width:var(--page-width)}}.docs-viewer pre{margin-block:0;padding-block:.75rem}.docs-viewer h1 .docs-anchor,.docs-viewer h2 .docs-anchor,.docs-viewer h3 .docs-anchor,.docs-viewer h4 .docs-anchor,.docs-viewer h5 .docs-anchor,.docs-viewer h6 .docs-anchor{margin-block-start:2.5rem;display:inline-block;color:inherit}.docs-viewer h1 .docs-anchor::after,.docs-viewer h2 .docs-anchor::after,.docs-viewer h3 .docs-anchor::after,.docs-viewer h4 .docs-anchor::after,.docs-viewer h5 .docs-anchor::after,.docs-viewer h6 .docs-anchor::after{content:\"\uE157\";font-family:\"Material Symbols Outlined\";opacity:0;margin-left:8px;vertical-align:middle;color:var(--quaternary-contrast);font-size:clamp(18px,1.25em,30px);transition:opacity .3s ease}.docs-viewer h1 .docs-anchor:hover::after,.docs-viewer h2 .docs-anchor:hover::after,.docs-viewer h3 .docs-anchor:hover::after,.docs-viewer h4 .docs-anchor:hover::after,.docs-viewer h5 .docs-anchor:hover::after,.docs-viewer h6 .docs-anchor:hover::after{opacity:1}.docs-viewer h1{font-size:2.5rem;margin-block-end:0}.docs-viewer h2{font-size:2rem;margin-block-end:.5rem}.docs-viewer h3{font-size:1.5rem;margin-block-end:.5rem}.docs-viewer h4{font-size:1.25rem;margin-block-end:.5rem}.docs-viewer h5{font-size:1rem;margin-block-end:0}.docs-viewer h6{font-size:.875rem;margin-block-end:0}.docs-viewer>:last-child{margin-block-end:0}.docs-viewer a:not(.docs-github-links):not(.docs-card):not(.docs-pill):not(.docs-example-github-link)[href^=\"http:\"]::after,.docs-viewer a:not(.docs-github-links):not(.docs-card):not(.docs-pill):not(.docs-example-github-link)[href^=\"https:\"]::after{display:inline-block;content:\"\uE89E\";font-family:\"Material Symbols Outlined\";margin-left:.2rem;vertical-align:middle}.docs-viewer-scroll-margin-large h2,.docs-viewer-scroll-margin-large h3{scroll-margin:5em}.docs-header{margin-block-end:1rem}.docs-header>p:first-child{color:var(--quaternary-contrast);font-weight:500;margin:0}.docs-page-title{display:flex;justify-content:space-between}.docs-page-title h1{margin-block:0;font-size:2.25rem}.docs-page-title a{color:var(--primary-contrast);height:fit-content}.docs-page-title a docs-icon{color:var(--gray-400);transition:color .3s ease}.docs-page-title a:hover docs-icon{color:var(--primary-contrast)}/*# sourceMappingURL=docs-viewer.component.css.map */\n"], dependencies: [{ kind: "ngmodule", type: CommonModule }], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: DocViewer, decorators: [{
             type: Component,
             args: [{ selector: DOCS_VIEWER_SELECTOR, standalone: true, imports: [CommonModule], template: '', changeDetection: ChangeDetectionStrategy.OnPush, encapsulation: ViewEncapsulation.None, host: {
                         '[class.docs-animate-content]': 'animateContent',
@@ -13667,9 +13751,9 @@ class CookiePopup {
         this.hasAccepted.set(true);
     }
 }
-CookiePopup.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: CookiePopup, deps: [], target: i0.ɵɵFactoryTarget.Component });
-CookiePopup.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.1", type: CookiePopup, isStandalone: true, selector: "docs-cookie-popup", ngImport: i0, template: "@if (!hasAccepted()) {\n<div class=\"docs-cookies-popup adev-invert-mode\">\n  <p>This site uses cookies from Google to deliver its services and to analyze traffic.</p>\n\n  <div>\n    <a href=\"https://policies.google.com/technologies/cookies\" target=\"_blank\" rel=\"noopener\">\n      <button class=\"adev-primary-btn\" [attr.text]=\"'Learn more'\" aria-label=\"Learn More\">\n        Learn more\n      </button>\n    </a>\n    <button\n      type=\"button\"\n      (click)=\"accept()\"\n      class=\"adev-primary-btn\"\n      [attr.text]=\"'Ok, Got it'\"\n      aria-label=\"Ok, Got it\"\n    >\n      Ok, Got it\n    </button>\n  </div>\n</div>\n}\n", styles: [":host{position:fixed;bottom:.5rem;right:.5rem;z-index:var(--z-index-cookie-consent);opacity:0;visibility:hidden;animation:1s linear forwards .5s fadeIn}.docs-cookies-popup{padding:1rem;background-color:var(--page-background);border:1px solid var(--senary-contrast);border-radius:.25rem;font-size:.875rem;max-width:265px;transition:background-color .3s ease,border-color .3s ease,color .3s ease;box-shadow:0 0 10px 0 rgba(0,0,0,.1)}.docs-cookies-popup>div{display:flex;gap:.5rem;align-items:center;width:100%;margin-block-start:1rem}.docs-cookies-popup p{margin-block:0;color:var(--primary-contrast)}@keyframes fadeIn{100%{opacity:100%;visibility:visible}}/*# sourceMappingURL=cookie-popup.component.css.map */\n"], changeDetection: i0.ChangeDetectionStrategy.OnPush });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: CookiePopup, decorators: [{
+CookiePopup.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: CookiePopup, deps: [], target: i0.ɵɵFactoryTarget.Component });
+CookiePopup.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.4", type: CookiePopup, isStandalone: true, selector: "docs-cookie-popup", ngImport: i0, template: "@if (!hasAccepted()) {\n<div class=\"docs-cookies-popup adev-invert-mode\">\n  <p>This site uses cookies from Google to deliver its services and to analyze traffic.</p>\n\n  <div>\n    <a href=\"https://policies.google.com/technologies/cookies\" target=\"_blank\" rel=\"noopener\">\n      <button class=\"adev-primary-btn\" [attr.text]=\"'Learn more'\" aria-label=\"Learn More\">\n        Learn more\n      </button>\n    </a>\n    <button\n      type=\"button\"\n      (click)=\"accept()\"\n      class=\"adev-primary-btn\"\n      [attr.text]=\"'Ok, Got it'\"\n      aria-label=\"Ok, Got it\"\n    >\n      Ok, Got it\n    </button>\n  </div>\n</div>\n}\n", styles: [":host{position:fixed;bottom:.5rem;right:.5rem;z-index:var(--z-index-cookie-consent);opacity:0;visibility:hidden;animation:1s linear forwards .5s fadeIn}.docs-cookies-popup{padding:1rem;background-color:var(--page-background);border:1px solid var(--senary-contrast);border-radius:.25rem;font-size:.875rem;max-width:265px;transition:background-color .3s ease,border-color .3s ease,color .3s ease;box-shadow:0 0 10px 0 rgba(0,0,0,.1)}.docs-cookies-popup>div{display:flex;gap:.5rem;align-items:center;width:100%;margin-block-start:1rem}.docs-cookies-popup p{margin-block:0;color:var(--primary-contrast)}@keyframes fadeIn{100%{opacity:100%;visibility:visible}}/*# sourceMappingURL=cookie-popup.component.css.map */\n"], changeDetection: i0.ChangeDetectionStrategy.OnPush });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: CookiePopup, decorators: [{
             type: Component,
             args: [{ selector: 'docs-cookie-popup', standalone: true, imports: [NgIf], changeDetection: ChangeDetectionStrategy.OnPush, template: "@if (!hasAccepted()) {\n<div class=\"docs-cookies-popup adev-invert-mode\">\n  <p>This site uses cookies from Google to deliver its services and to analyze traffic.</p>\n\n  <div>\n    <a href=\"https://policies.google.com/technologies/cookies\" target=\"_blank\" rel=\"noopener\">\n      <button class=\"adev-primary-btn\" [attr.text]=\"'Learn more'\" aria-label=\"Learn More\">\n        Learn more\n      </button>\n    </a>\n    <button\n      type=\"button\"\n      (click)=\"accept()\"\n      class=\"adev-primary-btn\"\n      [attr.text]=\"'Ok, Got it'\"\n      aria-label=\"Ok, Got it\"\n    >\n      Ok, Got it\n    </button>\n  </div>\n</div>\n}\n", styles: [":host{position:fixed;bottom:.5rem;right:.5rem;z-index:var(--z-index-cookie-consent);opacity:0;visibility:hidden;animation:1s linear forwards .5s fadeIn}.docs-cookies-popup{padding:1rem;background-color:var(--page-background);border:1px solid var(--senary-contrast);border-radius:.25rem;font-size:.875rem;max-width:265px;transition:background-color .3s ease,border-color .3s ease,color .3s ease;box-shadow:0 0 10px 0 rgba(0,0,0,.1)}.docs-cookies-popup>div{display:flex;gap:.5rem;align-items:center;width:100%;margin-block-start:1rem}.docs-cookies-popup p{margin-block:0;color:var(--primary-contrast)}@keyframes fadeIn{100%{opacity:100%;visibility:visible}}/*# sourceMappingURL=cookie-popup.component.css.map */\n"] }]
         }], ctorParameters: () => [] });
@@ -13695,9 +13779,9 @@ class IsActiveNavigationItem {
         return false;
     }
 }
-IsActiveNavigationItem.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: IsActiveNavigationItem, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-IsActiveNavigationItem.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "17.1.0-next.1", ngImport: i0, type: IsActiveNavigationItem, isStandalone: true, name: "isActiveNavigationItem" });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: IsActiveNavigationItem, decorators: [{
+IsActiveNavigationItem.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: IsActiveNavigationItem, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+IsActiveNavigationItem.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "17.1.0-next.4", ngImport: i0, type: IsActiveNavigationItem, isStandalone: true, name: "isActiveNavigationItem" });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: IsActiveNavigationItem, decorators: [{
             type: Pipe,
             args: [{
                     name: 'isActiveNavigationItem',
@@ -13736,9 +13820,9 @@ class NavigationList {
         this.linkClicked.emit();
     }
 }
-NavigationList.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: NavigationList, deps: [], target: i0.ɵɵFactoryTarget.Component });
-NavigationList.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.1", type: NavigationList, isStandalone: true, selector: "docs-navigation-list", inputs: { navigationItems: "navigationItems", displayItemsToLevel: "displayItemsToLevel", collapsableLevel: "collapsableLevel", expandableLevel: "expandableLevel", isDropdownView: "isDropdownView" }, outputs: { linkClicked: "linkClicked" }, ngImport: i0, template: "<ng-template #navigationList let-navigationItems>\n  <ul\n    class=\"docs-navigation-list adev-faceted-list\"\n    [class.docs-navigation-list-dropdown]=\"isDropdownView\"\n  >\n    @for (item of navigationItems; track $index) {\n    <li\n      class=\"adev-faceted-list-item\"\n      [class.docs-navigation-link-hidden]=\"displayItemsToLevel && item.level > displayItemsToLevel\"\n    >\n      @if (item.path) { @if (item.isExternal) {\n      <a [href]=\"item.path\" target=\"_blank\">\n        <span [class.adev-external-link]=\"item.isExternal\">{{ item.label }}</span>\n        @if (item.children && item.level! > 1 && !item.isExpanded) {\n        <docs-icon>chevron_right</docs-icon>\n        }\n      </a>\n      } @else {\n      <a\n        [routerLink]=\"'/' + item.path\"\n        [routerLinkActiveOptions]=\"{\n          queryParams: 'ignored',\n          fragment: 'ignored',\n          matrixParams: 'exact',\n          paths: 'exact',\n          exact: false\n        }\"\n        routerLinkActive=\"adev-faceted-list-item-active\"\n        (click)=\"emitClickOnLink()\"\n      >\n        <span>{{ item.label }}</span>\n        @if (item.children && !item.isExpanded) {\n        <docs-icon>chevron_right</docs-icon>\n        }\n      </a>\n      } } @else {\n      <!-- Nav Section Header -->\n      @if (item.level !== collapsableLevel && item.level !== expandableLevel) {\n      <div class=\"adev-secondary-nav-header\">\n        <span>{{ item.label }}</span>\n      </div>\n      }\n\n      <!-- Nav Button Expand/Collapse -->\n      @if ((item.children && item.level === expandableLevel) || item.level === collapsableLevel) {\n      <button\n        type=\"button\"\n        (click)=\"toggle(item)\"\n        attr.aria-label=\"{{ item.isExpanded ? 'Collapse' : 'Expand' }} {{ item.label }}\"\n        [attr.aria-expanded]=\"item.isExpanded\"\n        class=\"adev-secondary-nav-button\"\n        [class.adev-faceted-list-item-active]=\"item | isActiveNavigationItem: activeItem()\"\n        [class.adev-expanded-button]=\"item.children && item.level == collapsableLevel\"\n        [class.adev-not-expanded-button]=\"item.children && item.level === expandableLevel\"\n        [class.adev-nav-item-has-icon]=\"\n          item.children && item.level === expandableLevel && !item.isExpanded\n        \"\n      >\n        @if (item.children && item.level === collapsableLevel) {\n        <docs-icon>arrow_back</docs-icon>\n        }\n        <span>{{ item.label }}</span>\n      </button>\n      } } @if (item.children?.length > 0) {\n      <ng-container\n        *ngTemplateOutlet=\"navigationList; context: {$implicit: item.children}\"\n      ></ng-container>\n      }\n    </li>\n    }\n  </ul>\n</ng-template>\n\n<ng-container\n  *ngTemplateOutlet=\"navigationList; context: {$implicit: navigationItems}\"\n></ng-container>\n", styles: [":host{display:flex;min-width:var(--secondary-nav-width);list-style:none;overflow-y:auto;overflow-x:hidden;height:100vh;padding:0;margin:0;padding-block:1.5rem;font-size:.875rem;box-sizing:border-box}:host::-webkit-scrollbar-track{background:rgba(0,0,0,0);cursor:pointer}:host::-webkit-scrollbar{width:6px;height:6px}:host::-webkit-scrollbar-thumb{background-color:var(--septenary-contrast);border-radius:10px;transition:background-color .3s ease}@media(max-width: 900px){:host::-webkit-scrollbar-thumb{background-color:var(--quinary-contrast)}}:host::-webkit-scrollbar-thumb:hover{background-color:var(--quinary-contrast)}.adev-nav-secondary :host{padding-block:2rem}:host>.adev-faceted-list{border:0}:host .docs-navigation-link-hidden{display:none}:host .adev-nav-item-has-icon::after{content:\"chevron_right\";font-size:1.25rem;font-family:var(--icons)}.adev-secondary-nav-header{padding-block:1.25rem;font-weight:500}.adev-secondary-nav-button{width:15rem;display:flex;justify-content:space-between;align-items:center;border:none;padding-block:1.25rem;padding-inline-start:0;color:var(--primary-contrast);font-size:.875rem;font-family:var(--inter-font);line-height:160%;letter-spacing:-0.00875rem;transition:color .3s ease,background .3s ease;text-align:left}.adev-secondary-nav-button.adev-secondary-nav-button-active{background-image:var(--pink-to-purple-vertical-gradient)}.adev-secondary-nav-button.adev-secondary-nav-button-active::before{opacity:1;transform:scaleY(1);background:var(--pink-to-purple-vertical-gradient)}.adev-secondary-nav-button.adev-secondary-nav-button-active:hover::before{opacity:1;transform:scaleY(1.1)}.adev-expanded-button{justify-content:start;gap:.5rem}a,.adev-not-expanded-button{display:flex;justify-content:space-between;align-items:center;font-weight:500;line-height:1.4rem;letter-spacing:-0.00875rem;padding:.5rem;padding-inline-start:1rem;text-align:left}.docs-navigation-list{width:100%}.docs-navigation-list li:last-of-type ul:last-of-type li:last-of-type{padding-block-end:1rem}.docs-navigation-list:first-child{margin-inline-start:1rem}.adev-external-link{display:flex;align-items:center;justify-content:space-between;width:100%;gap:.5rem}.adev-external-link::after{content:\"open_in_new\";font-family:var(--icons);font-size:1.1rem;color:var(--quinary-contrast);transition:color .3s ease;margin-inline-end:.4rem}/*# sourceMappingURL=navigation-list.component.css.map */\n"], dependencies: [{ kind: "ngmodule", type: CommonModule }, { kind: "directive", type: i1.NgTemplateOutlet, selector: "[ngTemplateOutlet]", inputs: ["ngTemplateOutletContext", "ngTemplateOutlet", "ngTemplateOutletInjector"] }, { kind: "directive", type: RouterLink, selector: "[routerLink]", inputs: ["target", "queryParams", "fragment", "queryParamsHandling", "state", "relativeTo", "preserveFragment", "skipLocationChange", "replaceUrl", "routerLink"] }, { kind: "directive", type: RouterLinkActive, selector: "[routerLinkActive]", inputs: ["routerLinkActiveOptions", "ariaCurrentWhenActive", "routerLinkActive"], outputs: ["isActiveChange"], exportAs: ["routerLinkActive"] }, { kind: "component", type: IconComponent, selector: "docs-icon" }, { kind: "pipe", type: IsActiveNavigationItem, name: "isActiveNavigationItem" }], changeDetection: i0.ChangeDetectionStrategy.OnPush });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: NavigationList, decorators: [{
+NavigationList.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: NavigationList, deps: [], target: i0.ɵɵFactoryTarget.Component });
+NavigationList.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.4", type: NavigationList, isStandalone: true, selector: "docs-navigation-list", inputs: { navigationItems: "navigationItems", displayItemsToLevel: "displayItemsToLevel", collapsableLevel: "collapsableLevel", expandableLevel: "expandableLevel", isDropdownView: "isDropdownView" }, outputs: { linkClicked: "linkClicked" }, ngImport: i0, template: "<ng-template #navigationList let-navigationItems>\n  <ul\n    class=\"docs-navigation-list adev-faceted-list\"\n    [class.docs-navigation-list-dropdown]=\"isDropdownView\"\n  >\n    @for (item of navigationItems; track $index) {\n    <li\n      class=\"adev-faceted-list-item\"\n      [class.docs-navigation-link-hidden]=\"displayItemsToLevel && item.level > displayItemsToLevel\"\n    >\n      @if (item.path) { @if (item.isExternal) {\n      <a [href]=\"item.path\" target=\"_blank\">\n        <span [class.adev-external-link]=\"item.isExternal\">{{ item.label }}</span>\n        @if (item.children && item.level! > 1 && !item.isExpanded) {\n        <docs-icon>chevron_right</docs-icon>\n        }\n      </a>\n      } @else {\n      <a\n        [routerLink]=\"'/' + item.path\"\n        [routerLinkActiveOptions]=\"{\n          queryParams: 'ignored',\n          fragment: 'ignored',\n          matrixParams: 'exact',\n          paths: 'exact',\n          exact: false\n        }\"\n        routerLinkActive=\"adev-faceted-list-item-active\"\n        (click)=\"emitClickOnLink()\"\n      >\n        <span>{{ item.label }}</span>\n        @if (item.children && !item.isExpanded) {\n        <docs-icon>chevron_right</docs-icon>\n        }\n      </a>\n      } } @else {\n      <!-- Nav Section Header -->\n      @if (item.level !== collapsableLevel && item.level !== expandableLevel) {\n      <div class=\"adev-secondary-nav-header\">\n        <span>{{ item.label }}</span>\n      </div>\n      }\n\n      <!-- Nav Button Expand/Collapse -->\n      @if ((item.children && item.level === expandableLevel) || item.level === collapsableLevel) {\n      <button\n        type=\"button\"\n        (click)=\"toggle(item)\"\n        attr.aria-label=\"{{ item.isExpanded ? 'Collapse' : 'Expand' }} {{ item.label }}\"\n        [attr.aria-expanded]=\"item.isExpanded\"\n        class=\"adev-secondary-nav-button\"\n        [class.adev-faceted-list-item-active]=\"item | isActiveNavigationItem: activeItem()\"\n        [class.adev-expanded-button]=\"item.children && item.level == collapsableLevel\"\n        [class.adev-not-expanded-button]=\"item.children && item.level === expandableLevel\"\n        [class.adev-nav-item-has-icon]=\"\n          item.children && item.level === expandableLevel && !item.isExpanded\n        \"\n      >\n        @if (item.children && item.level === collapsableLevel) {\n        <docs-icon>arrow_back</docs-icon>\n        }\n        <span>{{ item.label }}</span>\n      </button>\n      } } @if (item.children?.length > 0) {\n      <ng-container\n        *ngTemplateOutlet=\"navigationList; context: {$implicit: item.children}\"\n      ></ng-container>\n      }\n    </li>\n    }\n  </ul>\n</ng-template>\n\n<ng-container\n  *ngTemplateOutlet=\"navigationList; context: {$implicit: navigationItems}\"\n></ng-container>\n", styles: [":host{display:flex;min-width:var(--secondary-nav-width);list-style:none;overflow-y:auto;overflow-x:hidden;height:100vh;padding:0;margin:0;padding-block:1.5rem;font-size:.875rem;box-sizing:border-box}:host::-webkit-scrollbar-track{background:rgba(0,0,0,0);cursor:pointer}:host::-webkit-scrollbar{width:6px;height:6px}:host::-webkit-scrollbar-thumb{background-color:var(--septenary-contrast);border-radius:10px;transition:background-color .3s ease}@media(max-width: 900px){:host::-webkit-scrollbar-thumb{background-color:var(--quinary-contrast)}}:host::-webkit-scrollbar-thumb:hover{background-color:var(--quinary-contrast)}.adev-nav-secondary :host{padding-block:2rem}:host>.adev-faceted-list{border:0}:host .docs-navigation-link-hidden{display:none}:host .adev-nav-item-has-icon::after{content:\"chevron_right\";font-size:1.25rem;font-family:var(--icons)}.adev-secondary-nav-header{padding-block:1.25rem;font-weight:500}.adev-secondary-nav-button{width:15rem;display:flex;justify-content:space-between;align-items:center;border:none;padding-block:1.25rem;padding-inline-start:0;color:var(--primary-contrast);font-size:.875rem;font-family:var(--inter-font);line-height:160%;letter-spacing:-0.00875rem;transition:color .3s ease,background .3s ease;text-align:left}.adev-secondary-nav-button.adev-secondary-nav-button-active{background-image:var(--pink-to-purple-vertical-gradient)}.adev-secondary-nav-button.adev-secondary-nav-button-active::before{opacity:1;transform:scaleY(1);background:var(--pink-to-purple-vertical-gradient)}.adev-secondary-nav-button.adev-secondary-nav-button-active:hover::before{opacity:1;transform:scaleY(1.1)}.adev-expanded-button{justify-content:start;gap:.5rem}a,.adev-not-expanded-button{display:flex;justify-content:space-between;align-items:center;font-weight:500;line-height:1.4rem;letter-spacing:-0.00875rem;padding:.5rem;padding-inline-start:1rem;text-align:left}.docs-navigation-list{width:100%}.docs-navigation-list li:last-of-type ul:last-of-type li:last-of-type{padding-block-end:1rem}.docs-navigation-list:first-child{margin-inline-start:1rem}.adev-external-link{display:flex;align-items:center;justify-content:space-between;width:100%;gap:.5rem}.adev-external-link::after{content:\"open_in_new\";font-family:var(--icons);font-size:1.1rem;color:var(--quinary-contrast);transition:color .3s ease;margin-inline-end:.4rem}/*# sourceMappingURL=navigation-list.component.css.map */\n"], dependencies: [{ kind: "ngmodule", type: CommonModule }, { kind: "directive", type: i1.NgTemplateOutlet, selector: "[ngTemplateOutlet]", inputs: ["ngTemplateOutletContext", "ngTemplateOutlet", "ngTemplateOutletInjector"] }, { kind: "directive", type: RouterLink, selector: "[routerLink]", inputs: ["target", "queryParams", "fragment", "queryParamsHandling", "state", "relativeTo", "preserveFragment", "skipLocationChange", "replaceUrl", "routerLink"] }, { kind: "directive", type: RouterLinkActive, selector: "[routerLinkActive]", inputs: ["routerLinkActiveOptions", "ariaCurrentWhenActive", "routerLinkActive"], outputs: ["isActiveChange"], exportAs: ["routerLinkActive"] }, { kind: "component", type: IconComponent, selector: "docs-icon" }, { kind: "pipe", type: IsActiveNavigationItem, name: "isActiveNavigationItem" }], changeDetection: i0.ChangeDetectionStrategy.OnPush });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: NavigationList, decorators: [{
             type: Component,
             args: [{ selector: 'docs-navigation-list', standalone: true, imports: [CommonModule, RouterLink, RouterLinkActive, IconComponent, IsActiveNavigationItem], changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-template #navigationList let-navigationItems>\n  <ul\n    class=\"docs-navigation-list adev-faceted-list\"\n    [class.docs-navigation-list-dropdown]=\"isDropdownView\"\n  >\n    @for (item of navigationItems; track $index) {\n    <li\n      class=\"adev-faceted-list-item\"\n      [class.docs-navigation-link-hidden]=\"displayItemsToLevel && item.level > displayItemsToLevel\"\n    >\n      @if (item.path) { @if (item.isExternal) {\n      <a [href]=\"item.path\" target=\"_blank\">\n        <span [class.adev-external-link]=\"item.isExternal\">{{ item.label }}</span>\n        @if (item.children && item.level! > 1 && !item.isExpanded) {\n        <docs-icon>chevron_right</docs-icon>\n        }\n      </a>\n      } @else {\n      <a\n        [routerLink]=\"'/' + item.path\"\n        [routerLinkActiveOptions]=\"{\n          queryParams: 'ignored',\n          fragment: 'ignored',\n          matrixParams: 'exact',\n          paths: 'exact',\n          exact: false\n        }\"\n        routerLinkActive=\"adev-faceted-list-item-active\"\n        (click)=\"emitClickOnLink()\"\n      >\n        <span>{{ item.label }}</span>\n        @if (item.children && !item.isExpanded) {\n        <docs-icon>chevron_right</docs-icon>\n        }\n      </a>\n      } } @else {\n      <!-- Nav Section Header -->\n      @if (item.level !== collapsableLevel && item.level !== expandableLevel) {\n      <div class=\"adev-secondary-nav-header\">\n        <span>{{ item.label }}</span>\n      </div>\n      }\n\n      <!-- Nav Button Expand/Collapse -->\n      @if ((item.children && item.level === expandableLevel) || item.level === collapsableLevel) {\n      <button\n        type=\"button\"\n        (click)=\"toggle(item)\"\n        attr.aria-label=\"{{ item.isExpanded ? 'Collapse' : 'Expand' }} {{ item.label }}\"\n        [attr.aria-expanded]=\"item.isExpanded\"\n        class=\"adev-secondary-nav-button\"\n        [class.adev-faceted-list-item-active]=\"item | isActiveNavigationItem: activeItem()\"\n        [class.adev-expanded-button]=\"item.children && item.level == collapsableLevel\"\n        [class.adev-not-expanded-button]=\"item.children && item.level === expandableLevel\"\n        [class.adev-nav-item-has-icon]=\"\n          item.children && item.level === expandableLevel && !item.isExpanded\n        \"\n      >\n        @if (item.children && item.level === collapsableLevel) {\n        <docs-icon>arrow_back</docs-icon>\n        }\n        <span>{{ item.label }}</span>\n      </button>\n      } } @if (item.children?.length > 0) {\n      <ng-container\n        *ngTemplateOutlet=\"navigationList; context: {$implicit: item.children}\"\n      ></ng-container>\n      }\n    </li>\n    }\n  </ul>\n</ng-template>\n\n<ng-container\n  *ngTemplateOutlet=\"navigationList; context: {$implicit: navigationItems}\"\n></ng-container>\n", styles: [":host{display:flex;min-width:var(--secondary-nav-width);list-style:none;overflow-y:auto;overflow-x:hidden;height:100vh;padding:0;margin:0;padding-block:1.5rem;font-size:.875rem;box-sizing:border-box}:host::-webkit-scrollbar-track{background:rgba(0,0,0,0);cursor:pointer}:host::-webkit-scrollbar{width:6px;height:6px}:host::-webkit-scrollbar-thumb{background-color:var(--septenary-contrast);border-radius:10px;transition:background-color .3s ease}@media(max-width: 900px){:host::-webkit-scrollbar-thumb{background-color:var(--quinary-contrast)}}:host::-webkit-scrollbar-thumb:hover{background-color:var(--quinary-contrast)}.adev-nav-secondary :host{padding-block:2rem}:host>.adev-faceted-list{border:0}:host .docs-navigation-link-hidden{display:none}:host .adev-nav-item-has-icon::after{content:\"chevron_right\";font-size:1.25rem;font-family:var(--icons)}.adev-secondary-nav-header{padding-block:1.25rem;font-weight:500}.adev-secondary-nav-button{width:15rem;display:flex;justify-content:space-between;align-items:center;border:none;padding-block:1.25rem;padding-inline-start:0;color:var(--primary-contrast);font-size:.875rem;font-family:var(--inter-font);line-height:160%;letter-spacing:-0.00875rem;transition:color .3s ease,background .3s ease;text-align:left}.adev-secondary-nav-button.adev-secondary-nav-button-active{background-image:var(--pink-to-purple-vertical-gradient)}.adev-secondary-nav-button.adev-secondary-nav-button-active::before{opacity:1;transform:scaleY(1);background:var(--pink-to-purple-vertical-gradient)}.adev-secondary-nav-button.adev-secondary-nav-button-active:hover::before{opacity:1;transform:scaleY(1.1)}.adev-expanded-button{justify-content:start;gap:.5rem}a,.adev-not-expanded-button{display:flex;justify-content:space-between;align-items:center;font-weight:500;line-height:1.4rem;letter-spacing:-0.00875rem;padding:.5rem;padding-inline-start:1rem;text-align:left}.docs-navigation-list{width:100%}.docs-navigation-list li:last-of-type ul:last-of-type li:last-of-type{padding-block-end:1rem}.docs-navigation-list:first-child{margin-inline-start:1rem}.adev-external-link{display:flex;align-items:center;justify-content:space-between;width:100%;gap:.5rem}.adev-external-link::after{content:\"open_in_new\";font-family:var(--icons);font-size:1.1rem;color:var(--quinary-contrast);transition:color .3s ease;margin-inline-end:.4rem}/*# sourceMappingURL=navigation-list.component.css.map */\n"] }]
         }], propDecorators: { navigationItems: [{
@@ -13796,15 +13880,15 @@ class Select {
         this.onTouched();
     }
 }
-Select.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: Select, deps: [], target: i0.ɵɵFactoryTarget.Component });
-Select.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.1", type: Select, isStandalone: true, selector: "docs-select", inputs: { id: ["selectId", "id"], name: "name", options: "options", disabled: "disabled" }, host: { classAttribute: "adev-form-element" }, providers: [
+Select.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: Select, deps: [], target: i0.ɵɵFactoryTarget.Component });
+Select.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.4", type: Select, isStandalone: true, selector: "docs-select", inputs: { id: ["selectId", "id"], name: "name", options: "options", disabled: "disabled" }, host: { classAttribute: "adev-form-element" }, providers: [
         {
             provide: NG_VALUE_ACCESSOR,
             useExisting: forwardRef(() => Select),
             multi: true,
         },
     ], ngImport: i0, template: "<select [attr.id]=\"id\" [attr.name]=\"name\" [ngModel]=\"selectedOption()\" (ngModelChange)=\"setOption($event)\">\n  @for (item of options; track item) {\n    <option [value]=\"item.value\">{{ item.label }}</option>\n  }\n</select>\n", styles: ["/*# sourceMappingURL=select.component.css.map */\n"], dependencies: [{ kind: "ngmodule", type: CommonModule }, { kind: "ngmodule", type: FormsModule }, { kind: "directive", type: i1$1.NgSelectOption, selector: "option", inputs: ["ngValue", "value"] }, { kind: "directive", type: i1$1.ɵNgSelectMultipleOption, selector: "option", inputs: ["ngValue", "value"] }, { kind: "directive", type: i1$1.SelectControlValueAccessor, selector: "select:not([multiple])[formControlName],select:not([multiple])[formControl],select:not([multiple])[ngModel]", inputs: ["compareWith"] }, { kind: "directive", type: i1$1.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { kind: "directive", type: i1$1.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: Select, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: Select, decorators: [{
             type: Component,
             args: [{ selector: 'docs-select', standalone: true, imports: [CommonModule, FormsModule], providers: [
                         {
@@ -13869,15 +13953,15 @@ class SlideToggle {
         this.onTouched();
     }
 }
-SlideToggle.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: SlideToggle, deps: [], target: i0.ɵɵFactoryTarget.Component });
-SlideToggle.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.1.0-next.1", type: SlideToggle, isStandalone: true, selector: "docs-slide-toggle", inputs: { buttonId: "buttonId", label: "label", disabled: "disabled" }, providers: [
+SlideToggle.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: SlideToggle, deps: [], target: i0.ɵɵFactoryTarget.Component });
+SlideToggle.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.1.0-next.4", type: SlideToggle, isStandalone: true, selector: "docs-slide-toggle", inputs: { buttonId: "buttonId", label: "label", disabled: "disabled" }, providers: [
         {
             provide: NG_VALUE_ACCESSOR,
             useExisting: forwardRef(() => SlideToggle),
             multi: true,
         },
     ], ngImport: i0, template: "<label [attr.for]=\"buttonId\">\n  <span class=\"adev-label\">{{ label }}</span>\n  <div class=\"adev-toggle\">\n    <input\n      type=\"checkbox\"\n      [id]=\"buttonId\"\n      role=\"switch\"\n      (click)=\"toggle()\"\n      [class.adev-toggle-active]=\"checked()\"\n      [checked]=\"checked()\"\n    />\n    <span class=\"adev-slider\"></span>\n  </div>\n</label>\n", styles: [":host,label{display:inline-flex;gap:.5em;align-items:center}.adev-label{font-size:.875rem;font-style:normal;font-weight:500;line-height:160%;letter-spacing:-0.00875rem;color:var(--quaternary-contrast)}.adev-toggle{position:relative;display:inline-block;width:3rem;height:1.5rem;border:1px solid var(--senary-contrast);border-radius:34px}.adev-toggle input{opacity:0;width:0;height:0}.adev-slider{position:absolute;cursor:pointer;border-radius:34px;inset:0;background-color:var(--septenary-contrast);transition:background-color .3s ease,border-color .3s ease}.adev-slider::before{content:\"\";position:absolute;inset:0;border-radius:34px;background:var(--pink-to-purple-horizontal-gradient);opacity:0;transition:opacity .3s ease}.adev-slider::after{position:absolute;content:\"\";height:1.25rem;width:1.25rem;left:.125rem;bottom:.125rem;background-color:var(--page-background);transition:transform .3s ease,background-color .3s ease;border-radius:50%}input:checked+.adev-slider::before{opacity:1}input:checked+.adev-slider::after{transform:translateX(1.5rem)}/*# sourceMappingURL=slide-toggle.component.css.map */\n"], dependencies: [{ kind: "ngmodule", type: CommonModule }] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: SlideToggle, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: SlideToggle, decorators: [{
             type: Component,
             args: [{ selector: 'docs-slide-toggle', standalone: true, imports: [CommonModule], providers: [
                         {
@@ -13946,15 +14030,15 @@ class TextField {
         this.onTouched();
     }
 }
-TextField.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: TextField, deps: [], target: i0.ɵɵFactoryTarget.Component });
-TextField.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.1", type: TextField, isStandalone: true, selector: "docs-text-field", inputs: { name: "name", placeholder: "placeholder", disabled: "disabled", hideIcon: "hideIcon", autofocus: "autofocus" }, host: { classAttribute: "adev-form-element" }, providers: [
+TextField.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: TextField, deps: [], target: i0.ɵɵFactoryTarget.Component });
+TextField.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.4", type: TextField, isStandalone: true, selector: "docs-text-field", inputs: { name: "name", placeholder: "placeholder", disabled: "disabled", hideIcon: "hideIcon", autofocus: "autofocus" }, host: { classAttribute: "adev-form-element" }, providers: [
         {
             provide: NG_VALUE_ACCESSOR,
             useExisting: forwardRef(() => TextField),
             multi: true,
         },
     ], viewQueries: [{ propertyName: "input", first: true, predicate: ["inputRef"], descendants: true }], ngImport: i0, template: "@if (!hideIcon) {\n<docs-icon class=\"docs-icon_high-contrast\">search</docs-icon>\n}\n<input\n  #inputRef\n  type=\"text\"\n  [attr.placeholder]=\"placeholder\"\n  [attr.name]=\"name\"\n  [ngModel]=\"value()\"\n  (ngModelChange)=\"setValue($event)\"\n  class=\"adev-text-field\"\n/>\n", styles: [".adev-text-field{font-size:1.125rem}docs-icon+.adev-text-field{font-size:1rem}/*# sourceMappingURL=text-field.component.css.map */\n"], dependencies: [{ kind: "ngmodule", type: CommonModule }, { kind: "ngmodule", type: FormsModule }, { kind: "directive", type: i1$1.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { kind: "directive", type: i1$1.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { kind: "directive", type: i1$1.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { kind: "component", type: IconComponent, selector: "docs-icon" }] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: TextField, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: TextField, decorators: [{
             type: Component,
             args: [{ selector: 'docs-text-field', standalone: true, imports: [CommonModule, FormsModule, IconComponent], providers: [
                         {
@@ -14015,9 +14099,9 @@ class SearchItem {
         (_a = this.elementRef) === null || _a === void 0 ? void 0 : _a.nativeElement.scrollIntoView({ block: 'nearest' });
     }
 }
-SearchItem.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: SearchItem, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-SearchItem.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.1", type: SearchItem, isStandalone: true, selector: "[docsSearchItem]", inputs: { item: "item", disabled: "disabled" }, host: { properties: { "class.active": "isActive" } }, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: SearchItem, decorators: [{
+SearchItem.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: SearchItem, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+SearchItem.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.1.0-next.4", type: SearchItem, isStandalone: true, selector: "[docsSearchItem]", inputs: { item: "item", disabled: "disabled" }, host: { properties: { "class.active": "isActive" } }, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: SearchItem, decorators: [{
             type: Directive,
             args: [{
                     selector: '[docsSearchItem]',
@@ -14041,9 +14125,9 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", 
  */
 class AlgoliaIcon {
 }
-AlgoliaIcon.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: AlgoliaIcon, deps: [], target: i0.ɵɵFactoryTarget.Component });
-AlgoliaIcon.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.1.0-next.1", type: AlgoliaIcon, isStandalone: true, selector: "docs-algolia-icon", ngImport: i0, template: "<!-- Algolia logo -->\n<svg\nid=\"Layer_1\"\nclass=\"adev-algolia-logo\"\nxmlns=\"http://www.w3.org/2000/svg\"\nviewBox=\"0 0 2196.2 500\"\n>\n<defs>\n  <style>\n    .cls-1,\n    .cls-2 {\n      fill: #003dff;\n    }\n    .cls-2 {\n      fill-rule: evenodd;\n    }\n  </style>\n</defs>\n<path\n  class=\"cls-2\"\n  d=\"M1070.38,275.3V5.91c0-3.63-3.24-6.39-6.82-5.83l-50.46,7.94c-2.87,.45-4.99,2.93-4.99,5.84l.17,273.22c0,12.92,0,92.7,95.97,95.49,3.33,.1,6.09-2.58,6.09-5.91v-40.78c0-2.96-2.19-5.51-5.12-5.84-34.85-4.01-34.85-47.57-34.85-54.72Z\"\n/>\n<rect class=\"cls-1\" x=\"1845.88\" y=\"104.73\" width=\"62.58\" height=\"277.9\" rx=\"5.9\" ry=\"5.9\" />\n<path\n  class=\"cls-2\"\n  d=\"M1851.78,71.38h50.77c3.26,0,5.9-2.64,5.9-5.9V5.9c0-3.62-3.24-6.39-6.82-5.83l-50.77,7.95c-2.87,.45-4.99,2.92-4.99,5.83v51.62c0,3.26,2.64,5.9,5.9,5.9Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M1764.03,275.3V5.91c0-3.63-3.24-6.39-6.82-5.83l-50.46,7.94c-2.87,.45-4.99,2.93-4.99,5.84l.17,273.22c0,12.92,0,92.7,95.97,95.49,3.33,.1,6.09-2.58,6.09-5.91v-40.78c0-2.96-2.19-5.51-5.12-5.84-34.85-4.01-34.85-47.57-34.85-54.72Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M1631.95,142.72c-11.14-12.25-24.83-21.65-40.78-28.31-15.92-6.53-33.26-9.85-52.07-9.85-18.78,0-36.15,3.17-51.92,9.85-15.59,6.66-29.29,16.05-40.76,28.31-11.47,12.23-20.38,26.87-26.76,44.03-6.38,17.17-9.24,37.37-9.24,58.36,0,20.99,3.19,36.87,9.55,54.21,6.38,17.32,15.14,32.11,26.45,44.36,11.29,12.23,24.83,21.62,40.6,28.46,15.77,6.83,40.12,10.33,52.4,10.48,12.25,0,36.78-3.82,52.7-10.48,15.92-6.68,29.46-16.23,40.78-28.46,11.29-12.25,20.05-27.04,26.25-44.36,6.22-17.34,9.24-33.22,9.24-54.21,0-20.99-3.34-41.19-10.03-58.36-6.38-17.17-15.14-31.8-26.43-44.03Zm-44.43,163.75c-11.47,15.75-27.56,23.7-48.09,23.7-20.55,0-36.63-7.8-48.1-23.7-11.47-15.75-17.21-34.01-17.21-61.2,0-26.89,5.59-49.14,17.06-64.87,11.45-15.75,27.54-23.52,48.07-23.52,20.55,0,36.63,7.78,48.09,23.52,11.47,15.57,17.36,37.98,17.36,64.87,0,27.19-5.72,45.3-17.19,61.2Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M894.42,104.73h-49.33c-48.36,0-90.91,25.48-115.75,64.1-14.52,22.58-22.99,49.63-22.99,78.73,0,44.89,20.13,84.92,51.59,111.1,2.93,2.6,6.05,4.98,9.31,7.14,12.86,8.49,28.11,13.47,44.52,13.47,1.23,0,2.46-.03,3.68-.09,.36-.02,.71-.05,1.07-.07,.87-.05,1.75-.11,2.62-.2,.34-.03,.68-.08,1.02-.12,.91-.1,1.82-.21,2.73-.34,.21-.03,.42-.07,.63-.1,32.89-5.07,61.56-30.82,70.9-62.81v57.83c0,3.26,2.64,5.9,5.9,5.9h50.42c3.26,0,5.9-2.64,5.9-5.9V110.63c0-3.26-2.64-5.9-5.9-5.9h-56.32Zm0,206.92c-12.2,10.16-27.97,13.98-44.84,15.12-.16,.01-.33,.03-.49,.04-1.12,.07-2.24,.1-3.36,.1-42.24,0-77.12-35.89-77.12-79.37,0-10.25,1.96-20.01,5.42-28.98,11.22-29.12,38.77-49.74,71.06-49.74h49.33v142.83Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M2133.97,104.73h-49.33c-48.36,0-90.91,25.48-115.75,64.1-14.52,22.58-22.99,49.63-22.99,78.73,0,44.89,20.13,84.92,51.59,111.1,2.93,2.6,6.05,4.98,9.31,7.14,12.86,8.49,28.11,13.47,44.52,13.47,1.23,0,2.46-.03,3.68-.09,.36-.02,.71-.05,1.07-.07,.87-.05,1.75-.11,2.62-.2,.34-.03,.68-.08,1.02-.12,.91-.1,1.82-.21,2.73-.34,.21-.03,.42-.07,.63-.1,32.89-5.07,61.56-30.82,70.9-62.81v57.83c0,3.26,2.64,5.9,5.9,5.9h50.42c3.26,0,5.9-2.64,5.9-5.9V110.63c0-3.26-2.64-5.9-5.9-5.9h-56.32Zm0,206.92c-12.2,10.16-27.97,13.98-44.84,15.12-.16,.01-.33,.03-.49,.04-1.12,.07-2.24,.1-3.36,.1-42.24,0-77.12-35.89-77.12-79.37,0-10.25,1.96-20.01,5.42-28.98,11.22-29.12,38.77-49.74,71.06-49.74h49.33v142.83Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M1314.05,104.73h-49.33c-48.36,0-90.91,25.48-115.75,64.1-11.79,18.34-19.6,39.64-22.11,62.59-.58,5.3-.88,10.68-.88,16.14s.31,11.15,.93,16.59c4.28,38.09,23.14,71.61,50.66,94.52,2.93,2.6,6.05,4.98,9.31,7.14,12.86,8.49,28.11,13.47,44.52,13.47h0c17.99,0,34.61-5.93,48.16-15.97,16.29-11.58,28.88-28.54,34.48-47.75v50.26h-.11v11.08c0,21.84-5.71,38.27-17.34,49.36-11.61,11.08-31.04,16.63-58.25,16.63-11.12,0-28.79-.59-46.6-2.41-2.83-.29-5.46,1.5-6.27,4.22l-12.78,43.11c-1.02,3.46,1.27,7.02,4.83,7.53,21.52,3.08,42.52,4.68,54.65,4.68,48.91,0,85.16-10.75,108.89-32.21,21.48-19.41,33.15-48.89,35.2-88.52V110.63c0-3.26-2.64-5.9-5.9-5.9h-56.32Zm0,64.1s.65,139.13,0,143.36c-12.08,9.77-27.11,13.59-43.49,14.7-.16,.01-.33,.03-.49,.04-1.12,.07-2.24,.1-3.36,.1-1.32,0-2.63-.03-3.94-.1-40.41-2.11-74.52-37.26-74.52-79.38,0-10.25,1.96-20.01,5.42-28.98,11.22-29.12,38.77-49.74,71.06-49.74h49.33Z\"\n/>\n<path\n  class=\"cls-1\"\n  d=\"M249.83,0C113.3,0,2,110.09,.03,246.16c-2,138.19,110.12,252.7,248.33,253.5,42.68,.25,83.79-10.19,120.3-30.03,3.56-1.93,4.11-6.83,1.08-9.51l-23.38-20.72c-4.75-4.21-11.51-5.4-17.36-2.92-25.48,10.84-53.17,16.38-81.71,16.03-111.68-1.37-201.91-94.29-200.13-205.96,1.76-110.26,92-199.41,202.67-199.41h202.69V407.41l-115-102.18c-3.72-3.31-9.42-2.66-12.42,1.31-18.46,24.44-48.53,39.64-81.93,37.34-46.33-3.2-83.87-40.5-87.34-86.81-4.15-55.24,39.63-101.52,94-101.52,49.18,0,89.68,37.85,93.91,85.95,.38,4.28,2.31,8.27,5.52,11.12l29.95,26.55c3.4,3.01,8.79,1.17,9.63-3.3,2.16-11.55,2.92-23.58,2.07-35.92-4.82-70.34-61.8-126.93-132.17-131.26-80.68-4.97-148.13,58.14-150.27,137.25-2.09,77.1,61.08,143.56,138.19,145.26,32.19,.71,62.03-9.41,86.14-26.95l150.26,133.2c6.44,5.71,16.61,1.14,16.61-7.47V9.48C499.66,4.25,495.42,0,490.18,0H249.83Z\"\n/>\n</svg>\n" });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: AlgoliaIcon, decorators: [{
+AlgoliaIcon.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: AlgoliaIcon, deps: [], target: i0.ɵɵFactoryTarget.Component });
+AlgoliaIcon.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.1.0-next.4", type: AlgoliaIcon, isStandalone: true, selector: "docs-algolia-icon", ngImport: i0, template: "<!-- Algolia logo -->\n<svg\nid=\"Layer_1\"\nclass=\"adev-algolia-logo\"\nxmlns=\"http://www.w3.org/2000/svg\"\nviewBox=\"0 0 2196.2 500\"\n>\n<defs>\n  <style>\n    .cls-1,\n    .cls-2 {\n      fill: #003dff;\n    }\n    .cls-2 {\n      fill-rule: evenodd;\n    }\n  </style>\n</defs>\n<path\n  class=\"cls-2\"\n  d=\"M1070.38,275.3V5.91c0-3.63-3.24-6.39-6.82-5.83l-50.46,7.94c-2.87,.45-4.99,2.93-4.99,5.84l.17,273.22c0,12.92,0,92.7,95.97,95.49,3.33,.1,6.09-2.58,6.09-5.91v-40.78c0-2.96-2.19-5.51-5.12-5.84-34.85-4.01-34.85-47.57-34.85-54.72Z\"\n/>\n<rect class=\"cls-1\" x=\"1845.88\" y=\"104.73\" width=\"62.58\" height=\"277.9\" rx=\"5.9\" ry=\"5.9\" />\n<path\n  class=\"cls-2\"\n  d=\"M1851.78,71.38h50.77c3.26,0,5.9-2.64,5.9-5.9V5.9c0-3.62-3.24-6.39-6.82-5.83l-50.77,7.95c-2.87,.45-4.99,2.92-4.99,5.83v51.62c0,3.26,2.64,5.9,5.9,5.9Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M1764.03,275.3V5.91c0-3.63-3.24-6.39-6.82-5.83l-50.46,7.94c-2.87,.45-4.99,2.93-4.99,5.84l.17,273.22c0,12.92,0,92.7,95.97,95.49,3.33,.1,6.09-2.58,6.09-5.91v-40.78c0-2.96-2.19-5.51-5.12-5.84-34.85-4.01-34.85-47.57-34.85-54.72Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M1631.95,142.72c-11.14-12.25-24.83-21.65-40.78-28.31-15.92-6.53-33.26-9.85-52.07-9.85-18.78,0-36.15,3.17-51.92,9.85-15.59,6.66-29.29,16.05-40.76,28.31-11.47,12.23-20.38,26.87-26.76,44.03-6.38,17.17-9.24,37.37-9.24,58.36,0,20.99,3.19,36.87,9.55,54.21,6.38,17.32,15.14,32.11,26.45,44.36,11.29,12.23,24.83,21.62,40.6,28.46,15.77,6.83,40.12,10.33,52.4,10.48,12.25,0,36.78-3.82,52.7-10.48,15.92-6.68,29.46-16.23,40.78-28.46,11.29-12.25,20.05-27.04,26.25-44.36,6.22-17.34,9.24-33.22,9.24-54.21,0-20.99-3.34-41.19-10.03-58.36-6.38-17.17-15.14-31.8-26.43-44.03Zm-44.43,163.75c-11.47,15.75-27.56,23.7-48.09,23.7-20.55,0-36.63-7.8-48.1-23.7-11.47-15.75-17.21-34.01-17.21-61.2,0-26.89,5.59-49.14,17.06-64.87,11.45-15.75,27.54-23.52,48.07-23.52,20.55,0,36.63,7.78,48.09,23.52,11.47,15.57,17.36,37.98,17.36,64.87,0,27.19-5.72,45.3-17.19,61.2Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M894.42,104.73h-49.33c-48.36,0-90.91,25.48-115.75,64.1-14.52,22.58-22.99,49.63-22.99,78.73,0,44.89,20.13,84.92,51.59,111.1,2.93,2.6,6.05,4.98,9.31,7.14,12.86,8.49,28.11,13.47,44.52,13.47,1.23,0,2.46-.03,3.68-.09,.36-.02,.71-.05,1.07-.07,.87-.05,1.75-.11,2.62-.2,.34-.03,.68-.08,1.02-.12,.91-.1,1.82-.21,2.73-.34,.21-.03,.42-.07,.63-.1,32.89-5.07,61.56-30.82,70.9-62.81v57.83c0,3.26,2.64,5.9,5.9,5.9h50.42c3.26,0,5.9-2.64,5.9-5.9V110.63c0-3.26-2.64-5.9-5.9-5.9h-56.32Zm0,206.92c-12.2,10.16-27.97,13.98-44.84,15.12-.16,.01-.33,.03-.49,.04-1.12,.07-2.24,.1-3.36,.1-42.24,0-77.12-35.89-77.12-79.37,0-10.25,1.96-20.01,5.42-28.98,11.22-29.12,38.77-49.74,71.06-49.74h49.33v142.83Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M2133.97,104.73h-49.33c-48.36,0-90.91,25.48-115.75,64.1-14.52,22.58-22.99,49.63-22.99,78.73,0,44.89,20.13,84.92,51.59,111.1,2.93,2.6,6.05,4.98,9.31,7.14,12.86,8.49,28.11,13.47,44.52,13.47,1.23,0,2.46-.03,3.68-.09,.36-.02,.71-.05,1.07-.07,.87-.05,1.75-.11,2.62-.2,.34-.03,.68-.08,1.02-.12,.91-.1,1.82-.21,2.73-.34,.21-.03,.42-.07,.63-.1,32.89-5.07,61.56-30.82,70.9-62.81v57.83c0,3.26,2.64,5.9,5.9,5.9h50.42c3.26,0,5.9-2.64,5.9-5.9V110.63c0-3.26-2.64-5.9-5.9-5.9h-56.32Zm0,206.92c-12.2,10.16-27.97,13.98-44.84,15.12-.16,.01-.33,.03-.49,.04-1.12,.07-2.24,.1-3.36,.1-42.24,0-77.12-35.89-77.12-79.37,0-10.25,1.96-20.01,5.42-28.98,11.22-29.12,38.77-49.74,71.06-49.74h49.33v142.83Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M1314.05,104.73h-49.33c-48.36,0-90.91,25.48-115.75,64.1-11.79,18.34-19.6,39.64-22.11,62.59-.58,5.3-.88,10.68-.88,16.14s.31,11.15,.93,16.59c4.28,38.09,23.14,71.61,50.66,94.52,2.93,2.6,6.05,4.98,9.31,7.14,12.86,8.49,28.11,13.47,44.52,13.47h0c17.99,0,34.61-5.93,48.16-15.97,16.29-11.58,28.88-28.54,34.48-47.75v50.26h-.11v11.08c0,21.84-5.71,38.27-17.34,49.36-11.61,11.08-31.04,16.63-58.25,16.63-11.12,0-28.79-.59-46.6-2.41-2.83-.29-5.46,1.5-6.27,4.22l-12.78,43.11c-1.02,3.46,1.27,7.02,4.83,7.53,21.52,3.08,42.52,4.68,54.65,4.68,48.91,0,85.16-10.75,108.89-32.21,21.48-19.41,33.15-48.89,35.2-88.52V110.63c0-3.26-2.64-5.9-5.9-5.9h-56.32Zm0,64.1s.65,139.13,0,143.36c-12.08,9.77-27.11,13.59-43.49,14.7-.16,.01-.33,.03-.49,.04-1.12,.07-2.24,.1-3.36,.1-1.32,0-2.63-.03-3.94-.1-40.41-2.11-74.52-37.26-74.52-79.38,0-10.25,1.96-20.01,5.42-28.98,11.22-29.12,38.77-49.74,71.06-49.74h49.33Z\"\n/>\n<path\n  class=\"cls-1\"\n  d=\"M249.83,0C113.3,0,2,110.09,.03,246.16c-2,138.19,110.12,252.7,248.33,253.5,42.68,.25,83.79-10.19,120.3-30.03,3.56-1.93,4.11-6.83,1.08-9.51l-23.38-20.72c-4.75-4.21-11.51-5.4-17.36-2.92-25.48,10.84-53.17,16.38-81.71,16.03-111.68-1.37-201.91-94.29-200.13-205.96,1.76-110.26,92-199.41,202.67-199.41h202.69V407.41l-115-102.18c-3.72-3.31-9.42-2.66-12.42,1.31-18.46,24.44-48.53,39.64-81.93,37.34-46.33-3.2-83.87-40.5-87.34-86.81-4.15-55.24,39.63-101.52,94-101.52,49.18,0,89.68,37.85,93.91,85.95,.38,4.28,2.31,8.27,5.52,11.12l29.95,26.55c3.4,3.01,8.79,1.17,9.63-3.3,2.16-11.55,2.92-23.58,2.07-35.92-4.82-70.34-61.8-126.93-132.17-131.26-80.68-4.97-148.13,58.14-150.27,137.25-2.09,77.1,61.08,143.56,138.19,145.26,32.19,.71,62.03-9.41,86.14-26.95l150.26,133.2c6.44,5.71,16.61,1.14,16.61-7.47V9.48C499.66,4.25,495.42,0,490.18,0H249.83Z\"\n/>\n</svg>\n" });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: AlgoliaIcon, decorators: [{
             type: Component,
             args: [{ selector: 'docs-algolia-icon', standalone: true, imports: [], template: "<!-- Algolia logo -->\n<svg\nid=\"Layer_1\"\nclass=\"adev-algolia-logo\"\nxmlns=\"http://www.w3.org/2000/svg\"\nviewBox=\"0 0 2196.2 500\"\n>\n<defs>\n  <style>\n    .cls-1,\n    .cls-2 {\n      fill: #003dff;\n    }\n    .cls-2 {\n      fill-rule: evenodd;\n    }\n  </style>\n</defs>\n<path\n  class=\"cls-2\"\n  d=\"M1070.38,275.3V5.91c0-3.63-3.24-6.39-6.82-5.83l-50.46,7.94c-2.87,.45-4.99,2.93-4.99,5.84l.17,273.22c0,12.92,0,92.7,95.97,95.49,3.33,.1,6.09-2.58,6.09-5.91v-40.78c0-2.96-2.19-5.51-5.12-5.84-34.85-4.01-34.85-47.57-34.85-54.72Z\"\n/>\n<rect class=\"cls-1\" x=\"1845.88\" y=\"104.73\" width=\"62.58\" height=\"277.9\" rx=\"5.9\" ry=\"5.9\" />\n<path\n  class=\"cls-2\"\n  d=\"M1851.78,71.38h50.77c3.26,0,5.9-2.64,5.9-5.9V5.9c0-3.62-3.24-6.39-6.82-5.83l-50.77,7.95c-2.87,.45-4.99,2.92-4.99,5.83v51.62c0,3.26,2.64,5.9,5.9,5.9Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M1764.03,275.3V5.91c0-3.63-3.24-6.39-6.82-5.83l-50.46,7.94c-2.87,.45-4.99,2.93-4.99,5.84l.17,273.22c0,12.92,0,92.7,95.97,95.49,3.33,.1,6.09-2.58,6.09-5.91v-40.78c0-2.96-2.19-5.51-5.12-5.84-34.85-4.01-34.85-47.57-34.85-54.72Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M1631.95,142.72c-11.14-12.25-24.83-21.65-40.78-28.31-15.92-6.53-33.26-9.85-52.07-9.85-18.78,0-36.15,3.17-51.92,9.85-15.59,6.66-29.29,16.05-40.76,28.31-11.47,12.23-20.38,26.87-26.76,44.03-6.38,17.17-9.24,37.37-9.24,58.36,0,20.99,3.19,36.87,9.55,54.21,6.38,17.32,15.14,32.11,26.45,44.36,11.29,12.23,24.83,21.62,40.6,28.46,15.77,6.83,40.12,10.33,52.4,10.48,12.25,0,36.78-3.82,52.7-10.48,15.92-6.68,29.46-16.23,40.78-28.46,11.29-12.25,20.05-27.04,26.25-44.36,6.22-17.34,9.24-33.22,9.24-54.21,0-20.99-3.34-41.19-10.03-58.36-6.38-17.17-15.14-31.8-26.43-44.03Zm-44.43,163.75c-11.47,15.75-27.56,23.7-48.09,23.7-20.55,0-36.63-7.8-48.1-23.7-11.47-15.75-17.21-34.01-17.21-61.2,0-26.89,5.59-49.14,17.06-64.87,11.45-15.75,27.54-23.52,48.07-23.52,20.55,0,36.63,7.78,48.09,23.52,11.47,15.57,17.36,37.98,17.36,64.87,0,27.19-5.72,45.3-17.19,61.2Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M894.42,104.73h-49.33c-48.36,0-90.91,25.48-115.75,64.1-14.52,22.58-22.99,49.63-22.99,78.73,0,44.89,20.13,84.92,51.59,111.1,2.93,2.6,6.05,4.98,9.31,7.14,12.86,8.49,28.11,13.47,44.52,13.47,1.23,0,2.46-.03,3.68-.09,.36-.02,.71-.05,1.07-.07,.87-.05,1.75-.11,2.62-.2,.34-.03,.68-.08,1.02-.12,.91-.1,1.82-.21,2.73-.34,.21-.03,.42-.07,.63-.1,32.89-5.07,61.56-30.82,70.9-62.81v57.83c0,3.26,2.64,5.9,5.9,5.9h50.42c3.26,0,5.9-2.64,5.9-5.9V110.63c0-3.26-2.64-5.9-5.9-5.9h-56.32Zm0,206.92c-12.2,10.16-27.97,13.98-44.84,15.12-.16,.01-.33,.03-.49,.04-1.12,.07-2.24,.1-3.36,.1-42.24,0-77.12-35.89-77.12-79.37,0-10.25,1.96-20.01,5.42-28.98,11.22-29.12,38.77-49.74,71.06-49.74h49.33v142.83Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M2133.97,104.73h-49.33c-48.36,0-90.91,25.48-115.75,64.1-14.52,22.58-22.99,49.63-22.99,78.73,0,44.89,20.13,84.92,51.59,111.1,2.93,2.6,6.05,4.98,9.31,7.14,12.86,8.49,28.11,13.47,44.52,13.47,1.23,0,2.46-.03,3.68-.09,.36-.02,.71-.05,1.07-.07,.87-.05,1.75-.11,2.62-.2,.34-.03,.68-.08,1.02-.12,.91-.1,1.82-.21,2.73-.34,.21-.03,.42-.07,.63-.1,32.89-5.07,61.56-30.82,70.9-62.81v57.83c0,3.26,2.64,5.9,5.9,5.9h50.42c3.26,0,5.9-2.64,5.9-5.9V110.63c0-3.26-2.64-5.9-5.9-5.9h-56.32Zm0,206.92c-12.2,10.16-27.97,13.98-44.84,15.12-.16,.01-.33,.03-.49,.04-1.12,.07-2.24,.1-3.36,.1-42.24,0-77.12-35.89-77.12-79.37,0-10.25,1.96-20.01,5.42-28.98,11.22-29.12,38.77-49.74,71.06-49.74h49.33v142.83Z\"\n/>\n<path\n  class=\"cls-2\"\n  d=\"M1314.05,104.73h-49.33c-48.36,0-90.91,25.48-115.75,64.1-11.79,18.34-19.6,39.64-22.11,62.59-.58,5.3-.88,10.68-.88,16.14s.31,11.15,.93,16.59c4.28,38.09,23.14,71.61,50.66,94.52,2.93,2.6,6.05,4.98,9.31,7.14,12.86,8.49,28.11,13.47,44.52,13.47h0c17.99,0,34.61-5.93,48.16-15.97,16.29-11.58,28.88-28.54,34.48-47.75v50.26h-.11v11.08c0,21.84-5.71,38.27-17.34,49.36-11.61,11.08-31.04,16.63-58.25,16.63-11.12,0-28.79-.59-46.6-2.41-2.83-.29-5.46,1.5-6.27,4.22l-12.78,43.11c-1.02,3.46,1.27,7.02,4.83,7.53,21.52,3.08,42.52,4.68,54.65,4.68,48.91,0,85.16-10.75,108.89-32.21,21.48-19.41,33.15-48.89,35.2-88.52V110.63c0-3.26-2.64-5.9-5.9-5.9h-56.32Zm0,64.1s.65,139.13,0,143.36c-12.08,9.77-27.11,13.59-43.49,14.7-.16,.01-.33,.03-.49,.04-1.12,.07-2.24,.1-3.36,.1-1.32,0-2.63-.03-3.94-.1-40.41-2.11-74.52-37.26-74.52-79.38,0-10.25,1.96-20.01,5.42-28.98,11.22-29.12,38.77-49.74,71.06-49.74h49.33Z\"\n/>\n<path\n  class=\"cls-1\"\n  d=\"M249.83,0C113.3,0,2,110.09,.03,246.16c-2,138.19,110.12,252.7,248.33,253.5,42.68,.25,83.79-10.19,120.3-30.03,3.56-1.93,4.11-6.83,1.08-9.51l-23.38-20.72c-4.75-4.21-11.51-5.4-17.36-2.92-25.48,10.84-53.17,16.38-81.71,16.03-111.68-1.37-201.91-94.29-200.13-205.96,1.76-110.26,92-199.41,202.67-199.41h202.69V407.41l-115-102.18c-3.72-3.31-9.42-2.66-12.42,1.31-18.46,24.44-48.53,39.64-81.93,37.34-46.33-3.2-83.87-40.5-87.34-86.81-4.15-55.24,39.63-101.52,94-101.52,49.18,0,89.68,37.85,93.91,85.95,.38,4.28,2.31,8.27,5.52,11.12l29.95,26.55c3.4,3.01,8.79,1.17,9.63-3.3,2.16-11.55,2.92-23.58,2.07-35.92-4.82-70.34-61.8-126.93-132.17-131.26-80.68-4.97-148.13,58.14-150.27,137.25-2.09,77.1,61.08,143.56,138.19,145.26,32.19,.71,62.03-9.41,86.14-26.95l150.26,133.2c6.44,5.71,16.61,1.14,16.61-7.47V9.48C499.66,4.25,495.42,0,490.18,0H249.83Z\"\n/>\n</svg>\n" }]
         }] });
@@ -14068,9 +14152,9 @@ class RelativeLink {
         return `${removeTrailingSlash(normalizePath(url.pathname))}${(_c = url.hash) !== null && _c !== void 0 ? _c : ''}`;
     }
 }
-RelativeLink.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: RelativeLink, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-RelativeLink.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "17.1.0-next.1", ngImport: i0, type: RelativeLink, isStandalone: true, name: "relativeLink" });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: RelativeLink, decorators: [{
+RelativeLink.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: RelativeLink, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+RelativeLink.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "17.1.0-next.4", ngImport: i0, type: RelativeLink, isStandalone: true, name: "relativeLink" });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: RelativeLink, decorators: [{
             type: Pipe,
             args: [{
                     name: 'relativeLink',
@@ -14167,9 +14251,9 @@ class SearchDialog {
         });
     }
 }
-SearchDialog.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: SearchDialog, deps: [], target: i0.ɵɵFactoryTarget.Component });
-SearchDialog.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.1", type: SearchDialog, isStandalone: true, selector: "docs-search-dialog", outputs: { onClose: "onClose" }, viewQueries: [{ propertyName: "dialog", first: true, predicate: ["searchDialog"], descendants: true }, { propertyName: "items", predicate: SearchItem, descendants: true }], ngImport: i0, template: "<dialog #searchDialog>\n  <div class=\"adev-search-container\" (docsClickOutside)=\"closeSearchDialog()\">\n    <docs-text-field\n      [autofocus]=\"true\"\n      [hideIcon]=\"true\"\n      [ngModel]=\"searchQuery()\"\n      (ngModelChange)=\"updateSearchQuery($event)\"\n      class=\"adev-search-input\"\n      placeholder=\"Search docs\"\n    ></docs-text-field>\n\n    @if (searchResults() && searchResults()!.length > 0) {\n    <ul class=\"adev-search-results adev-mini-scroll-track\">\n      @for (result of searchResults(); track result.objectID) {\n      <li docsSearchItem [item]=\"result\">\n        @if (result.url) {\n          <a [routerLink]=\"'/' + result.url | relativeLink: 'pathname'\" [fragment]=\"result.url | relativeLink: 'hash'\">\n            <div>\n              <div class=\"adev-result-icon-and-type\">\n                <!-- Icon -->\n                <span class=\"adev-search-result-icon\" aria-hidden=\"true\">\n                  @if (result.hierarchy?.lvl0 === 'Docs') {\n                  <i role=\"presentation\" class=\"material-symbols-outlined docs-icon-small\">\n                    description\n                  </i>\n                  } @else if (result.hierarchy?.lvl0 === 'Tutorials') {\n                  <i role=\"presentation\" class=\"material-symbols-outlined docs-icon-small\">code</i>\n                  } @else if (result.hierarchy?.lvl0 === 'Reference') {\n                  <i role=\"presentation\" class=\"material-symbols-outlined docs-icon-small\">\n                    description\n                  </i>\n                  }\n                </span>\n                <!-- Results type -->\n                <span class=\"adev-search-results__type\">{{ result.hierarchy?.lvl1 }}</span>\n              </div>\n\n              <!-- Hide level 2 if level 3 exists -->\n              <!-- Level 2 -->\n              @if (result.hierarchy?.lvl2 && !result.hierarchy?.lvl3) {\n              <span class=\"adev-search-results__type adev-search-results__lvl2\">\n                {{ result.hierarchy?.lvl2 }}\n              </span>\n              }\n              <!-- Level 3 -->\n              @if (result.hierarchy?.lvl3) {\n              <span class=\"adev-search-results__type adev-search-results__lvl3\">\n                {{ result.hierarchy?.lvl3 }}\n              </span>\n              }\n            </div>\n\n            <!-- Page title -->\n            <span class=\"adev-result-page-title\">{{ result.hierarchy?.lvl0 }}</span>\n          </a>\n        }\n      </li>\n      }\n    </ul>\n    } @else {\n    <div class=\"adev-search-results adev-mini-scroll-track\">\n      @if (searchResults() === undefined) {\n      <div class=\"adev-search-results__start-typing\">\n        <span>Start typing to see results</span>\n      </div>\n      } @else if (searchResults()?.length === 0) {\n      <div class=\"adev-search-results__no-results\">\n        <span>No results found</span>\n      </div>\n      }\n    </div>\n    }\n\n    <div class=\"adev-algolia\">\n      <span>Search by</span>\n      <docs-algolia-icon />\n    </div>\n  </div>\n</dialog>\n", styles: ["dialog{background-color:rgba(0,0,0,0);border:none;padding-block-end:3rem}dialog::backdrop{backdrop-filter:blur(5px)}.adev-search-container{width:500px;max-width:90vw;background-color:var(--page-background);border:1px solid var(--senary-contrast);border-radius:.25rem;box-sizing:border-box}.adev-search-container .adev-search-input{border-radius:.25rem .25rem 0 0;border:none;border-block-end:1px solid var(--senary-contrast);height:2.6875rem;padding-inline-start:1rem;position:relative}.adev-search-container .adev-search-input::after{content:\"Esc\";position:absolute;right:1rem;color:var(--gray-400);font-size:.875rem}.adev-search-container ul{max-height:260px;overflow-y:auto;list-style-type:none;padding-inline:0;padding-block-start:1rem;margin:0}.adev-search-container ul li{border-inline-start:2px solid var(--senary-contrast);margin-inline-start:1rem;padding-inline-end:1rem;padding-block:.25rem}.adev-search-container ul li a{color:var(--secondary-contrast);display:flex;justify-content:space-between;gap:.5rem}.adev-search-container ul li a .adev-search-result-icon i{display:flex;align-items:center;font-size:1.2rem}.adev-search-container ul li.active{background-color:var(--septenary-contrast)}.adev-search-container ul li:hover,.adev-search-container ul li.active{background-color:var(--octonary-contrast);border-inline-start:2px solid var(--primary-contrast)}.adev-search-container ul li:hover a span:not(.adev-result-page-title),.adev-search-container ul li:hover a .adev-search-results__type,.adev-search-container ul li.active a span:not(.adev-result-page-title),.adev-search-container ul li.active a .adev-search-results__type{color:var(--primary-contrast)}.adev-search-container ul li:hover a span:not(.adev-result-page-title) i,.adev-search-container ul li:hover a .adev-search-results__type i,.adev-search-container ul li.active a span:not(.adev-result-page-title) i,.adev-search-container ul li.active a .adev-search-results__type i{color:var(--primary-contrast)}.adev-search-container ul .adev-search-result-icon,.adev-search-container ul .adev-search-results__type,.adev-search-container ul .adev-result-page-title{color:var(--quaternary-contrast);display:inline-block;font-size:.875rem;transition:color .3s ease;padding:.75rem;padding-inline-end:0}.adev-search-container ul .adev-search-results__lvl2{display:inline-block;margin-inline-start:2rem;padding-block-start:0}.adev-search-container ul .adev-search-results__lvl3{margin-inline-start:2rem;padding-block-start:0}.adev-search-container .adev-result-page-title{font-size:.875rem;font-weight:400}.adev-search-results__start-typing,.adev-search-results__no-results{padding:.75rem;color:var(--gray-400)}.adev-result-icon-and-type{display:flex}.adev-result-icon-and-type .adev-search-results__type{padding-inline-start:0}.adev-algolia{display:flex;align-items:center;justify-content:end;color:var(--gray-400);padding:1rem;font-size:.75rem;font-weight:500;gap:.25rem;background-color:var(--page-background);border-radius:0 0 .25rem .25rem}.adev-algolia docs-algolia-icon{margin-block-start:.12rem;margin-inline-start:.15rem;width:4rem}/*# sourceMappingURL=search-dialog.component.css.map */\n"], dependencies: [{ kind: "directive", type: ClickOutside, selector: "[docsClickOutside]", inputs: ["docsClickOutsideIgnore"], outputs: ["docsClickOutside"] }, { kind: "component", type: TextField, selector: "docs-text-field", inputs: ["name", "placeholder", "disabled", "hideIcon", "autofocus"] }, { kind: "ngmodule", type: FormsModule }, { kind: "directive", type: i1$1.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { kind: "directive", type: i1$1.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { kind: "directive", type: SearchItem, selector: "[docsSearchItem]", inputs: ["item", "disabled"] }, { kind: "component", type: AlgoliaIcon, selector: "docs-algolia-icon" }, { kind: "pipe", type: RelativeLink, name: "relativeLink" }, { kind: "directive", type: RouterLink, selector: "[routerLink]", inputs: ["target", "queryParams", "fragment", "queryParamsHandling", "state", "relativeTo", "preserveFragment", "skipLocationChange", "replaceUrl", "routerLink"] }] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.1", ngImport: i0, type: SearchDialog, decorators: [{
+SearchDialog.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: SearchDialog, deps: [], target: i0.ɵɵFactoryTarget.Component });
+SearchDialog.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "17.1.0-next.4", type: SearchDialog, isStandalone: true, selector: "docs-search-dialog", outputs: { onClose: "onClose" }, viewQueries: [{ propertyName: "dialog", first: true, predicate: ["searchDialog"], descendants: true }, { propertyName: "items", predicate: SearchItem, descendants: true }], ngImport: i0, template: "<dialog #searchDialog>\n  <div class=\"adev-search-container\" (docsClickOutside)=\"closeSearchDialog()\">\n    <docs-text-field\n      [autofocus]=\"true\"\n      [hideIcon]=\"true\"\n      [ngModel]=\"searchQuery()\"\n      (ngModelChange)=\"updateSearchQuery($event)\"\n      class=\"adev-search-input\"\n      placeholder=\"Search docs\"\n    ></docs-text-field>\n\n    @if (searchResults() && searchResults()!.length > 0) {\n    <ul class=\"adev-search-results adev-mini-scroll-track\">\n      @for (result of searchResults(); track result.objectID) {\n      <li docsSearchItem [item]=\"result\">\n        @if (result.url) {\n          <a [routerLink]=\"'/' + result.url | relativeLink: 'pathname'\" [fragment]=\"result.url | relativeLink: 'hash'\">\n            <div>\n              <div class=\"adev-result-icon-and-type\">\n                <!-- Icon -->\n                <span class=\"adev-search-result-icon\" aria-hidden=\"true\">\n                  @if (result.hierarchy?.lvl0 === 'Docs') {\n                  <i role=\"presentation\" class=\"material-symbols-outlined docs-icon-small\">\n                    description\n                  </i>\n                  } @else if (result.hierarchy?.lvl0 === 'Tutorials') {\n                  <i role=\"presentation\" class=\"material-symbols-outlined docs-icon-small\">code</i>\n                  } @else if (result.hierarchy?.lvl0 === 'Reference') {\n                  <i role=\"presentation\" class=\"material-symbols-outlined docs-icon-small\">\n                    description\n                  </i>\n                  }\n                </span>\n                <!-- Results type -->\n                <span class=\"adev-search-results__type\">{{ result.hierarchy?.lvl1 }}</span>\n              </div>\n\n              <!-- Hide level 2 if level 3 exists -->\n              <!-- Level 2 -->\n              @if (result.hierarchy?.lvl2 && !result.hierarchy?.lvl3) {\n              <span class=\"adev-search-results__type adev-search-results__lvl2\">\n                {{ result.hierarchy?.lvl2 }}\n              </span>\n              }\n              <!-- Level 3 -->\n              @if (result.hierarchy?.lvl3) {\n              <span class=\"adev-search-results__type adev-search-results__lvl3\">\n                {{ result.hierarchy?.lvl3 }}\n              </span>\n              }\n            </div>\n\n            <!-- Page title -->\n            <span class=\"adev-result-page-title\">{{ result.hierarchy?.lvl0 }}</span>\n          </a>\n        }\n      </li>\n      }\n    </ul>\n    } @else {\n    <div class=\"adev-search-results adev-mini-scroll-track\">\n      @if (searchResults() === undefined) {\n      <div class=\"adev-search-results__start-typing\">\n        <span>Start typing to see results</span>\n      </div>\n      } @else if (searchResults()?.length === 0) {\n      <div class=\"adev-search-results__no-results\">\n        <span>No results found</span>\n      </div>\n      }\n    </div>\n    }\n\n    <div class=\"adev-algolia\">\n      <span>Search by</span>\n      <docs-algolia-icon />\n    </div>\n  </div>\n</dialog>\n", styles: ["dialog{background-color:rgba(0,0,0,0);border:none;padding-block-end:3rem}dialog::backdrop{backdrop-filter:blur(5px)}.adev-search-container{width:500px;max-width:90vw;background-color:var(--page-background);border:1px solid var(--senary-contrast);border-radius:.25rem;box-sizing:border-box}.adev-search-container .adev-search-input{border-radius:.25rem .25rem 0 0;border:none;border-block-end:1px solid var(--senary-contrast);height:2.6875rem;padding-inline-start:1rem;position:relative}.adev-search-container .adev-search-input::after{content:\"Esc\";position:absolute;right:1rem;color:var(--gray-400);font-size:.875rem}.adev-search-container ul{max-height:260px;overflow-y:auto;list-style-type:none;padding-inline:0;padding-block-start:1rem;margin:0}.adev-search-container ul li{border-inline-start:2px solid var(--senary-contrast);margin-inline-start:1rem;padding-inline-end:1rem;padding-block:.25rem}.adev-search-container ul li a{color:var(--secondary-contrast);display:flex;justify-content:space-between;gap:.5rem}.adev-search-container ul li a .adev-search-result-icon i{display:flex;align-items:center;font-size:1.2rem}.adev-search-container ul li.active{background-color:var(--septenary-contrast)}.adev-search-container ul li:hover,.adev-search-container ul li.active{background-color:var(--octonary-contrast);border-inline-start:2px solid var(--primary-contrast)}.adev-search-container ul li:hover a span:not(.adev-result-page-title),.adev-search-container ul li:hover a .adev-search-results__type,.adev-search-container ul li.active a span:not(.adev-result-page-title),.adev-search-container ul li.active a .adev-search-results__type{color:var(--primary-contrast)}.adev-search-container ul li:hover a span:not(.adev-result-page-title) i,.adev-search-container ul li:hover a .adev-search-results__type i,.adev-search-container ul li.active a span:not(.adev-result-page-title) i,.adev-search-container ul li.active a .adev-search-results__type i{color:var(--primary-contrast)}.adev-search-container ul .adev-search-result-icon,.adev-search-container ul .adev-search-results__type,.adev-search-container ul .adev-result-page-title{color:var(--quaternary-contrast);display:inline-block;font-size:.875rem;transition:color .3s ease;padding:.75rem;padding-inline-end:0}.adev-search-container ul .adev-search-results__lvl2{display:inline-block;margin-inline-start:2rem;padding-block-start:0}.adev-search-container ul .adev-search-results__lvl3{margin-inline-start:2rem;padding-block-start:0}.adev-search-container .adev-result-page-title{font-size:.875rem;font-weight:400}.adev-search-results__start-typing,.adev-search-results__no-results{padding:.75rem;color:var(--gray-400)}.adev-result-icon-and-type{display:flex}.adev-result-icon-and-type .adev-search-results__type{padding-inline-start:0}.adev-algolia{display:flex;align-items:center;justify-content:end;color:var(--gray-400);padding:1rem;font-size:.75rem;font-weight:500;gap:.25rem;background-color:var(--page-background);border-radius:0 0 .25rem .25rem}.adev-algolia docs-algolia-icon{margin-block-start:.12rem;margin-inline-start:.15rem;width:4rem}/*# sourceMappingURL=search-dialog.component.css.map */\n"], dependencies: [{ kind: "directive", type: ClickOutside, selector: "[docsClickOutside]", inputs: ["docsClickOutsideIgnore"], outputs: ["docsClickOutside"] }, { kind: "component", type: TextField, selector: "docs-text-field", inputs: ["name", "placeholder", "disabled", "hideIcon", "autofocus"] }, { kind: "ngmodule", type: FormsModule }, { kind: "directive", type: i1$1.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { kind: "directive", type: i1$1.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { kind: "directive", type: SearchItem, selector: "[docsSearchItem]", inputs: ["item", "disabled"] }, { kind: "component", type: AlgoliaIcon, selector: "docs-algolia-icon" }, { kind: "pipe", type: RelativeLink, name: "relativeLink" }, { kind: "directive", type: RouterLink, selector: "[routerLink]", inputs: ["target", "queryParams", "fragment", "queryParamsHandling", "state", "relativeTo", "preserveFragment", "skipLocationChange", "replaceUrl", "routerLink"] }] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.1.0-next.4", ngImport: i0, type: SearchDialog, decorators: [{
             type: Component,
             args: [{ selector: 'docs-search-dialog', standalone: true, imports: [
                         ClickOutside,
