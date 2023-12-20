@@ -33,7 +33,7 @@ declare interface AlgoliaConfig {
 
 export declare const ASSETS_EXAMPLES_PATH = "assets/content/examples";
 
-export declare const checkFilesInDirectory: (dir: string, fs: FileSystemAPI, filterFoldersPredicate?: (path?: string) => boolean, files?: FileAndContent_2[]) => Promise<any[]>;
+export declare const checkFilesInDirectory: (dir: string, fs: FileSystemAPI, filterFoldersPredicate?: (path?: string) => boolean, files?: FileAndContent[]) => Promise<FileAndContent[]>;
 
 export declare class ClickOutside {
     ignoredElementsIds: string[];
@@ -203,10 +203,6 @@ export declare type FileAndContent = {
     content: string | Buffer;
 };
 
-declare type FileAndContent_2 = any;
-
-declare type FileAndContent_3 = any;
-
 export declare type FileAndContentRecord = Record<FileAndContent['path'], FileAndContent['content']>;
 
 declare interface FileSystemAPI {
@@ -221,7 +217,7 @@ export declare const findNavigationItem: (items: NavigationItem[], predicate: (i
 
 export declare const flatNavigationData: (tree: NavigationItem[]) => NavigationItem[];
 
-export declare function generateZip(files: FileAndContent_3[]): Promise<Blob>;
+export declare function generateZip(files: FileAndContent[]): Promise<Blob>;
 
 export declare function getActivatedRouteSnapshotFromRouter(router: Router): ActivatedRouteSnapshot;
 
