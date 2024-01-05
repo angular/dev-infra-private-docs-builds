@@ -49544,10 +49544,11 @@ var _Lexer = class {
   lex(src) {
     src = src.replace(/\r\n|\r/g, "\n");
     this.blockTokens(src, this.tokens);
-    let next;
-    while (next = this.inlineQueue.shift()) {
+    for (let i = 0; i < this.inlineQueue.length; i++) {
+      const next = this.inlineQueue[i];
       this.inlineTokens(next.src, next.tokens);
     }
+    this.inlineQueue = [];
     return this.tokens;
   }
   blockTokens(src, tokens = []) {
