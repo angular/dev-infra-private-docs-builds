@@ -1,6 +1,6 @@
 {
   "name": "@angular/docs",
-  "version": "0.0.0-10788de8a2999c84bc16a132dfe1a0a9bc934604",
+  "version": "0.0.0-1d8ae4752d22c4f17ed4a89df525f40ba09968ed",
   "dependencies": {
     "@angular/cdk": "17.1.0-rc.0",
     "@angular/common": "17.2.0-next.0",
@@ -16,7 +16,7 @@
     "glob": "10.3.10",
     "highlight.js": "11.9.0",
     "html-entities": "2.4.0",
-    "jsdom": "23.2.0",
+    "jsdom": "24.0.0",
     "jszip": "^3.10.1",
     "marked": "11.1.1",
     "rxjs": "^7.8.1",
