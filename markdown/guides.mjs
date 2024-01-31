@@ -50574,7 +50574,7 @@ var linkRender = (href, title, text) => {
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/guides/tranformations/table.js
 var tableRender = (header, body) => {
   return `
-  <div class="docs-table adev-scroll-track-transparent">
+  <div class="docs-table docs-scroll-track-transparent">
     <table>
       <thead>
         ${header}
@@ -51799,7 +51799,7 @@ function formatCode(token) {
   const containerEl = JSDOM2.fragment(`
   <div class="docs-code">
     ${buildHeaderElement(token)}
-    <pre class="adev-mini-scroll-track">
+    <pre class="docs-mini-scroll-track">
       <code>${token.code}</code>
     </pre>
   </div>
