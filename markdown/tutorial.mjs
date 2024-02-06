@@ -5491,10 +5491,10 @@ async function generateSourceCode(config, files) {
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/tutorial/routes.js
 async function generateTutorialRoutes(tutorialName, introConfig, stepConfigs) {
   const children = Object.entries(stepConfigs).sort(([pathA], [pathB]) => Number(pathA.split("-")[0]) > Number(pathB.split("-")[0]) ? 1 : -1).map(([path, config], idx) => {
-    path = path.replace(/^\d+\-/, "");
+    const pathWithoutNumber = path.replace(/^\d+\-/, "");
     return {
       label: config.title,
-      path: `tutorials/${tutorialName}/${path}`,
+      path: `tutorials/${tutorialName}/${pathWithoutNumber}`,
       contentPath: `tutorials/${tutorialName}/steps/${path}/README`,
       tutorialData: {
         title: config.title,
