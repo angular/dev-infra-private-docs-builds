@@ -11533,8 +11533,7 @@ class ExampleViewer {
         this.exampleMetadata = signal(null);
         this.snippetCode = signal(undefined);
         this.tabs = computed(() => this.exampleMetadata()?.files.map((file) => ({
-            name: file.title ??
-                (this.shouldDisplayFullName() ? file.name : this.getFileExtension(file.name)),
+            name: file.title ?? (this.shouldDisplayFullName() ? file.name : this.getFileExtension(file.name)),
             code: file.content,
         })));
         this.view = computed(() => this.exampleMetadata()?.files.length === 1
@@ -11564,7 +11563,11 @@ class ExampleViewer {
     }
     copyLink() {
         // Reconstruct the URL using `origin + pathname` so we drop any pre-existing hash.
-        const fullUrl = location.origin + location.pathname + '#example-' + this.exampleMetadata()?.id;
+        const fullUrl = location.origin +
+            location.pathname +
+            location.search +
+            '#example-' +
+            this.exampleMetadata()?.id;
         this.clipboard.copy(fullUrl);
     }
     listenToMatTabIndexChange() {

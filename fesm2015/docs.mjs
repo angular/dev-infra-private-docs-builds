@@ -13414,7 +13414,11 @@ class ExampleViewer {
     copyLink() {
         var _a;
         // Reconstruct the URL using `origin + pathname` so we drop any pre-existing hash.
-        const fullUrl = location.origin + location.pathname + '#example-' + ((_a = this.exampleMetadata()) === null || _a === void 0 ? void 0 : _a.id);
+        const fullUrl = location.origin +
+            location.pathname +
+            location.search +
+            '#example-' +
+            ((_a = this.exampleMetadata()) === null || _a === void 0 ? void 0 : _a.id);
         this.clipboard.copy(fullUrl);
     }
     listenToMatTabIndexChange() {
