@@ -20,9 +20,27 @@ nodejs_binary(
 nodejs_binary(
     name = "markdown",
     data = [
+        "@npm//@angular/build-tooling/bazel/browsers/chromium:chromium-for-generation",
         "@npm//jsdom",
+        "@npm//mermaid",
+        "@npm//playwright-core",
     ],
     entry_point = "@npm//@angular/docs/markdown:guides.mjs",
+    env = {
+        "CHROME_BIN": "$(CHROMIUM)",
+    },
+    toolchains = [
+        "@npm//@angular/build-tooling/bazel/browsers/chromium:toolchain_alias",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+nodejs_binary(
+    name = "markdown_no_mermaid",
+    data = [
+        "@npm//jsdom",
+    ],
+    entry_point = "@npm//@angular/docs/markdown:guides-no-mermaid.mjs",
     visibility = ["//visibility:public"],
 )
 

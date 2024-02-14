@@ -9,17 +9,7 @@ var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
-  get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
-}) : x)(function(x) {
-  if (typeof require !== "undefined")
-    return require.apply(this, arguments);
-  throw new Error('Dynamic require of "' + x + '" is not supported');
-});
-var __esm = (fn, res) => function __init() {
-  return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
-};
-var __commonJS = (cb, mod) => function __require2() {
+var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
 var __export = (target, all) => {
@@ -48579,212 +48569,6 @@ var require_lib2 = __commonJS({
   }
 });
 
-// node_modules/@bazel/runfiles/paths.js
-var require_paths = __commonJS({
-  "node_modules/@bazel/runfiles/paths.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.BAZEL_OUT_REGEX = void 0;
-    exports.BAZEL_OUT_REGEX = /(\/bazel-out\/|\/bazel-~1\/x64_wi~1\/)/;
-  }
-});
-
-// node_modules/@bazel/runfiles/runfiles.js
-var require_runfiles = __commonJS({
-  "node_modules/@bazel/runfiles/runfiles.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.Runfiles = void 0;
-    var path2 = __require("path");
-    var fs = __require("fs");
-    var paths_1 = require_paths();
-    var Runfiles = class {
-      constructor(_env) {
-        this._env = _env;
-        if (!!_env["RUNFILES_MANIFEST_FILE"]) {
-          this.manifest = this.loadRunfilesManifest(_env["RUNFILES_MANIFEST_FILE"]);
-        } else if (!!_env["RUNFILES_DIR"]) {
-          this.runfilesDir = path2.resolve(_env["RUNFILES_DIR"]);
-        } else if (!!_env["RUNFILES"]) {
-          this.runfilesDir = path2.resolve(_env["RUNFILES"]);
-        } else {
-          throw new Error("Every node program run under Bazel must have a $RUNFILES_DIR, $RUNFILES or $RUNFILES_MANIFEST_FILE environment variable");
-        }
-        if (_env["RUNFILES_MANIFEST_ONLY"] === "1" && !_env["RUNFILES_MANIFEST_FILE"]) {
-          console.warn(`Workaround https://github.com/bazelbuild/bazel/issues/7994
-                 RUNFILES_MANIFEST_FILE should have been set but wasn't.
-                 falling back to using runfiles symlinks.
-                 If you want to test runfiles manifest behavior, add
-                 --spawn_strategy=standalone to the command line.`);
-        }
-        this.workspace = _env["BAZEL_WORKSPACE"] || _env["JS_BINARY__WORKSPACE"] || void 0;
-        let target = _env["BAZEL_TARGET"] || _env["JS_BINARY__TARGET"];
-        if (!!target && !target.startsWith("@")) {
-          this.package = target.split(":")[0].replace(/^\/\//, "");
-        }
-      }
-      _resolveFromManifest(searchPath) {
-        if (!this.manifest)
-          return void 0;
-        let result;
-        for (const [k, v] of this.manifest) {
-          if (k.startsWith(`${searchPath}/external`))
-            continue;
-          if (k === searchPath) {
-            return v;
-          }
-          if (k.startsWith(`${searchPath}/`)) {
-            const l = k.length - searchPath.length;
-            const maybe = v.substring(0, v.length - l);
-            if (maybe.match(paths_1.BAZEL_OUT_REGEX)) {
-              return maybe;
-            } else {
-              result = maybe;
-            }
-          }
-        }
-        return result;
-      }
-      loadRunfilesManifest(manifestPath) {
-        const runfilesEntries = /* @__PURE__ */ new Map();
-        const input = fs.readFileSync(manifestPath, { encoding: "utf-8" });
-        for (const line of input.split("\n")) {
-          if (!line)
-            continue;
-          const [runfilesPath, realPath] = line.split(" ");
-          runfilesEntries.set(runfilesPath, realPath);
-        }
-        return runfilesEntries;
-      }
-      resolve(modulePath) {
-        modulePath = modulePath.replace(/\\/g, "/").replace(/\/+$/g, "");
-        if (path2.isAbsolute(modulePath)) {
-          return modulePath;
-        }
-        const result = this._resolve(modulePath, void 0);
-        if (result) {
-          return result;
-        }
-        const e = new Error(`could not resolve module ${modulePath}`);
-        e.code = "MODULE_NOT_FOUND";
-        throw e;
-      }
-      resolveWorkspaceRelative(modulePath) {
-        modulePath = modulePath.replace(/\\/g, "/").replace(/\/+$/g, "");
-        if (!this.workspace) {
-          throw new Error("workspace could not be determined from the environment; make sure BAZEL_WORKSPACE is set");
-        }
-        return this.resolve(path2.posix.join(this.workspace, modulePath));
-      }
-      resolvePackageRelative(modulePath) {
-        modulePath = modulePath.replace(/\\/g, "/").replace(/\/+$/g, "");
-        if (!this.workspace) {
-          throw new Error("workspace could not be determined from the environment; make sure BAZEL_WORKSPACE is set");
-        }
-        if (this.package === void 0) {
-          throw new Error("package could not be determined from the environment; make sure BAZEL_TARGET is set");
-        }
-        return this.resolve(path2.posix.join(this.workspace, this.package, modulePath));
-      }
-      patchRequire() {
-        const requirePatch = this._env["BAZEL_NODE_PATCH_REQUIRE"];
-        if (!requirePatch) {
-          throw new Error("require patch location could not be determined from the environment");
-        }
-        __require(requirePatch);
-      }
-      _resolve(moduleBase, moduleTail) {
-        if (this.manifest) {
-          const result = this._resolveFromManifest(moduleBase);
-          if (result) {
-            if (moduleTail) {
-              const maybe = path2.join(result, moduleTail || "");
-              if (fs.existsSync(maybe)) {
-                return maybe;
-              }
-            } else {
-              return result;
-            }
-          }
-        }
-        if (this.runfilesDir) {
-          const maybe = path2.join(this.runfilesDir, moduleBase, moduleTail || "");
-          if (fs.existsSync(maybe)) {
-            return maybe;
-          }
-        }
-        const dirname = path2.dirname(moduleBase);
-        if (dirname == ".") {
-          return void 0;
-        }
-        return this._resolve(dirname, path2.join(path2.basename(moduleBase), moduleTail || ""));
-      }
-    };
-    exports.Runfiles = Runfiles;
-  }
-});
-
-// node_modules/@bazel/runfiles/index.js
-var require_runfiles2 = __commonJS({
-  "node_modules/@bazel/runfiles/index.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.runfiles = exports._BAZEL_OUT_REGEX = exports.Runfiles = void 0;
-    var runfiles_1 = require_runfiles();
-    Object.defineProperty(exports, "Runfiles", { enumerable: true, get: function() {
-      return runfiles_1.Runfiles;
-    } });
-    var paths_1 = require_paths();
-    Object.defineProperty(exports, "_BAZEL_OUT_REGEX", { enumerable: true, get: function() {
-      return paths_1.BAZEL_OUT_REGEX;
-    } });
-    exports.runfiles = new runfiles_1.Runfiles(process.env);
-  }
-});
-
-// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/guides/mermaid/index.js
-var mermaid_exports = {};
-__export(mermaid_exports, {
-  processMermaidCodeBlock: () => processMermaidCodeBlock
-});
-import { chromium } from "playwright-core";
-function getMermaidScriptTagData() {
-  if (mermaidScriptTagData) {
-    return mermaidScriptTagData;
-  }
-  return mermaidScriptTagData = {
-    path: import_runfiles.runfiles.resolveWorkspaceRelative("node_modules/mermaid/dist/mermaid.js")
-  };
-}
-async function processMermaidCodeBlock(token) {
-  const browser = await chromium.launch({
-    headless: true,
-    executablePath: import_runfiles.runfiles.resolveWorkspaceRelative(process.env["CHROME_BIN"]),
-    args: ["--no-sandbox"]
-  });
-  const page = await browser.newPage();
-  try {
-    await page.goto(`data:text/html,<html></html>`);
-    await page.addScriptTag(getMermaidScriptTagData());
-    let { svg } = await page.evaluate(({ diagram, config }) => {
-      mermaid.initialize(config);
-      return mermaid.render("mermaid-generated-diagram", diagram);
-    }, { diagram: token.code, config: mermaidConfig });
-    token.code = svg;
-  } finally {
-    await browser.close();
-  }
-}
-var import_runfiles, mermaidConfig, mermaidScriptTagData;
-var init_mermaid = __esm({
-  "bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/guides/mermaid/index.js"() {
-    import_runfiles = __toESM(require_runfiles2());
-    mermaidConfig = {
-      theme: "base"
-    };
-  }
-});
-
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/guides/index.js
 import { readFileSync as readFileSync2, writeFileSync } from "fs";
 import path from "path";
@@ -52221,8 +52005,8 @@ async function walkTokens2(token) {
   if (!isDocsCodeToken(token) || token.language !== "mermaid") {
     return;
   }
-  if (true) {
-    return (await Promise.resolve().then(() => (init_mermaid(), mermaid_exports))).processMermaidCodeBlock(token);
+  if (false) {
+    return (await null).processMermaidCodeBlock(token);
   }
 }
 
@@ -52284,4 +52068,4 @@ main();
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-//# sourceMappingURL=guides.mjs.map
+//# sourceMappingURL=guides-no-mermaid.mjs.map
