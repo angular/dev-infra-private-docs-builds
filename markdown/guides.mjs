@@ -48757,6 +48757,7 @@ function getMermaidScriptTagData() {
   };
 }
 async function processMermaidCodeBlock(token) {
+  const diagram = token.code;
   const browser = await chromium.launch({
     headless: true,
     executablePath: import_runfiles.runfiles.resolveWorkspaceRelative(process.env["CHROME_BIN"]),
@@ -48766,10 +48767,10 @@ async function processMermaidCodeBlock(token) {
   try {
     await page.goto(`data:text/html,<html></html>`);
     await page.addScriptTag(getMermaidScriptTagData());
-    let { svg } = await page.evaluate(({ diagram, config }) => {
+    let { svg } = await page.evaluate(({ diagram: diagram2, config }) => {
       mermaid.initialize(config);
-      return mermaid.render("mermaid-generated-diagram", diagram);
-    }, { diagram: token.code, config: mermaidConfig });
+      return mermaid.render("mermaid-generated-diagram", diagram2);
+    }, { diagram, config: mermaidConfig });
     token.code = svg;
   } finally {
     await browser.close();
