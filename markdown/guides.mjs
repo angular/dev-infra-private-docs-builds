@@ -51367,6 +51367,7 @@ function Diff() {
 }
 Diff.prototype = {
   diff: function diff(oldString, newString) {
+    var _options$timeout;
     var options2 = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
     var callback = options2.callback;
     if (typeof options2 === "function") {
@@ -51395,42 +51396,53 @@ Diff.prototype = {
     if (options2.maxEditLength) {
       maxEditLength = Math.min(maxEditLength, options2.maxEditLength);
     }
+    var maxExecutionTime = (_options$timeout = options2.timeout) !== null && _options$timeout !== void 0 ? _options$timeout : Infinity;
+    var abortAfterTimestamp = Date.now() + maxExecutionTime;
     var bestPath = [{
-      newPos: -1,
-      components: []
+      oldPos: -1,
+      lastComponent: void 0
     }];
-    var oldPos = this.extractCommon(bestPath[0], newString, oldString, 0);
-    if (bestPath[0].newPos + 1 >= newLen && oldPos + 1 >= oldLen) {
+    var newPos = this.extractCommon(bestPath[0], newString, oldString, 0);
+    if (bestPath[0].oldPos + 1 >= oldLen && newPos + 1 >= newLen) {
       return done([{
         value: this.join(newString),
         count: newString.length
       }]);
     }
+    var minDiagonalToConsider = -Infinity, maxDiagonalToConsider = Infinity;
     function execEditLength() {
-      for (var diagonalPath = -1 * editLength; diagonalPath <= editLength; diagonalPath += 2) {
+      for (var diagonalPath = Math.max(minDiagonalToConsider, -editLength); diagonalPath <= Math.min(maxDiagonalToConsider, editLength); diagonalPath += 2) {
         var basePath = void 0;
-        var addPath = bestPath[diagonalPath - 1], removePath = bestPath[diagonalPath + 1], _oldPos = (removePath ? removePath.newPos : 0) - diagonalPath;
-        if (addPath) {
+        var removePath = bestPath[diagonalPath - 1], addPath = bestPath[diagonalPath + 1];
+        if (removePath) {
           bestPath[diagonalPath - 1] = void 0;
         }
-        var canAdd = addPath && addPath.newPos + 1 < newLen, canRemove = removePath && 0 <= _oldPos && _oldPos < oldLen;
+        var canAdd = false;
+        if (addPath) {
+          var addPathNewPos = addPath.oldPos - diagonalPath;
+          canAdd = addPath && 0 <= addPathNewPos && addPathNewPos < newLen;
+        }
+        var canRemove = removePath && removePath.oldPos + 1 < oldLen;
         if (!canAdd && !canRemove) {
           bestPath[diagonalPath] = void 0;
           continue;
         }
-        if (!canAdd || canRemove && addPath.newPos < removePath.newPos) {
-          basePath = clonePath(removePath);
-          self.pushComponent(basePath.components, void 0, true);
+        if (!canRemove || canAdd && removePath.oldPos + 1 < addPath.oldPos) {
+          basePath = self.addToPath(addPath, true, void 0, 0);
         } else {
-          basePath = addPath;
-          basePath.newPos++;
-          self.pushComponent(basePath.components, true, void 0);
+          basePath = self.addToPath(removePath, void 0, true, 1);
         }
-        _oldPos = self.extractCommon(basePath, newString, oldString, diagonalPath);
-        if (basePath.newPos + 1 >= newLen && _oldPos + 1 >= oldLen) {
-          return done(buildValues(self, basePath.components, newString, oldString, self.useLongestToken));
+        newPos = self.extractCommon(basePath, newString, oldString, diagonalPath);
+        if (basePath.oldPos + 1 >= oldLen && newPos + 1 >= newLen) {
+          return done(buildValues(self, basePath.lastComponent, newString, oldString, self.useLongestToken));
         } else {
           bestPath[diagonalPath] = basePath;
+          if (basePath.oldPos + 1 >= oldLen) {
+            maxDiagonalToConsider = Math.min(maxDiagonalToConsider, diagonalPath - 1);
+          }
+          if (newPos + 1 >= newLen) {
+            minDiagonalToConsider = Math.max(minDiagonalToConsider, diagonalPath + 1);
+          }
         }
       }
       editLength++;
@@ -51438,7 +51450,7 @@ Diff.prototype = {
     if (callback) {
       (function exec() {
         setTimeout(function() {
-          if (editLength > maxEditLength) {
+          if (editLength > maxEditLength || Date.now() > abortAfterTimestamp) {
             return callback();
           }
           if (!execEditLength()) {
@@ -51447,7 +51459,7 @@ Diff.prototype = {
         }, 0);
       })();
     } else {
-      while (editLength <= maxEditLength) {
+      while (editLength <= maxEditLength && Date.now() <= abortAfterTimestamp) {
         var ret = execEditLength();
         if (ret) {
           return ret;
@@ -51455,36 +51467,45 @@ Diff.prototype = {
       }
     }
   },
-  pushComponent: function pushComponent(components, added, removed) {
-    var last = components[components.length - 1];
+  addToPath: function addToPath(path2, added, removed, oldPosInc) {
+    var last = path2.lastComponent;
     if (last && last.added === added && last.removed === removed) {
-      components[components.length - 1] = {
-        count: last.count + 1,
-        added,
-        removed
+      return {
+        oldPos: path2.oldPos + oldPosInc,
+        lastComponent: {
+          count: last.count + 1,
+          added,
+          removed,
+          previousComponent: last.previousComponent
+        }
       };
     } else {
-      components.push({
-        count: 1,
-        added,
-        removed
-      });
+      return {
+        oldPos: path2.oldPos + oldPosInc,
+        lastComponent: {
+          count: 1,
+          added,
+          removed,
+          previousComponent: last
+        }
+      };
     }
   },
   extractCommon: function extractCommon(basePath, newString, oldString, diagonalPath) {
-    var newLen = newString.length, oldLen = oldString.length, newPos = basePath.newPos, oldPos = newPos - diagonalPath, commonCount = 0;
+    var newLen = newString.length, oldLen = oldString.length, oldPos = basePath.oldPos, newPos = oldPos - diagonalPath, commonCount = 0;
     while (newPos + 1 < newLen && oldPos + 1 < oldLen && this.equals(newString[newPos + 1], oldString[oldPos + 1])) {
       newPos++;
       oldPos++;
       commonCount++;
     }
     if (commonCount) {
-      basePath.components.push({
-        count: commonCount
-      });
+      basePath.lastComponent = {
+        count: commonCount,
+        previousComponent: basePath.lastComponent
+      };
     }
-    basePath.newPos = newPos;
-    return oldPos;
+    basePath.oldPos = oldPos;
+    return newPos;
   },
   equals: function equals(left, right) {
     if (this.options.comparator) {
@@ -51512,7 +51533,16 @@ Diff.prototype = {
     return chars.join("");
   }
 };
-function buildValues(diff2, components, newString, oldString, useLongestToken) {
+function buildValues(diff2, lastComponent, newString, oldString, useLongestToken) {
+  var components = [];
+  var nextComponent;
+  while (lastComponent) {
+    components.push(lastComponent);
+    nextComponent = lastComponent.previousComponent;
+    delete lastComponent.previousComponent;
+    lastComponent = nextComponent;
+  }
+  components.reverse();
   var componentPos = 0, componentLen = components.length, newPos = 0, oldPos = 0;
   for (; componentPos < componentLen; componentPos++) {
     var component = components[componentPos];
@@ -51541,18 +51571,12 @@ function buildValues(diff2, components, newString, oldString, useLongestToken) {
       }
     }
   }
-  var lastComponent = components[componentLen - 1];
-  if (componentLen > 1 && typeof lastComponent.value === "string" && (lastComponent.added || lastComponent.removed) && diff2.equals("", lastComponent.value)) {
-    components[componentLen - 2].value += lastComponent.value;
+  var finalComponent = components[componentLen - 1];
+  if (componentLen > 1 && typeof finalComponent.value === "string" && (finalComponent.added || finalComponent.removed) && diff2.equals("", finalComponent.value)) {
+    components[componentLen - 2].value += finalComponent.value;
     components.pop();
   }
   return components;
-}
-function clonePath(path2) {
-  return {
-    newPos: path2.newPos,
-    components: path2.components.slice(0)
-  };
 }
 var characterDiff = new Diff();
 var extendedWordChars = /^[A-Za-z\xC0-\u02C6\u02C8-\u02D7\u02DE-\u02FF\u1E00-\u1EFF]+$/;
@@ -51578,6 +51602,9 @@ wordDiff.tokenize = function(value) {
 };
 var lineDiff = new Diff();
 lineDiff.tokenize = function(value) {
+  if (this.options.stripTrailingCr) {
+    value = value.replace(/\r\n/g, "\n");
+  }
   var retLines = [], linesAndNewlines = value.split(/(\n|\r\n)/);
   if (!linesAndNewlines[linesAndNewlines.length - 1]) {
     linesAndNewlines.pop();

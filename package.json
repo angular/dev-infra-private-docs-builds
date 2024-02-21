@@ -1,6 +1,6 @@
 {
   "name": "@angular/docs",
-  "version": "0.0.0-197340bee5c910e2e8c65e9189862c9e9b217ebd",
+  "version": "0.0.0-4abf37a80519f6bf8fcde29a73b31c97941acd9d",
   "dependencies": {
     "@angular/cdk": "17.2.0-rc.0",
     "@angular/common": "17.2.0-rc.1",
@@ -11,7 +11,7 @@
     "@angular/router": "17.2.0-rc.1",
     "@webcontainer/api": "^1.1.8",
     "algoliasearch": "^4.20.0",
-    "diff": "5.1.0",
+    "diff": "5.2.0",
     "emoji-regex": "10.3.0",
     "glob": "10.3.10",
     "highlight.js": "11.9.0",
