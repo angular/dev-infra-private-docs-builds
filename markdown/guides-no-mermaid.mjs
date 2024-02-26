@@ -50702,7 +50702,7 @@ var docsAlertExtension = {
   tokenizer(src) {
     let match;
     for (let level in AlertSeverityLevel) {
-      const rule = new RegExp("^s*" + level + ": (.*?)\n", "s");
+      const rule = new RegExp("^s*" + level + ": (.*?)\n(\n|$)", "s");
       const possibleMatch = rule.exec(src);
       if (possibleMatch?.[1]) {
         match = {
