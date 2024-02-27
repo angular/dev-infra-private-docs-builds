@@ -50875,7 +50875,7 @@ var headingRender = (text, level, raw) => {
     return `
     <header class="docs-header">
       <docs-breadcrumb></docs-breadcrumb>
-      
+
       ${getPageTitle(text)}
     </header>
     `;
@@ -50885,8 +50885,9 @@ var headingRender = (text, level, raw) => {
   const link2 = getHeaderId(anchorLessText);
   const label = anchorLessText.replaceAll(/`(.*?)`/g, "<code>$1</code>");
   return `
-  <h${level} id="${link2}">${label}</h${level}>
-  <a href="#${link2}" class="docs-anchor" tabindex="-1" aria-label="Link to ${label}"></a>
+  <h${level} id="${link2}">
+    <a href="#${link2}" class="docs-anchor" tabindex="-1" aria-label="Link to ${label}">${label}</a>
+  </h${level}>
   `;
 };
 
