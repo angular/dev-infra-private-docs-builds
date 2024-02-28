@@ -32,9 +32,9 @@ export class ExternalLink {
         }
     }
 }
-ExternalLink.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.3.0-next.0", ngImport: i0, type: ExternalLink, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-ExternalLink.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.3.0-next.0", type: ExternalLink, isStandalone: true, selector: "a[href]:not([noBlankForExternalLink])", host: { properties: { "attr.target": "target" } }, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.3.0-next.0", ngImport: i0, type: ExternalLink, decorators: [{
+ExternalLink.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.3.0-next.1", ngImport: i0, type: ExternalLink, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+ExternalLink.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.3.0-next.1", type: ExternalLink, isStandalone: true, selector: "a[href]:not([noBlankForExternalLink])", host: { properties: { "attr.target": "target" } }, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.3.0-next.1", ngImport: i0, type: ExternalLink, decorators: [{
             type: Directive,
             args: [{
                     selector: 'a[href]:not([noBlankForExternalLink])',
