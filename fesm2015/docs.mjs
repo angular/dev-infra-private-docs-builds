@@ -343,7 +343,7 @@ function getActivatedRouteSnapshotFromRouter(router) {
     return route;
 }
 
-const checkFilesInDirectory = (dir, fs, filterFoldersPredicate = () => true, files = []) => __awaiter(void 0, void 0, void 0, function* () {
+const checkFilesInDirectory = (dir_1, fs_1, ...args_1) => __awaiter(void 0, [dir_1, fs_1, ...args_1], void 0, function* (dir, fs, filterFoldersPredicate = () => true, files = []) {
     var _a;
     const entries = (_a = (yield fs.readdir(dir, { withFileTypes: true }))) !== null && _a !== void 0 ? _a : [];
     for (const entry of entries) {
@@ -13477,8 +13477,8 @@ class ExampleViewer {
         this.exampleMetadata.set(value);
     }
     renderExample() {
-        var _a, _b, _c, _d, _e, _f;
         return __awaiter(this, void 0, void 0, function* () {
+            var _a, _b, _c, _d, _e, _f;
             // Lazy load live example component
             if (((_a = this.exampleMetadata()) === null || _a === void 0 ? void 0 : _a.path) && ((_b = this.exampleMetadata()) === null || _b === void 0 ? void 0 : _b.preview)) {
                 this.exampleComponent = yield this.exampleViewerContentLoader.loadPreview((_c = this.exampleMetadata()) === null || _c === void 0 ? void 0 : _c.path);
@@ -13708,8 +13708,8 @@ class DocViewer {
         this.renderComponent(TableOfContents, tocHostElement, { contentSourceElement: element });
     }
     renderExampleViewerComponents(placeholder, snippets, path) {
-        var _a, _b;
         return __awaiter(this, void 0, void 0, function* () {
+            var _a, _b;
             const preview = Boolean(placeholder.getAttribute('preview'));
             const title = (_a = placeholder.getAttribute('header')) !== null && _a !== void 0 ? _a : undefined;
             const firstCodeSnippetTitle = snippets.length > 0 ? (_b = snippets[0].title) !== null && _b !== void 0 ? _b : snippets[0].name : undefined;

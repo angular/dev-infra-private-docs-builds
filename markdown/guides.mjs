@@ -110,18 +110,31 @@ var require_lib = __commonJS({
     var numeric_unicode_map_1 = require_numeric_unicode_map();
     var surrogate_pairs_1 = require_surrogate_pairs();
     var allNamedReferences = __assign(__assign({}, named_references_1.namedReferences), { all: named_references_1.namedReferences.html5 });
-    var encodeRegExps = {
-      specialChars: /[<>'"&]/g,
-      nonAscii: /[<>'"&\u0080-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,
-      nonAsciiPrintable: /[<>'"&\x01-\x08\x11-\x15\x17-\x1F\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,
-      nonAsciiPrintableOnly: /[\x01-\x08\x11-\x15\x17-\x1F\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,
-      extensive: /[\x01-\x0c\x0e-\x1f\x21-\x2c\x2e-\x2f\x3a-\x40\x5b-\x60\x7b-\x7d\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g
-    };
-    var defaultEncodeOptions = {
-      mode: "specialChars",
-      level: "all",
-      numeric: "decimal"
-    };
+    function replaceUsingRegExp(macroText, macroRegExp, macroReplacer) {
+      macroRegExp.lastIndex = 0;
+      var replaceMatch = macroRegExp.exec(macroText);
+      var replaceResult;
+      if (replaceMatch) {
+        replaceResult = "";
+        var replaceLastIndex = 0;
+        do {
+          if (replaceLastIndex !== replaceMatch.index) {
+            replaceResult += macroText.substring(replaceLastIndex, replaceMatch.index);
+          }
+          var replaceInput = replaceMatch[0];
+          replaceResult += macroReplacer(replaceInput);
+          replaceLastIndex = replaceMatch.index + replaceInput.length;
+        } while (replaceMatch = macroRegExp.exec(macroText));
+        if (replaceLastIndex !== macroText.length) {
+          replaceResult += macroText.substring(replaceLastIndex);
+        }
+      } else {
+        replaceResult = macroText;
+      }
+      return replaceResult;
+    }
+    var encodeRegExps = { specialChars: /[<>'"&]/g, nonAscii: /[<>'"&\u0080-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g, nonAsciiPrintable: /[<>'"&\x01-\x08\x11-\x15\x17-\x1F\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g, nonAsciiPrintableOnly: /[\x01-\x08\x11-\x15\x17-\x1F\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g, extensive: /[\x01-\x0c\x0e-\x1f\x21-\x2c\x2e-\x2f\x3a-\x40\x5b-\x60\x7b-\x7d\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g };
+    var defaultEncodeOptions = { mode: "specialChars", level: "all", numeric: "decimal" };
     function encode(text, _a) {
       var _b = _a === void 0 ? defaultEncodeOptions : _a, _c = _b.mode, mode = _c === void 0 ? "specialChars" : _c, _d = _b.numeric, numeric = _d === void 0 ? "decimal" : _d, _e = _b.level, level = _e === void 0 ? "all" : _e;
       if (!text) {
@@ -130,89 +143,53 @@ var require_lib = __commonJS({
       var encodeRegExp = encodeRegExps[mode];
       var references = allNamedReferences[level].characters;
       var isHex = numeric === "hexadecimal";
-      encodeRegExp.lastIndex = 0;
-      var _b = encodeRegExp.exec(text);
-      var _c;
-      if (_b) {
-        _c = "";
-        var _d = 0;
-        do {
-          if (_d !== _b.index) {
-            _c += text.substring(_d, _b.index);
-          }
-          var _e = _b[0];
-          var result_1 = references[_e];
-          if (!result_1) {
-            var code_1 = _e.length > 1 ? surrogate_pairs_1.getCodePoint(_e, 0) : _e.charCodeAt(0);
-            result_1 = (isHex ? "&#x" + code_1.toString(16) : "&#" + code_1) + ";";
-          }
-          _c += result_1;
-          _d = _b.index + _e.length;
-        } while (_b = encodeRegExp.exec(text));
-        if (_d !== text.length) {
-          _c += text.substring(_d);
+      return replaceUsingRegExp(text, encodeRegExp, function(input) {
+        var result = references[input];
+        if (!result) {
+          var code = input.length > 1 ? surrogate_pairs_1.getCodePoint(input, 0) : input.charCodeAt(0);
+          result = (isHex ? "&#x" + code.toString(16) : "&#" + code) + ";";
         }
-      } else {
-        _c = text;
-      }
-      return _c;
+        return result;
+      });
     }
     exports.encode = encode;
-    var defaultDecodeOptions = {
-      scope: "body",
-      level: "all"
-    };
+    var defaultDecodeOptions = { scope: "body", level: "all" };
     var strict = /&(?:#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+);/g;
     var attribute = /&(?:#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+)[;=]?/g;
-    var baseDecodeRegExps = {
-      xml: {
-        strict,
-        attribute,
-        body: named_references_1.bodyRegExps.xml
-      },
-      html4: {
-        strict,
-        attribute,
-        body: named_references_1.bodyRegExps.html4
-      },
-      html5: {
-        strict,
-        attribute,
-        body: named_references_1.bodyRegExps.html5
-      }
-    };
+    var baseDecodeRegExps = { xml: { strict, attribute, body: named_references_1.bodyRegExps.xml }, html4: { strict, attribute, body: named_references_1.bodyRegExps.html4 }, html5: { strict, attribute, body: named_references_1.bodyRegExps.html5 } };
     var decodeRegExps = __assign(__assign({}, baseDecodeRegExps), { all: baseDecodeRegExps.html5 });
     var fromCharCode = String.fromCharCode;
     var outOfBoundsChar = fromCharCode(65533);
-    var defaultDecodeEntityOptions = {
-      level: "all"
-    };
+    var defaultDecodeEntityOptions = { level: "all" };
+    function getDecodedEntity(entity, references, isAttribute, isStrict) {
+      var decodeResult = entity;
+      var decodeEntityLastChar = entity[entity.length - 1];
+      if (isAttribute && decodeEntityLastChar === "=") {
+        decodeResult = entity;
+      } else if (isStrict && decodeEntityLastChar !== ";") {
+        decodeResult = entity;
+      } else {
+        var decodeResultByReference = references[entity];
+        if (decodeResultByReference) {
+          decodeResult = decodeResultByReference;
+        } else if (entity[0] === "&" && entity[1] === "#") {
+          var decodeSecondChar = entity[2];
+          var decodeCode = decodeSecondChar == "x" || decodeSecondChar == "X" ? parseInt(entity.substr(3), 16) : parseInt(entity.substr(2));
+          decodeResult = decodeCode >= 1114111 ? outOfBoundsChar : decodeCode > 65535 ? surrogate_pairs_1.fromCodePoint(decodeCode) : fromCharCode(numeric_unicode_map_1.numericUnicodeMap[decodeCode] || decodeCode);
+        }
+      }
+      return decodeResult;
+    }
     function decodeEntity(entity, _a) {
       var _b = (_a === void 0 ? defaultDecodeEntityOptions : _a).level, level = _b === void 0 ? "all" : _b;
       if (!entity) {
         return "";
       }
-      var _b = entity;
-      var decodeEntityLastChar_1 = entity[entity.length - 1];
-      if (false) {
-        _b = entity;
-      } else if (false) {
-        _b = entity;
-      } else {
-        var decodeResultByReference_1 = allNamedReferences[level].entities[entity];
-        if (decodeResultByReference_1) {
-          _b = decodeResultByReference_1;
-        } else if (entity[0] === "&" && entity[1] === "#") {
-          var decodeSecondChar_1 = entity[2];
-          var decodeCode_1 = decodeSecondChar_1 == "x" || decodeSecondChar_1 == "X" ? parseInt(entity.substr(3), 16) : parseInt(entity.substr(2));
-          _b = decodeCode_1 >= 1114111 ? outOfBoundsChar : decodeCode_1 > 65535 ? surrogate_pairs_1.fromCodePoint(decodeCode_1) : fromCharCode(numeric_unicode_map_1.numericUnicodeMap[decodeCode_1] || decodeCode_1);
-        }
-      }
-      return _b;
+      return getDecodedEntity(entity, allNamedReferences[level].entities, false, false);
     }
     exports.decodeEntity = decodeEntity;
     function decode2(text, _a) {
-      var decodeSecondChar_1 = _a === void 0 ? defaultDecodeOptions : _a, decodeCode_1 = decodeSecondChar_1.level, level = decodeCode_1 === void 0 ? "all" : decodeCode_1, _b = decodeSecondChar_1.scope, scope = _b === void 0 ? level === "xml" ? "strict" : "body" : _b;
+      var _b = _a === void 0 ? defaultDecodeOptions : _a, _c = _b.level, level = _c === void 0 ? "all" : _c, _d = _b.scope, scope = _d === void 0 ? level === "xml" ? "strict" : "body" : _d;
       if (!text) {
         return "";
       }
@@ -220,43 +197,9 @@ var require_lib = __commonJS({
       var references = allNamedReferences[level].entities;
       var isAttribute = scope === "attribute";
       var isStrict = scope === "strict";
-      decodeRegExp.lastIndex = 0;
-      var replaceMatch_1 = decodeRegExp.exec(text);
-      var replaceResult_1;
-      if (replaceMatch_1) {
-        replaceResult_1 = "";
-        var replaceLastIndex_1 = 0;
-        do {
-          if (replaceLastIndex_1 !== replaceMatch_1.index) {
-            replaceResult_1 += text.substring(replaceLastIndex_1, replaceMatch_1.index);
-          }
-          var replaceInput_1 = replaceMatch_1[0];
-          var decodeResult_1 = replaceInput_1;
-          var decodeEntityLastChar_2 = replaceInput_1[replaceInput_1.length - 1];
-          if (isAttribute && decodeEntityLastChar_2 === "=") {
-            decodeResult_1 = replaceInput_1;
-          } else if (isStrict && decodeEntityLastChar_2 !== ";") {
-            decodeResult_1 = replaceInput_1;
-          } else {
-            var decodeResultByReference_2 = references[replaceInput_1];
-            if (decodeResultByReference_2) {
-              decodeResult_1 = decodeResultByReference_2;
-            } else if (replaceInput_1[0] === "&" && replaceInput_1[1] === "#") {
-              var decodeSecondChar_2 = replaceInput_1[2];
-              var decodeCode_2 = decodeSecondChar_2 == "x" || decodeSecondChar_2 == "X" ? parseInt(replaceInput_1.substr(3), 16) : parseInt(replaceInput_1.substr(2));
-              decodeResult_1 = decodeCode_2 >= 1114111 ? outOfBoundsChar : decodeCode_2 > 65535 ? surrogate_pairs_1.fromCodePoint(decodeCode_2) : fromCharCode(numeric_unicode_map_1.numericUnicodeMap[decodeCode_2] || decodeCode_2);
-            }
-          }
-          replaceResult_1 += decodeResult_1;
-          replaceLastIndex_1 = replaceMatch_1.index + replaceInput_1.length;
-        } while (replaceMatch_1 = decodeRegExp.exec(text));
-        if (replaceLastIndex_1 !== text.length) {
-          replaceResult_1 += text.substring(replaceLastIndex_1);
-        }
-      } else {
-        replaceResult_1 = text;
-      }
-      return replaceResult_1;
+      return replaceUsingRegExp(text, decodeRegExp, function(entity) {
+        return getDecodedEntity(entity, references, isAttribute, isStrict);
+      });
     }
     exports.decode = decode2;
   }
@@ -49597,7 +49540,7 @@ var fences = /^ {0,3}(`{3,}(?=[^`\n]*(?:\n|$))|~{3,})([^\n]*)(?:\n|$)(?:|([\s\S]
 var hr = /^ {0,3}((?:-[\t ]*){3,}|(?:_[ \t]*){3,}|(?:\*[ \t]*){3,})(?:\n+|$)/;
 var heading = /^ {0,3}(#{1,6})(?=\s|$)(.*)(?:\n+|$)/;
 var bullet = /(?:[*+-]|\d{1,9}[.)])/;
-var lheading = edit(/^(?!bull )((?:.|\n(?!\s*?\n|bull ))+?)\n {0,3}(=+|-+) *(?:\n+|$)/).replace(/bull/g, bullet).getRegex();
+var lheading = edit(/^(?!bull |blockCode|fences|blockquote|heading|html)((?:.|\n(?!\s*?\n|bull |blockCode|fences|blockquote|heading|html))+?)\n {0,3}(=+|-+) *(?:\n+|$)/).replace(/bull/g, bullet).replace(/blockCode/g, / {4}/).replace(/fences/g, / {0,3}(?:`{3,}|~{3,})/).replace(/blockquote/g, / {0,3}>/).replace(/heading/g, / {0,3}#{1,6}/).replace(/html/g, / {0,3}<[^\n>]+>\n/).getRegex();
 var _paragraph = /^([^\n]+(?:\n(?!hr|heading|lheading|blockquote|fences|list|html|table| +\n)[^\n]+)*)/;
 var blockText = /^[^\n]+/;
 var _blockLabel = /(?!\s*\])(?:\\.|[^\[\]\\])+/;

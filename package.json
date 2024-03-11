@@ -1,6 +1,6 @@
 {
   "name": "@angular/docs",
-  "version": "0.0.0-219a481559dfea90892651fa3670eea6ec7b1ede",
+  "version": "0.0.0-6f2a160ef444180531afc8750af761fa73732018",
   "dependencies": {
     "@angular/cdk": "17.3.0-rc.0",
     "@angular/common": "17.3.0-rc.0",
@@ -15,10 +15,10 @@
     "emoji-regex": "10.3.0",
     "glob": "10.3.10",
     "highlight.js": "11.9.0",
-    "html-entities": "2.4.0",
+    "html-entities": "2.5.2",
     "jsdom": "24.0.0",
     "jszip": "^3.10.1",
-    "marked": "12.0.0",
+    "marked": "12.0.1",
     "rxjs": "^7.8.1",
     "xterm": "^5.3.0",
     "xterm-addon-fit": "^0.8.0",

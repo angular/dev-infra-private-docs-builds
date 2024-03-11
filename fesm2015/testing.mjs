@@ -435,8 +435,8 @@ class WebContainer {
      *
      * Booting WebContainer is an expensive operation.
      */
-    static boot(options = {}) {
-        return __awaiter(this, void 0, void 0, function* () {
+    static boot() {
+        return __awaiter(this, arguments, void 0, function* (options = {}) {
             const { workdirName } = options;
             if (window.crossOriginIsolated && options.coep === 'none') {
                 console.warn(`A Cross-Origin-Embedder-Policy header is required in cross origin isolated environments.\nSet the 'coep' option to 'require-corp'.`);
@@ -550,8 +550,8 @@ class WebContainerProcessImpl {
         (_a = this._getProcess()) === null || _a === void 0 ? void 0 : _a.resize(dimensions);
     }
     _onExit() {
-        var _a;
         return __awaiter(this, void 0, void 0, function* () {
+            var _a;
             try {
                 return yield this._process.onExit;
             }
