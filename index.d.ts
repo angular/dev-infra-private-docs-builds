@@ -468,6 +468,8 @@ export declare interface SelectOption {
 
 declare type SelectOptionValue = string | number | boolean;
 
+export declare function setCookieConsent(state: 'denied' | 'granted'): void;
+
 export declare const shouldReduceMotion: () => boolean;
 
 export declare class SlideToggle implements ControlValueAccessor {

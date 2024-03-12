@@ -11982,6 +11982,37 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.3.0-rc.0", ng
  * found in the LICENSE file at https://angular.dev/license
  */
 const STORAGE_KEY = 'docs-accepts-cookies';
+function setCookieConsent(state) {
+    try {
+        if (window.gtag) {
+            const consentOptions = {
+                ad_user_data: state,
+                ad_personalization: state,
+                ad_storage: state,
+                analytics_storage: state,
+            };
+            if (state === 'denied') {
+                window.gtag('consent', 'default', {
+                    ...consentOptions,
+                    wait_for_update: 500,
+                });
+            }
+            else if (state === 'granted') {
+                window.gtag('consent', 'update', {
+                    ...consentOptions,
+                });
+            }
+        }
+    }
+    catch {
+        if (state === 'denied') {
+            console.error('Unable to set default cookie consent.');
+        }
+        else if (state === 'granted') {
+            console.error('Unable to grant cookie consent.');
+        }
+    }
+}
 class CookiePopup {
     constructor() {
         this.localStorage = inject(LOCAL_STORAGE);
@@ -12003,6 +12034,8 @@ class CookiePopup {
         }
         catch { }
         this.hasAccepted.set(true);
+        // Enable Google Analytics consent properties
+        setCookieConsent('granted');
     }
 }
 CookiePopup.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.3.0-rc.0", ngImport: i0, type: CookiePopup, deps: [], target: i0.ɵɵFactoryTarget.Component });
@@ -12538,5 +12571,5 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.3.0-rc.0", ng
  * Generated bundle index. Do not edit.
  */
 
-export { ASSETS_EXAMPLES_PATH, ClickOutside, CookiePopup, DOCS_CODE_MUTLIFILE_SELECTOR, DOCS_CODE_SELECTOR, DOCS_CONTENT_LOADER, DOCS_VIEWER_SELECTOR, DocViewer, ENVIRONMENT, EXAMPLE_VIEWER_CONTENT_LOADER, ExternalLink, GITHUB_CONTENT_URL, IS_SEARCH_DIALOG_OPEN, IconComponent, LOCAL_STORAGE, MAX_VALUE_PER_FACET, NavigationList, NavigationState, PREVIEWS_COMPONENTS, RESIZE_EVENT_DELAY, SEARCH_DELAY, STORAGE_KEY, Search, SearchDialog, Select, SlideToggle, TOC_SKIP_CONTENT_MARKER, TableOfContents, TableOfContentsLevel, TableOfContentsLoader, TableOfContentsScrollSpy, TextField, WEBGL_LOADED_DELAY, WINDOW, checkFilesInDirectory, contentResolver, findNavigationItem, flatNavigationData, generateZip, getActivatedRouteSnapshotFromRouter, getBaseUrlAfterRedirects, getNavigationItemsTree, handleHrefClickEventWithRouter, injectAsync, isApple, isExternalLink, isFirefox, isIos, isIpad, isMobile, mapNavigationItemsToRoutes, markExternalLinks, mockAsyncProvider, normalizePath, removeTrailingSlash, shouldReduceMotion, windowProvider };
+export { ASSETS_EXAMPLES_PATH, ClickOutside, CookiePopup, DOCS_CODE_MUTLIFILE_SELECTOR, DOCS_CODE_SELECTOR, DOCS_CONTENT_LOADER, DOCS_VIEWER_SELECTOR, DocViewer, ENVIRONMENT, EXAMPLE_VIEWER_CONTENT_LOADER, ExternalLink, GITHUB_CONTENT_URL, IS_SEARCH_DIALOG_OPEN, IconComponent, LOCAL_STORAGE, MAX_VALUE_PER_FACET, NavigationList, NavigationState, PREVIEWS_COMPONENTS, RESIZE_EVENT_DELAY, SEARCH_DELAY, STORAGE_KEY, Search, SearchDialog, Select, SlideToggle, TOC_SKIP_CONTENT_MARKER, TableOfContents, TableOfContentsLevel, TableOfContentsLoader, TableOfContentsScrollSpy, TextField, WEBGL_LOADED_DELAY, WINDOW, checkFilesInDirectory, contentResolver, findNavigationItem, flatNavigationData, generateZip, getActivatedRouteSnapshotFromRouter, getBaseUrlAfterRedirects, getNavigationItemsTree, handleHrefClickEventWithRouter, injectAsync, isApple, isExternalLink, isFirefox, isIos, isIpad, isMobile, mapNavigationItemsToRoutes, markExternalLinks, mockAsyncProvider, normalizePath, removeTrailingSlash, setCookieConsent, shouldReduceMotion, windowProvider };
 //# sourceMappingURL=docs.mjs.map
