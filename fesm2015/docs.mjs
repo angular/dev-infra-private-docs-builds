@@ -386,7 +386,19 @@ function getDefaultExportFromNamespaceIfNotNamed(n) {
 function getAugmentedNamespace(n) {
     if (n.__esModule)
         return n;
-    var a = Object.defineProperty({}, '__esModule', { value: true });
+    var f = n.default;
+    if (typeof f == "function") {
+        var a = function a() {
+            if (this instanceof a) {
+                return Reflect.construct(f, arguments, this.constructor);
+            }
+            return f.apply(this, arguments);
+        };
+        a.prototype = f.prototype;
+    }
+    else
+        a = {};
+    Object.defineProperty(a, '__esModule', { value: true });
     Object.keys(n).forEach(function (k) {
         var d = Object.getOwnPropertyDescriptor(n, k);
         Object.defineProperty(a, k, d.get ? d : {
@@ -398,11 +410,12 @@ function getAugmentedNamespace(n) {
     });
     return a;
 }
+
 function commonjsRequire(path) {
     throw new Error('Could not dynamically require "' + path + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
 }
 
-var jszip_min = { exports: {} };
+var jszip_min$1 = { exports: {} };
 
 /*!
 
@@ -415,6 +428,7 @@ Dual licenced under the MIT license or GPLv3. See https://raw.github.com/Stuk/js
 JSZip uses the library pako released under the MIT license :
 https://github.com/nodeca/pako/blob/main/LICENSE
 */
+var jszip_min = jszip_min$1.exports;
 (function (module, exports) {
     !function (e) { if ("object" == 'object' && "undefined" != 'object')
         module.exports = e();
@@ -1919,8 +1933,9 @@ https://github.com/nodeca/pako/blob/main/LICENSE
                 } }
                 function d(e) { e.source === r && "string" == typeof e.data && 0 === e.data.indexOf(a) && c(+e.data.slice(a.length)); }
             }("undefined" == typeof self ? void 0 === e ? this : e : self); }).call(this, "undefined" != typeof global ? global : "undefined" != typeof self ? self : "undefined" != typeof window ? window : {}); }, {}] }, {}, [10])(10); });
-}(jszip_min, jszip_min.exports));
-var JSZip = jszip_min.exports;
+}(jszip_min$1, jszip_min$1.exports));
+var jszip_minExports = jszip_min$1.exports;
+var JSZip = /*@__PURE__*/ getDefaultExportFromCjs(jszip_minExports);
 
 function generateZip(files) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -2521,8 +2536,10 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.3.0-rc.0", ng
             type: Injectable
         }] });
 
-var algoliasearchLite_umd = { exports: {} };
+var algoliasearchLite_umd$1 = { exports: {} };
 
+/*! algoliasearch-lite.umd.js | 4.22.1 | © Algolia, inc. | https://github.com/algolia/algoliasearch-client-javascript */
+var algoliasearchLite_umd = algoliasearchLite_umd$1.exports;
 (function (module, exports) {
     !function (e, t) { "object" == 'object' && "undefined" != 'object' ? module.exports = t() : "function" == typeof undefined && undefined.amd ? undefined(t) : (e = e || self).algoliasearch = t(); }(this, (function () {
         "use strict";
@@ -2609,8 +2626,9 @@ var algoliasearchLite_umd = { exports: {} };
         function Q(e, t, n) { var o, a = { appId: e, apiKey: t, timeouts: { connect: 1, read: 2, write: 30 }, requester: { send: function (e) { return new Promise((function (t) { var r = new XMLHttpRequest; r.open(e.method, e.url, !0), Object.keys(e.headers).forEach((function (t) { return r.setRequestHeader(t, e.headers[t]); })); var n, o = function (e, n) { return setTimeout((function () { r.abort(), t({ status: 0, content: n, isTimedOut: !0 }); }), 1e3 * e); }, a = o(e.connectTimeout, "Connection timeout"); r.onreadystatechange = function () { r.readyState > r.OPENED && void 0 === n && (clearTimeout(a), n = o(e.responseTimeout, "Socket timeout")); }, r.onerror = function () { 0 === r.status && (clearTimeout(a), clearTimeout(n), t({ content: r.responseText || "Network request failed", status: r.status, isTimedOut: !1 })); }, r.onload = function () { clearTimeout(a), clearTimeout(n), t({ content: r.responseText, status: r.status, isTimedOut: !1 }); }, r.send(e.data); })); } }, logger: (o = H, { debug: function (e, t) { return D >= o && console.debug(e, t), Promise.resolve(); }, info: function (e, t) { return W >= o && console.info(e, t), Promise.resolve(); }, error: function (e, t) { return console.error(e, t), Promise.resolve(); } }), responsesCache: s(), requestsCache: s({ serializable: !1 }), hostsCache: i({ caches: [u({ key: "".concat("4.22.1", "-").concat(e) }), s()] }), userAgent: w("4.22.1").add({ segment: "Browser", version: "lite" }), authMode: m.WithinQueryParameters }; return x(r(r(r({}, a), n), {}, { methods: { search: J, searchForFacetValues: k, multipleQueries: J, multipleSearchForFacetValues: k, customRequest: C, initIndex: function (e) { return function (t) { return E(e)(t, { methods: { search: F, searchForFacetValues: R, findAnswers: I } }); }; } } })); }
         return Q.version = "4.22.1", Q;
     }));
-}(algoliasearchLite_umd, algoliasearchLite_umd.exports));
-var algoliasearch = algoliasearchLite_umd.exports;
+}(algoliasearchLite_umd$1, algoliasearchLite_umd$1.exports));
+var algoliasearchLite_umdExports = algoliasearchLite_umd$1.exports;
+var algoliasearch = /*@__PURE__*/ getDefaultExportFromCjs(algoliasearchLite_umdExports);
 
 /*!
  * @license
