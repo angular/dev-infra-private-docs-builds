@@ -3986,14 +3986,14 @@ var require_queue = __commonJS({
   "node_modules/fastq/queue.js"(exports, module) {
     "use strict";
     var reusify = require_reusify();
-    function fastqueue(context, worker, concurrency) {
+    function fastqueue(context, worker, _concurrency) {
       if (typeof context === "function") {
-        concurrency = worker;
+        _concurrency = worker;
         worker = context;
         context = null;
       }
-      if (concurrency < 1) {
-        throw new Error("fastqueue concurrency must be greater than 1");
+      if (!(_concurrency >= 1)) {
+        throw new Error("fastqueue concurrency must be equal to or greater than 1");
       }
       var cache = reusify(Task);
       var queueHead = null;
@@ -4006,7 +4006,21 @@ var require_queue = __commonJS({
         saturated: noop,
         pause,
         paused: false,
-        concurrency,
+        get concurrency() {
+          return _concurrency;
+        },
+        set concurrency(value) {
+          if (!(value >= 1)) {
+            throw new Error("fastqueue concurrency must be equal to or greater than 1");
+          }
+          _concurrency = value;
+          if (self.paused)
+            return;
+          for (; queueHead && _running < _concurrency; ) {
+            _running++;
+            release();
+          }
+        },
         running,
         resume,
         idle,
@@ -4047,7 +4061,12 @@ var require_queue = __commonJS({
         if (!self.paused)
           return;
         self.paused = false;
-        for (var i = 0; i < self.concurrency; i++) {
+        if (queueHead === null) {
+          _running++;
+          release();
+          return;
+        }
+        for (; queueHead && _running < _concurrency; ) {
           _running++;
           release();
         }
@@ -4062,7 +4081,7 @@ var require_queue = __commonJS({
         current.value = value;
         current.callback = done || noop;
         current.errorHandler = errorHandler;
-        if (_running === self.concurrency || self.paused) {
+        if (_running >= _concurrency || self.paused) {
           if (queueTail) {
             queueTail.next = current;
             queueTail = current;
@@ -4082,7 +4101,8 @@ var require_queue = __commonJS({
         current.release = release;
         current.value = value;
         current.callback = done || noop;
-        if (_running === self.concurrency || self.paused) {
+        current.errorHandler = errorHandler;
+        if (_running >= _concurrency || self.paused) {
           if (queueHead) {
             current.next = queueHead;
             queueHead = current;
@@ -4101,7 +4121,7 @@ var require_queue = __commonJS({
           cache.release(holder);
         }
         var next = queueHead;
-        if (next) {
+        if (next && _running <= _concurrency) {
           if (!self.paused) {
             if (queueTail === queueHead) {
               queueTail = null;
@@ -4157,9 +4177,9 @@ var require_queue = __commonJS({
         self.release(self);
       };
     }
-    function queueAsPromised(context, worker, concurrency) {
+    function queueAsPromised(context, worker, _concurrency) {
       if (typeof context === "function") {
-        concurrency = worker;
+        _concurrency = worker;
         worker = context;
         context = null;
       }
@@ -4168,7 +4188,7 @@ var require_queue = __commonJS({
           cb(null, res);
         }, cb);
       }
-      var queue = fastqueue(context, asyncWrapper, concurrency);
+      var queue = fastqueue(context, asyncWrapper, _concurrency);
       var pushCb = queue.push;
       var unshiftCb = queue.unshift;
       queue.push = push;

@@ -1,12 +1,12 @@
 import * as i1 from '@angular/common';
 import { DOCUMENT, isPlatformBrowser, ViewportScroller, NgIf, NgFor, CommonModule, NgClass, Location } from '@angular/common';
 import * as i0 from '@angular/core';
-import { EventEmitter, inject, ElementRef, Directive, Input, Output, InjectionToken, signal, PLATFORM_ID, assertInInjectionContext, DestroyRef, ɵRuntimeError as _RuntimeError, ɵgetOutputDestroyRef as _getOutputDestroyRef, Injector, untracked, effect, assertNotInReactiveContext, computed, Injectable, NgZone, EnvironmentInjector, afterNextRender, createEnvironmentInjector, ENVIRONMENT_INITIALIZER, ChangeDetectorRef, Component, ChangeDetectionStrategy, Inject, Optional, NgModule, booleanAttribute, CSP_NONCE, APP_ID, QueryList, Version, LOCALE_ID, ANIMATION_MODULE_TYPE, ViewEncapsulation, ViewChild, forwardRef, SkipSelf, TemplateRef, ContentChild, numberAttribute, ContentChildren, Attribute, ViewContainerRef, ApplicationRef, ɵPendingTasks as _PendingTasks, createComponent, Pipe, ViewChildren } from '@angular/core';
+import { EventEmitter, inject, ElementRef, Directive, Input, Output, InjectionToken, signal, PLATFORM_ID, assertInInjectionContext, DestroyRef, ɵRuntimeError as _RuntimeError, ɵgetOutputDestroyRef as _getOutputDestroyRef, Injector, effect, untracked, assertNotInReactiveContext, computed, Injectable, NgZone, EnvironmentInjector, afterNextRender, createEnvironmentInjector, ENVIRONMENT_INITIALIZER, ChangeDetectorRef, Component, ChangeDetectionStrategy, Inject, Optional, NgModule, booleanAttribute, CSP_NONCE, APP_ID, QueryList, Version, LOCALE_ID, ANIMATION_MODULE_TYPE, ViewEncapsulation, ViewChild, forwardRef, SkipSelf, TemplateRef, ContentChild, numberAttribute, ContentChildren, Attribute, ViewContainerRef, ApplicationRef, ɵPendingTasks as _PendingTasks, createComponent, Pipe, ViewChildren } from '@angular/core';
 import { __awaiter } from 'tslib';
-import { Observable, ReplaySubject, debounceTime, startWith, fromEvent, auditTime, from, of, switchMap, filter, Subject, combineLatest, concat, Subscription, BehaviorSubject, ConnectableObservable, isObservable, animationFrameScheduler, asapScheduler, merge, EMPTY, timer } from 'rxjs';
+import { Observable, ReplaySubject, fromEvent, debounceTime, startWith, auditTime, switchMap, from, of, filter, Subject, combineLatest, concat, Subscription, BehaviorSubject, ConnectableObservable, isObservable, animationFrameScheduler, asapScheduler, merge, EMPTY, timer } from 'rxjs';
 import { takeUntil, debounceTime as debounceTime$1, take, skip, map, startWith as startWith$1, tap, filter as filter$1, distinctUntilChanged, auditTime as auditTime$1, pairwise, switchMap as switchMap$1, shareReplay } from 'rxjs/operators';
 import { Router, NavigationEnd, RouterLink, RouterLinkActive } from '@angular/router';
-import { style, state, animate, transition, trigger } from '@angular/animations';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import * as i1$1 from '@angular/forms';
 import { NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 
