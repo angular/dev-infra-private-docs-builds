@@ -68,6 +68,40 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-next.0", 
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.dev/license
  */
+const setCookieConsent = (state) => {
+    try {
+        if (window.gtag) {
+            const consentOptions = {
+                ad_user_data: state,
+                ad_personalization: state,
+                ad_storage: state,
+                analytics_storage: state,
+            };
+            if (state === 'denied') {
+                window.gtag('consent', 'default', Object.assign(Object.assign({}, consentOptions), { wait_for_update: 500 }));
+            }
+            else if (state === 'granted') {
+                window.gtag('consent', 'update', Object.assign({}, consentOptions));
+            }
+        }
+    }
+    catch (_a) {
+        if (state === 'denied') {
+            console.error('Unable to set default cookie consent.');
+        }
+        else if (state === 'granted') {
+            console.error('Unable to grant cookie consent.');
+        }
+    }
+};
+
+/*!
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
 const shouldReduceMotion = () => typeof window !== 'undefined' &&
     window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
 
@@ -13862,32 +13896,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-next.0", 
  * found in the LICENSE file at https://angular.dev/license
  */
 const STORAGE_KEY = 'docs-accepts-cookies';
-function setCookieConsent(state) {
-    try {
-        if (window.gtag) {
-            const consentOptions = {
-                ad_user_data: state,
-                ad_personalization: state,
-                ad_storage: state,
-                analytics_storage: state,
-            };
-            if (state === 'denied') {
-                window.gtag('consent', 'default', Object.assign(Object.assign({}, consentOptions), { wait_for_update: 500 }));
-            }
-            else if (state === 'granted') {
-                window.gtag('consent', 'update', Object.assign({}, consentOptions));
-            }
-        }
-    }
-    catch (_a) {
-        if (state === 'denied') {
-            console.error('Unable to set default cookie consent.');
-        }
-        else if (state === 'granted') {
-            console.error('Unable to grant cookie consent.');
-        }
-    }
-}
 class CookiePopup {
     constructor() {
         var _a;
