@@ -50847,11 +50847,11 @@ var renderer = {
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/guides/extensions/docs-alert.js
 var AlertSeverityLevel;
 (function(AlertSeverityLevel2) {
-  AlertSeverityLevel2["Note"] = "Note";
-  AlertSeverityLevel2["Tip"] = "Tip";
+  AlertSeverityLevel2["Note"] = "NOTE";
+  AlertSeverityLevel2["Tip"] = "TIP";
   AlertSeverityLevel2["TODO"] = "TODO";
   AlertSeverityLevel2["QUESTION"] = "QUESTION";
-  AlertSeverityLevel2["Summary"] = "Summary";
+  AlertSeverityLevel2["Summary"] = "SUMMARY";
   AlertSeverityLevel2["TLDR"] = "TLDR";
   AlertSeverityLevel2["CRITICAL"] = "CRITICAL";
   AlertSeverityLevel2["IMPORTANT"] = "IMPORTANT";
