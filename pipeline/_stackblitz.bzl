@@ -59,10 +59,10 @@ generate_stackblitz = rule(
         ),
         "template_srcs": attr.label(
             doc = """The stackblitz template directory to base generated stackblitz on.""",
-            default = Label("@npm//@angular/docs/markdown/examples/template:files"),
+            default = Label("@npm//@angular/docs/pipeline/examples/template:files"),
         ),
         "_generate_stackblitz": attr.label(
-            default = Label("@npm//@angular/docs/markdown:stackblitz"),
+            default = Label("@npm//@angular/docs/pipeline:stackblitz"),
             executable = True,
             cfg = "exec",
         ),

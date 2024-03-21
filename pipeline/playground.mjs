@@ -3093,8 +3093,8 @@ var require_pattern = __commonJS({
     }
     exports.endsWithSlashGlobStar = endsWithSlashGlobStar;
     function isAffectDepthOfReadingPattern(pattern) {
-      const basename3 = path.basename(pattern);
-      return endsWithSlashGlobStar(pattern) || isStaticPattern(basename3);
+      const basename2 = path.basename(pattern);
+      return endsWithSlashGlobStar(pattern) || isStaticPattern(basename2);
     }
     exports.isAffectDepthOfReadingPattern = isAffectDepthOfReadingPattern;
     function expandPatternsWithBraceExpansion(patterns) {
@@ -5387,11 +5387,11 @@ var require_out4 = __commonJS({
   }
 });
 
-// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/tutorial/tutorial.js
-import { basename as basename2, join as join2 } from "path";
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/tutorials/playground.js
+import { join as join2 } from "path";
 import { existsSync as existsSync2, mkdirSync, writeFileSync } from "fs";
 
-// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/tutorial/utils.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/tutorials/utils.js
 var import_fast_glob = __toESM(require_out4());
 import { dirname, join } from "path";
 import { existsSync, readFileSync } from "fs";
@@ -5436,16 +5436,8 @@ async function findAllConfigs(dir) {
   }
   return configs;
 }
-async function findConfig(dir) {
-  const configPath = join(dir, "config.json");
-  if (!existsSync(configPath)) {
-    throw Error(`Unable config.json file found at: ${dir}`);
-  }
-  const content = await getFileContents(configPath);
-  return JSON.parse(content);
-}
 
-// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/tutorial/metadata.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/tutorials/metadata.js
 async function generateMetadata(config, files) {
   const tutorialFiles = {};
   const { dependencies, devDependencies } = JSON.parse(files["package.json"]);
@@ -5463,7 +5455,7 @@ async function generateMetadata(config, files) {
   };
 }
 
-// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/tutorial/webcontainers.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/tutorials/webcontainers.js
 import { basename, dirname as dirname2, extname } from "path";
 function getFileSystemTree(files, filesContents) {
   const fileSystemTree = {};
@@ -5502,82 +5494,46 @@ function buildFileSystemTree(fileSystemTree, fileDirectories, filename, fileCont
   buildFileSystemTree(fileSystemTree[nextDirectory].directory, fileDirectories, filename, fileContents);
 }
 
-// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/tutorial/source-code.js
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/tutorials/source-code.js
 async function generateSourceCode(config, files) {
   const allFiles = Object.keys(files);
   return getFileSystemTree(allFiles, files);
 }
 
-// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/tutorial/routes.js
-async function generateTutorialRoutes(tutorialName, introConfig, stepConfigs) {
-  const children = Object.entries(stepConfigs).sort(([pathA], [pathB]) => Number(pathA.split("-")[0]) > Number(pathB.split("-")[0]) ? 1 : -1).map(([path, config], idx) => {
-    return {
-      label: config.title,
-      path: `tutorials/${tutorialName}/${path}`,
-      contentPath: `tutorials/${tutorialName}/steps/${path}/README`,
-      tutorialData: {
-        title: config.title,
-        type: config.type,
-        step: idx + 1
-      }
-    };
-  });
-  children.forEach((child, idx, childrenArr) => {
-    if (idx > 0) {
-      const prevStep = childrenArr.at(idx - 1);
-      if (prevStep) {
-        child.tutorialData.previousStep = prevStep.path;
-      }
-    }
-    if (idx < childrenArr.length - 1) {
-      const nextStep = childrenArr.at(idx + 1);
-      if (nextStep) {
-        child.tutorialData.nextStep = nextStep.path;
-      }
-    }
-  });
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/tutorials/routes.js
+async function generatePlaygroundRoutes(configs) {
+  const templates = Object.entries(configs).map(([path, config]) => ({
+    path: `playground/${path}`,
+    label: config.title
+  }));
   return {
-    path: `tutorials/${tutorialName}`,
-    label: introConfig.title,
-    contentPath: `tutorials/${tutorialName}/intro/README`,
-    tutorialData: {
-      step: 0,
-      title: introConfig.title,
-      type: introConfig.type,
-      nextStep: children[0].path
-    },
-    children
+    templates,
+    defaultTemplate: templates[0],
+    starterTemplate: templates[templates.length - 1]
   };
 }
 
-// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/markdown/tutorial/tutorial.js
-async function generateTutorialFiles(tutorialDir, commonDir, outputDir) {
+// bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/tutorials/playground.js
+async function generatePlaygroundFiles(playgroundDir, commonDir, outputDir) {
   const files = {};
-  const stepConfigs = await findAllConfigs(join2(tutorialDir, "steps"));
-  const introConfig = await findConfig(join2(tutorialDir, "intro"));
-  const tutorialName = basename2(tutorialDir);
+  const configs = await findAllConfigs(playgroundDir);
   await addDirectoryToFilesRecord(files, commonDir);
-  const commonTutorialDir = join2(tutorialDir, "common");
-  if (existsSync2(commonTutorialDir)) {
-    await addDirectoryToFilesRecord(files, commonTutorialDir);
+  const commonPlaygroundDir = join2(playgroundDir, "common");
+  if (existsSync2(commonPlaygroundDir)) {
+    await addDirectoryToFilesRecord(files, commonPlaygroundDir);
   }
-  const introFiles = { ...files };
-  await addDirectoryToFilesRecord(introFiles, join2(tutorialDir, "intro"));
-  mkdirSync(join2(outputDir), { recursive: true });
-  writeFileSync(join2(outputDir, "metadata.json"), JSON.stringify(await generateMetadata(introConfig, introFiles)));
-  writeFileSync(join2(outputDir, "source-code.json"), JSON.stringify(await generateSourceCode(introConfig, introFiles)));
-  for (const [path, config] of Object.entries(stepConfigs)) {
+  for (const [path, config] of Object.entries(configs)) {
     const itemFiles = { ...files };
-    await addDirectoryToFilesRecord(itemFiles, join2(tutorialDir, "steps", path));
+    await addDirectoryToFilesRecord(itemFiles, join2(playgroundDir, path));
     mkdirSync(join2(outputDir, path), { recursive: true });
     writeFileSync(join2(outputDir, path, "metadata.json"), JSON.stringify(await generateMetadata(config, itemFiles)));
     writeFileSync(join2(outputDir, path, "source-code.json"), JSON.stringify(await generateSourceCode(config, itemFiles)));
   }
-  writeFileSync(join2(outputDir, "routes.json"), JSON.stringify(await generateTutorialRoutes(tutorialName, introConfig, stepConfigs)));
+  writeFileSync(join2(outputDir, "routes.json"), JSON.stringify(await generatePlaygroundRoutes(configs)));
 }
 (async () => {
-  const [tutorialDir, commonDir, outputDir] = process.argv.slice(2);
-  await generateTutorialFiles(tutorialDir, commonDir, outputDir);
+  const [playgroundDir, commonDir, outputDir] = process.argv.slice(2);
+  await generatePlaygroundFiles(playgroundDir, commonDir, outputDir);
 })();
 /*!
  * @license
@@ -5618,4 +5574,4 @@ async function generateTutorialFiles(tutorialDir, commonDir, outputDir) {
  */
 /*! queue-microtask. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 /*! run-parallel. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
-//# sourceMappingURL=tutorial.mjs.map
+//# sourceMappingURL=playground.mjs.map

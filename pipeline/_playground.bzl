@@ -53,10 +53,10 @@ generate_playground = rule(
         ),
         "common_srcs": attr.label(
             doc = """The directory containing the base files to expand upon.""",
-            default = Label("@npm//@angular/docs/markdown/tutorial/common:files"),
+            default = Label("@npm//@angular/docs/pipeline/tutorials/common:files"),
         ),
         "_generate_playground": attr.label(
-            default = Label("@npm//@angular/docs/markdown:playground"),
+            default = Label("@npm//@angular/docs/pipeline:playground"),
             executable = True,
             cfg = "exec",
         ),

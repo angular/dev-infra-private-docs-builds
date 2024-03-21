@@ -7,13 +7,13 @@ nodejs_binary(
     data = [
         "@npm//jsdom",
     ],
-    entry_point = "@npm//@angular/docs/markdown:stackblitz.mjs",
+    entry_point = "@npm//@angular/docs/pipeline:stackblitz.mjs",
     visibility = ["//visibility:public"],
 )
 
 nodejs_binary(
     name = "zip",
-    entry_point = "@npm//@angular/docs/markdown:zip.mjs",
+    entry_point = "@npm//@angular/docs/pipeline:zip.mjs",
     visibility = ["//visibility:public"],
 )
 
@@ -25,7 +25,7 @@ nodejs_binary(
         "@npm//mermaid",
         "@npm//playwright-core",
     ],
-    entry_point = "@npm//@angular/docs/markdown:guides.mjs",
+    entry_point = "@npm//@angular/docs/pipeline:guides.mjs",
     env = {
         "CHROME_BIN": "$(CHROMIUM)",
     },
@@ -40,18 +40,18 @@ nodejs_binary(
     data = [
         "@npm//jsdom",
     ],
-    entry_point = "@npm//@angular/docs/markdown:guides-no-mermaid.mjs",
+    entry_point = "@npm//@angular/docs/pipeline:guides-no-mermaid.mjs",
     visibility = ["//visibility:public"],
 )
 
 nodejs_binary(
     name = "playground",
-    entry_point = "@npm//@angular/docs/markdown:playground.mjs",
+    entry_point = "@npm//@angular/docs/pipeline:playground.mjs",
     visibility = ["//visibility:public"],
 )
 
 nodejs_binary(
     name = "tutorial",
-    entry_point = "@npm//@angular/docs/markdown:tutorial.mjs",
+    entry_point = "@npm//@angular/docs/pipeline:tutorial.mjs",
     visibility = ["//visibility:public"],
 )
