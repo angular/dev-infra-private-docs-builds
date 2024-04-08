@@ -1,6 +1,6 @@
 {
   "name": "@angular/docs",
-  "version": "0.0.0-4a904a92b839e4529f3d768df02148398a5fcdb6",
+  "version": "0.0.0-edb9306719a545fd2803acacadeaea503c8218eb",
   "dependencies": {
     "@angular/cdk": "18.0.0-next.2",
     "@angular/common": "18.0.0-next.2",
