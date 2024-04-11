@@ -53,15 +53,15 @@ export class TextField {
         this.onTouched();
     }
 }
-TextField.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-next.3", ngImport: i0, type: TextField, deps: [], target: i0.ɵɵFactoryTarget.Component });
-TextField.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "18.0.0-next.3", type: TextField, isStandalone: true, selector: "docs-text-field", inputs: { name: "name", placeholder: "placeholder", disabled: "disabled", hideIcon: "hideIcon", autofocus: "autofocus" }, host: { classAttribute: "docs-form-element" }, providers: [
+TextField.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-next.4", ngImport: i0, type: TextField, deps: [], target: i0.ɵɵFactoryTarget.Component });
+TextField.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "18.0.0-next.4", type: TextField, isStandalone: true, selector: "docs-text-field", inputs: { name: "name", placeholder: "placeholder", disabled: "disabled", hideIcon: "hideIcon", autofocus: "autofocus" }, host: { classAttribute: "docs-form-element" }, providers: [
         {
             provide: NG_VALUE_ACCESSOR,
             useExisting: forwardRef(() => TextField),
             multi: true,
         },
     ], viewQueries: [{ propertyName: "input", first: true, predicate: ["inputRef"], descendants: true }], ngImport: i0, template: "@if (!hideIcon) {\n<docs-icon class=\"docs-icon_high-contrast\">search</docs-icon>\n}\n<input\n  #inputRef\n  type=\"text\"\n  [attr.placeholder]=\"placeholder\"\n  [attr.name]=\"name\"\n  [ngModel]=\"value()\"\n  (ngModelChange)=\"setValue($event)\"\n  class=\"docs-text-field\"\n/>\n", styles: [".docs-text-field{font-size:1.125rem}docs-icon+.docs-text-field{font-size:1rem}/*# sourceMappingURL=text-field.component.css.map */\n"], dependencies: [{ kind: "ngmodule", type: CommonModule }, { kind: "ngmodule", type: FormsModule }, { kind: "directive", type: i1.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { kind: "directive", type: i1.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { kind: "directive", type: i1.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { kind: "component", type: IconComponent, selector: "docs-icon" }] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-next.3", ngImport: i0, type: TextField, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-next.4", ngImport: i0, type: TextField, decorators: [{
             type: Component,
             args: [{ selector: 'docs-text-field', standalone: true, imports: [CommonModule, FormsModule, IconComponent], providers: [
                         {

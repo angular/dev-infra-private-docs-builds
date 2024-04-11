@@ -20,9 +20,9 @@ export class RelativeLink {
         return `${removeTrailingSlash(normalizePath(url.pathname))}${url.hash ?? ''}`;
     }
 }
-RelativeLink.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-next.3", ngImport: i0, type: RelativeLink, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-RelativeLink.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "18.0.0-next.3", ngImport: i0, type: RelativeLink, isStandalone: true, name: "relativeLink" });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-next.3", ngImport: i0, type: RelativeLink, decorators: [{
+RelativeLink.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-next.4", ngImport: i0, type: RelativeLink, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+RelativeLink.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "18.0.0-next.4", ngImport: i0, type: RelativeLink, isStandalone: true, name: "relativeLink" });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-next.4", ngImport: i0, type: RelativeLink, decorators: [{
             type: Pipe,
             args: [{
                     name: 'relativeLink',
