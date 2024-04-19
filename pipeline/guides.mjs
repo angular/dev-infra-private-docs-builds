@@ -49000,7 +49000,8 @@ var _Tokenizer = class {
   blockquote(src) {
     const cap = this.rules.block.blockquote.exec(src);
     if (cap) {
-      const text = rtrim(cap[0].replace(/^ *>[ \t]?/gm, ""), "\n");
+      let text = cap[0].replace(/\n {0,3}((?:=+|-+) *)(?=\n|$)/g, "\n    $1");
+      text = rtrim(text.replace(/^ *>[ \t]?/gm, ""), "\n");
       const top = this.lexer.state.top;
       this.lexer.state.top = true;
       const tokens = this.lexer.blockTokens(text);
