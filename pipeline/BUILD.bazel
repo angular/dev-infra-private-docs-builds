@@ -23,7 +23,7 @@ nodejs_binary(
         "@npm//@angular/build-tooling/bazel/browsers/chromium:chromium-for-generation",
         "@npm//jsdom",
         "@npm//mermaid",
-        "@npm//playwright-core",
+        "@npm//puppeteer-core",
     ],
     entry_point = "@npm//@angular/docs/pipeline:guides.mjs",
     env = {
