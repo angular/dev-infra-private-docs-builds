@@ -48690,7 +48690,7 @@ var mermaid_exports = {};
 __export(mermaid_exports, {
   processMermaidCodeBlock: () => processMermaidCodeBlock
 });
-import { launch } from "puppeteer-core";
+import { chromium } from "playwright-core";
 function getMermaidScriptTagData() {
   if (mermaidScriptTagData) {
     return mermaidScriptTagData;
@@ -48701,7 +48701,7 @@ function getMermaidScriptTagData() {
 }
 async function processMermaidCodeBlock(token) {
   const diagram = token.code;
-  const browser = await launch({
+  const browser = await chromium.launch({
     headless: true,
     executablePath: import_runfiles.runfiles.resolveWorkspaceRelative(process.env["CHROME_BIN"]),
     args: ["--no-sandbox"]
