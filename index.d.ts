@@ -240,8 +240,7 @@ export declare interface Hierarchy {
 }
 
 export declare class IconComponent {
-    private readonly cdRef;
-    get fontSize(): number | null;
+    fontSize: Signal<0 | null>;
     protected readonly MATERIAL_SYMBOLS_OUTLINED = "material-symbols-outlined";
     private static isFontLoaded;
     /** Share the same promise across different instances of the component */
@@ -505,10 +504,10 @@ export declare class TableOfContents {
     contentSourceElement: HTMLElement;
     private readonly scrollSpy;
     private readonly tableOfContentsLoader;
+    tableOfContentItems: WritableSignal<TableOfContentsItem[]>;
     activeItemId: WritableSignal<string | null>;
     shouldDisplayScrollToTop: Signal<boolean>;
     TableOfContentsLevel: typeof TableOfContentsLevel;
-    tableOfContentItems(): TableOfContentsItem[];
     ngAfterViewInit(): void;
     scrollToTop(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<TableOfContents, never>;
@@ -534,7 +533,7 @@ export declare enum TableOfContentsLevel {
 
 export declare class TableOfContentsLoader {
     readonly toleranceThreshold = 40;
-    tableOfContentItems: TableOfContentsItem[];
+    readonly tableOfContentItems: WritableSignal<TableOfContentsItem[]>;
     private readonly document;
     private readonly platformId;
     buildTableOfContent(docElement: Element): void;
