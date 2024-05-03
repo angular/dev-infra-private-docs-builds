@@ -50781,7 +50781,7 @@ var import_emoji_regex = __toESM(require_emoji_regex());
 var UNICODE_EMOJI_REGEX = /&#x[\dA-Fa-f]+;/g;
 var regex = (0, import_emoji_regex.default)();
 var textRender = (text) => {
-  return text.match(regex) || text.match(UNICODE_EMOJI_REGEX) ? `<span class="docs-emoji">${text}</span>` : text;
+  return regex.test(text) || UNICODE_EMOJI_REGEX.test(text) ? `<span class="docs-emoji">${text}</span>` : text;
 };
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/guides/utils.js
