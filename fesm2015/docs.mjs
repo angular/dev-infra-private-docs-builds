@@ -13749,6 +13749,7 @@ class ExampleViewer {
         (_b = this.matTabGroup) === null || _b === void 0 ? void 0 : _b.selectedIndexChange.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((index) => {
             var _a;
             this.snippetCode.set((_a = this.exampleMetadata()) === null || _a === void 0 ? void 0 : _a.files[index]);
+            this.changeDetector.detectChanges();
             this.setCodeLinesVisibility();
         });
     }
