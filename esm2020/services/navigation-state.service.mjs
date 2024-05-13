@@ -84,9 +84,9 @@ export class NavigationState {
         return this.router.navigateByUrl(path);
     }
 }
-NavigationState.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-rc.0", ngImport: i0, type: NavigationState, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-NavigationState.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.0.0-rc.0", ngImport: i0, type: NavigationState, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-rc.0", ngImport: i0, type: NavigationState, decorators: [{
+NavigationState.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-rc.1", ngImport: i0, type: NavigationState, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+NavigationState.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.0.0-rc.1", ngImport: i0, type: NavigationState, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-rc.1", ngImport: i0, type: NavigationState, decorators: [{
             type: Injectable,
             args: [{
                     providedIn: 'root',
