@@ -2857,13 +2857,14 @@ class IconComponent {
 }
 IconComponent.isFontLoaded = signal(false);
 IconComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-rc.0", ngImport: i0, type: IconComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
-IconComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "18.0.0-rc.0", type: IconComponent, isStandalone: true, selector: "docs-icon", host: { attributes: { "aria-hidden": "true" }, properties: { "class": "MATERIAL_SYMBOLS_OUTLINED", "style.font-size.px": "fontSize()" } }, ngImport: i0, template: "<ng-content></ng-content>\n", styles: [".docs-icon_high-contrast{color:var(--primary-contrast)}/*# sourceMappingURL=icon.component.css.map */\n"], changeDetection: i0.ChangeDetectionStrategy.OnPush });
+IconComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "18.0.0-rc.0", type: IconComponent, isStandalone: true, selector: "docs-icon", host: { attributes: { "aria-hidden": "true", "translate": "no" }, properties: { "class": "MATERIAL_SYMBOLS_OUTLINED", "style.font-size.px": "fontSize()" } }, ngImport: i0, template: "<ng-content></ng-content>\n", styles: [".docs-icon_high-contrast{color:var(--primary-contrast)}/*# sourceMappingURL=icon.component.css.map */\n"], changeDetection: i0.ChangeDetectionStrategy.OnPush });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-rc.0", ngImport: i0, type: IconComponent, decorators: [{
             type: Component,
             args: [{ selector: 'docs-icon', standalone: true, host: {
                         '[class]': 'MATERIAL_SYMBOLS_OUTLINED',
                         '[style.font-size.px]': 'fontSize()',
                         'aria-hidden': 'true',
+                        'translate': 'no',
                     }, changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>\n", styles: [".docs-icon_high-contrast{color:var(--primary-contrast)}/*# sourceMappingURL=icon.component.css.map */\n"] }]
         }], ctorParameters: () => [] });
 
