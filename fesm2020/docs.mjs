@@ -12566,16 +12566,16 @@ class SearchItem {
     constructor() {
         this.disabled = false;
         this.elementRef = inject((ElementRef));
-        this._isActive = false;
+        this._isActive = signal(false);
     }
     get isActive() {
-        return this._isActive;
+        return this._isActive();
     }
     setActiveStyles() {
-        this._isActive = true;
+        this._isActive.set(true);
     }
     setInactiveStyles() {
-        this._isActive = false;
+        this._isActive.set(false);
     }
     getLabel() {
         if (!this.item?.hierarchy) {
