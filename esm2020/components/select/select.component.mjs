@@ -43,15 +43,15 @@ export class Select {
         this.onTouched();
     }
 }
-Select.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.0", ngImport: i0, type: Select, deps: [], target: i0.ɵɵFactoryTarget.Component });
-Select.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "18.1.0-next.0", type: Select, isStandalone: true, selector: "docs-select", inputs: { id: ["selectId", "id"], name: "name", options: "options", disabled: "disabled" }, host: { classAttribute: "docs-form-element" }, providers: [
+Select.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.1", ngImport: i0, type: Select, deps: [], target: i0.ɵɵFactoryTarget.Component });
+Select.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "18.1.0-next.1", type: Select, isStandalone: true, selector: "docs-select", inputs: { id: ["selectId", "id"], name: "name", options: "options", disabled: "disabled" }, host: { classAttribute: "docs-form-element" }, providers: [
         {
             provide: NG_VALUE_ACCESSOR,
             useExisting: forwardRef(() => Select),
             multi: true,
         },
     ], ngImport: i0, template: "<select [attr.id]=\"id\" [attr.name]=\"name\" [ngModel]=\"selectedOption()\" (ngModelChange)=\"setOption($event)\">\n  @for (item of options; track item) {\n    <option [value]=\"item.value\">{{ item.label }}</option>\n  }\n</select>\n", styles: ["/*# sourceMappingURL=select.component.css.map */\n"], dependencies: [{ kind: "ngmodule", type: CommonModule }, { kind: "ngmodule", type: FormsModule }, { kind: "directive", type: i1.NgSelectOption, selector: "option", inputs: ["ngValue", "value"] }, { kind: "directive", type: i1.ɵNgSelectMultipleOption, selector: "option", inputs: ["ngValue", "value"] }, { kind: "directive", type: i1.SelectControlValueAccessor, selector: "select:not([multiple])[formControlName],select:not([multiple])[formControl],select:not([multiple])[ngModel]", inputs: ["compareWith"] }, { kind: "directive", type: i1.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { kind: "directive", type: i1.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }], changeDetection: i0.ChangeDetectionStrategy.OnPush });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.0", ngImport: i0, type: Select, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.1", ngImport: i0, type: Select, decorators: [{
             type: Component,
             args: [{ selector: 'docs-select', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush, imports: [CommonModule, FormsModule], providers: [
                         {
