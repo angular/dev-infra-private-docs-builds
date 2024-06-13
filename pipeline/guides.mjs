@@ -389,8 +389,8 @@ var require_core = __commonJS({
         this.add(node);
       }
       toHTML() {
-        const renderer2 = new HTMLRenderer(this, this.options);
-        return renderer2.value();
+        const renderer = new HTMLRenderer(this, this.options);
+        return renderer.value();
       }
       finalize() {
         this.closeAllNodes();
@@ -48993,22 +48993,70 @@ var _Tokenizer = class {
     if (cap) {
       return {
         type: "hr",
-        raw: cap[0]
+        raw: rtrim(cap[0], "\n")
       };
     }
   }
   blockquote(src) {
     const cap = this.rules.block.blockquote.exec(src);
     if (cap) {
-      let text = cap[0].replace(/\n {0,3}((?:=+|-+) *)(?=\n|$)/g, "\n    $1");
-      text = rtrim(text.replace(/^ *>[ \t]?/gm, ""), "\n");
-      const top = this.lexer.state.top;
-      this.lexer.state.top = true;
-      const tokens = this.lexer.blockTokens(text);
-      this.lexer.state.top = top;
+      let lines = rtrim(cap[0], "\n").split("\n");
+      let raw = "";
+      let text = "";
+      const tokens = [];
+      while (lines.length > 0) {
+        let inBlockquote = false;
+        const currentLines = [];
+        let i;
+        for (i = 0; i < lines.length; i++) {
+          if (/^ {0,3}>/.test(lines[i])) {
+            currentLines.push(lines[i]);
+            inBlockquote = true;
+          } else if (!inBlockquote) {
+            currentLines.push(lines[i]);
+          } else {
+            break;
+          }
+        }
+        lines = lines.slice(i);
+        const currentRaw = currentLines.join("\n");
+        const currentText = currentRaw.replace(/\n {0,3}((?:=+|-+) *)(?=\n|$)/g, "\n    $1").replace(/^ {0,3}>[ \t]?/gm, "");
+        raw = raw ? `${raw}
+${currentRaw}` : currentRaw;
+        text = text ? `${text}
+${currentText}` : currentText;
+        const top = this.lexer.state.top;
+        this.lexer.state.top = true;
+        this.lexer.blockTokens(currentText, tokens, true);
+        this.lexer.state.top = top;
+        if (lines.length === 0) {
+          break;
+        }
+        const lastToken = tokens[tokens.length - 1];
+        if (lastToken?.type === "code") {
+          break;
+        } else if (lastToken?.type === "blockquote") {
+          const oldToken = lastToken;
+          const newText = oldToken.raw + "\n" + lines.join("\n");
+          const newToken = this.blockquote(newText);
+          tokens[tokens.length - 1] = newToken;
+          raw = raw.substring(0, raw.length - oldToken.raw.length) + newToken.raw;
+          text = text.substring(0, text.length - oldToken.text.length) + newToken.text;
+          break;
+        } else if (lastToken?.type === "list") {
+          const oldToken = lastToken;
+          const newText = oldToken.raw + "\n" + lines.join("\n");
+          const newToken = this.list(newText);
+          tokens[tokens.length - 1] = newToken;
+          raw = raw.substring(0, raw.length - lastToken.raw.length) + newToken.raw;
+          text = text.substring(0, text.length - oldToken.raw.length) + newToken.raw;
+          lines = newText.substring(tokens[tokens.length - 1].raw.length).split("\n");
+          continue;
+        }
+      }
       return {
         type: "blockquote",
-        raw: cap[0],
+        raw,
         tokens,
         text
       };
@@ -49221,17 +49269,21 @@ var _Tokenizer = class {
         item.align.push(null);
       }
     }
-    for (const header of headers) {
+    for (let i = 0; i < headers.length; i++) {
       item.header.push({
-        text: header,
-        tokens: this.lexer.inline(header)
+        text: headers[i],
+        tokens: this.lexer.inline(headers[i]),
+        header: true,
+        align: item.align[i]
       });
     }
     for (const row of rows) {
-      item.rows.push(splitCells(row, item.header.length).map((cell) => {
+      item.rows.push(splitCells(row, item.header.length).map((cell, i) => {
         return {
           text: cell,
-          tokens: this.lexer.inline(cell)
+          tokens: this.lexer.inline(cell),
+          header: false,
+          align: item.align[i]
         };
       }));
     }
@@ -49712,7 +49764,7 @@ var _Lexer = class {
     this.inlineQueue = [];
     return this.tokens;
   }
-  blockTokens(src, tokens = []) {
+  blockTokens(src, tokens = [], lastParagraphClipped = false) {
     if (this.options.pedantic) {
       src = src.replace(/\t/g, "    ").replace(/^ +$/gm, "");
     } else {
@@ -49723,7 +49775,6 @@ var _Lexer = class {
     let token;
     let lastToken;
     let cutSrc;
-    let lastParagraphClipped;
     while (src) {
       if (this.options.extensions && this.options.extensions.block && this.options.extensions.block.some((extTokenizer) => {
         if (token = extTokenizer.call({ lexer: this }, src, tokens)) {
@@ -49828,7 +49879,7 @@ var _Lexer = class {
       }
       if (this.state.top && (token = this.tokenizer.paragraph(cutSrc))) {
         lastToken = tokens[tokens.length - 1];
-        if (lastParagraphClipped && lastToken.type === "paragraph") {
+        if (lastParagraphClipped && lastToken?.type === "paragraph") {
           lastToken.raw += "\n" + token.raw;
           lastToken.text += "\n" + token.text;
           this.inlineQueue.pop();
@@ -50013,80 +50064,130 @@ var _Lexer = class {
 };
 var _Renderer = class {
   options;
+  parser;
   constructor(options2) {
     this.options = options2 || _defaults;
   }
-  code(code, infostring, escaped) {
-    const lang = (infostring || "").match(/^\S*/)?.[0];
-    code = code.replace(/\n$/, "") + "\n";
-    if (!lang) {
+  space(token) {
+    return "";
+  }
+  code({ text, lang, escaped }) {
+    const langString = (lang || "").match(/^\S*/)?.[0];
+    const code = text.replace(/\n$/, "") + "\n";
+    if (!langString) {
       return "<pre><code>" + (escaped ? code : escape$1(code, true)) + "</code></pre>\n";
     }
-    return '<pre><code class="language-' + escape$1(lang) + '">' + (escaped ? code : escape$1(code, true)) + "</code></pre>\n";
+    return '<pre><code class="language-' + escape$1(langString) + '">' + (escaped ? code : escape$1(code, true)) + "</code></pre>\n";
   }
-  blockquote(quote) {
+  blockquote({ tokens }) {
+    const body = this.parser.parse(tokens);
     return `<blockquote>
-${quote}</blockquote>
+${body}</blockquote>
 `;
   }
-  html(html2, block2) {
-    return html2;
+  html({ text }) {
+    return text;
   }
-  heading(text, level, raw) {
-    return `<h${level}>${text}</h${level}>
+  heading({ tokens, depth }) {
+    return `<h${depth}>${this.parser.parseInline(tokens)}</h${depth}>
 `;
   }
-  hr() {
+  hr(token) {
     return "<hr>\n";
   }
-  list(body, ordered, start) {
+  list(token) {
+    const ordered = token.ordered;
+    const start = token.start;
+    let body = "";
+    for (let j = 0; j < token.items.length; j++) {
+      const item = token.items[j];
+      body += this.listitem(item);
+    }
     const type = ordered ? "ol" : "ul";
-    const startatt = ordered && start !== 1 ? ' start="' + start + '"' : "";
-    return "<" + type + startatt + ">\n" + body + "</" + type + ">\n";
+    const startAttr = ordered && start !== 1 ? ' start="' + start + '"' : "";
+    return "<" + type + startAttr + ">\n" + body + "</" + type + ">\n";
   }
-  listitem(text, task, checked) {
-    return `<li>${text}</li>
+  listitem(item) {
+    let itemBody = "";
+    if (item.task) {
+      const checkbox = this.checkbox({ checked: !!item.checked });
+      if (item.loose) {
+        if (item.tokens.length > 0 && item.tokens[0].type === "paragraph") {
+          item.tokens[0].text = checkbox + " " + item.tokens[0].text;
+          if (item.tokens[0].tokens && item.tokens[0].tokens.length > 0 && item.tokens[0].tokens[0].type === "text") {
+            item.tokens[0].tokens[0].text = checkbox + " " + item.tokens[0].tokens[0].text;
+          }
+        } else {
+          item.tokens.unshift({
+            type: "text",
+            raw: checkbox + " ",
+            text: checkbox + " "
+          });
+        }
+      } else {
+        itemBody += checkbox + " ";
+      }
+    }
+    itemBody += this.parser.parse(item.tokens, !!item.loose);
+    return `<li>${itemBody}</li>
 `;
   }
-  checkbox(checked) {
+  checkbox({ checked }) {
     return "<input " + (checked ? 'checked="" ' : "") + 'disabled="" type="checkbox">';
   }
-  paragraph(text) {
-    return `<p>${text}</p>
+  paragraph({ tokens }) {
+    return `<p>${this.parser.parseInline(tokens)}</p>
 `;
   }
-  table(header, body) {
+  table(token) {
+    let header = "";
+    let cell = "";
+    for (let j = 0; j < token.header.length; j++) {
+      cell += this.tablecell(token.header[j]);
+    }
+    header += this.tablerow({ text: cell });
+    let body = "";
+    for (let j = 0; j < token.rows.length; j++) {
+      const row = token.rows[j];
+      cell = "";
+      for (let k = 0; k < row.length; k++) {
+        cell += this.tablecell(row[k]);
+      }
+      body += this.tablerow({ text: cell });
+    }
     if (body)
       body = `<tbody>${body}</tbody>`;
     return "<table>\n<thead>\n" + header + "</thead>\n" + body + "</table>\n";
   }
-  tablerow(content) {
+  tablerow({ text }) {
     return `<tr>
-${content}</tr>
+${text}</tr>
 `;
   }
-  tablecell(content, flags) {
-    const type = flags.header ? "th" : "td";
-    const tag2 = flags.align ? `<${type} align="${flags.align}">` : `<${type}>`;
+  tablecell(token) {
+    const content = this.parser.parseInline(token.tokens);
+    const type = token.header ? "th" : "td";
+    const tag2 = token.align ? `<${type} align="${token.align}">` : `<${type}>`;
     return tag2 + content + `</${type}>
 `;
   }
-  strong(text) {
-    return `<strong>${text}</strong>`;
+  strong({ tokens }) {
+    return `<strong>${this.parser.parseInline(tokens)}</strong>`;
   }
-  em(text) {
-    return `<em>${text}</em>`;
+  em({ tokens }) {
+    return `<em>${this.parser.parseInline(tokens)}</em>`;
   }
-  codespan(text) {
+  codespan({ text }) {
     return `<code>${text}</code>`;
   }
-  br() {
+  br(token) {
     return "<br>";
   }
-  del(text) {
-    return `<del>${text}</del>`;
+  del({ tokens }) {
+    return `<del>${this.parser.parseInline(tokens)}</del>`;
   }
-  link(href, title, text) {
+  link({ href, title, tokens }) {
+    const text = this.parser.parseInline(tokens);
     const cleanHref = cleanUrl(href);
     if (cleanHref === null) {
       return text;
@@ -50099,7 +50200,7 @@ ${content}</tr>
     out += ">" + text + "</a>";
     return out;
   }
-  image(href, title, text) {
+  image({ href, title, text }) {
     const cleanHref = cleanUrl(href);
     if (cleanHref === null) {
       return text;
@@ -50112,33 +50213,33 @@ ${content}</tr>
     out += ">";
     return out;
   }
-  text(text) {
-    return text;
+  text(token) {
+    return "tokens" in token && token.tokens ? this.parser.parseInline(token.tokens) : token.text;
   }
 };
 var _TextRenderer = class {
-  strong(text) {
+  strong({ text }) {
     return text;
   }
-  em(text) {
+  em({ text }) {
     return text;
   }
-  codespan(text) {
+  codespan({ text }) {
     return text;
   }
-  del(text) {
+  del({ text }) {
     return text;
   }
-  html(text) {
+  html({ text }) {
     return text;
   }
-  text(text) {
+  text({ text }) {
     return text;
   }
-  link(href, title, text) {
+  link({ text }) {
     return "" + text;
   }
-  image(href, title, text) {
+  image({ text }) {
     return "" + text;
   }
   br() {
@@ -50154,6 +50255,7 @@ var _Parser = class {
     this.options.renderer = this.options.renderer || new _Renderer();
     this.renderer = this.options.renderer;
     this.renderer.options = this.options;
+    this.renderer.parser = this;
     this.textRenderer = new _TextRenderer();
   }
   static parse(tokens, options2) {
@@ -50167,112 +50269,70 @@ var _Parser = class {
   parse(tokens, top = true) {
     let out = "";
     for (let i = 0; i < tokens.length; i++) {
-      const token = tokens[i];
-      if (this.options.extensions && this.options.extensions.renderers && this.options.extensions.renderers[token.type]) {
-        const genericToken = token;
+      const anyToken = tokens[i];
+      if (this.options.extensions && this.options.extensions.renderers && this.options.extensions.renderers[anyToken.type]) {
+        const genericToken = anyToken;
         const ret = this.options.extensions.renderers[genericToken.type].call({ parser: this }, genericToken);
         if (ret !== false || !["space", "hr", "heading", "code", "table", "blockquote", "list", "html", "paragraph", "text"].includes(genericToken.type)) {
           out += ret || "";
           continue;
         }
       }
+      const token = anyToken;
       switch (token.type) {
         case "space": {
+          out += this.renderer.space(token);
           continue;
         }
         case "hr": {
-          out += this.renderer.hr();
+          out += this.renderer.hr(token);
           continue;
         }
         case "heading": {
-          const headingToken = token;
-          out += this.renderer.heading(this.parseInline(headingToken.tokens), headingToken.depth, unescape(this.parseInline(headingToken.tokens, this.textRenderer)));
+          out += this.renderer.heading(token);
           continue;
         }
         case "code": {
-          const codeToken = token;
-          out += this.renderer.code(codeToken.text, codeToken.lang, !!codeToken.escaped);
+          out += this.renderer.code(token);
           continue;
         }
         case "table": {
-          const tableToken = token;
-          let header = "";
-          let cell = "";
-          for (let j = 0; j < tableToken.header.length; j++) {
-            cell += this.renderer.tablecell(this.parseInline(tableToken.header[j].tokens), { header: true, align: tableToken.align[j] });
-          }
-          header += this.renderer.tablerow(cell);
-          let body = "";
-          for (let j = 0; j < tableToken.rows.length; j++) {
-            const row = tableToken.rows[j];
-            cell = "";
-            for (let k = 0; k < row.length; k++) {
-              cell += this.renderer.tablecell(this.parseInline(row[k].tokens), { header: false, align: tableToken.align[k] });
-            }
-            body += this.renderer.tablerow(cell);
-          }
-          out += this.renderer.table(header, body);
+          out += this.renderer.table(token);
           continue;
         }
         case "blockquote": {
-          const blockquoteToken = token;
-          const body = this.parse(blockquoteToken.tokens);
-          out += this.renderer.blockquote(body);
+          out += this.renderer.blockquote(token);
           continue;
         }
         case "list": {
-          const listToken = token;
-          const ordered = listToken.ordered;
-          const start = listToken.start;
-          const loose = listToken.loose;
-          let body = "";
-          for (let j = 0; j < listToken.items.length; j++) {
-            const item = listToken.items[j];
-            const checked = item.checked;
-            const task = item.task;
-            let itemBody = "";
-            if (item.task) {
-              const checkbox = this.renderer.checkbox(!!checked);
-              if (loose) {
-                if (item.tokens.length > 0 && item.tokens[0].type === "paragraph") {
-                  item.tokens[0].text = checkbox + " " + item.tokens[0].text;
-                  if (item.tokens[0].tokens && item.tokens[0].tokens.length > 0 && item.tokens[0].tokens[0].type === "text") {
-                    item.tokens[0].tokens[0].text = checkbox + " " + item.tokens[0].tokens[0].text;
-                  }
-                } else {
-                  item.tokens.unshift({
-                    type: "text",
-                    text: checkbox + " "
-                  });
-                }
-              } else {
-                itemBody += checkbox + " ";
-              }
-            }
-            itemBody += this.parse(item.tokens, loose);
-            body += this.renderer.listitem(itemBody, task, !!checked);
-          }
-          out += this.renderer.list(body, ordered, start);
+          out += this.renderer.list(token);
           continue;
         }
         case "html": {
-          const htmlToken = token;
-          out += this.renderer.html(htmlToken.text, htmlToken.block);
+          out += this.renderer.html(token);
           continue;
         }
         case "paragraph": {
-          const paragraphToken = token;
-          out += this.renderer.paragraph(this.parseInline(paragraphToken.tokens));
+          out += this.renderer.paragraph(token);
           continue;
         }
         case "text": {
           let textToken = token;
-          let body = textToken.tokens ? this.parseInline(textToken.tokens) : textToken.text;
+          let body = this.renderer.text(textToken);
           while (i + 1 < tokens.length && tokens[i + 1].type === "text") {
             textToken = tokens[++i];
-            body += "\n" + (textToken.tokens ? this.parseInline(textToken.tokens) : textToken.text);
+            body += "\n" + this.renderer.text(textToken);
           }
-          out += top ? this.renderer.paragraph(body) : body;
+          if (top) {
+            out += this.renderer.paragraph({
+              type: "paragraph",
+              raw: body,
+              text: body,
+              tokens: [{ type: "text", raw: body, text: body }]
+            });
+          } else {
+            out += body;
+          }
           continue;
         }
         default: {
@@ -50288,66 +50348,58 @@ var _Parser = class {
     }
     return out;
   }
-  parseInline(tokens, renderer2) {
-    renderer2 = renderer2 || this.renderer;
+  parseInline(tokens, renderer) {
+    renderer = renderer || this.renderer;
     let out = "";
     for (let i = 0; i < tokens.length; i++) {
-      const token = tokens[i];
-      if (this.options.extensions && this.options.extensions.renderers && this.options.extensions.renderers[token.type]) {
-        const ret = this.options.extensions.renderers[token.type].call({ parser: this }, token);
-        if (ret !== false || !["escape", "html", "link", "image", "strong", "em", "codespan", "br", "del", "text"].includes(token.type)) {
+      const anyToken = tokens[i];
+      if (this.options.extensions && this.options.extensions.renderers && this.options.extensions.renderers[anyToken.type]) {
+        const ret = this.options.extensions.renderers[anyToken.type].call({ parser: this }, anyToken);
+        if (ret !== false || !["escape", "html", "link", "image", "strong", "em", "codespan", "br", "del", "text"].includes(anyToken.type)) {
           out += ret || "";
           continue;
         }
       }
+      const token = anyToken;
       switch (token.type) {
         case "escape": {
-          const escapeToken = token;
-          out += renderer2.text(escapeToken.text);
+          out += renderer.text(token);
           break;
         }
         case "html": {
-          const tagToken = token;
-          out += renderer2.html(tagToken.text);
+          out += renderer.html(token);
           break;
         }
         case "link": {
-          const linkToken = token;
-          out += renderer2.link(linkToken.href, linkToken.title, this.parseInline(linkToken.tokens, renderer2));
+          out += renderer.link(token);
           break;
         }
         case "image": {
-          const imageToken = token;
-          out += renderer2.image(imageToken.href, imageToken.title, imageToken.text);
+          out += renderer.image(token);
           break;
         }
         case "strong": {
-          const strongToken = token;
-          out += renderer2.strong(this.parseInline(strongToken.tokens, renderer2));
+          out += renderer.strong(token);
           break;
         }
         case "em": {
-          const emToken = token;
-          out += renderer2.em(this.parseInline(emToken.tokens, renderer2));
+          out += renderer.em(token);
           break;
         }
         case "codespan": {
-          const codespanToken = token;
-          out += renderer2.codespan(codespanToken.text);
+          out += renderer.codespan(token);
           break;
         }
         case "br": {
-          out += renderer2.br();
+          out += renderer.br(token);
           break;
         }
         case "del": {
-          const delToken = token;
-          out += renderer2.del(this.parseInline(delToken.tokens, renderer2));
+          out += renderer.del(token);
           break;
         }
         case "text": {
-          const textToken = token;
-          out += renderer2.text(textToken.text);
+          out += renderer.text(token);
           break;
         }
         default: {
@@ -50492,26 +50544,29 @@ var Marked = class {
         opts.extensions = extensions;
       }
       if (pack.renderer) {
-        const renderer2 = this.defaults.renderer || new _Renderer(this.defaults);
+        const renderer = this.defaults.renderer || new _Renderer(this.defaults);
         for (const prop in pack.renderer) {
-          if (!(prop in renderer2)) {
+          if (!(prop in renderer)) {
             throw new Error(`renderer '${prop}' does not exist`);
           }
-          if (prop === "options") {
+          if (["options", "parser"].includes(prop)) {
             continue;
           }
           const rendererProp = prop;
-          const rendererFunc = pack.renderer[rendererProp];
-          const prevRenderer = renderer2[rendererProp];
-          renderer2[rendererProp] = (...args2) => {
-            let ret = rendererFunc.apply(renderer2, args2);
+          let rendererFunc = pack.renderer[rendererProp];
+          const prevRenderer = renderer[rendererProp];
+          renderer[rendererProp] = (...args2) => {
+            if (!pack.useNewRenderer) {
+              rendererFunc = this.#convertRendererFunction(rendererFunc, rendererProp, renderer);
+            }
+            let ret = rendererFunc.apply(renderer, args2);
             if (ret === false) {
-              ret = prevRenderer.apply(renderer2, args2);
+              ret = prevRenderer.apply(renderer, args2);
             }
             return ret || "";
           };
         }
-        opts.renderer = renderer2;
+        opts.renderer = renderer;
       }
       if (pack.tokenizer) {
         const tokenizer = this.defaults.tokenizer || new _Tokenizer(this.defaults);
@@ -50584,6 +50639,180 @@ var Marked = class {
       this.defaults = { ...this.defaults, ...opts };
     });
     return this;
+  }
+  #convertRendererFunction(func, prop, renderer) {
+    switch (prop) {
+      case "heading":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          return func(renderer.parser.parseInline(token.tokens), token.depth, unescape(renderer.parser.parseInline(token.tokens, renderer.parser.textRenderer)));
+        };
+      case "code":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          return func(token.text, token.lang, !!token.escaped);
+        };
+      case "table":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          let header = "";
+          let cell = "";
+          for (let j = 0; j < token.header.length; j++) {
+            cell += this.tablecell({
+              text: token.header[j].text,
+              tokens: token.header[j].tokens,
+              header: true,
+              align: token.align[j]
+            });
+          }
+          header += this.tablerow({ text: cell });
+          let body = "";
+          for (let j = 0; j < token.rows.length; j++) {
+            const row = token.rows[j];
+            cell = "";
+            for (let k = 0; k < row.length; k++) {
+              cell += this.tablecell({
+                text: row[k].text,
+                tokens: row[k].tokens,
+                header: false,
+                align: token.align[k]
+              });
+            }
+            body += this.tablerow({ text: cell });
+          }
+          return func(header, body);
+        };
+      case "blockquote":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          const body = this.parser.parse(token.tokens);
+          return func(body);
+        };
+      case "list":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          const ordered = token.ordered;
+          const start = token.start;
+          const loose = token.loose;
+          let body = "";
+          for (let j = 0; j < token.items.length; j++) {
+            const item = token.items[j];
+            const checked = item.checked;
+            const task = item.task;
+            let itemBody = "";
+            if (item.task) {
+              const checkbox = this.checkbox({ checked: !!checked });
+              if (loose) {
+                if (item.tokens.length > 0 && item.tokens[0].type === "paragraph") {
+                  item.tokens[0].text = checkbox + " " + item.tokens[0].text;
+                  if (item.tokens[0].tokens && item.tokens[0].tokens.length > 0 && item.tokens[0].tokens[0].type === "text") {
+                    item.tokens[0].tokens[0].text = checkbox + " " + item.tokens[0].tokens[0].text;
+                  }
+                } else {
+                  item.tokens.unshift({
+                    type: "text",
+                    text: checkbox + " "
+                  });
+                }
+              } else {
+                itemBody += checkbox + " ";
+              }
+            }
+            itemBody += this.parser.parse(item.tokens, loose);
+            body += this.listitem({
+              type: "list_item",
+              raw: itemBody,
+              text: itemBody,
+              task,
+              checked: !!checked,
+              loose,
+              tokens: item.tokens
+            });
+          }
+          return func(body, ordered, start);
+        };
+      case "html":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          return func(token.text, token.block);
+        };
+      case "paragraph":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          return func(this.parser.parseInline(token.tokens));
+        };
+      case "escape":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          return func(token.text);
+        };
+      case "link":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          return func(token.href, token.title, this.parser.parseInline(token.tokens));
+        };
+      case "image":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          return func(token.href, token.title, token.text);
+        };
+      case "strong":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          return func(this.parser.parseInline(token.tokens));
+        };
+      case "em":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          return func(this.parser.parseInline(token.tokens));
+        };
+      case "codespan":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          return func(token.text);
+        };
+      case "del":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          return func(this.parser.parseInline(token.tokens));
+        };
+      case "text":
+        return function(token) {
+          if (!token.type || token.type !== prop) {
+            return func.apply(this, arguments);
+          }
+          return func(token.text);
+        };
+    }
+    return func;
   }
   setOptions(opt) {
     this.defaults = { ...this.defaults, ...opt };
@@ -50728,61 +50957,65 @@ function anchorTarget(href) {
 }
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/guides/tranformations/link.js
-var linkRender = (href, title, text) => {
+function linkRender({ href, title, text }) {
   const titleAttribute = title ? ` title=${title}` : "";
   return `<a href="${href}"${titleAttribute}${anchorTarget(href)}>${text}</a>`;
-};
+}
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/guides/tranformations/table.js
-var tableRender = (header, body) => {
+function tableRender({ header, rows }) {
   return `
   <div class="docs-table docs-scroll-track-transparent">
     <table>
       <thead>
-        ${header}
+        ${this.tablerow({
+    text: header.map((cell) => this.tablecell(cell)).join("")
+  })}
       </thead>
       <tbody>
-        ${body}
+        ${rows.map((row) => this.tablerow({
+    text: row.map((cell) => this.tablecell(cell)).join("")
+  })).join("")}
       </tbody>
     </table>
   </div>
   `;
-};
+}
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/guides/tranformations/list.js
-var listRender = (body, ordered, start) => {
+function listRender({ items, ordered }) {
   if (ordered) {
     return `
     <ol class="docs-ordered-list">
-      ${body}
+      ${items.map((item) => this.listitem(item)).join("")}
     </ol>
     `;
   }
   return `
   <ul class="docs-list">
-    ${body}
+    ${items.map((item) => this.listitem(item)).join("")}
   </ul>
   `;
-};
+}
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/guides/tranformations/image.js
 import { normalize } from "path";
 var imageContentBasePath = "unknown";
-var imageRender = (href, title, text) => {
+function imageRender({ href, title, text }) {
   const isRelativeSrc = href?.startsWith("./");
   const src = isRelativeSrc ? `${imageContentBasePath}/${normalize(href)}` : href;
   return `
   <img src="${src}" alt="${text}" title="${title}" class="docs-image">
   `;
-};
+}
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/guides/tranformations/text.js
 var import_emoji_regex = __toESM(require_emoji_regex());
 var UNICODE_EMOJI_REGEX = /&#x[\dA-Fa-f]+;/g;
 var regex = (0, import_emoji_regex.default)();
-var textRender = (text) => {
+function textRender({ text }) {
   return regex.test(text) || UNICODE_EMOJI_REGEX.test(text) ? `<span class="docs-emoji">${text}</span>` : text;
-};
+}
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/guides/utils.js
 import { existsSync, readFileSync } from "fs";
@@ -50814,8 +51047,8 @@ function loadWorkspaceRelativeFile(filePath) {
 }
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/guides/tranformations/heading.js
-var headingRender = (text, level, raw) => {
-  if (level === 1) {
+function headingRender({ text, depth }) {
+  if (depth === 1) {
     return `
     <header class="docs-header">
       <docs-breadcrumb></docs-breadcrumb>
@@ -50829,20 +51062,23 @@ var headingRender = (text, level, raw) => {
   const link2 = getHeaderId(anchorLessText);
   const label = anchorLessText.replaceAll(/`(.*?)`/g, "<code>$1</code>");
   return `
-  <h${level} id="${link2}">
+  <h${depth} id="${link2}">
     <a href="#${link2}" class="docs-anchor" tabindex="-1" aria-label="Link to ${label}">${label}</a>
-  </h${level}>
+  </h${depth}>
   `;
-};
+}
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/guides/renderer.js
-var renderer = {
-  link: linkRender,
-  table: tableRender,
-  list: listRender,
-  image: imageRender,
-  text: textRender,
-  heading: headingRender
+var Renderer = class extends _Renderer {
+  constructor() {
+    super(...arguments);
+    this.link = linkRender;
+    this.table = tableRender;
+    this.list = listRender;
+    this.image = imageRender;
+    this.text = textRender;
+    this.heading = headingRender;
+  }
 };
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/guides/extensions/docs-alert.js
@@ -51130,7 +51366,13 @@ var docsStepExtension = {
     return `
     <li>
       <span class="docs-step-number" aria-hidden="true"></span>
-      ${headingRender(token.title, 3, token.title)}
+      ${headingRender({
+      depth: 3,
+      raw: token.title,
+      text: token.title,
+      tokens: [token],
+      type: "heading"
+    })}
       ${this.parser.parse(token.tokens)}
     </li>
     `;
@@ -51177,13 +51419,13 @@ var docsCardExtension = {
     return token.imgSrc ? getCardWithSvgIllustration(this, token) : getStandardCard(this, token);
   }
 };
-function getStandardCard(renderer2, token) {
+function getStandardCard(renderer, token) {
   if (token.href) {
     return `
     <a href="${token.href}" ${anchorTarget(token.href)} class="docs-card">
       <div>
         <h3>${token.title}</h3>
-        ${renderer2.parser.parse(token.tokens)}
+        ${renderer.parser.parse(token.tokens)}
       </div>
       <span>${token.link ? token.link : "Learn more"}</span>
     </a>
@@ -51193,13 +51435,13 @@ function getStandardCard(renderer2, token) {
   <div class="docs-card">
     <div>
       <h3>${token.title}</h3>
-      ${renderer2.parser.parse(token.tokens)}
+      ${renderer.parser.parse(token.tokens)}
     </div>
     ${token.link ? `<span>${token.link}</span>` : ""}
   </div>
   `;
 }
-function getCardWithSvgIllustration(renderer2, token) {
+function getCardWithSvgIllustration(renderer, token) {
   const illustration = loadWorkspaceRelativeFile(token.imgSrc);
   if (token.href) {
     return `
@@ -51208,7 +51450,7 @@ function getCardWithSvgIllustration(renderer2, token) {
         <div class="docs-card-text-content">
           <div>
             <h3>${token.title}</h3>
-            ${renderer2.parser.parse(token.tokens)}
+            ${renderer.parser.parse(token.tokens)}
           </div>
           <span>${token.link ? token.link : "Learn more"}</span>
         </div>
@@ -51220,7 +51462,7 @@ function getCardWithSvgIllustration(renderer2, token) {
       ${illustration}
       <div class="docs-card-text-content">
       <h3>${token.title}</h3>
-      ${renderer2.parser.parse(token.tokens)}
+      ${renderer.parser.parse(token.tokens)}
       </div>
     </div>
     `;
@@ -52204,8 +52446,9 @@ async function walkTokens2(token) {
 async function parseMarkdown(markdownContent, context2) {
   setContext(context2);
   marked.use({
+    useNewRenderer: true,
+    renderer: new Renderer(),
     hooks,
-    renderer,
     extensions: [
       docsAlertExtension,
       docsCalloutExtension,
