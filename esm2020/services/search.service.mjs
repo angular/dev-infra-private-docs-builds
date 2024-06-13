@@ -61,9 +61,9 @@ export class Search {
         });
     }
 }
-Search.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.1", ngImport: i0, type: Search, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-Search.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.1.0-next.1", ngImport: i0, type: Search, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.1", ngImport: i0, type: Search, decorators: [{
+Search.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.2", ngImport: i0, type: Search, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+Search.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.1.0-next.2", ngImport: i0, type: Search, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.2", ngImport: i0, type: Search, decorators: [{
             type: Injectable,
             args: [{
                     providedIn: 'root',

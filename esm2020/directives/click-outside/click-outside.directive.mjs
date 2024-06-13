@@ -33,9 +33,9 @@ export class ClickOutside {
         });
     }
 }
-ClickOutside.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.1", ngImport: i0, type: ClickOutside, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-ClickOutside.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "18.1.0-next.1", type: ClickOutside, isStandalone: true, selector: "[docsClickOutside]", inputs: { ignoredElementsIds: ["docsClickOutsideIgnore", "ignoredElementsIds"] }, outputs: { clickOutside: "docsClickOutside" }, host: { listeners: { "document:click": "onClick($event)" } }, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.1", ngImport: i0, type: ClickOutside, decorators: [{
+ClickOutside.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.2", ngImport: i0, type: ClickOutside, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+ClickOutside.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "18.1.0-next.2", type: ClickOutside, isStandalone: true, selector: "[docsClickOutside]", inputs: { ignoredElementsIds: ["docsClickOutsideIgnore", "ignoredElementsIds"] }, outputs: { clickOutside: "docsClickOutside" }, host: { listeners: { "document:click": "onClick($event)" } }, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.2", ngImport: i0, type: ClickOutside, decorators: [{
             type: Directive,
             args: [{
                     selector: '[docsClickOutside]',

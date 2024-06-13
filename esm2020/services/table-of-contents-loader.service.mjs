@@ -70,9 +70,9 @@ export class TableOfContentsLoader {
             this.toleranceThreshold);
     }
 }
-TableOfContentsLoader.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.1", ngImport: i0, type: TableOfContentsLoader, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-TableOfContentsLoader.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.1.0-next.1", ngImport: i0, type: TableOfContentsLoader, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.1", ngImport: i0, type: TableOfContentsLoader, decorators: [{
+TableOfContentsLoader.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.2", ngImport: i0, type: TableOfContentsLoader, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+TableOfContentsLoader.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.1.0-next.2", ngImport: i0, type: TableOfContentsLoader, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.2", ngImport: i0, type: TableOfContentsLoader, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }] });

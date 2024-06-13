@@ -21,9 +21,9 @@ export class IsActiveNavigationItem {
         return false;
     }
 }
-IsActiveNavigationItem.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.1", ngImport: i0, type: IsActiveNavigationItem, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-IsActiveNavigationItem.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "18.1.0-next.1", ngImport: i0, type: IsActiveNavigationItem, isStandalone: true, name: "isActiveNavigationItem" });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.1", ngImport: i0, type: IsActiveNavigationItem, decorators: [{
+IsActiveNavigationItem.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.2", ngImport: i0, type: IsActiveNavigationItem, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+IsActiveNavigationItem.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "14.0.0", version: "18.1.0-next.2", ngImport: i0, type: IsActiveNavigationItem, isStandalone: true, name: "isActiveNavigationItem" });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.2", ngImport: i0, type: IsActiveNavigationItem, decorators: [{
             type: Pipe,
             args: [{
                     name: 'isActiveNavigationItem',

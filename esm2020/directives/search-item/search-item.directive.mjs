@@ -33,9 +33,9 @@ export class SearchItem {
         this.elementRef?.nativeElement.scrollIntoView({ block: 'nearest' });
     }
 }
-SearchItem.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.1", ngImport: i0, type: SearchItem, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-SearchItem.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "18.1.0-next.1", type: SearchItem, isStandalone: true, selector: "[docsSearchItem]", inputs: { item: "item", disabled: "disabled" }, host: { properties: { "class.active": "isActive" } }, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.1", ngImport: i0, type: SearchItem, decorators: [{
+SearchItem.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.2", ngImport: i0, type: SearchItem, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+SearchItem.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "18.1.0-next.2", type: SearchItem, isStandalone: true, selector: "[docsSearchItem]", inputs: { item: "item", disabled: "disabled" }, host: { properties: { "class.active": "isActive" } }, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.2", ngImport: i0, type: SearchItem, decorators: [{
             type: Directive,
             args: [{
                     selector: '[docsSearchItem]',
