@@ -227,7 +227,7 @@ export declare const getNavigationItemsTree: (tree: NavigationItem[], mapFn: (it
 
 export declare const GITHUB_CONTENT_URL = "https://github.com/angular/angular/blob/main/adev/src/content/examples/";
 
-export declare function handleHrefClickEventWithRouter(e: Event, router: Router): void;
+export declare function handleHrefClickEventWithRouter(e: Event, router: Router, relativeUrl: string): void;
 
 export declare interface Hierarchy {
     lvl0: string | null;

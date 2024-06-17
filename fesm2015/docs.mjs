@@ -350,8 +350,7 @@ const getBaseUrlAfterRedirects = (url, router) => {
     route.queryParams = {};
     return normalizePath(route.toString());
 };
-function handleHrefClickEventWithRouter(e, router) {
-    var _a;
+function handleHrefClickEventWithRouter(e, router, relativeUrl) {
     const pointerEvent = e;
     if (pointerEvent.ctrlKey ||
         pointerEvent.shiftKey ||
@@ -359,15 +358,8 @@ function handleHrefClickEventWithRouter(e, router) {
         pointerEvent.metaKey) {
         return;
     }
-    const closestAnchor = e.target.closest('a');
-    if ((closestAnchor === null || closestAnchor === void 0 ? void 0 : closestAnchor.target) && closestAnchor.target !== 'self') {
-        return;
-    }
-    const relativeUrl = (_a = closestAnchor === null || closestAnchor === void 0 ? void 0 : closestAnchor.getAttribute) === null || _a === void 0 ? void 0 : _a.call(closestAnchor, 'href');
-    if (relativeUrl) {
-        e.preventDefault();
-        router.navigateByUrl(relativeUrl);
-    }
+    e.preventDefault();
+    router.navigateByUrl(relativeUrl);
 }
 function getActivatedRouteSnapshotFromRouter(router) {
     let route = router.routerState.root.snapshot;
@@ -14089,7 +14081,25 @@ class DocViewer {
             fromEvent(anchor, 'click')
                 .pipe(takeUntilDestroyed(this.destroyRef))
                 .subscribe((e) => {
-                handleHrefClickEventWithRouter(e, this.router);
+                var _a;
+                const closestAnchor = e.target.closest('a');
+                if ((closestAnchor === null || closestAnchor === void 0 ? void 0 : closestAnchor.target) && closestAnchor.target !== 'self') {
+                    return;
+                }
+                const hrefAttr = (_a = closestAnchor === null || closestAnchor === void 0 ? void 0 : closestAnchor.getAttribute) === null || _a === void 0 ? void 0 : _a.call(closestAnchor, 'href');
+                if (!hrefAttr) {
+                    return;
+                }
+                let relativeUrl;
+                if (hrefAttr.startsWith('http')) {
+                    // Url is absolute but we're targeting the same domain
+                    const url = new URL(hrefAttr);
+                    relativeUrl = `${url.pathname}${url.hash}${url.search}`;
+                }
+                else {
+                    relativeUrl = hrefAttr;
+                }
+                handleHrefClickEventWithRouter(e, this.router, relativeUrl);
             });
         });
     }
