@@ -1815,7 +1815,7 @@ var require_scan = __commonJS({
       }
       let base = str;
       let prefix = "";
-      let glob2 = "";
+      let glob3 = "";
       if (start > 0) {
         prefix = str.slice(0, start);
         str = str.slice(start);
@@ -1823,10 +1823,10 @@ var require_scan = __commonJS({
       }
       if (base && isGlob === true && lastIndex > 0) {
         base = str.slice(0, lastIndex);
-        glob2 = str.slice(lastIndex);
+        glob3 = str.slice(lastIndex);
       } else if (isGlob === true) {
         base = "";
-        glob2 = str;
+        glob3 = str;
       } else {
         base = str;
       }
@@ -1836,8 +1836,8 @@ var require_scan = __commonJS({
         }
       }
       if (opts.unescape === true) {
-        if (glob2)
-          glob2 = utils.removeBackslashes(glob2);
+        if (glob3)
+          glob3 = utils.removeBackslashes(glob3);
         if (base && backslashes === true) {
           base = utils.removeBackslashes(base);
         }
@@ -1847,7 +1847,7 @@ var require_scan = __commonJS({
         input,
         start,
         base,
-        glob: glob2,
+        glob: glob3,
         isBrace,
         isBracket,
         isGlob,
@@ -2693,9 +2693,9 @@ var require_picomatch = __commonJS({
     var utils = require_utils2();
     var constants = require_constants2();
     var isObject = (val) => val && typeof val === "object" && !Array.isArray(val);
-    var picomatch = (glob2, options, returnState = false) => {
-      if (Array.isArray(glob2)) {
-        const fns = glob2.map((input) => picomatch(input, options, returnState));
+    var picomatch = (glob3, options, returnState = false) => {
+      if (Array.isArray(glob3)) {
+        const fns = glob3.map((input) => picomatch(input, options, returnState));
         const arrayMatcher = (str) => {
           for (const isMatch of fns) {
             const state2 = isMatch(str);
@@ -2706,13 +2706,13 @@ var require_picomatch = __commonJS({
         };
         return arrayMatcher;
       }
-      const isState = isObject(glob2) && glob2.tokens && glob2.input;
-      if (glob2 === "" || typeof glob2 !== "string" && !isState) {
+      const isState = isObject(glob3) && glob3.tokens && glob3.input;
+      if (glob3 === "" || typeof glob3 !== "string" && !isState) {
         throw new TypeError("Expected pattern to be a non-empty string");
       }
       const opts = options || {};
       const posix = utils.isWindows(options);
-      const regex = isState ? picomatch.compileRe(glob2, options) : picomatch.makeRe(glob2, options, false, true);
+      const regex = isState ? picomatch.compileRe(glob3, options) : picomatch.makeRe(glob3, options, false, true);
       const state = regex.state;
       delete regex.state;
       let isIgnored = () => false;
@@ -2721,8 +2721,8 @@ var require_picomatch = __commonJS({
         isIgnored = picomatch(opts.ignore, ignoreOpts, returnState);
       }
       const matcher = (input, returnObject = false) => {
-        const { isMatch, match, output } = picomatch.test(input, regex, options, { glob: glob2, posix });
-        const result = { glob: glob2, state, regex, posix, input, output, match, isMatch };
+        const { isMatch, match, output } = picomatch.test(input, regex, options, { glob: glob3, posix });
+        const result = { glob: glob3, state, regex, posix, input, output, match, isMatch };
         if (typeof opts.onResult === "function") {
           opts.onResult(result);
         }
@@ -2747,7 +2747,7 @@ var require_picomatch = __commonJS({
       }
       return matcher;
     };
-    picomatch.test = (input, regex, options, { glob: glob2, posix } = {}) => {
+    picomatch.test = (input, regex, options, { glob: glob3, posix } = {}) => {
       if (typeof input !== "string") {
         throw new TypeError("Expected input to be a string");
       }
@@ -2756,11 +2756,11 @@ var require_picomatch = __commonJS({
       }
       const opts = options || {};
       const format = opts.format || (posix ? utils.toPosixSlashes : null);
-      let match = input === glob2;
+      let match = input === glob3;
       let output = match && format ? format(input) : input;
       if (match === false) {
         output = format ? format(input) : input;
-        match = output === glob2;
+        match = output === glob3;
       }
       if (match === false || opts.capture === true) {
         if (opts.matchBase === true || opts.basename === true) {
@@ -2771,8 +2771,8 @@ var require_picomatch = __commonJS({
       }
       return { isMatch: Boolean(match), match, output };
     };
-    picomatch.matchBase = (input, glob2, options, posix = utils.isWindows(options)) => {
-      const regex = glob2 instanceof RegExp ? glob2 : picomatch.makeRe(glob2, options);
+    picomatch.matchBase = (input, glob3, options, posix = utils.isWindows(options)) => {
+      const regex = glob3 instanceof RegExp ? glob3 : picomatch.makeRe(glob3, options);
       return regex.test(path.basename(input));
     };
     picomatch.isMatch = (str, patterns, options) => picomatch(patterns, options)(str);
@@ -2961,9 +2961,9 @@ var require_micromatch = __commonJS({
       }
       return [].concat(patterns).every((p) => picomatch(p, options)(str));
     };
-    micromatch.capture = (glob2, input, options) => {
+    micromatch.capture = (glob3, input, options) => {
       let posix = utils.isWindows(options);
-      let regex = picomatch.makeRe(String(glob2), { ...options, capture: true });
+      let regex = picomatch.makeRe(String(glob3), { ...options, capture: true });
       let match = regex.exec(posix ? utils.toPosixSlashes(input) : input);
       if (match) {
         return match.slice(1).map((v) => v === void 0 ? "" : v);
@@ -5393,7 +5393,7 @@ var require_out4 = __commonJS({
 });
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/tutorials/tutorial.js
-import { basename as basename2, join as join2 } from "path";
+import { basename as basename2, join as join3 } from "path";
 import { existsSync as existsSync2, mkdirSync, writeFileSync } from "fs";
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/tutorials/utils.js
@@ -5451,7 +5451,9 @@ async function findConfig(dir) {
 }
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/tutorials/metadata.js
-async function generateMetadata(config, files) {
+var import_fast_glob2 = __toESM(require_out4());
+import { join as join2, dirname as dirname2 } from "path";
+async function generateMetadata(path, config, files) {
   const tutorialFiles = {};
   const { dependencies, devDependencies } = JSON.parse(files["package.json"]);
   config.openFiles?.forEach((file) => tutorialFiles[file] = files[file]);
@@ -5460,6 +5462,7 @@ async function generateMetadata(config, files) {
     openFiles: config.openFiles || [],
     allFiles: Object.keys(files),
     tutorialFiles,
+    answerFiles: await getAnswerFiles(path, config, files),
     hiddenFiles: [],
     dependencies: {
       ...dependencies,
@@ -5467,13 +5470,40 @@ async function generateMetadata(config, files) {
     }
   };
 }
+async function getAnswerFiles(path, config, files) {
+  const answerFiles = {};
+  const answerPrefix = "answer/";
+  if (config.answerSrc) {
+    const answersDir = join2(path, config.answerSrc);
+    const answerFilePaths = await (0, import_fast_glob2.glob)("**/*", {
+      cwd: answersDir,
+      onlyFiles: true,
+      absolute: true
+    });
+    answerFilePaths.forEach((absolutePath) => {
+      const parentDir = dirname2(answersDir) + "/";
+      const pathStart = absolutePath.indexOf(parentDir);
+      if (pathStart === -1) {
+        throw new Error("Invalid state: could not find start of answers path");
+      }
+      answerFiles[absolutePath.slice(pathStart + parentDir.length)] = getFileContents(absolutePath);
+    });
+  } else {
+    Object.keys(files).forEach((file) => {
+      if (file.includes(answerPrefix)) {
+        answerFiles[file.replace(answerPrefix, "")] = files[file];
+      }
+    });
+  }
+  return answerFiles;
+}
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/tutorials/webcontainers.js
-import { basename, dirname as dirname2, extname } from "path";
+import { basename, dirname as dirname3, extname } from "path";
 function getFileSystemTree(files, filesContents) {
   const fileSystemTree = {};
   for (let filepath of files) {
-    const dir = dirname2(filepath);
+    const dir = dirname3(filepath);
     const filename = basename(filepath);
     if (dir === ".") {
       const fileNode = { file: { contents: filesContents[filepath] } };
@@ -5558,27 +5588,29 @@ async function generateTutorialRoutes(tutorialName, introConfig, stepConfigs) {
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/tutorials/tutorial.js
 async function generateTutorialFiles(tutorialDir, commonDir, outputDir) {
   const files = {};
-  const stepConfigs = await findAllConfigs(join2(tutorialDir, "steps"));
-  const introConfig = await findConfig(join2(tutorialDir, "intro"));
+  const stepConfigs = await findAllConfigs(join3(tutorialDir, "steps"));
+  const introDir = join3(tutorialDir, "intro");
+  const introConfig = await findConfig(introDir);
   const tutorialName = basename2(tutorialDir);
   await addDirectoryToFilesRecord(files, commonDir);
-  const commonTutorialDir = join2(tutorialDir, "common");
+  const commonTutorialDir = join3(tutorialDir, "common");
   if (existsSync2(commonTutorialDir)) {
     await addDirectoryToFilesRecord(files, commonTutorialDir);
   }
   const introFiles = { ...files };
-  await addDirectoryToFilesRecord(introFiles, join2(tutorialDir, "intro"));
-  mkdirSync(join2(outputDir), { recursive: true });
-  writeFileSync(join2(outputDir, "metadata.json"), JSON.stringify(await generateMetadata(introConfig, introFiles)));
-  writeFileSync(join2(outputDir, "source-code.json"), JSON.stringify(await generateSourceCode(introConfig, introFiles)));
+  await addDirectoryToFilesRecord(introFiles, introDir);
+  mkdirSync(join3(outputDir), { recursive: true });
+  writeFileSync(join3(outputDir, "metadata.json"), JSON.stringify(await generateMetadata(introDir, introConfig, introFiles)));
+  writeFileSync(join3(outputDir, "source-code.json"), JSON.stringify(await generateSourceCode(introConfig, introFiles)));
   for (const [path, config] of Object.entries(stepConfigs)) {
     const itemFiles = { ...files };
-    await addDirectoryToFilesRecord(itemFiles, join2(tutorialDir, "steps", path));
-    mkdirSync(join2(outputDir, path), { recursive: true });
-    writeFileSync(join2(outputDir, path, "metadata.json"), JSON.stringify(await generateMetadata(config, itemFiles)));
-    writeFileSync(join2(outputDir, path, "source-code.json"), JSON.stringify(await generateSourceCode(config, itemFiles)));
+    const stepDir = join3(tutorialDir, "steps", path);
+    await addDirectoryToFilesRecord(itemFiles, stepDir);
+    mkdirSync(join3(outputDir, path), { recursive: true });
+    writeFileSync(join3(outputDir, path, "metadata.json"), JSON.stringify(await generateMetadata(stepDir, config, itemFiles)));
+    writeFileSync(join3(outputDir, path, "source-code.json"), JSON.stringify(await generateSourceCode(config, itemFiles)));
   }
-  writeFileSync(join2(outputDir, "routes.json"), JSON.stringify(await generateTutorialRoutes(tutorialName, introConfig, stepConfigs)));
+  writeFileSync(join3(outputDir, "routes.json"), JSON.stringify(await generateTutorialRoutes(tutorialName, introConfig, stepConfigs)));
 }
 (async () => {
   const [tutorialDir, commonDir, outputDir] = process.argv.slice(2);
