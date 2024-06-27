@@ -43,15 +43,15 @@ export class SlideToggle {
         this.onTouched();
     }
 }
-SlideToggle.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.3", ngImport: i0, type: SlideToggle, deps: [], target: i0.ɵɵFactoryTarget.Component });
-SlideToggle.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "18.1.0-next.3", type: SlideToggle, isStandalone: true, selector: "docs-slide-toggle", inputs: { buttonId: "buttonId", label: "label", disabled: "disabled" }, providers: [
+SlideToggle.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.1.0-next.4", ngImport: i0, type: SlideToggle, deps: [], target: i0.ɵɵFactoryTarget.Component });
+SlideToggle.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "18.1.0-next.4", type: SlideToggle, isStandalone: true, selector: "docs-slide-toggle", inputs: { buttonId: "buttonId", label: "label", disabled: "disabled" }, providers: [
         {
             provide: NG_VALUE_ACCESSOR,
             useExisting: forwardRef(() => SlideToggle),
             multi: true,
         },
     ], ngImport: i0, template: "<label [attr.for]=\"buttonId\">\n  <span class=\"docs-label\">{{ label }}</span>\n  <div class=\"docs-toggle\">\n    <input\n      type=\"checkbox\"\n      [id]=\"buttonId\"\n      role=\"switch\"\n      (click)=\"toggle()\"\n      [class.docs-toggle-active]=\"checked()\"\n      [checked]=\"checked()\"\n    />\n    <span class=\"docs-slider\"></span>\n  </div>\n</label>\n", styles: [":host,label{display:inline-flex;gap:.5em;align-items:center}.docs-label{font-size:.875rem;font-style:normal;font-weight:500;line-height:160%;letter-spacing:-0.00875rem;color:var(--quaternary-contrast)}.docs-toggle{position:relative;display:inline-block;width:3rem;height:1.5rem;border:1px solid var(--senary-contrast);border-radius:34px}.docs-toggle input{opacity:0;width:0;height:0}.docs-slider{position:absolute;cursor:pointer;border-radius:34px;inset:0;background-color:var(--septenary-contrast);transition:background-color .3s ease,border-color .3s ease}.docs-slider::before{content:\"\";position:absolute;inset:0;border-radius:34px;background:var(--pink-to-purple-horizontal-gradient);opacity:0;transition:opacity .3s ease}.docs-slider::after{position:absolute;content:\"\";height:1.25rem;width:1.25rem;left:.125rem;bottom:.125rem;background-color:var(--page-background);transition:transform .3s ease,background-color .3s ease;border-radius:50%}input:checked+.docs-slider::before{opacity:1}input:checked+.docs-slider::after{transform:translateX(1.5rem)}/*# sourceMappingURL=slide-toggle.component.css.map */\n"], dependencies: [{ kind: "ngmodule", type: CommonModule }], changeDetection: i0.ChangeDetectionStrategy.OnPush });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.3", ngImport: i0, type: SlideToggle, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.1.0-next.4", ngImport: i0, type: SlideToggle, decorators: [{
             type: Component,
             args: [{ selector: 'docs-slide-toggle', standalone: true, imports: [CommonModule], changeDetection: ChangeDetectionStrategy.OnPush, providers: [
                         {

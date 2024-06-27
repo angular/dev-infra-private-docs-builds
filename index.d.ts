@@ -1,5 +1,3 @@
-/// <reference types="node" />
-
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { AfterViewInit } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
@@ -200,14 +198,14 @@ export declare class ExternalLink implements OnInit {
 
 export declare type FileAndContent = {
     path: string;
-    content: string | Buffer;
+    content: string | Uint8Array;
 };
 
 export declare type FileAndContentRecord = Record<FileAndContent['path'], FileAndContent['content']>;
 
 declare interface FileSystemAPI {
     readdir(path: string, options: {
-        encoding?: BufferEncoding | null;
+        encoding?: 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex' | null;
         withFileTypes: true;
     }): Promise<DirEnt<string>[]>;
     readFile(path: string, encoding?: string): Promise<string>;
@@ -467,7 +465,7 @@ export declare interface SelectOption {
 
 declare type SelectOptionValue = string | number | boolean;
 
-export declare const setCookieConsent: (state: 'denied' | 'granted') => void;
+export declare const setCookieConsent: (state: "denied" | "granted") => void;
 
 export declare const shouldReduceMotion: () => boolean;
 
@@ -621,7 +619,7 @@ export declare interface TutorialConfigBase {
 export declare type TutorialFiles = {
     sourceCode?: FileSystemTree;
     metadata?: TutorialMetadata;
-    sourceCodeZip?: Buffer;
+    sourceCodeZip?: Uint8Array;
     route?: Omit<TutorialNavigationItemWithStep, 'path'>;
 };
 
