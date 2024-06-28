@@ -5455,7 +5455,7 @@ async function generateMetadata(path, config, files) {
     allFiles: Object.keys(files),
     tutorialFiles,
     answerFiles: await getAnswerFiles(path, config, files),
-    hiddenFiles: config.openFiles ? Object.keys(tutorialFiles).filter((filename) => !config.openFiles.includes(filename)) : [],
+    hiddenFiles: config.openFiles ? Object.keys(files).filter((filename) => !config.openFiles.includes(filename)) : [],
     dependencies: {
       ...dependencies,
       ...devDependencies
