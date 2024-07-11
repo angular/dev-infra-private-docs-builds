@@ -1,6 +1,6 @@
 {
   "name": "@angular/docs",
-  "version": "0.0.0-fc5ef0f362c3b0373a012b58ae1bde6def471c27",
+  "version": "0.0.0-47ebdf399433abefafe459b3c51795dd8c6ab220",
   "peerDependencies": {
     "@angular/cdk": "^18.0.0-next.6 || ^18.1.0-next",
     "@angular/common": "^18.0.0-next.6 || ^18.1.0-next",
@@ -20,7 +20,7 @@
     "highlight.js": "~11.9.0",
     "html-entities": "~2.5.2",
     "jsdom": "~24.1.0",
-    "jszip": "~3.10.1",
+    "fflate": "^0.8.2",
     "marked": "~12.0.2",
     "mermaid": "^10.8.0"
   },

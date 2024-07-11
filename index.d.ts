@@ -215,7 +215,7 @@ export declare const findNavigationItem: (items: NavigationItem[], predicate: (i
 
 export declare const flatNavigationData: (tree: NavigationItem[]) => NavigationItem[];
 
-export declare function generateZip(files: FileAndContent[]): Promise<Blob>;
+export declare function generateZip(files: FileAndContent[]): Promise<Uint8Array>;
 
 export declare function getActivatedRouteSnapshotFromRouter(router: Router): ActivatedRouteSnapshot;
 
