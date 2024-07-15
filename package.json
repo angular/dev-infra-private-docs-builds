@@ -1,6 +1,6 @@
 {
   "name": "@angular/docs",
-  "version": "0.0.0-e51733263fce3a9a9f5c5c1e27fcaba566593897",
+  "version": "0.0.0-333ebd3581f261002ee6ed00791e9aeec32b8e8a",
   "peerDependencies": {
     "@angular/cdk": "^18.0.0-next.6 || ^18.1.0-next",
     "@angular/common": "^18.0.0-next.6 || ^18.1.0-next",
