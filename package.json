@@ -1,14 +1,14 @@
 {
   "name": "@angular/docs",
-  "version": "0.0.0-a19224fb46382a7b34bd3cd8f82ec12fd69011e6",
+  "version": "0.0.0-c2d0fc40044e7129a986ccf88965a0cb452db01c",
   "peerDependencies": {
-    "@angular/cdk": "^18.0.0-next.6 || ^18.1.0-next",
-    "@angular/common": "^18.0.0-next.6 || ^18.1.0-next",
-    "@angular/core": "^18.0.0-next.6 || ^18.1.0-next",
-    "@angular/forms": "^18.0.0-next.6 || ^18.1.0-next",
-    "@angular/material": "^18.0.0-next.6 || ^18.1.0-next",
-    "@angular/platform-browser": "^18.0.0-next.6 || ^18.1.0-next",
-    "@angular/router": "^18.0.0-next.6 || ^18.1.0-next",
+    "@angular/cdk": "^18.0.0-next.6 || ^18.1.0-next || ^18.2.0-next",
+    "@angular/common": "^18.0.0-next.6 || ^18.1.0-next || ^18.2.0-next",
+    "@angular/core": "^18.0.0-next.6 || ^18.1.0-next || ^18.2.0-next",
+    "@angular/forms": "^18.0.0-next.6 || ^18.1.0-next || ^18.2.0-next",
+    "@angular/material": "^18.0.0-next.6 || ^18.1.0-next || ^18.2.0-next",
+    "@angular/platform-browser": "^18.0.0-next.6 || ^18.1.0-next || ^18.2.0-next",
+    "@angular/router": "^18.0.0-next.6 || ^18.1.0-next || ^18.2.0-next",
     "algoliasearch": "^4.20.0",
     "rxjs": "^7.8.1"
   },
