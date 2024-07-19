@@ -51684,11 +51684,17 @@ var lexer = _Lexer.lex;
 
 // bazel-out/k8-fastbuild-ST-70f2edae98f4/bin/docs/pipeline/guides/state.js
 var headerIds = /* @__PURE__ */ new Map();
-var getHeaderId = (id) => {
-  const numberOfHeaderOccurrencesInTheDocument = headerIds.get(id) ?? 0;
-  headerIds.set(id, numberOfHeaderOccurrencesInTheDocument + 1);
-  const cleanedUpId = id.toLowerCase().replaceAll(/<code>(.*?)<\/code>/g, "$1").replaceAll(/<strong>(.*?)<\/strong>/g, "$1").replaceAll(/<em>(.*?)<\/em>/g, "$1").replace(/\s|\//g, "-").replace(/gt;|lt;/g, "").replace(/&#\d+;/g, "").replace(/[^0-9a-zA-Z\-]/g, "");
-  const headerId = numberOfHeaderOccurrencesInTheDocument ? `${cleanedUpId}-${numberOfHeaderOccurrencesInTheDocument}` : cleanedUpId;
+var getHeaderId = (heading2) => {
+  const numberOfHeaderOccurrencesInTheDocument = headerIds.get(heading2) ?? 0;
+  headerIds.set(heading2, numberOfHeaderOccurrencesInTheDocument + 1);
+  const match = heading2.match(/{#([\w-]+)}/);
+  let extractedId;
+  if (match) {
+    extractedId = match[1];
+  } else {
+    extractedId = heading2.toLowerCase().replaceAll(/<code>(.*?)<\/code>/g, "$1").replaceAll(/<strong>(.*?)<\/strong>/g, "$1").replaceAll(/<em>(.*?)<\/em>/g, "$1").replace(/\s|\//g, "-").replace(/gt;|lt;/g, "").replace(/&#\d+;/g, "").replace(/[^\p{L}\d\-]/gu, "");
+  }
+  const headerId = numberOfHeaderOccurrencesInTheDocument ? `${extractedId}-${numberOfHeaderOccurrencesInTheDocument}` : extractedId;
   return headerId;
 };
 var resetHeaderIdsOfCurrentDocument = () => {
