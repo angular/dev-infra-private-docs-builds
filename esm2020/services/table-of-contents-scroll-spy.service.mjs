@@ -129,9 +129,9 @@ export class TableOfContentsScrollSpy {
         return this.document.body.clientWidth || Number.MAX_SAFE_INTEGER;
     }
 }
-TableOfContentsScrollSpy.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.2.0-next.0", ngImport: i0, type: TableOfContentsScrollSpy, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-TableOfContentsScrollSpy.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.2.0-next.0", ngImport: i0, type: TableOfContentsScrollSpy, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.2.0-next.0", ngImport: i0, type: TableOfContentsScrollSpy, decorators: [{
+TableOfContentsScrollSpy.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.2.0-next.1", ngImport: i0, type: TableOfContentsScrollSpy, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+TableOfContentsScrollSpy.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.2.0-next.1", ngImport: i0, type: TableOfContentsScrollSpy, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.2.0-next.1", ngImport: i0, type: TableOfContentsScrollSpy, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }] });

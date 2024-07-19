@@ -45,9 +45,9 @@ class InjectAsyncImpl {
         return injector.get(type);
     }
 }
-InjectAsyncImpl.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.2.0-next.0", ngImport: i0, type: InjectAsyncImpl, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-InjectAsyncImpl.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.2.0-next.0", ngImport: i0, type: InjectAsyncImpl, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.2.0-next.0", ngImport: i0, type: InjectAsyncImpl, decorators: [{
+InjectAsyncImpl.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.2.0-next.1", ngImport: i0, type: InjectAsyncImpl, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+InjectAsyncImpl.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.2.0-next.1", ngImport: i0, type: InjectAsyncImpl, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.2.0-next.1", ngImport: i0, type: InjectAsyncImpl, decorators: [{
             type: Injectable,
             args: [{ providedIn: 'root' }]
         }] });
