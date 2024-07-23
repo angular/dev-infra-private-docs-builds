@@ -15347,7 +15347,7 @@ var CodeExampleViewMode;
     CodeExampleViewMode["MULTI_FILE"] = "multi";
 })(CodeExampleViewMode || (CodeExampleViewMode = {}));
 const CODE_LINE_NUMBER_CLASS_NAME = 'shiki-ln-number';
-const CODE_LINE_CLASS_NAME = 'shiki-ln-line';
+const CODE_LINE_CLASS_NAME = 'line';
 const GAP_CODE_LINE_CLASS_NAME = 'gap';
 const HIDDEN_CLASS_NAME = 'hidden';
 class ExampleViewer {
